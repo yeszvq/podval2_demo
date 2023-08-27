@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bswkn5x4quw7i"]
+
+[ext_resource type="Script" path="res://script/hero.gd" id="1_gesj1"]
+[ext_resource type="Texture2D" uid="uid://dw1h4bjrcket3" path="res://sprite/Full Team-Sheet.png" id="1_um2ho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wadwh"]
+size = Vector2(20, 35)
+
+[node name="hero" type="CharacterBody2D"]
+script = ExtResource("1_gesj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_um2ho")
+region_enabled = true
+region_rect = Rect2(0, 0, 20, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_wadwh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
