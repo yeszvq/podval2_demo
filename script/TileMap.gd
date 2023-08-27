@@ -1,6 +1,6 @@
 extends TileMap
 
-#комментарий для проверки пулл реквеста
+#Изменение комментария
 func _ready():
 	Events.connect("hide_layers", hide_layers)
 	Events.connect("show_layers", show_layers)
