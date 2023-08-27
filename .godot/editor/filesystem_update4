@@ -1,3 +1,4 @@
 res://scene/test_map_2.tscn
 res://resourse/hero_animation.tres
 res://shader/hero.gdshader
+res://script/TileMap.gd
