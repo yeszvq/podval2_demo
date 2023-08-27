@@ -1,6 +1,3 @@
-res://scene/hero.tscn
+res://scene/test_map_2.tscn
 res://resourse/hero_animation.tres
 res://shader/hero.gdshader
-res://addons/godot-git-plugin/plugin.cfg
-res://addons/godot-git-plugin/THIRDPARTY.md
-res://scene/test_map_2.tscn
