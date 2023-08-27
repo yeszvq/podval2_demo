@@ -67,10 +67,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_timer_timeout():
-	pass # Replace with function body.
-
-
 func _on_area_2d_body_entered(body):
 	Events.emit_signal("hide_layers")
 	pass # Replace with function body.
