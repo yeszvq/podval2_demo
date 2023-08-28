@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0ypx6rxpv7y4"]
+
+[ext_resource type="Script" path="res://src/pain_ui.gd" id="1_hvy45"]
+[ext_resource type="Texture2D" uid="uid://ba6mhsjd5e32y" path="res://assets/sprite/ui/progress bar/BarV2_Bar.png" id="1_vfw3n"]
+[ext_resource type="Texture2D" uid="uid://b37v6dt2tie56" path="res://assets/sprite/ui/progress bar/BarV2_ProgressBarBorder.png" id="2_61p4m"]
+[ext_resource type="Texture2D" uid="uid://cp1v4a2ommah1" path="res://assets/sprite/ui/progress bar/BarV5_ProgressBar.png" id="3_sfktk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eg51e"]
+light_mode = 1
+
+[node name="pain_ui" type="TextureProgressBar"]
+z_index = 99
+material = SubResource("CanvasItemMaterial_eg51e")
+offset_right = 274.0
+offset_bottom = 26.0
+scale = Vector2(0.233598, 0.32294)
+value = 2.0
+texture_under = ExtResource("1_vfw3n")
+texture_over = ExtResource("2_61p4m")
+texture_progress = ExtResource("3_sfktk")
+texture_progress_offset = Vector2(2, 3)
+script = ExtResource("1_hvy45")
