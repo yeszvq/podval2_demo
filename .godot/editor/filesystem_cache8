@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1693236651
+::res://::1693249626
 icon.svg::CompressedTexture2D::7012467767350905398::1692964908::1692964916::1::::<><>::
 ::res://assets/::1693209225
 ::res://assets/audio/::1693209185
@@ -15,8 +15,8 @@ Full Team-Sheet.png::CompressedTexture2D::8757567306896240130::1692966166::16932
 idle_animation.png::CompressedTexture2D::7335830299183471425::1693123830::1693209306::1::::<><>::
 move.png::CompressedTexture2D::5186768225703651810::1692968725::1693209306::1::::<><>::
 Small-8-Direction-Characters_by_AxulArt.png::CompressedTexture2D::7396886009023626829::1692968440::1693209306::1::::<><>::
-::res://assets/sprite/characters/main/animation/::1693227148
-hero_animation.tres::SpriteFrames::8997162694311948066::1693227148::0::1::::<><>::uid://cf5rkyac3soik::::res://assets/sprite/characters/main/move.png<>uid://dcrsb2s5873wv::::res://assets/sprite/characters/main/idle_animation.png
+::res://assets/sprite/characters/main/animation/::1693236654
+hero_animation.tres::SpriteFrames::8997162694311948066::1693236654::0::1::::<><>::uid://cf5rkyac3soik::::res://assets/sprite/characters/main/move.png<>uid://dcrsb2s5873wv::::res://assets/sprite/characters/main/idle_animation.png
 ::res://assets/sprite/items/::1693212241
 apple.png::CompressedTexture2D::5301580852413634166::1693212240::1693212241::1::::<><>::
 armor.png::CompressedTexture2D::7508377512275016599::1693212240::1693212241::1::::<><>::
@@ -34,22 +34,23 @@ BarV5_ProgressBar.png::CompressedTexture2D::5880674730795902888::1693040799::169
 BarV5_ProgressBarBorder.png::CompressedTexture2D::1798063128206130971::1693040799::1693209332::1::::<><>::
 ::res://scene/::1693209490
 ::res://scene/game/::1693209459
-::res://scene/game/characters/::1693227758
-player.tscn::PackedScene::8173805978330241512::1693227758::0::1::::<><>::uid://d1gj7qcg70rvm::::res://assets/sprite/characters/main/animation/hero_animation.tres<>res://src/hero.gd<>uid://c7hlxvui7w24x::::res://scene/menu/pain_ui.tscn<>uid://csgtictlysx8j::::res://scene/menu/brain_ui.tscn
-::res://scene/game/level/::1693229371
-test_level.tscn::PackedScene::2698707449346133727::1693229371::0::1::::<><>::uid://d2d0hptweuc2i::::res://assets/sprite/object/image.png<>uid://doppnjet67bl5::::res://scene/game/characters/player.tscn<>res://src/TileMap.gd
+::res://scene/game/characters/::1693249583
+player.tscn::PackedScene::8173805978330241512::1693249583::0::1::::<><>::uid://d1gj7qcg70rvm::::res://assets/sprite/characters/main/animation/hero_animation.tres<>res://src/hero.gd<>uid://c7hlxvui7w24x::::res://scene/menu/pain_ui.tscn<>uid://csgtictlysx8j::::res://scene/menu/brain_ui.tscn
+::res://scene/game/level/::1693249583
+test_level.tscn::PackedScene::2698707449346133727::1693249583::0::1::::<><>::uid://d2d0hptweuc2i::::res://assets/sprite/object/image.png<>uid://doppnjet67bl5::::res://scene/game/characters/player.tscn<>res://src/TileMap.gd<>uid://c7hlxvui7w24x::::res://scene/menu/pain_ui.tscn<>uid://csgtictlysx8j::::res://scene/menu/brain_ui.tscn<>uid://kh1m1tne2pb0::::res://scene/menu/inventory_ui/item_slot.tscn
 ::res://scene/game/object/::1693209459
-::res://scene/menu/::1693213136
-brain_ui.tscn::PackedScene::6049794863539526775::1693211572::0::1::::<><>::uid://ba6mhsjd5e32y
-pain_ui.tscn::PackedScene::7034045102555484941::1693211572::0::1::::<><>::res://src/pain_ui.gd<>uid://ba6mhsjd5e32y
-::res://scene/menu/inventory_ui/::1693229354
+::res://scene/menu/::1693246462
+brain_ui.tscn::PackedScene::6049794863539526775::1693246462::0::1::::<><>::uid://ba6mhsjd5e32y::::res://assets/sprite/ui/progress bar/BarV2_Bar.png<>uid://b37v6dt2tie56::::res://assets/sprite/ui/progress bar/BarV2_ProgressBarBorder.png<>uid://b0d1mgf88h3jb::::res://assets/sprite/ui/progress bar/BarV2_ProgressBar.png<>res://src/brainbar_ui.gd
+pain_ui.tscn::PackedScene::7034045102555484941::1693246462::0::1::::<><>::res://src/pain_ui.gd<>uid://ba6mhsjd5e32y::::res://assets/sprite/ui/progress bar/BarV2_Bar.png<>uid://b37v6dt2tie56::::res://assets/sprite/ui/progress bar/BarV2_ProgressBarBorder.png<>uid://cp1v4a2ommah1::::res://assets/sprite/ui/progress bar/BarV5_ProgressBar.png
+::res://scene/menu/inventory_ui/::1693249583
+item_slot.tscn::PackedScene::717940547553001199::1693249583::0::1::::<><>::uid://chsei57lx12g5::::res://assets/sprite/items/apple.png
 ::res://scene/_debug/::1693210410
-::res://src/::1693229366
+::res://src/::1693246301
 brainbar_ui.gd::GDScript::-1::1693211593::0::1::::<>TextureProgressBar<>::
 events.gd::GDScript::-1::1693229165::0::1::::<>Node<>::
 global.gd::GDScript::-1::1693221860::0::1::::<>Node<>::
-hero.gd::GDScript::-1::1693222578::0::1::::<>CharacterBody2D<>::
-inventory.gd::GDScript::-1::1693229251::0::1::::<>Node<>::
+hero.gd::GDScript::-1::1693236692::0::1::::<>CharacterBody2D<>::
+inventory.gd::GDScript::-1::1693236733::0::1::::<>Node<>::
 pain_ui.gd::GDScript::-1::1693210588::0::1::::<>TextureProgressBar<>::
 TileMap.gd::GDScript::-1::1693212326::0::1::::<>TileMap<>::
 ::res://src/inventory/::1693228968
