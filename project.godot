@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="P.O.D.V.A.L. 2"
-run/main_scene="res://scene/test_map_2.tscn"
+run/main_scene="res://scene/_debug/test_map_2.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://script/events.gd"
+Events="*res://src/events.gd"
 
 [dotnet]
 
