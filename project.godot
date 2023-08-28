@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="P.O.D.V.A.L. 2"
-run/main_scene="res://scene/_debug/test_map_2.tscn"
+run/main_scene="res://scene/game/level/test_level.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -51,7 +51,12 @@ test_button={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="ground"
+2d_physics/layer_2="wall"
+2d_physics/layer_3="player"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)

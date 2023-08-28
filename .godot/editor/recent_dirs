@@ -1,7 +1,7 @@
-res://sprite
-res://shader
+res://src
+res://scene/menu
+res://assets/sprite/ui/progress bar
+res://scene/game/level
+res://assets/sprite/characters/main/animation
 res://scene
 res://
-res://script
-res://sprite/progress bar
-res://resourse
