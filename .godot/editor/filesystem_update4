@@ -1,8 +1,7 @@
-res://scene/menu/pain_ui.tscn
-res://scene/game/characters/player.tscn
-res://assets/sprite/characters/main/animation/hero_animation.tres
-res://src/pain_ui.gd
 res://scene/game/level/test_level.tscn
+res://assets/sprite/characters/main/animation/hero_animation.tres
 res://src/hero.gd
+res://src/inventory.gd
+res://scene/game/characters/player.tscn
 res://scene/menu/brain_ui.tscn
-res://src/brainbar_ui.gd
+res://scene/menu/pain_ui.tscn

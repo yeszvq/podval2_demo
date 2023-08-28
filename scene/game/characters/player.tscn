@@ -35,9 +35,10 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_qqjqm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="ui" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -192.0

@@ -3,8 +3,11 @@ extends CharacterBody2D
 @export var speed = 50
 var frames
 var light
+var grid
 var last_direction = Vector2(0,1)
 var input_direction
+var open_inventory = false
+ 
 func _ready():
 	frames = get_node("AnimatedSprite2D")
 
@@ -58,9 +61,8 @@ func get_input():
 		
 func _input(event):
 	if event.is_action_released("test_button"):
-		Events.emit_signal("pain_increase")
-		Events.emit_signal("brain_reduct")
-		Events.emit_signal("hide_layers")
+		Inventory.set_item(Global.items["sword"], 0)
+		
 
 func _physics_process(delta):
 	get_input()
