@@ -1,13 +1,13 @@
+Button
+Label
+GridContainer
+Control
+HBoxContainer
 PanelContainer
 Panel
 ColorRect
-Button
-HBoxContainer
-Control
-Label
 TextureRect
 CenterContainer
-GridContainer
 VBoxContainer
 MarginContainer
 CanvasLayer
@@ -30,4 +30,3 @@ CanvasModulate
 RayCast2D
 Node
 LightOccluder2D
-OccluderInstance3D

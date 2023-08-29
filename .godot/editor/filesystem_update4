@@ -1,2 +1,9 @@
-res://scene/game/level/test_level.tscn
+res://scene/game/characters/player.tscn
 res://assets/sprite/characters/main/animation/hero_animation.tres
+res://src/hero.gd
+res://scene/game/level/test_level.tscn
+res://scene/menu/inventory_ui/item_slot.tscn
+res://src/inventory/Inventar_UI_Button_2.gd
+res://src/inventory/Inventar_UI_Button.gd
+res://src/events.gd
+res://src/inventory/Inventar_UI_Grid.gd

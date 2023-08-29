@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bepjk16jikn80"]
+[gd_scene load_steps=14 format=3 uid="uid://bepjk16jikn80"]
 
 [ext_resource type="Texture2D" uid="uid://d2d0hptweuc2i" path="res://assets/sprite/object/image.png" id="1_t7mr3"]
 [ext_resource type="PackedScene" uid="uid://doppnjet67bl5" path="res://scene/game/characters/player.tscn" id="2_pdvt1"]
 [ext_resource type="Script" path="res://src/TileMap.gd" id="2_xkvuo"]
 [ext_resource type="PackedScene" uid="uid://c7hlxvui7w24x" path="res://scene/menu/pain_ui.tscn" id="4_v8vki"]
 [ext_resource type="PackedScene" uid="uid://csgtictlysx8j" path="res://scene/menu/brain_ui.tscn" id="5_3c4n4"]
+[ext_resource type="Script" path="res://src/inventory/Inventar_UI_Grid.gd" id="6_jbry4"]
 [ext_resource type="PackedScene" uid="uid://kh1m1tne2pb0" path="res://scene/menu/inventory_ui/item_slot.tscn" id="6_lgf63"]
+[ext_resource type="Script" path="res://src/inventory/Inventar_UI_Button.gd" id="8_0hvhd"]
+[ext_resource type="Script" path="res://src/inventory/Inventar_UI_Button_2.gd" id="9_w5bre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d2jg"]
 texture = ExtResource("1_t7mr3")
@@ -240,37 +243,46 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w88em")
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="Inventar_UI_Grid" type="GridContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme = SubResource("Theme_v2vsn")
 columns = 3
+script = ExtResource("6_jbry4")
 
-[node name="ItemSlot" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
 
-[node name="ItemSlot2" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot2" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 1
 
-[node name="ItemSlot3" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot3" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 2
 
-[node name="ItemSlot4" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot4" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 3
 
-[node name="ItemSlot5" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot5" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 4
 
-[node name="ItemSlot6" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot6" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 5
 
-[node name="ItemSlot7" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot7" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 6
 
-[node name="ItemSlot8" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot8" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 7
 
-[node name="ItemSlot9" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/GridContainer" instance=ExtResource("6_lgf63")]
+[node name="ItemSlot9" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
 layout_mode = 2
+index = 8
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -279,18 +291,35 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Inventar_UI_Button" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+script = ExtResource("8_0hvhd")
 
-[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2/Inventar_UI_Button"]
 layout_mode = 2
 text = "Использовать
 "
 
-[node name="Button2" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2/Inventar_UI_Button"]
 layout_mode = 2
 text = "Выкинуть
 "
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Inventar_UI_Button_2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+script = ExtResource("9_w5bre")
+
+[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3/Inventar_UI_Button_2"]
+custom_minimum_size = Vector2(215, 0)
+layout_mode = 2
+text = "Отмена выбора"
 
 [node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
