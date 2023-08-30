@@ -7,6 +7,9 @@ var grid
 var last_direction = Vector2(0,1)
 var input_direction
 var open_inventory = false
+var item_area = false
+var names_item
+var area_loc
  
 func _ready():
 	frames = get_node("AnimatedSprite2D")
@@ -63,16 +66,22 @@ func get_input():
 #Функциональные кнопки
 func _input(event):
 	if event.is_action_released("test_button"):
-		Inventory.set_item(Global.items["apple"], 0)
-	if event.is_action_released("test_button_2"):
-		Inventory.set_item(Global.items["sword"], 1)
-	if event.is_action_released("open_invetory"):
+		Inventory.set_item(Global.items["apple"])
+	elif event.is_action_released("test_button_2"):
+		Inventory.set_item(Global.items["sword"])
+	elif event.is_action_released("open_invetory"):
 		Events.emit_signal("open_inventory")
+		Events.emit_signal("open_inventory_hide_button")
+		Events.emit_signal("open_inventory_hide_slider")
+	elif event.is_action_released("action_e") && item_area:
+		print("wirk")
+		Inventory.set_item(Global.items[names_item[1]])
+		area_loc.queue_free()
+		item_area = false
 
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
-
 
 #Функции отвечающие за прозрачность стен взависимости от расстояния персонажа до них
 func _on_area_2d_body_entered(body):
@@ -83,3 +92,15 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	Events.emit_signal("show_layers")
 	pass # Replace with function body.
+
+#Функция подбора предметов
+func _on_area_2d_area_entered(area):
+		names_item = area.get_name().split("_")
+		area_loc = area
+		if names_item[0] == "item":
+			item_area = true
+
+
+func _on_area_2d_area_exited(area):
+		if names_item[0] == "item":
+			item_area = false

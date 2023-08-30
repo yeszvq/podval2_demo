@@ -7,4 +7,8 @@ signal open_inventory_generate_itemslot
 signal open_inventory_button(int)
 signal open_inventory_hide_border
 signal open_inventory_hide_button
-signal test
+signal open_inventory_show_change_count_slider
+signal hide_slider_inv
+signal hide_slider_all
+signal open_inventory_move_index_itemslot(int)
+signal open_inventory_hide_slider

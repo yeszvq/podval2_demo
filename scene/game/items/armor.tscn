@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://jvx65814lxi3"]
+
+[ext_resource type="Texture2D" uid="uid://de8d47awipe7p" path="res://assets/sprite/items/armor.png" id="1_l0i0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qypkt"]
+
+[node name="item_armor" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l0i0n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qypkt")

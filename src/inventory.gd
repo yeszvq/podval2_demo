@@ -2,15 +2,25 @@ extends Node
 
 
 var items = []
+var lenght = 9
 
 #Заранее генерим 9 пустых ячеек
 func _ready():
-	for i in 9:
+	for i in lenght:
 		items.append({})
 
 #Добавляем предмет
-func set_item(item, index):
-	items[index] = item
+func set_item(item):
+	if items.has({}):
+		if item["stackable"] == true && items.has(item):
+			item["count"] += 1
+		else:
+			for i in lenght:
+				if items[i] == {}:
+					items[i] = item
+					break
+	else:
+		return false
 	update()
 	pass
 
@@ -21,7 +31,11 @@ func remove_item(index):
 	pass
 
 #Увеличиваем количество
-func set_item_count(item, count):
+func remove_item_count(index, count):
+	if items[index]["count"] - count == 0 || items[index]["count"] - count < 0:
+		items[index] = {}
+	else:
+		items[index]["count"] -= count
 	update()
 	pass
 
