@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvssnf2hmjfaq"]
+
+[ext_resource type="Texture2D" uid="uid://chsei57lx12g5" path="res://assets/sprite/items/apple.png" id="1_uto23"]
+[ext_resource type="FontFile" uid="uid://dajljh3sjq27m" path="res://assets/font/PressStart2P.ttf" id="1_v1jep"]
+
+[sub_resource type="GDScript" id="GDScript_3i2km"]
+script/source = "extends ColorRect
+
+
+
+func _on_button_pressed():
+	print(\"РАБОТАЕТ\")
+	pass # Replace with function body.
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_e653w"]
+font = ExtResource("1_v1jep")
+font_size = 7
+
+[node name="ItemSlot" type="ColorRect" groups=["ItemSlot"]]
+custom_minimum_size = Vector2(18, 18)
+anchors_preset = -1
+anchor_right = 0.016
+anchor_bottom = 0.028
+offset_right = -0.432001
+offset_bottom = -0.144001
+color = Color(0.2, 0.2, 0.2, 1)
+script = SubResource("GDScript_3i2km")
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.056
+anchor_right = 0.944
+anchor_bottom = 0.944
+offset_left = -0.00800002
+offset_top = -0.00800002
+offset_right = 0.00799942
+offset_bottom = 0.00799942
+texture = ExtResource("1_uto23")
+stretch_mode = 3
+
+[node name="ItemCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.008
+anchor_bottom = 1.0
+offset_right = 34.856
+offset_bottom = 15.0
+scale = Vector2(0.342359, 0.545956)
+text = "1"
+label_settings = SubResource("LabelSettings_e653w")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

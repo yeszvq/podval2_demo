@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://src/brainbar_ui.gd" id="4_bphil"]
 
 [node name="brain_ui" type="TextureProgressBar"]
-offset_right = 274.0
-offset_bottom = 26.0
-scale = Vector2(0.231834, 0.300477)
+offset_right = 276.0
+offset_bottom = 27.0
+scale = Vector2(1.12803, 0.889251)
 value = 100.0
 texture_under = ExtResource("1_3e6lo")
 texture_over = ExtResource("2_xxh8j")
