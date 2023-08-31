@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bepjk16jikn80"]
+[gd_scene load_steps=10 format=3 uid="uid://bepjk16jikn80"]
 
 [ext_resource type="Texture2D" uid="uid://d2d0hptweuc2i" path="res://assets/sprite/object/image.png" id="1_t7mr3"]
 [ext_resource type="PackedScene" uid="uid://doppnjet67bl5" path="res://scene/game/characters/player.tscn" id="2_pdvt1"]
 [ext_resource type="Script" path="res://src/TileMap.gd" id="2_xkvuo"]
+[ext_resource type="Theme" uid="uid://3u6qws58j858" path="res://theme/theme_button_inv.tres" id="4_3ajhk"]
+[ext_resource type="Theme" uid="uid://cqy1qvej6y53r" path="res://theme/theme_button_inv_typeslot.tres" id="5_06qyn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d2jg"]
 texture = ExtResource("1_t7mr3")
@@ -160,10 +162,18 @@ physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_3d2jg")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn5io"]
+bg_color = Color(0.309804, 0.25098, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjgu3"]
+bg_color = Color(0.576471, 0.243137, 0.160784, 1)
+
 [node name="test_level" type="Node2D"]
 y_sort_enabled = true
+metadata/_edit_vertical_guides_ = [-232.0]
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 y_sort_enabled = true
 position = Vector2(0, -7)
 tile_set = SubResource("TileSet_3sp4n")
@@ -181,8 +191,145 @@ layer_1/tile_data = PackedInt32Array(524283, 1, 0, 458748, 1, 0, 393212, 1, 0, 3
 script = ExtResource("2_xkvuo")
 
 [node name="player" parent="." instance=ExtResource("2_pdvt1")]
+visible = false
 position = Vector2(35, 43)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 follow_viewport_scale = 2.0
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="header" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_bn5io")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yjgu3")
+step = 1.0
+value = 11.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(99, 44)
+layout_mode = 2
+theme = ExtResource("4_3ajhk")
+text = "Кнопка 1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(99, 44)
+layout_mode = 2
+theme = ExtResource("4_3ajhk")
+text = "Кнопка 2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(99, 44)
+layout_mode = 2
+theme = ExtResource("4_3ajhk")
+text = "Кнопка 3"
+
+[node name="Button4" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(99, 44)
+layout_mode = 2
+theme = ExtResource("4_3ajhk")
+text = "Кнопка 4"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer2"]
+layout_mode = 2
+text = "0|100"
+
+[node name="type_slot" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/type_slot"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/type_slot"]
+custom_minimum_size = Vector2(86, 42)
+layout_mode = 2
+theme = ExtResource("5_06qyn")
+text = "Кнопка 1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/type_slot"]
+custom_minimum_size = Vector2(86, 42)
+layout_mode = 2
+theme = ExtResource("5_06qyn")
+text = "Кнопка 1"
+
+[node name="Button3" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/type_slot"]
+custom_minimum_size = Vector2(86, 42)
+layout_mode = 2
+theme = ExtResource("5_06qyn")
+text = "Кнопка 1"
+
+[node name="Button4" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/type_slot"]
+custom_minimum_size = Vector2(86, 42)
+layout_mode = 2
+theme = ExtResource("5_06qyn")
+text = "Кнопка 1"
+
+[node name="Button5" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/type_slot"]
+custom_minimum_size = Vector2(86, 42)
+layout_mode = 2
+theme = ExtResource("5_06qyn")
+text = "Кнопка 1"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="grid_slot" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/MarginContainer/grid_slot"]
+layout_mode = 2
+columns = 4
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/MarginContainer/grid_slot"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

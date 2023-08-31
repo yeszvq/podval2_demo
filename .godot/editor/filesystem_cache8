@@ -1,10 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1693410556
+::res://::1693475372
 icon.svg::CompressedTexture2D::7012467767350905398::1692964908::1692964916::1::::<><>::
 ::res://assets/::1693403370
 ::res://assets/audio/::1693209185
-::res://assets/font/::1693403370
+::res://assets/font/::1693475176
+bitcell_memesbruh03.ttf::FontFile::7427361847171143592::1693475175::1693475176::1::::<><>::
 custom_font.tres::FontFile::4390130681990106688::1693403370::0::1::::<><>::
+EpilepsySans.ttf::FontFile::4898897421324248182::1693475096::1693475096::1::::<><>::
 PressStart2P.ttf::FontFile::7178525821679916808::1693403370::1693403370::1::::<><>::
 ::res://assets/json data/::1693403370
 items.json::JSON::-1::1693403370::0::1::::<><>::
@@ -15,8 +17,8 @@ Full Team-Sheet.png::CompressedTexture2D::8757567306896240130::1692966166::16932
 idle_animation.png::CompressedTexture2D::7335830299183471425::1693123830::1693209306::1::::<><>::
 move.png::CompressedTexture2D::5186768225703651810::1692968725::1693209306::1::::<><>::
 Small-8-Direction-Characters_by_AxulArt.png::CompressedTexture2D::7396886009023626829::1692968440::1693209306::1::::<><>::
-::res://assets/sprite/characters/main/animation/::1693410580
-hero_animation.tres::SpriteFrames::8997162694311948066::1693410580::0::1::::<><>::uid://cf5rkyac3soik::::res://assets/sprite/characters/main/move.png<>uid://dcrsb2s5873wv::::res://assets/sprite/characters/main/idle_animation.png
+::res://assets/sprite/characters/main/animation/::1693472517
+hero_animation.tres::SpriteFrames::8997162694311948066::1693472517::0::1::::<><>::uid://cf5rkyac3soik::::res://assets/sprite/characters/main/move.png<>uid://dcrsb2s5873wv::::res://assets/sprite/characters/main/idle_animation.png
 ::res://assets/sprite/items/::1693403370
 apple.png::CompressedTexture2D::5301580852413634166::1693403370::1693403370::1::::<><>::
 armor.png::CompressedTexture2D::7508377512275016599::1693403370::1693403370::1::::<><>::
@@ -25,32 +27,28 @@ sword.png::CompressedTexture2D::8353311775304174991::1693403370::1693403370::1::
 ::res://assets/sprite/object/::1693210708
 image.png::CompressedTexture2D::9062085206152102790::1693210693::1693210693::1::::<><>::
 ::res://assets/sprite/ui/::1693209332
-::res://assets/sprite/ui/progress bar/::1693209332
+::res://assets/sprite/ui/progress bar/::1693464568
 BarV2_Bar.png::CompressedTexture2D::2451158458039615166::1693044118::1693209332::1::::<><>::
 BarV2_ProgressBar.png::CompressedTexture2D::4148935303652775627::1693040803::1693209332::1::::<><>::
 BarV2_ProgressBarBorder.png::CompressedTexture2D::4419098998320869435::1693040803::1693209332::1::::<><>::
 BarV5_Bar.png::CompressedTexture2D::316838524777127107::1693040799::1693209332::1::::<><>::
 BarV5_ProgressBar.png::CompressedTexture2D::5880674730795902888::1693040799::1693209332::1::::<><>::
 BarV5_ProgressBarBorder.png::CompressedTexture2D::1798063128206130971::1693040799::1693209332::1::::<><>::
+hpbar.png::CompressedTexture2D::245806616995897018::1693464567::1693464568::1::::<><>::
 ::res://scene/::1693209490
 ::res://scene/game/::1693403370
-::res://scene/game/characters/::1693410580
-player.tscn::PackedScene::8173805978330241512::1693410580::0::1::::<><>::uid://d1gj7qcg70rvm::::res://assets/sprite/characters/main/animation/hero_animation.tres<>res://src/hero.gd
+::res://scene/game/characters/::1693475311
+player.tscn::PackedScene::8173805978330241512::1693475311::0::1::::<><>::uid://d1gj7qcg70rvm::::res://assets/sprite/characters/main/animation/hero_animation.tres<>res://src/hero.gd
 ::res://scene/game/items/::1693403370
 apple.tscn::PackedScene::2667509752005750347::1693403370::0::1::::<><>::uid://chsei57lx12g5
 armor.tscn::PackedScene::676505003921811248::1693403370::0::1::::<><>::uid://de8d47awipe7p
-::res://scene/game/level/::1693410600
-test_level.tscn::PackedScene::2698707449346133727::1693410600::0::1::::<><>::uid://d2d0hptweuc2i::::res://assets/sprite/object/image.png<>uid://doppnjet67bl5::::res://scene/game/characters/player.tscn<>res://src/TileMap.gd
+::res://scene/game/level/::1693475229
+test_level.tscn::PackedScene::2698707449346133727::1693475229::0::1::::<><>::uid://d2d0hptweuc2i::::res://assets/sprite/object/image.png<>uid://doppnjet67bl5::::res://scene/game/characters/player.tscn<>res://src/TileMap.gd<>uid://3u6qws58j858::::res://theme/theme_button_inv.tres<>uid://kh1m1tne2pb0::::res://scene/menu/inventory_ui/item_slot.tscn<>uid://cqy1qvej6y53r::::res://theme/theme_button_inv_typeslot.tres
 ::res://scene/game/object/::1693209459
-::res://scene/menu/::1693403370
-brain_ui.tscn::PackedScene::6049794863539526775::1693403370::0::1::::<><>::uid://ba6mhsjd5e32y
-pain_ui.tscn::PackedScene::7034045102555484941::1693403370::0::1::::<><>::res://src/pain_ui.gd<>uid://ba6mhsjd5e32y
-::res://scene/menu/inventory_ui/::1693410580
-item_slot.tscn::PackedScene::717940547553001199::1693410580::0::1::::<><>::res://src/inventory/item_slot.gd
-item_slot_theme.tres::Theme::5876589708652554680::1693403370::0::1::::<><>::
-item_slot_theme_boxflat.tres::StyleBoxFlat::3858428976872167902::1693403370::0::1::::<><>::
+::res://scene/menu/::1693475302
+::res://scene/menu/inventory_ui/::1693475296
 ::res://scene/_debug/::1693210410
-::res://src/::1693410673
+::res://src/::1693410679
 brainbar_ui.gd::GDScript::-1::1693403370::0::1::::<>TextureProgressBar<>::
 events.gd::GDScript::-1::1693403370::0::1::::<>Node<>::
 global.gd::GDScript::-1::1693403370::0::1::::<>Node<>::
@@ -58,3 +56,8 @@ hero.gd::GDScript::-1::1693403370::0::1::::<>CharacterBody2D<>::
 inventory.gd::GDScript::-1::1693403370::0::1::::<>Node<>::
 pain_ui.gd::GDScript::-1::1693403370::0::1::::<>TextureProgressBar<>::
 TileMap.gd::GDScript::-1::1693212326::0::1::::<>TileMap<>::
+::res://src/inventory/::1693475303
+item_slot.gd::GDScript::-1::1693475303::0::1::::<>ColorRect<>::
+::res://theme/::1693475228
+theme_button_inv.tres::Theme::2008487161152078393::1693475228::0::1::::<><>::uid://dd24tgr863681::::res://assets/font/bitcell_memesbruh03.ttf
+theme_button_inv_typeslot.tres::Theme::5947016255827456145::1693475228::0::1::::<><>::uid://dd24tgr863681::::res://assets/font/bitcell_memesbruh03.ttf
