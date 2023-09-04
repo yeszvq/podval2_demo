@@ -1,10 +1,14 @@
+res://assets/sprite/items
 res://assets/font
-res://theme
+res://assets/sprite/ui/button
+res://group
 res://
+res://theme
+res://src/ui_game
+res://assets/sprite/ui
 res://assets/sprite/ui/progress bar
 res://src/inventory
 res://scene/game/items
-res://assets/sprite/items
 res://scene/menu/inventory_ui
 res://src
 res://scene/menu

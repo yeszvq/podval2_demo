@@ -41,4 +41,4 @@ func remove_item_count(index, count):
 
 #сигнал, чтобы если предмет появился во время открытого инвентаря, то он бы сразу показался
 func update():
-	Events.emit_signal("open_inventory_generate_itemslot")
+	pass

@@ -71,8 +71,6 @@ func _input(event):
 		Inventory.set_item(Global.items["sword"])
 	elif event.is_action_released("open_invetory"):
 		Events.emit_signal("open_inventory")
-		Events.emit_signal("open_inventory_hide_button")
-		Events.emit_signal("open_inventory_hide_slider")
 	elif event.is_action_released("action_e") && item_area:
 		print("wirk")
 		Inventory.set_item(Global.items[names_item[1]])

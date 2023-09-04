@@ -21,6 +21,11 @@ Events="*res://src/events.gd"
 Global="*res://src/global.gd"
 Inventory="*res://src/inventory.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="P.O.D.V.A.L. 2"
