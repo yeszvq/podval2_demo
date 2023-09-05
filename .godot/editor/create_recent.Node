@@ -1,14 +1,14 @@
 Label
-TextureRect
 TextureButton
-Button
 VBoxContainer
+TextureRect
+MarginContainer
+Button
 CenterContainer
 PanelContainer
 Panel
 GridContainer
 GridMap
-MarginContainer
 Control
 MenuButton
 ColorPickerButton

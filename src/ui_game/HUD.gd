@@ -2,13 +2,14 @@ extends Control
 #Файл, который в целом контролирует поведение интерфейса
 
 #переменные отвечающие за работу ячеек инвентаря
-
+var active_itemslot
 
 
 #переменные для удобного открытия интерфейса инвентаря
 var buttons_typemenu
 var all_grid_inv
 var type_slot
+var actionButtons
 
 #эти перменные нужны для корректировки выделения кнопок
 #в каждом из массивов 0 - typemenu 1 - typeslot
@@ -21,6 +22,7 @@ func _ready():
 	buttons_typemenu = $MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu
 	type_slot = $MarginContainer/VBoxContainer/type_slot
 	all_grid_inv = $MarginContainer/VBoxContainer/all_grid_inv
+	actionButtons = $MarginContainer/ActionButtons
 	#вызов функций при старте
 	hide_menu_inv()
 	
@@ -33,12 +35,45 @@ func _ready():
 		i.pressed.connect(typeslot_button_action.bind(i))
 
 	for i in get_tree().get_nodes_in_group("ItemsSlot"):
-		i.gui_input.connect(ItemsSlot)
+		i.gui_input.connect(ItemsSlot.bind(i))
 		
-#действие на нажите на ItemsSlot
-func ItemsSlot(event):
-	print("work")
+	for i in get_tree().get_nodes_in_group("button_action_item"):
+		i.pressed.connect(action_items.bind(i))
+			
+func action_items(name):
+	var index = 0
+	for i in get_tree().get_nodes_in_group("ItemsSlot"):
+		if i == active_itemslot:
+			break
+		index += 1
+	var real_name = str(name).split(":")
+	if real_name[0] == "eqip_button":
+		print("экипировано")
+	elif real_name[0] == "drop_button":
+		Inventory.remove_item(index)
+	actionButtons.visible = false
+	$MarginContainer/VBoxContainer.modulate.a = 1
+	generateItemsGrid()
 	pass
+
+#действие на нажите на ItemsSlot
+func ItemsSlot(event, name):
+	active_itemslot = name
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("right_mouse"):
+			if name.get_child(0).texture != null:
+				$MarginContainer/VBoxContainer.modulate.a = 0.5
+				actionButtons.visible = true
+		if event.is_action_released("left_mouse"):
+			var index = 0
+			for i in get_tree().get_nodes_in_group("ItemsSlot"):
+				if i == active_itemslot:
+					break
+				index += 1
+			Inventory.remove_item(index)
+			generateItemsGrid()
+	pass
+
 #действие на нажатие верхних кнопок
 func typemenu_button_action(name):
 	previous_button[0] = name

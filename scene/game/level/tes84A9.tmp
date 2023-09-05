@@ -739,11 +739,11 @@ theme_override_constants/margin_top = 210
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer"]
 layout_mode = 2
 
-[node name="eqip_button" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer" groups=["button_action_item"]]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer" groups=["button_action_item"]]
 layout_mode = 2
 texture_normal = ExtResource("7_8spf8")
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer/eqip_button"]
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer/TextureButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -756,11 +756,11 @@ text = "Eqip"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="drop_button" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer" groups=["button_action_item"]]
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer" groups=["button_action_item"]]
 layout_mode = 2
 texture_normal = ExtResource("7_8spf8")
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer/drop_button"]
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer/TextureButton2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
