@@ -2,3 +2,4 @@ res://scene/game/level/test_level.tscn
 res://src/ui_game/HUD.gd
 res://assets/sprite/characters/main/animation/hero_animation.tres
 res://theme/theme_button_inv_typeslot.tres
+res://src/inventory.gd

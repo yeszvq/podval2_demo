@@ -455,6 +455,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="itemslot2" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
 
@@ -465,6 +475,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="itemslot3" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
@@ -477,6 +497,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="itemslot4" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
 
@@ -487,6 +517,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="itemslot5" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
@@ -499,6 +539,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="itemslot6" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
 
@@ -509,6 +559,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="itemslot7" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
@@ -521,6 +581,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="itemslot8" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
 
@@ -531,6 +601,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="itemslot9" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
@@ -543,6 +623,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="itemslot10" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
 
@@ -553,6 +643,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="itemslot11" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
@@ -565,6 +665,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="itemslot12" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
 layout_mode = 2
 
@@ -575,6 +685,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="GridContainer2" type="GridContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot"]
 layout_mode = 2

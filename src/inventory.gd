@@ -2,12 +2,17 @@ extends Node
 
 
 var items = []
-var lenght = 9
+var lenght = 12
 
 #Заранее генерим 9 пустых ячеек
 func _ready():
 	for i in lenght:
 		items.append({})
+	set_item(Global.items["sword"])
+	set_item(Global.items["apple"])
+	set_item(Global.items["armor"])
+	set_item(Global.items["potion"])
+	print(items[0]["icon"])
 
 #Добавляем предмет
 func set_item(item):

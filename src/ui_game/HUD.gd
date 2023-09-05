@@ -1,6 +1,11 @@
 extends Control
-
 #Файл, который в целом контролирует поведение интерфейса
+
+#переменные отвечающие за работу ячеек инвентаря
+
+
+
+#переменные для удобного открытия интерфейса инвентаря
 var buttons_typemenu
 var all_grid_inv
 var type_slot
@@ -30,7 +35,6 @@ func _ready():
 	for i in get_tree().get_nodes_in_group("ItemsSlot"):
 		i.gui_input.connect(ItemsSlot)
 		
-
 #действие на нажите на ItemsSlot
 func ItemsSlot(event):
 	print("work")
@@ -70,7 +74,23 @@ func show_menu_inv():
 	buttons_typemenu.visible = true
 	type_slot.visible = true
 	all_grid_inv.visible = true
-	
+
+#функция подгрузки данных из глобального скрипта Inventory и изменение ItemSlot под это
+func generateItemsGrid():
+	var index = 0
+	for i in get_tree().get_nodes_in_group("ItemsSlot"):
+		if Inventory.items[index] != {}:
+			i.get_child(0).texture = load("res://assets/sprite/items/" + Inventory.items[index]["icon"])
+			if Inventory.items[index]["stackable"] != false:
+				i.get_child(2).text = str(Inventory.items[index]["count"])
+			else:
+				i.get_child(2).text = ""
+		else:
+			i.get_child(0).texture = null
+			i.get_child(2).text = ""
+		index += 1
+	pass
+
 #функция открытия инвентаря по кнопке
 func open_button():
 	if buttons_typemenu.visible == true && type_slot.visible == true && all_grid_inv.visible == true:
@@ -84,4 +104,5 @@ func open_button():
 		$MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_button.texture_normal = focus_texture[0]
 		previous_button[0] = $MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_button
 		previous_button[1] = $MarginContainer/VBoxContainer/type_slot/typeslot_button
+		generateItemsGrid()
 		
