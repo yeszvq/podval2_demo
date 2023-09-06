@@ -10,6 +10,14 @@ var buttons_typemenu
 var all_grid_inv
 var type_slot
 var actionButtons
+var pain_bar
+var mind_bar
+var pain_bar_text
+var notes_main
+var scroll_conteiner
+var button_back_notes
+var notes_shablon
+
 
 #эти перменные нужны для корректировки выделения кнопок
 #в каждом из массивов 0 - typemenu 1 - typeslot
@@ -20,26 +28,50 @@ var previous_button = [{}, {}]
 func _ready():
 	#работа с перменными
 	buttons_typemenu = $MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu
-	type_slot = $MarginContainer/VBoxContainer/type_slot
 	all_grid_inv = $MarginContainer/VBoxContainer/all_grid_inv
 	actionButtons = $MarginContainer/ActionButtons
+	mind_bar = $MarginContainer/VBoxContainer/header/VBoxContainer/mind_bar
+	pain_bar = $MarginContainer/VBoxContainer/header/VBoxContainer/pain_bar
+	pain_bar_text = $MarginContainer/VBoxContainer/header/VBoxContainer2/pain_bar_text
+	notes_main = $MarginContainer/VBoxContainer/notes_main
+	scroll_conteiner = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes
+	button_back_notes = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer/button_back_notes
+	notes_shablon = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon
 	#вызов функций при старте
 	hide_menu_inv()
 	
 	#подключение сигналов
 	Events.connect("open_inventory", open_button)
+	button_back_notes.gui_input.connect(button_back_notes_action)
 	
 	for i in get_tree().get_nodes_in_group("typemenu"):
 		i.pressed.connect(typemenu_button_action.bind(i))
-	for i in get_tree().get_nodes_in_group("typeslot"):
-		i.pressed.connect(typeslot_button_action.bind(i))
 
 	for i in get_tree().get_nodes_in_group("ItemsSlot"):
 		i.gui_input.connect(ItemsSlot.bind(i))
 		
 	for i in get_tree().get_nodes_in_group("button_action_item"):
 		i.pressed.connect(action_items.bind(i))
-			
+	
+	for i in get_tree().get_nodes_in_group("notes_button"):
+		i.gui_input.connect(note_button.bind(i))
+
+#функция возвращающая с подробного описания записи до списка записей
+func button_back_notes_action(event):
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("left_mouse"):
+			notes_shablon.visible = false
+			scroll_conteiner.visible = true
+	pass
+
+#функция отвечающая за нажатия на кнопки записей
+func note_button(event, name):
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("left_mouse"):
+			scroll_conteiner.visible = false
+			notes_shablon.visible = true
+
+#функция отвечающая за нажатия клавиш для действий на предметы
 func action_items(name):
 	var index = 0
 	for i in get_tree().get_nodes_in_group("ItemsSlot"):
@@ -76,16 +108,19 @@ func ItemsSlot(event, name):
 
 #действие на нажатие верхних кнопок
 func typemenu_button_action(name):
+	var names = str(name).split(":")
+	if names[0] == "typemenu_inv":
+		notes_main.visible = false
+		all_grid_inv.visible = true
+		notes_shablon.visible = false
+		scroll_conteiner.visible = true
+	elif names[0] == "typemenu_notes":
+		all_grid_inv.visible = false
+		notes_main.visible = true
 	previous_button[0] = name
 	clear_texture()
 	draw_prev()
 
-#действие на нажатие нижних кнопок
-func typeslot_button_action(name):
-	previous_button[1] = name
-	clear_texture()
-	draw_prev()
-	
 #фукнция снятия выделения со всех кнопок
 func clear_texture():
 	for i in get_tree().get_nodes_in_group("typemenu"):
@@ -101,14 +136,17 @@ func draw_prev():
 #функция закрытия инвентаря
 func hide_menu_inv():
 	buttons_typemenu.visible = false
-	type_slot.visible = false
 	all_grid_inv.visible = false
+	pain_bar.visible = true
+	pain_bar_text.visible = true
 
 #функция открытия инвентаря
 func show_menu_inv():
 	buttons_typemenu.visible = true
-	type_slot.visible = true
 	all_grid_inv.visible = true
+	pain_bar.visible = false
+	pain_bar_text.visible = false
+	notes_main.visible = false
 
 #функция подгрузки данных из глобального скрипта Inventory и изменение ItemSlot под это
 func generateItemsGrid():
@@ -128,16 +166,14 @@ func generateItemsGrid():
 
 #функция открытия инвентаря по кнопке
 func open_button():
-	if buttons_typemenu.visible == true && type_slot.visible == true && all_grid_inv.visible == true:
+	if buttons_typemenu.visible == true && all_grid_inv.visible == true:
 		clear_texture()
 		hide_menu_inv()
 		previous_button[0] = {}
 		previous_button[1] = {}
 	else:
 		show_menu_inv()
-		$MarginContainer/VBoxContainer/type_slot/typeslot_button.texture_normal = focus_texture[1]
-		$MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_button.texture_normal = focus_texture[0]
-		previous_button[0] = $MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_button
-		previous_button[1] = $MarginContainer/VBoxContainer/type_slot/typeslot_button
+		$MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_inv.texture_normal = focus_texture[0]
+		previous_button[0] = $MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_inv
 		generateItemsGrid()
 		
