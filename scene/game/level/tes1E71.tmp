@@ -604,7 +604,6 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="notes_main" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
@@ -656,23 +655,6 @@ text = "Что-то очень важное!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="note_button_this2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer" groups=["notes_button"]]
-layout_mode = 2
-texture = ExtResource("12_g4u73")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer/note_button_this2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jd0m0")
-theme_override_font_sizes/font_size = 35
-text = "Что-то очень важное!!!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="notes_shablon" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
@@ -699,7 +681,7 @@ text = "Вернутся"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="note_name" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer"]
 layout_mode = 2
 text = "Запись о моих переживаниях"
 
@@ -720,7 +702,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="note_desc" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/ColorRect2/MarginContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/ColorRect2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Дорогой дневник, мне не подобрать слов, чтобы описать боль и унижение, которые я испытал сегодня… Моя жизнь поломана навсегда..."

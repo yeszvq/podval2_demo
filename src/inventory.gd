@@ -12,7 +12,7 @@ func _ready():
 	set_item(Global.items["apple"])
 	set_item(Global.items["armor"])
 	set_item(Global.items["potion"])
-	print(items[0]["icon"])
+	#print(items[0])
 
 #Добавляем предмет
 func set_item(item):

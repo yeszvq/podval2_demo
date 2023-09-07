@@ -17,6 +17,8 @@ var notes_main
 var scroll_conteiner
 var button_back_notes
 var notes_shablon
+var note_name
+var note_desc
 
 
 #эти перменные нужны для корректировки выделения кнопок
@@ -37,6 +39,8 @@ func _ready():
 	scroll_conteiner = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes
 	button_back_notes = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer/button_back_notes
 	notes_shablon = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon
+	note_name = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer/note_name
+	note_desc = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/ColorRect2/MarginContainer/note_desc
 	#вызов функций при старте
 	hide_menu_inv()
 	
@@ -66,10 +70,17 @@ func button_back_notes_action(event):
 
 #функция отвечающая за нажатия на кнопки записей
 func note_button(event, name):
+	var index = 0
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("left_mouse"):
 			scroll_conteiner.visible = false
 			notes_shablon.visible = true
+			for i in get_tree().get_nodes_in_group("notes_button"):
+				if i == name:
+					break
+				index += 1
+			note_name.text = Global.notes[index]["name"]
+			note_desc.text = Global.notes[index]["desc"]
 
 #функция отвечающая за нажатия клавиш для действий на предметы
 func action_items(name):
@@ -117,10 +128,18 @@ func typemenu_button_action(name):
 	elif names[0] == "typemenu_notes":
 		all_grid_inv.visible = false
 		notes_main.visible = true
+		generatenotes()
 	previous_button[0] = name
 	clear_texture()
 	draw_prev()
 
+#функция подгрузки данных из json notes в ui элементы
+func generatenotes():
+	var index = 0
+	for i in get_tree().get_nodes_in_group("notes_button"):
+		i.get_child(0).text = Global.notes[index]["name"]
+		index += 1
+	pass
 #фукнция снятия выделения со всех кнопок
 func clear_texture():
 	for i in get_tree().get_nodes_in_group("typemenu"):
