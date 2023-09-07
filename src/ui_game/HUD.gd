@@ -5,7 +5,7 @@ extends Control
 var active_itemslot
 
 
-#переменные для удобного открытия интерфейса инвентаря
+#переменные для удобного открытия интерфейса инвентаря ОНИ НЕ ЖРУТ ПАМЯТЬ!!!!
 var buttons_typemenu
 var all_grid_inv
 var type_slot
@@ -19,6 +19,7 @@ var button_back_notes
 var notes_shablon
 var note_name
 var note_desc
+var scroll_vbox
 
 
 #эти перменные нужны для корректировки выделения кнопок
@@ -29,6 +30,7 @@ var previous_button = [{}, {}]
 
 func _ready():
 	#работа с перменными
+	scroll_vbox = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer
 	buttons_typemenu = $MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu
 	all_grid_inv = $MarginContainer/VBoxContainer/all_grid_inv
 	actionButtons = $MarginContainer/ActionButtons
@@ -60,6 +62,13 @@ func _ready():
 	for i in get_tree().get_nodes_in_group("notes_button"):
 		i.gui_input.connect(note_button.bind(i))
 
+
+#функция для добавления новых строчек записей
+func add_new_note():
+	var temp = preload("res://scene/menu/inventory_ui/note_button_this.tscn").instantiate()
+	scroll_vbox.add_child(temp)
+	print("work")
+	pass
 #функция возвращающая с подробного описания записи до списка записей
 func button_back_notes_action(event):
 	if event is InputEventMouseButton:

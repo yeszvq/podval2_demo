@@ -1,3 +1,4 @@
+res://scene/menu/inventory_ui
 D:/hard work time/геймдев/игры/godot/Готовая игра/хуета
 res://assets/sprite/ui/button
 res://assets/sprite/ui
@@ -10,7 +11,6 @@ res://src/ui_game
 res://assets/sprite/ui/progress bar
 res://src/inventory
 res://scene/game/items
-res://scene/menu/inventory_ui
 res://src
 res://scene/menu
 res://scene/game/level

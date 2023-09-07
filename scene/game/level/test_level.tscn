@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bxhjqk4cnlpqf" path="res://assets/sprite/ui/button/typemenu-2.png" id="8_gmelm"]
 [ext_resource type="FontFile" uid="uid://dd24tgr863681" path="res://assets/font/bitcell_memesbruh03.ttf" id="9_jd0m0"]
 [ext_resource type="PackedScene" uid="uid://beafq4imka17d" path="res://scene/game/items/apple.tscn" id="11_s5wqk"]
-[ext_resource type="Texture2D" uid="uid://cby0f0kxvdp6f" path="res://assets/sprite/ui/button/notes_button.png" id="12_g4u73"]
+[ext_resource type="PackedScene" uid="uid://cluxielsa6noc" path="res://scene/menu/inventory_ui/note_button_this.tscn" id="12_ck11r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d2jg"]
 texture = ExtResource("1_t7mr3")
@@ -639,39 +639,8 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="note_button_this" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer" groups=["notes_button"]]
+[node name="note_button_this" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer" instance=ExtResource("12_ck11r")]
 layout_mode = 2
-texture = ExtResource("12_g4u73")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer/note_button_this"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jd0m0")
-theme_override_font_sizes/font_size = 35
-text = "Что-то очень важное!!!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="note_button_this2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer" groups=["notes_button"]]
-layout_mode = 2
-texture = ExtResource("12_g4u73")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer/note_button_this2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jd0m0")
-theme_override_font_sizes/font_size = 35
-text = "Что-то очень важное!!!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="notes_shablon" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
 visible = false
