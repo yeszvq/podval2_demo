@@ -20,7 +20,8 @@ var notes_shablon
 var note_name
 var note_desc
 var scroll_vbox
-
+var part_hud
+var test
 
 #эти перменные нужны для корректировки выделения кнопок
 #в каждом из массивов 0 - typemenu 1 - typeslot
@@ -43,11 +44,14 @@ func _ready():
 	notes_shablon = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon
 	note_name = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer/note_name
 	note_desc = $MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/ColorRect2/MarginContainer/note_desc
+	part_hud = $MarginContainer/PanelContainer
+	test = $MarginContainer/VBoxContainer
 	#вызов функций при старте
 	hide_menu_inv()
 	
 	#подключение сигналов
 	Events.connect("open_inventory", open_button)
+	Events.connect("open_part_menu", open_part_menu)
 	button_back_notes.gui_input.connect(button_back_notes_action)
 	
 	for i in get_tree().get_nodes_in_group("typemenu"):
@@ -61,7 +65,16 @@ func _ready():
 	
 	for i in get_tree().get_nodes_in_group("notes_button"):
 		i.gui_input.connect(note_button.bind(i))
+	
+	for i in get_tree().get_nodes_in_group("part_human_texture"):
+		i.gui_input.connect(part_button.bind(i))
 
+#481c15
+#ffffff
+func part_button(event, name):
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("left_mouse"):
+			name.modulate = Color.WEB_MAROON
 
 #функция для добавления новых строчек записей
 func add_new_note():
@@ -175,6 +188,7 @@ func show_menu_inv():
 	pain_bar.visible = false
 	pain_bar_text.visible = false
 	notes_main.visible = false
+	part_hud.visible = false
 
 #функция подгрузки данных из глобального скрипта Inventory и изменение ItemSlot под это
 func generateItemsGrid():
@@ -205,3 +219,14 @@ func open_button():
 		previous_button[0] = $MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_inv
 		generateItemsGrid()
 		
+func open_part_menu():
+	if part_hud.visible == true:
+		part_hud.visible = false
+	else:
+		notes_main.visible = false
+		buttons_typemenu.visible = false
+		all_grid_inv.visible = false
+		pain_bar.visible = true
+		pain_bar_text.visible = true
+		part_hud.visible = true
+	pass

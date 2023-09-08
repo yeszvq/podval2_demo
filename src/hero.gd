@@ -76,7 +76,8 @@ func _input(event):
 		Inventory.set_item(Global.items[names_item[1]])
 		area_loc.queue_free()
 		item_area = false
-
+	elif event.is_action_released("open_part_menu"):
+		Events.emit_signal("open_part_menu")
 func _physics_process(delta):
 	get_input()
 	move_and_slide()

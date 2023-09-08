@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bepjk16jikn80"]
+[gd_scene load_steps=26 format=3 uid="uid://bepjk16jikn80"]
 
 [ext_resource type="Texture2D" uid="uid://d2d0hptweuc2i" path="res://assets/sprite/object/image.png" id="1_t7mr3"]
 [ext_resource type="PackedScene" uid="uid://doppnjet67bl5" path="res://scene/game/characters/player.tscn" id="2_pdvt1"]
@@ -13,6 +13,10 @@
 [ext_resource type="FontFile" uid="uid://dd24tgr863681" path="res://assets/font/bitcell_memesbruh03.ttf" id="9_jd0m0"]
 [ext_resource type="PackedScene" uid="uid://beafq4imka17d" path="res://scene/game/items/apple.tscn" id="11_s5wqk"]
 [ext_resource type="PackedScene" uid="uid://cluxielsa6noc" path="res://scene/menu/inventory_ui/note_button_this.tscn" id="12_ck11r"]
+[ext_resource type="Texture2D" uid="uid://cp4c3vu1a12jk" path="res://assets/sprite/ui/human_part/head_part.png" id="13_qgxu8"]
+[ext_resource type="Texture2D" uid="uid://dcr83c2qbb8n2" path="res://assets/sprite/ui/human_part/arm_part.png" id="14_57pgf"]
+[ext_resource type="Texture2D" uid="uid://ctyv6h4dq7gi8" path="res://assets/sprite/ui/human_part/body_part.png" id="15_sq6fb"]
+[ext_resource type="Texture2D" uid="uid://b1w8k7ye2r8tu" path="res://assets/sprite/ui/human_part/leg_part.png" id="16_7kt8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d2jg"]
 texture = ExtResource("1_t7mr3")
@@ -185,12 +189,14 @@ bg_color = Color(0.235294, 0.423529, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs8tr"]
 bg_color = Color(0, 0, 0, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqa4h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="test_level" type="Node2D"]
 y_sort_enabled = true
 metadata/_edit_vertical_guides_ = [-232.0]
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, -7)
 tile_set = SubResource("TileSet_3sp4n")
@@ -208,7 +214,6 @@ layer_1/tile_data = PackedInt32Array(524283, 1, 0, 458748, 1, 0, 393212, 1, 0, 3
 script = ExtResource("2_xkvuo")
 
 [node name="player" parent="." instance=ExtResource("2_pdvt1")]
-visible = false
 position = Vector2(35, 43)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -287,6 +292,7 @@ value = 60.0
 show_percentage = false
 
 [node name="buttons_typemenu" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="typemenu_inv" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu" groups=["typemenu"]]
@@ -754,6 +760,101 @@ theme_override_font_sizes/font_size = 35
 text = "Drop"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqa4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="part_tab" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer"]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+texture = ExtResource("13_qgxu8")
+stretch_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer2" groups=["part_human_texture"]]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("14_57pgf")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer2"]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+layout_mode = 2
+texture = ExtResource("15_sq6fb")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer2" groups=["part_human_texture"]]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("14_57pgf")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3" groups=["part_human_texture"]]
+layout_mode = 2
+texture = ExtResource("16_7kt8k")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3" groups=["part_human_texture"]]
+layout_mode = 2
+texture = ExtResource("16_7kt8k")
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="item_apple" parent="." instance=ExtResource("11_s5wqk")]
 visible = false
