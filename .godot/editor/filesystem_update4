@@ -3,3 +3,6 @@ res://assets/sprite/characters/main/animation/hero_animation.tres
 res://scene/game/characters/player.tscn
 res://scene/menu/inventory_ui/item_slot.tscn
 res://scene/menu/inventory_ui/label.tscn
+res://src/inventory.gd
+res://src/global.gd
+res://src/inventory/HUD.gd

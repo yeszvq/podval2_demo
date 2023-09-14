@@ -1,0 +1,18 @@
+{
+    "arm left": {
+        "name": "левая рука",
+        "damage": 0
+    },
+    "arm right": {
+        "name": "правая рука",
+        "damage": 0
+    },
+    "leg_dw_l": {
+        "name": "левая ступня",
+        "damage": 0
+    },
+    "leg_dw_r": {
+        "name": "правая ступня",
+        "damage": 0
+    }
+}

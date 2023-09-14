@@ -1,23 +1,24 @@
 extends PanelContainer
 
 #Заметка для разработки
-#Нужен скрипт для заполнения инвентаря
-#Для этого ещё необходимо создать ноду которая будет шаблоном для вещей
-#Что-то вроде ItemSlot как у меня было.
 
 
-
+#переменные для работы
+var limb_change = true
 
 
 
 #переменные которые хранят пути узлов
 var notepad_main_node
 var shared_content = []
+var limbs = []
 
 
 
 func _ready():
 	#назначение переменных
+	
+	#назначение путей
 	notepad_main_node = $MarginContainer/VBoxContainer/notepad_main_node
 	#узел на который будут крепиться узла показывающие заметку 0
 	shared_content.append($MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node/VBoxContainer/VBoxContainer)
@@ -31,7 +32,16 @@ func _ready():
 	shared_content.append($MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon)
 	#узел к которому будут прикрепляться узлы показывающие предметы в инвентаре 5
 	shared_content.append($MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node/VBoxContainer/VBoxContainer)
-	
+	#пути для частей тела
+		#левая рука 0
+	limbs.append($MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect)
+		#правая рука 1
+	limbs.append($MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect2)
+		#левая ступня 2
+	limbs.append($MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer5/TextureRect2)
+		#правая ступня 3
+	limbs.append($MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer5/TextureRect)
+		
 	
 	#функции при включение
 	
@@ -86,7 +96,9 @@ func action_tab_buttons(event, name):
 	pass
 
 #вызов функциия для обновления конкретной страницы
-func update_this_page_notebook(index):
+func update_this_page_notebook(index, limb):
+	if limb == true:
+		limb_change = true
 	content_generate(index)
 	pass
 
@@ -134,11 +146,23 @@ func content_generate(index):
 						temp_node.get_child(0).get_child(1).texture = load("res://assets/sprite/items/" + Inventory.items[i]["icon"])
 		#состояние
 		2:
+			#изменение параметров рассудка и боли
 			temp = get_tree().get_nodes_in_group("status_bar")
 			temp[0].value = Inventory.mind_pain[1]
 			temp[2].value = Inventory.mind_pain[0]
 			temp[1].text = str(Inventory.mind_pain[1])
 			temp[3].text = str(Inventory.mind_pain[0])
+			
+			#изменение отображения частей тела
+			temp = 0
+			if limb_change == true:
+				for i in Inventory.limbs:
+					if i["damage"] == 1:
+						limbs[temp].modulate.a = 0
+					elif i["damage"] == 2:
+						limbs[temp].modulate.a = 1
+					temp += 1
+				limb_change = false
 		#карта
 		#3:
 			#print()

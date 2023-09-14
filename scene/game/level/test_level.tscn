@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bepjk16jikn80"]
+[gd_scene load_steps=24 format=3 uid="uid://bepjk16jikn80"]
 
 [ext_resource type="Texture2D" uid="uid://d2d0hptweuc2i" path="res://assets/sprite/object/image.png" id="1_t7mr3"]
 [ext_resource type="Script" path="res://test/test_level.gd" id="1_w8w8o"]
@@ -9,12 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://csoq0ptfkk6cj" path="res://assets/sprite/ui/notebook/list_sprite.png" id="6_0bsnx"]
 [ext_resource type="Texture2D" uid="uid://bke6u2lui1tf8" path="res://assets/sprite/ui/notebook/part_button_1.png" id="7_p7fhg"]
 [ext_resource type="Texture2D" uid="uid://df7mr66bao31s" path="res://assets/sprite/ui/notebook/part_button_2.png" id="8_w7xdh"]
-[ext_resource type="Texture2D" uid="uid://313rox8kpjff" path="res://assets/sprite/ui/notebook/human.png" id="9_qmtfe"]
+[ext_resource type="Texture2D" uid="uid://coc11q4vwjnkk" path="res://assets/sprite/ui/notebook/human_part/head.png" id="9_jtfma"]
+[ext_resource type="Texture2D" uid="uid://lwrdml1lfsy8" path="res://assets/sprite/ui/notebook/human_part/l_arm.png" id="9_v4ngu"]
+[ext_resource type="Texture2D" uid="uid://b00cafxfcnvm5" path="res://assets/sprite/ui/notebook/human_part/body.png" id="10_mhmei"]
 [ext_resource type="Texture2D" uid="uid://bc5tubyacxvw0" path="res://assets/sprite/ui/notebook/heart_white.png" id="10_rpthl"]
 [ext_resource type="Texture2D" uid="uid://cr8sxtnyh4lr1" path="res://assets/sprite/ui/notebook/heart_red.png" id="11_c52p4"]
 [ext_resource type="PackedScene" uid="uid://beafq4imka17d" path="res://scene/game/items/apple.tscn" id="11_s5wqk"]
 [ext_resource type="Texture2D" uid="uid://2y2hc8kxf61k" path="res://assets/sprite/ui/notebook/brain_white.png" id="12_7mof1"]
+[ext_resource type="Texture2D" uid="uid://b018l7rwyqrn4" path="res://assets/sprite/ui/notebook/human_part/leg_up.png" id="12_ypt84"]
+[ext_resource type="Texture2D" uid="uid://b6s08gx84tf0l" path="res://assets/sprite/ui/notebook/human_part/leg_dw_l.png" id="13_fob5v"]
 [ext_resource type="Texture2D" uid="uid://dgw5qlvtx0lsk" path="res://assets/sprite/ui/notebook/braind_red.png" id="13_i36et"]
+[ext_resource type="Texture2D" uid="uid://c33ou4120sevd" path="res://assets/sprite/ui/notebook/human_part/leg_dw_r.png" id="14_7t7qm"]
+[ext_resource type="Texture2D" uid="uid://cr83lyu4acf03" path="res://assets/sprite/ui/notebook/human_part/r_arm.png" id="15_wubpr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d2jg"]
 texture = ExtResource("1_t7mr3")
@@ -319,6 +325,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="inv_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_jgy30")
 
@@ -339,7 +346,6 @@ text = "ИНВЕНТАРЬ"
 layout_mode = 2
 
 [node name="status_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_jgy30")
 
@@ -368,15 +374,94 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 55
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(150, 300)
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("9_qmtfe")
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="head_body" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+
+[node name="head" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer"]
+custom_minimum_size = Vector2(68, 72)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("9_jtfma")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="body" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("10_mhmei")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+
+[node name="leg_up" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer3"]
+custom_minimum_size = Vector2(68, 72)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("12_ypt84")
+expand_mode = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer5"]
+custom_minimum_size = Vector2(44, 68)
+layout_mode = 2
+texture = ExtResource("13_fob5v")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer5"]
+custom_minimum_size = Vector2(44, 68)
+layout_mode = 2
+texture = ExtResource("14_7t7qm")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 68
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 57
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 104)
+layout_mode = 2
+texture = ExtResource("9_v4ngu")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 104)
+layout_mode = 2
+texture = ExtResource("15_wubpr")
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2"]
 layout_mode = 2

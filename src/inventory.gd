@@ -5,6 +5,7 @@ var mind_pain = [0, 0]
 var notes = []
 var items = []
 var lenght = 9
+var limbs = []
 
 #Заранее генерим 9 пустых ячеек
 func _ready():
@@ -19,6 +20,12 @@ func _ready():
 	notes.append(Global.notes[2])
 	notes.append(Global.notes[3])
 	#print(items[0])
+
+#изменяем состояние конечности
+func limb_change(index, damage):
+	limbs[index]["damage"] = damage
+	update(3, true)
+	pass
 
 #изменяем значение состойний
 func bar_change(index, value):
@@ -69,6 +76,6 @@ func remove_item_count(index, count):
 	pass
 
 #сигнал, чтобы если предмет появился во время открытого инвентаря, то он бы сразу показался
-func update(index):
-	Events.emit_signal("update_notebook", index)
+func update(index, limb = false):
+	Events.emit_signal("update_notebook", index, limb)
 	pass

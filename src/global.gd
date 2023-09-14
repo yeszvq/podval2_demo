@@ -20,7 +20,11 @@ func _ready():
 	for key in temp:
 		temp[key]["key"] = key
 		abilities.append(temp[key])
-
+	
+	temp = read_from_json("res://assets/json data/limbs.json")
+	for key in temp:
+		temp[key]["key"] = key
+		Inventory.limbs.append(temp[key])
 #Чтение данных из файла
 func read_from_json(path):
 	var file = FileAccess.open(path, FileAccess.READ)
