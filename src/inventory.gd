@@ -1,8 +1,10 @@
 extends Node
 
-
+#1 - pain 0-maind
+var mind_pain = [0, 0]
+var notes = []
 var items = []
-var lenght = 12
+var lenght = 9
 
 #Заранее генерим 9 пустых ячеек
 func _ready():
@@ -12,7 +14,29 @@ func _ready():
 	set_item(Global.items["apple"])
 	set_item(Global.items["armor"])
 	set_item(Global.items["potion"])
+	notes.append(Global.notes[0])
+	notes.append(Global.notes[1])
+	notes.append(Global.notes[2])
+	notes.append(Global.notes[3])
 	#print(items[0])
+
+#изменяем значение состойний
+func bar_change(index, value):
+	mind_pain[index] += value
+	update(2)
+
+#количество вещей в инвентаре
+func count_inv():
+	var count = 0
+	for i in items:
+		if i != {}:
+			count += 1
+	return count
+
+#Добавляем записку
+func add_note(note):
+	notes.append(note)
+	update(0)
 
 #Добавляем предмет
 func set_item(item):
@@ -26,13 +50,13 @@ func set_item(item):
 					break
 	else:
 		return false
-	update()
+	update(1)
 	pass
 
 #Удаляем предмет
 func remove_item(index):
 	items[index] = {}
-	update()
+	update(1)
 	pass
 
 #Увеличиваем количество
@@ -41,9 +65,10 @@ func remove_item_count(index, count):
 		items[index] = {}
 	else:
 		items[index]["count"] -= count
-	update()
+	update(1)
 	pass
 
 #сигнал, чтобы если предмет появился во время открытого инвентаря, то он бы сразу показался
-func update():
+func update(index):
+	Events.emit_signal("update_notebook", index)
 	pass

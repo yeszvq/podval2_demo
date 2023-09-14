@@ -2,6 +2,7 @@ extends Node
 
 var items
 var notes = []
+var abilities = []
 
 #Вызов функции чтения, а также генерация списка предметов
 func _ready():
@@ -15,6 +16,11 @@ func _ready():
 		temp[key]["key"] = key
 		notes.append(temp[key])
 	
+	temp = read_from_json("res://assets/json data/abilities.json")
+	for key in temp:
+		temp[key]["key"] = key
+		abilities.append(temp[key])
+
 #Чтение данных из файла
 func read_from_json(path):
 	var file = FileAccess.open(path, FileAccess.READ)

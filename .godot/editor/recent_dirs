@@ -1,18 +1,17 @@
-res://assets/sprite/ui/human_part
-res://assets/sprite/items
-res://scene/menu/inventory_ui
 D:/hard work time/геймдев/игры/godot/Готовая игра/хуета
-res://assets/sprite/ui/button
+res://test
+res://scene/menu/inventory_ui
+res://assets/sprite/items
+res://assets/sprite/ui/notebook
+res://src/inventory
 res://assets/sprite/ui
+res://theme
+res://src
 res://assets/font
 res://group
 res://
-res://theme
 res://src/ui_game
-res://assets/sprite/ui/progress bar
-res://src/inventory
 res://scene/game/items
-res://src
 res://scene/menu
 res://scene/game/level
 res://assets/sprite/characters/main/animation

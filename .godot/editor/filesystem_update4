@@ -1,4 +1,6 @@
 res://scene/game/level/test_level.tscn
-res://src/ui_game/HUD.gd
 res://assets/sprite/characters/main/animation/hero_animation.tres
-res://theme/theme_button_inv_typeslot.tres
+res://scene/game/characters/player.tscn
+res://scene/menu/inventory_ui/item_slot.tscn
+res://scene/menu/inventory_ui/label.tscn
+res://src/inventory/HUD.gd

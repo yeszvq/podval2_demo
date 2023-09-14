@@ -65,19 +65,18 @@ func get_input():
 		
 #Функциональные кнопки
 func _input(event):
-	if event.is_action_released("test_button"):
-		Inventory.set_item(Global.items["apple"])
-	elif event.is_action_released("test_button_2"):
-		Inventory.set_item(Global.items["sword"])
-	elif event.is_action_released("open_invetory"):
+	if event.is_action_released("open_invetory"):
 		Events.emit_signal("open_inventory")
-	elif event.is_action_released("action_e") && item_area:
-		print("wirk")
-		Inventory.set_item(Global.items[names_item[1]])
-		area_loc.queue_free()
-		item_area = false
-	elif event.is_action_released("open_part_menu"):
-		Events.emit_signal("open_part_menu")
+	#elif event.is_action_released("action_e") && item_area:
+		#print("wirk")
+		#Inventory.set_item(Global.items[names_item[1]])
+		#area_loc.queue_free()
+		#item_area = false
+	#elif event.is_action_released("open_part_menu"):
+	#	Events.emit_signal("open_part_menu")
+	elif event.is_action_released("test_button"):
+		Inventory.add_note(Global.notes[0])
+
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
@@ -103,3 +102,8 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_area_exited(area):
 		if names_item[0] == "item":
 			item_area = false
+
+
+func _on_timer_timeout():
+	Inventory.bar_change(0, 1)
+	pass # Replace with function body.

@@ -1,22 +1,20 @@
-[gd_scene load_steps=26 format=3 uid="uid://bepjk16jikn80"]
+[gd_scene load_steps=18 format=3 uid="uid://bepjk16jikn80"]
 
 [ext_resource type="Texture2D" uid="uid://d2d0hptweuc2i" path="res://assets/sprite/object/image.png" id="1_t7mr3"]
+[ext_resource type="Script" path="res://test/test_level.gd" id="1_w8w8o"]
 [ext_resource type="PackedScene" uid="uid://doppnjet67bl5" path="res://scene/game/characters/player.tscn" id="2_pdvt1"]
 [ext_resource type="Script" path="res://src/TileMap.gd" id="2_xkvuo"]
-[ext_resource type="Texture2D" uid="uid://buwg6vo5aiayv" path="res://assets/sprite/ui/222.png" id="4_7qsmf"]
-[ext_resource type="Script" path="res://src/ui_game/HUD.gd" id="4_wn54k"]
-[ext_resource type="Theme" uid="uid://cqy1qvej6y53r" path="res://theme/theme_button_inv_typeslot.tres" id="5_06qyn"]
-[ext_resource type="Texture2D" uid="uid://bnxduuvv12lmo" path="res://assets/sprite/ui/border_itemslot.png" id="5_duhbh"]
-[ext_resource type="PackedScene" uid="uid://dcka7hfar0lmh" path="res://scene/menu/inventory_ui/itemslot.tscn" id="6_vqxne"]
-[ext_resource type="Texture2D" uid="uid://b46b66156ji5l" path="res://assets/sprite/ui/button/typemenu-1.png" id="7_8spf8"]
-[ext_resource type="Texture2D" uid="uid://bxhjqk4cnlpqf" path="res://assets/sprite/ui/button/typemenu-2.png" id="8_gmelm"]
-[ext_resource type="FontFile" uid="uid://dd24tgr863681" path="res://assets/font/bitcell_memesbruh03.ttf" id="9_jd0m0"]
+[ext_resource type="StyleBox" uid="uid://ddd6sbci1xa1h" path="res://theme/stylebox_modulate_0.tres" id="4_jgy30"]
+[ext_resource type="Script" path="res://src/inventory/HUD.gd" id="5_ajds7"]
+[ext_resource type="Texture2D" uid="uid://csoq0ptfkk6cj" path="res://assets/sprite/ui/notebook/list_sprite.png" id="6_0bsnx"]
+[ext_resource type="Texture2D" uid="uid://bke6u2lui1tf8" path="res://assets/sprite/ui/notebook/part_button_1.png" id="7_p7fhg"]
+[ext_resource type="Texture2D" uid="uid://df7mr66bao31s" path="res://assets/sprite/ui/notebook/part_button_2.png" id="8_w7xdh"]
+[ext_resource type="Texture2D" uid="uid://313rox8kpjff" path="res://assets/sprite/ui/notebook/human.png" id="9_qmtfe"]
+[ext_resource type="Texture2D" uid="uid://bc5tubyacxvw0" path="res://assets/sprite/ui/notebook/heart_white.png" id="10_rpthl"]
+[ext_resource type="Texture2D" uid="uid://cr8sxtnyh4lr1" path="res://assets/sprite/ui/notebook/heart_red.png" id="11_c52p4"]
 [ext_resource type="PackedScene" uid="uid://beafq4imka17d" path="res://scene/game/items/apple.tscn" id="11_s5wqk"]
-[ext_resource type="PackedScene" uid="uid://cluxielsa6noc" path="res://scene/menu/inventory_ui/note_button_this.tscn" id="12_ck11r"]
-[ext_resource type="Texture2D" uid="uid://cp4c3vu1a12jk" path="res://assets/sprite/ui/human_part/head_part.png" id="13_qgxu8"]
-[ext_resource type="Texture2D" uid="uid://dcr83c2qbb8n2" path="res://assets/sprite/ui/human_part/arm_part.png" id="14_57pgf"]
-[ext_resource type="Texture2D" uid="uid://ctyv6h4dq7gi8" path="res://assets/sprite/ui/human_part/body_part.png" id="15_sq6fb"]
-[ext_resource type="Texture2D" uid="uid://b1w8k7ye2r8tu" path="res://assets/sprite/ui/human_part/leg_part.png" id="16_7kt8k"]
+[ext_resource type="Texture2D" uid="uid://2y2hc8kxf61k" path="res://assets/sprite/ui/notebook/brain_white.png" id="12_7mof1"]
+[ext_resource type="Texture2D" uid="uid://dgw5qlvtx0lsk" path="res://assets/sprite/ui/notebook/braind_red.png" id="13_i36et"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d2jg"]
 texture = ExtResource("1_t7mr3")
@@ -174,26 +172,9 @@ physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_3d2jg")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bn5io"]
-bg_color = Color(0.2, 0.2, 0.2, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjgu3"]
-bg_color = Color(0.576471, 0.243137, 0.160784, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8aj6f"]
-bg_color = Color(0.2, 0.2, 0.2, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6t6hd"]
-bg_color = Color(0.235294, 0.423529, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs8tr"]
-bg_color = Color(0, 0, 0, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqa4h"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="test_level" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_w8w8o")
 metadata/_edit_vertical_guides_ = [-232.0]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -220,22 +201,23 @@ position = Vector2(35, 43)
 layer = 2
 follow_viewport_scale = 2.0
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
-layout_mode = 3
+[node name="HUD" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_wn54k")
+theme_override_styles/panel = ExtResource("4_jgy30")
+script = ExtResource("5_ajds7")
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -243,124 +225,21 @@ theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+[node name="notepad_main_node" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 3
+theme_override_constants/separation = 0
 
-[node name="header" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 68)
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header"]
-custom_minimum_size = Vector2(50, 64)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer"]
+custom_minimum_size = Vector2(450, 570)
 layout_mode = 2
-texture = ExtResource("5_duhbh")
+texture = ExtResource("6_0bsnx")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_7qsmf")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header"]
-layout_mode = 2
-
-[node name="mind_bar" type="ProgressBar" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer"]
-custom_minimum_size = Vector2(408, 20)
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_bn5io")
-theme_override_styles/fill = SubResource("StyleBoxFlat_yjgu3")
-step = 1.0
-value = 40.0
-show_percentage = false
-
-[node name="pain_bar" type="ProgressBar" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer"]
-custom_minimum_size = Vector2(408, 20)
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_8aj6f")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6t6hd")
-step = 1.0
-value = 60.0
-show_percentage = false
-
-[node name="buttons_typemenu" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer"]
-visible = false
-layout_mode = 2
-
-[node name="typemenu_inv" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu" groups=["typemenu"]]
-layout_mode = 2
-texture_normal = ExtResource("7_8spf8")
-texture_focused = ExtResource("8_gmelm")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_inv"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jd0m0")
-theme_override_font_sizes/font_size = 40
-text = "Inv"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="typemenu_notes" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu" groups=["typemenu"]]
-layout_mode = 2
-texture_normal = ExtResource("7_8spf8")
-texture_focused = ExtResource("8_gmelm")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer/buttons_typemenu/typemenu_notes"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jd0m0")
-theme_override_font_sizes/font_size = 40
-text = "Notes"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header"]
-layout_mode = 2
-
-[node name="mind_bar_text" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("5_06qyn")
-text = "40|100"
-
-[node name="pain_bar_text" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/header/VBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("5_06qyn")
-text = "60|100"
-
-[node name="all_grid_inv" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_top = 10
-
-[node name="grid_slot" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot"]
-layout_mode = 2
-columns = 4
-
-[node name="itemslot" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -368,496 +247,275 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="button_part_1_1" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="button_part_1_2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="button_part_1_3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="button_part_1_4" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="itemslot2" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 40
+
+[node name="notes_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node"]
 layout_mode = 2
 
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot3" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node/VBoxContainer"]
 layout_mode = 2
 
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot4" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot5" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot6" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot6"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot6"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot7" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot7"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot7"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot8" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot9" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot9"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot9"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot10" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot10"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot10"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot11" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot11"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot11"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="itemslot12" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer" groups=["ItemsSlot"] instance=ExtResource("6_vqxne")]
-layout_mode = 2
-
-[node name="ItemTexture" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot12"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/all_grid_inv/grid_slot/GridContainer/itemslot12"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="notes_main" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_top = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main"]
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer"]
-custom_minimum_size = Vector2(420, 500)
-layout_mode = 2
-color = Color(0.2, 0.2, 0.2, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer"]
-layout_mode = 2
-
-[node name="scroll_conteiner_notes" type="ScrollContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "ЗАМЕТКИ"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="note_button_this" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/scroll_conteiner_notes/VBoxContainer" instance=ExtResource("12_ck11r")]
+[node name="inv_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node"]
 layout_mode = 2
 
-[node name="notes_shablon" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "ИНВЕНТАРЬ"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="status_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
 visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "СОСТОЯНИЕ"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 55
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_qmtfe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="button_back_notes" type="ColorRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer/button_back_notes"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Вернутся"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="note_name" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/HBoxContainer"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/VBoxContainer" groups=["status_bar"]]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-text = "Запись о моих переживаниях"
+size_flags_horizontal = 4
+value = 70.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("10_rpthl")
+texture_progress = ExtResource("11_c52p4")
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon"]
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/VBoxContainer" groups=["status_bar"]]
 layout_mode = 2
-size_flags_vertical = 3
-color = Color(0.247059, 0.156863, 0.14902, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "70
+"
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/ColorRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="note_desc" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer/ColorRect/MarginContainer/HBoxContainer/notes_shablon/ColorRect2/MarginContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 1
-text = "Дорогой дневник, мне не подобрать слов, чтобы описать боль и унижение, которые я испытал сегодня… Моя жизнь поломана навсегда..."
-autowrap_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notes_main/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer2/VBoxContainer" groups=["status_bar"]]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 80.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("12_7mof1")
+texture_progress = ExtResource("13_i36et")
+
+[node name="Label2" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer2/VBoxContainer" groups=["status_bar"]]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "80
+"
+
+[node name="map_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/map_node"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/map_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/map_node/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "КАРТА"
+
+[node name="note_shablon" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer"]
+layout_mode = 2
+
+[node name="back_note_shablon" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Назад"
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Название заметки"
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="button_part_2_1" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="button_part_2_2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="button_part_2_3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="button_part_2_4" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ActionButtons" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer"]
-visible = false
-custom_minimum_size = Vector2(580, 670)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_fs8tr")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/ActionButtons"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/margin_left = 150
-theme_override_constants/margin_top = 210
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer"]
-layout_mode = 2
-
-[node name="eqip_button" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer" groups=["button_action_item"]]
-layout_mode = 2
-texture_normal = ExtResource("7_8spf8")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer/eqip_button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jd0m0")
-theme_override_font_sizes/font_size = 35
-text = "Eqip"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="drop_button" type="TextureButton" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer" groups=["button_action_item"]]
-layout_mode = 2
-texture_normal = ExtResource("7_8spf8")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/ActionButtons/MarginContainer/VBoxContainer/drop_button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_jd0m0")
-theme_override_font_sizes/font_size = 35
-text = "Drop"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer"]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tqa4h")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 400)
-layout_mode = 2
-color = Color(0.2, 0.2, 0.2, 1)
-
-[node name="part_tab" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer"]
-modulate = Color(0.352941, 0.352941, 0.352941, 1)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 8
-texture = ExtResource("13_qgxu8")
-stretch_mode = 2
-
-[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer2" groups=["part_human_texture"]]
-layout_mode = 2
-size_flags_horizontal = 10
-texture = ExtResource("14_57pgf")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer2"]
-modulate = Color(0.352941, 0.352941, 0.352941, 1)
-layout_mode = 2
-texture = ExtResource("15_sq6fb")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer2" groups=["part_human_texture"]]
-layout_mode = 2
-size_flags_horizontal = 2
-texture = ExtResource("14_57pgf")
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3" groups=["part_human_texture"]]
-layout_mode = 2
-texture = ExtResource("16_7kt8k")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3" groups=["part_human_texture"]]
-layout_mode = 2
-texture = ExtResource("16_7kt8k")
-
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ColorRect/part_tab/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="item_apple" parent="." instance=ExtResource("11_s5wqk")]
 visible = false
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-40, 56)
+
+[node name="Node" type="Node" parent="."]
