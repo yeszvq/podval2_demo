@@ -18,7 +18,13 @@ func _ready():
 #Передвижение и проигрывание анимаций движения или простоя
 #P.s: надо найти более оптимизированный вариант реализации
 func get_input():
+	speed = 50
 	input_direction = Input.get_vector("left", "right", "up", "down")
+	if input_direction.x != 0 && input_direction.y != 0:
+		input_direction = Vector2(input_direction.x * 2, input_direction.y)
+		speed = speed / 1.5
+	print("Input_direction: " + str(input_direction))
+	print("Speed: " + str(speed))
 	velocity = input_direction * speed
 	if input_direction.x > 0 && input_direction.y > 0:
 		frames.play("down_right")
