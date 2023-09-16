@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://doppnjet67bl5"]
+[gd_scene load_steps=5 format=3 uid="uid://doppnjet67bl5"]
 
 [ext_resource type="SpriteFrames" uid="uid://d1gj7qcg70rvm" path="res://assets/sprite/characters/main/animation/hero_animation.tres" id="1_isq37"]
 [ext_resource type="Script" path="res://src/hero.gd" id="1_wiupy"]
-[ext_resource type="PackedScene" uid="uid://c7hlxvui7w24x" path="res://scene/menu/pain_ui.tscn" id="3_nlqhy"]
-[ext_resource type="PackedScene" uid="uid://csgtictlysx8j" path="res://scene/menu/brain_ui.tscn" id="4_46qxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2e48j"]
 size = Vector2(11, 16)
@@ -28,7 +26,7 @@ shape = SubResource("RectangleShape2D_2e48j")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 1)
@@ -37,27 +35,12 @@ shape = SubResource("RectangleShape2D_qqjqm")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
-[node name="ui" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -192.0
-offset_top = -108.0
-offset_right = 192.0
-offset_bottom = 108.0
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
-[node name="brain_ui" parent="ui" instance=ExtResource("4_46qxt")]
-layout_mode = 0
-offset_left = 7.99994
-offset_top = 20.0
-offset_right = 282.0
-offset_bottom = 46.0
-
-[node name="pain_ui" parent="ui" instance=ExtResource("3_nlqhy")]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 282.0
-offset_bottom = 30.0
-
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
