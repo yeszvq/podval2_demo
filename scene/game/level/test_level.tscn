@@ -1,21 +1,197 @@
-[gd_scene load_steps=21 format=3 uid="uid://bepjk16jikn80"]
+[gd_scene load_steps=27 format=3 uid="uid://bepjk16jikn80"]
 
 [ext_resource type="Texture2D" uid="uid://d2d0hptweuc2i" path="res://assets/sprite/object/image.png" id="1_t7mr3"]
+[ext_resource type="Script" path="res://test/test_level.gd" id="1_w8w8o"]
 [ext_resource type="PackedScene" uid="uid://doppnjet67bl5" path="res://scene/game/characters/player.tscn" id="2_pdvt1"]
+[ext_resource type="Texture2D" uid="uid://cfxviermr381a" path="res://assets/sprite/object/image_2.png" id="2_xgpav"]
 [ext_resource type="Script" path="res://src/TileMap.gd" id="2_xkvuo"]
-[ext_resource type="PackedScene" uid="uid://c7hlxvui7w24x" path="res://scene/menu/pain_ui.tscn" id="4_v8vki"]
-[ext_resource type="PackedScene" uid="uid://csgtictlysx8j" path="res://scene/menu/brain_ui.tscn" id="5_3c4n4"]
-[ext_resource type="Script" path="res://src/inventory/Inventar_UI_Grid.gd" id="6_jbry4"]
-[ext_resource type="PackedScene" uid="uid://kh1m1tne2pb0" path="res://scene/menu/inventory_ui/item_slot.tscn" id="6_lgf63"]
-[ext_resource type="Script" path="res://src/inventory/Inventar_UI_Button.gd" id="8_0hvhd"]
-[ext_resource type="Script" path="res://src/inventory/Inventar_UI_Button_drop_count.gd" id="9_hiqmi"]
-[ext_resource type="Script" path="res://src/inventory/Inventar_UI_Button_2.gd" id="9_w5bre"]
-[ext_resource type="Script" path="res://src/inventory/count_label_item.gd" id="10_kbked"]
-[ext_resource type="PackedScene" uid="uid://beafq4imka17d" path="res://scene/game/items/apple.tscn" id="10_mffgm"]
-[ext_resource type="Script" path="res://src/inventory/trash_script.gd" id="10_soegk"]
-[ext_resource type="Script" path="res://src/inventory/slider_change_value_drop_count.gd" id="10_xuigh"]
-[ext_resource type="PackedScene" uid="uid://jvx65814lxi3" path="res://scene/game/items/armor.tscn" id="11_ne766"]
-[ext_resource type="Script" path="res://src/inventory/slider_change_value_button_back.gd" id="12_1d7b6"]
+[ext_resource type="StyleBox" uid="uid://ddd6sbci1xa1h" path="res://theme/stylebox_modulate_0.tres" id="4_jgy30"]
+[ext_resource type="Script" path="res://src/inventory/HUD.gd" id="5_ajds7"]
+[ext_resource type="Texture2D" uid="uid://csoq0ptfkk6cj" path="res://assets/sprite/ui/notebook/list_sprite.png" id="6_0bsnx"]
+[ext_resource type="Texture2D" uid="uid://bke6u2lui1tf8" path="res://assets/sprite/ui/notebook/part_button_1.png" id="7_p7fhg"]
+[ext_resource type="Texture2D" uid="uid://df7mr66bao31s" path="res://assets/sprite/ui/notebook/part_button_2.png" id="8_w7xdh"]
+[ext_resource type="Texture2D" uid="uid://coc11q4vwjnkk" path="res://assets/sprite/ui/notebook/human_part/head.png" id="9_jtfma"]
+[ext_resource type="Texture2D" uid="uid://lwrdml1lfsy8" path="res://assets/sprite/ui/notebook/human_part/l_arm.png" id="9_v4ngu"]
+[ext_resource type="Texture2D" uid="uid://b00cafxfcnvm5" path="res://assets/sprite/ui/notebook/human_part/body.png" id="10_mhmei"]
+[ext_resource type="Texture2D" uid="uid://bc5tubyacxvw0" path="res://assets/sprite/ui/notebook/heart_white.png" id="10_rpthl"]
+[ext_resource type="Texture2D" uid="uid://cr8sxtnyh4lr1" path="res://assets/sprite/ui/notebook/heart_red.png" id="11_c52p4"]
+[ext_resource type="PackedScene" uid="uid://beafq4imka17d" path="res://scene/game/items/apple.tscn" id="11_s5wqk"]
+[ext_resource type="Texture2D" uid="uid://2y2hc8kxf61k" path="res://assets/sprite/ui/notebook/brain_white.png" id="12_7mof1"]
+[ext_resource type="Texture2D" uid="uid://b018l7rwyqrn4" path="res://assets/sprite/ui/notebook/human_part/leg_up.png" id="12_ypt84"]
+[ext_resource type="Texture2D" uid="uid://b6s08gx84tf0l" path="res://assets/sprite/ui/notebook/human_part/leg_dw_l.png" id="13_fob5v"]
+[ext_resource type="Texture2D" uid="uid://dgw5qlvtx0lsk" path="res://assets/sprite/ui/notebook/braind_red.png" id="13_i36et"]
+[ext_resource type="Texture2D" uid="uid://c33ou4120sevd" path="res://assets/sprite/ui/notebook/human_part/leg_dw_r.png" id="14_7t7qm"]
+[ext_resource type="Texture2D" uid="uid://cr83lyu4acf03" path="res://assets/sprite/ui/notebook/human_part/r_arm.png" id="15_wubpr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fe5jj"]
+texture = ExtResource("2_xgpav")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 8)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 8)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 8)
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, 8)
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 8)
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, 8)
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, 8)
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, 8)
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0 = 0
+5:1/0/texture_origin = Vector2i(0, 8)
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, 8)
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, 8)
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, 8)
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, 8)
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0 = 0
+4:2/0/texture_origin = Vector2i(0, 8)
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(0, 8)
+5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:2/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(0, 8)
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/texture_origin = Vector2i(0, 8)
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0 = 0
+2:3/0/texture_origin = Vector2i(0, 8)
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/texture_origin = Vector2i(0, 8)
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0 = 0
+4:3/0/texture_origin = Vector2i(0, 8)
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+5:3/0 = 0
+5:3/0/texture_origin = Vector2i(0, 8)
+5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:3/0/physics_layer_0/angular_velocity = 0.0
+0:4/0 = 0
+0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:4/0/physics_layer_0/angular_velocity = 0.0
+1:4/0 = 0
+1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0 = 0
+2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:4/0/physics_layer_0/angular_velocity = 0.0
+3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
+4:4/0 = 0
+4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:4/0/physics_layer_0/angular_velocity = 0.0
+5:4/0 = 0
+5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:4/0/physics_layer_0/angular_velocity = 0.0
+0:5/0 = 0
+0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:5/0/physics_layer_0/angular_velocity = 0.0
+1:5/0 = 0
+1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0 = 0
+3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:5/0/physics_layer_0/angular_velocity = 0.0
+4:5/0 = 0
+4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:5/0/physics_layer_0/angular_velocity = 0.0
+5:5/0 = 0
+5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:5/0/physics_layer_0/angular_velocity = 0.0
+0:6/0 = 0
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+1:6/0 = 0
+1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:6/0/physics_layer_0/angular_velocity = 0.0
+2:6/0 = 0
+2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:6/0/physics_layer_0/angular_velocity = 0.0
+3:6/0 = 0
+3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:6/0/physics_layer_0/angular_velocity = 0.0
+4:6/0 = 0
+4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:6/0/physics_layer_0/angular_velocity = 0.0
+5:6/0 = 0
+5:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:6/0/physics_layer_0/angular_velocity = 0.0
+0:7/0 = 0
+0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_0/angular_velocity = 0.0
+1:7/0 = 0
+1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:7/0/physics_layer_0/angular_velocity = 0.0
+2:7/0 = 0
+2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:7/0/physics_layer_0/angular_velocity = 0.0
+3:7/0 = 0
+3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:7/0/physics_layer_0/angular_velocity = 0.0
+4:7/0 = 0
+4:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/0/physics_layer_0/angular_velocity = 0.0
+5:7/0 = 0
+5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3d2jg"]
 texture = ExtResource("1_t7mr3")
@@ -24,9 +200,6 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
@@ -34,9 +207,11 @@ texture_region_size = Vector2i(32, 32)
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 8)
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, 8)
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
@@ -52,15 +227,19 @@ texture_region_size = Vector2i(32, 32)
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
 4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, 8)
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
 5:1/0 = 0
+5:1/0/texture_origin = Vector2i(0, 8)
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, 8)
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, 8)
 1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0 = 0
@@ -76,9 +255,11 @@ texture_region_size = Vector2i(32, 32)
 5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:2/0/physics_layer_0/angular_velocity = 0.0
 0:3/0 = 0
+0:3/0/texture_origin = Vector2i(0, 8)
 0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:3/0/physics_layer_0/angular_velocity = 0.0
 1:3/0 = 0
+1:3/0/texture_origin = Vector2i(0, 8)
 1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:3/0/physics_layer_0/angular_velocity = 0.0
 2:3/0 = 0
@@ -165,6 +346,54 @@ texture_region_size = Vector2i(32, 32)
 5:7/0 = 0
 5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:7/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 8)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_py626"]
+texture = ExtResource("1_t7mr3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 4)
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_3sp4n"]
 tile_shape = 1
@@ -172,30 +401,44 @@ tile_size = Vector2i(32, 16)
 physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_3d2jg")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w88em"]
-bg_color = Color(0.254902, 0.227451, 0.529412, 1)
-
-[sub_resource type="Theme" id="Theme_v2vsn"]
+sources/2 = SubResource("TileSetAtlasSource_py626")
+sources/0 = SubResource("TileSetAtlasSource_fe5jj")
 
 [node name="test_level" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_w8w8o")
+metadata/_edit_vertical_guides_ = [-232.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -7)
 tile_set = SubResource("TileSet_3sp4n")
+cell_quadrant_size = 32
 format = 2
 layer_0/name = "Пол"
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(65536, 65537, 0, 1, 65537, 0, 65537, 65537, 0, 131073, 65537, 0, 196608, 65537, 0, 262145, 65537, 0, 196609, 65537, 0, 131074, 65537, 0, 196610, 65537, 0, 262146, 65537, 0, 327682, 65537, 0, 393218, 65537, 0, 327681, 65537, 0, 393217, 65537, 0, 458752, 65537, 0, 589824, 65537, 0, 655360, 65537, 0, 524289, 65537, 0, 458753, 65537, 0, 262147, 65537, 0, 327683, 65537, 0, 393219, 65537, 0, 458754, 65537, 0, 524290, 65537, 0, 589825, 65537, 0, 655361, 65537, 0, 720897, 65537, 0, 786433, 65537, 0, 720896, 65537, 0, 655362, 65537, 0, 589826, 65537, 0, 524291, 65537, 0, 458755, 65537, 0, 393220, 65537, 0, 524288, 65537, 0, 851968, 65537, 0, 917504, 65537, 0, 983040, 65537, 0, 917505, 65537, 0, 851969, 65537, 0, 786434, 65537, 0, 720898, 65537, 0, 655363, 65537, 0, 589827, 65537, 0, 524292, 65537, 0, 458756, 65537, 0, 393221, 65537, 0, 327684, 65537, 0, 262148, 65537, 0, 196611, 65537, 0, 131075, 65537, 0, 65538, 65537, 0, 2, 65537, 0, -65536, 65537, 0, -131071, 65537, 0, -65535, 65537, 0, 0, 65537, 0, 131071, 65537, 0, 196607, 65537, 0, 262142, 65537, 0, 327678, 65537, 0, 393214, 65537, 0, 458750, 65537, 0, 524285, 65537, 0, 327679, 65537, 0, 262143, 65537, 0, 131072, 65537, 0, 262144, 65537, 0, 393215, 65537, 0, 458751, 65537, 0, 524286, 65537, 0, 589823, 65537, 0, 327680, 65537, 0, 393216, 65537, 0, 524287, 65537, 0, 655359, 65537, 0, 720895, 65537, 0, 786430, 65537, 0, 720894, 65537, 0, 655357, 65537, 0, 589822, 65537, 0, 655358, 65537, 0, 851967, 65537, 0, 786432, 65537, 0, 917503, 65537, 0, 786431, 65537, 0, 393213, 65537, 0, 458749, 65537, 0, 524284, 65537, 0, 589821, 65537, 0, 655356, 65537, 0, 589820, 65537, 0, 720893, 65537, 0, 786429, 65537, 0, 851966, 65537, 0, 917502, 65537, 0, 983039, 65537, 0, 1048575, 65537, 0, 1048576, 65537, 0)
+layer_0/tile_data = PackedInt32Array(131070, 0, 0, 65535, 0, 0, -1, 0, 0, -131072, 0, 0, -196608, 0, 0, 196607, 0, 0, 131071, 0, 0, 0, 0, 0, -65536, 0, 0, -131071, 0, 0, -65535, 0, 0, 1, 0, 0, 65536, 0, 0, 131072, 0, 0, 262143, 0, 0, -655356, 65536, 0, -720892, 65536, 0, -786427, 65536, 0, -851963, 65536, 0, -786426, 65536, 0, -720891, 65536, 0, -655355, 65536, 0, -589820, 65536, 0, -524283, 65536, 0, -589819, 65536, 0, -655354, 65536, 0, -720890, 65536, 0, -786425, 65536, 0, -851962, 65536, 0, -917498, 65536, 0, 7, 65536, 0, 262153, 65537, 0, -262135, 65537, 0)
 layer_1/name = "Стены"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(524283, 1, 0, 458748, 1, 0, 393212, 1, 0, 327677, 1, 0, 262141, 1, 0, 196606, 1, 0, 131070, 1, 0, 65535, 1, 0, -1, 1, 0, -131072, 1, 0, -196608, 1, 0, -196607, 1, 0, -131070, 1, 0, -65534, 1, 0, -262143, 1, 0, 3, 1, 0, 65539, 1, 0, 131076, 1, 0, 196612, 1, 0, 262149, 1, 0, 327685, 1, 0, 589820, 1, 0, 655356, 1, 0, 720893, 1, 0, 786429, 1, 0, 851966, 1, 0, 917502, 1, 0, 983039, 1, 0, 1048575, 1, 0, 1048576, 1, 0, 983040, 1, 0, 917505, 1, 0, 851969, 1, 0, 786434, 1, 0, 720898, 1, 0, 655363, 1, 0, 589827, 1, 0, 524292, 1, 0, 458756, 1, 0, 393221, 1, 0)
+layer_1/tile_data = PackedInt32Array(-65537, 65536, 2, -131073, 65536, 2, -262144, 65536, 2, -327680, 327680, 1, -262143, 0, 2, -196607, 262144, 1, -2, 262144, 0, 65535, 65536, 3, -720892, 65536, 2, -786427, 65536, 2, -851963, 65536, 2, -917498, 327680, 1, -851962, 0, 2, -655356, 262144, 0, -786425, 262144, 1, 7, 0, 0, 262153, 0, 0, -393207, 1, 0)
+layer_2/name = "Стены_2"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 2
+layer_2/tile_data = PackedInt32Array(-196609, 65536, 2, -262145, 65536, 2, -393216, 65536, 2, -458752, 327680, 1, -131074, 262144, 0, -65537, 65536, 3, -393215, 0, 2, -327679, 262144, 1, -851964, 65536, 2, -917499, 65536, 2, -983035, 65536, 2, -1048570, 327680, 1, -983034, 0, 2, -786428, 262144, 0, -917497, 262144, 1)
+layer_3/name = "Стены_3"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = true
+layer_3/y_sort_origin = 0
+layer_3/z_index = 3
+layer_3/tile_data = PackedInt32Array()
 script = ExtResource("2_xkvuo")
 
 [node name="player" parent="." instance=ExtResource("2_pdvt1")]
@@ -205,22 +448,23 @@ position = Vector2(35, 43)
 layer = 2
 follow_viewport_scale = 2.0
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
-layout_mode = 3
+[node name="HUD" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+theme_override_styles/panel = ExtResource("4_jgy30")
+script = ExtResource("5_ajds7")
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -229,181 +473,376 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer"]
 layout_mode = 2
 
-[node name="brain_ui" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer" instance=ExtResource("5_3c4n4")]
+[node name="notepad_main_node" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer"]
+custom_minimum_size = Vector2(450, 570)
+layout_mode = 2
+texture = ExtResource("6_0bsnx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="button_part_1_1" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="button_part_1_2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="button_part_1_3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="button_part_1_4" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/VBoxContainer" groups=["button_part_1"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("7_p7fhg")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 40
+
+[node name="notes_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node"]
 layout_mode = 2
 
-[node name="pain_ui" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer" instance=ExtResource("4_v8vki")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node/VBoxContainer"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w88em")
-
-[node name="Inventar_UI_Grid" type="GridContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
-layout_mode = 2
-theme = SubResource("Theme_v2vsn")
-columns = 3
-script = ExtResource("6_jbry4")
-
-[node name="ItemSlot" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-
-[node name="ItemSlot2" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 1
-
-[node name="ItemSlot3" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 2
-
-[node name="ItemSlot4" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 3
-
-[node name="ItemSlot5" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 4
-
-[node name="ItemSlot6" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 5
-
-[node name="ItemSlot7" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 6
-
-[node name="ItemSlot8" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 7
-
-[node name="ItemSlot9" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/Inventar_UI_Grid" instance=ExtResource("6_lgf63")]
-layout_mode = 2
-index = 8
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Inventar_UI_Button" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-script = ExtResource("8_0hvhd")
-
-[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2/Inventar_UI_Button"]
-layout_mode = 2
-text = "Использовать
-"
-
-[node name="Button2" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer2/Inventar_UI_Button"]
-layout_mode = 2
-text = "Выкинуть
-"
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Inventar_UI_Button_2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-script = ExtResource("9_hiqmi")
-
-[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/Inventar_UI_Button_2"]
-custom_minimum_size = Vector2(215, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-text = "Выкинуть несколько"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-script = ExtResource("10_soegk")
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-script = ExtResource("10_kbked")
-
-[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/PanelContainer"]
-layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "ЗАМЕТКИ"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
-custom_minimum_size = Vector2(215, 31)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/notes_node/VBoxContainer"]
 layout_mode = 2
-script = ExtResource("10_xuigh")
+theme_override_constants/separation = 10
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/VBoxContainer"]
+[node name="inv_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+visible = false
 layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Подвердить"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "ИНВЕНТАРЬ"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/inv_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="status_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "СОСТОЯНИЕ"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="head_body" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+
+[node name="head" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer"]
+custom_minimum_size = Vector2(68, 72)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("9_jtfma")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="body" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("10_mhmei")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+
+[node name="leg_up" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer3"]
+custom_minimum_size = Vector2(68, 72)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("12_ypt84")
+expand_mode = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer5"]
+custom_minimum_size = Vector2(44, 68)
+layout_mode = 2
+texture = ExtResource("13_fob5v")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/head_body/HBoxContainer5"]
+custom_minimum_size = Vector2(44, 68)
+layout_mode = 2
+texture = ExtResource("14_7t7qm")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 68
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 57
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 104)
+layout_mode = 2
+texture = ExtResource("9_v4ngu")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/PanelContainer/PanelContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 104)
+layout_mode = 2
+texture = ExtResource("15_wubpr")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Inventar_UI_Button_2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-script = ExtResource("9_w5bre")
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3/Inventar_UI_Button_2"]
-custom_minimum_size = Vector2(215, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
-text = "Отмена выбора"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(215, 31)
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/VBoxContainer" groups=["status_bar"]]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
-script = ExtResource("12_1d7b6")
+size_flags_horizontal = 4
+value = 70.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("10_rpthl")
+texture_progress = ExtResource("11_c52p4")
 
-[node name="Button" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
-custom_minimum_size = Vector2(215, 31)
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/VBoxContainer" groups=["status_bar"]]
 layout_mode = 2
-text = "Отмена"
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "70
+"
 
-[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("4_jgy30")
 
-[node name="item_apple_2" parent="." instance=ExtResource("10_mffgm")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer2/VBoxContainer" groups=["status_bar"]]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 80.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("12_7mof1")
+texture_progress = ExtResource("13_i36et")
+
+[node name="Label2" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/status_node/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer2/VBoxContainer" groups=["status_bar"]]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "80
+"
+
+[node name="map_node" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer" groups=["node_ui_notebook"]]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/map_node"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/map_node/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/map_node/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "КАРТА"
+
+[node name="note_shablon" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_jgy30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer"]
+layout_mode = 2
+
+[node name="back_note_shablon" type="Button" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Назад"
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Название заметки"
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/PanelContainer/TextureRect/PanelContainer/MarginContainer/note_shablon/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="button_part_2_1" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="button_part_2_2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="button_part_2_3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="button_part_2_4" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node/VBoxContainer" groups=["button_part_2"]]
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+texture = ExtResource("8_w7xdh")
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notepad_main_node"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="item_apple" parent="." instance=ExtResource("11_s5wqk")]
+visible = false
 z_index = 1
-position = Vector2(-16, 56)
+y_sort_enabled = true
+position = Vector2(-40, 56)
 
-[node name="item_armor" parent="." instance=ExtResource("11_ne766")]
-z_index = 1
-position = Vector2(24, 80)
-
-[node name="item_apple_3" parent="." instance=ExtResource("10_mffgm")]
-z_index = 1
-position = Vector2(48, 8)
-
-[node name="item_armor_2" parent="." instance=ExtResource("11_ne766")]
-z_index = 1
-position = Vector2(104, 40)
-
-[node name="item_apple_4" parent="." instance=ExtResource("10_mffgm")]
-z_index = 1
-position = Vector2(80, 24)
-
-[connection signal="value_changed" from="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/VBoxContainer/HSlider" to="CanvasLayer/HUD/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/PanelContainer" method="_on_h_slider_value_changed"]
+[node name="Node" type="Node" parent="."]
