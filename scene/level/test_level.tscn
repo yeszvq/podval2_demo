@@ -1,0 +1,674 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scene/characters/hero.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/object/image_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/resourse/theme and stylebox/styleboxflat_modulate_0.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/sprites/ui/notebook/list_sprite.png" type="Texture" id=4]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/ui/notebook/part_button_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/ui/notebook/part_button_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/font_40.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/fonts/font_25.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/sprites/ui/notebook/heart_white.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/items/apple.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/ui/notebook/brain_white.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/ui/notebook/braind_red.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/ui/notebook/heart_red.png" type="Texture" id=14]
+
+[sub_resource type="TileSet" id=1]
+0/name = "image_2.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, -16 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 32, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=2]
+0/name = "image_2.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, -16 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 64, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "image_2.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, -16 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 32, 64, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "image_2.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, -16 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 96, 32, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "image_2.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, -16 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 32, 96, 32, 32 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "image_2.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, -16 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 128, 0, 32, 32 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "image_2.png 5"
+5/texture = ExtResource( 2 )
+5/tex_offset = Vector2( 0, -16 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 160, 0, 32, 32 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "image_2.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, -16 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 128, 32, 32, 32 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "image_2.png 7"
+7/texture = ExtResource( 2 )
+7/tex_offset = Vector2( 0, -16 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 160, 32, 32, 32 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+
+[sub_resource type="TileSet" id=3]
+0/name = "image_2.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, -16 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 64, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "image_2.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, -16 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 96, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "image_2.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, -16 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 32, 64, 32, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "image_2.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, -16 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 128, 0, 32, 32 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "image_2.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, -16 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 128, 32, 32, 32 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "image_2.png 5"
+5/texture = ExtResource( 2 )
+5/tex_offset = Vector2( 0, -16 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 160, 0, 32, 32 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "image_2.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, -16 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 160, 32, 32, 32 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "image_2.png 7"
+7/texture = ExtResource( 2 )
+7/tex_offset = Vector2( 0, -16 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 32, 96, 32, 32 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+
+[node name="test_level" type="Node2D"]
+
+[node name="hero" parent="." instance=ExtResource( 1 )]
+
+[node name="map_layer_1" type="TileMap" parent="."]
+z_index = -99
+mode = 1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 16 )
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( -589833, 0, 0, -589832, 0, 0, -589831, 0, 0, -589830, 0, 0, -524297, 0, 0, -524296, 0, 0, -524295, 0, 0, -524294, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0 )
+
+[node name="map_layer_2" type="TileMap" parent="."]
+z_index = -98
+mode = 1
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( -655370, 7, 0, -655369, 0, 0, -655368, 0, 0, -655367, 0, 0, -589834, 1, 0, -524298, 1, 0, -458762, 1, 0, -393226, 1, 0, -327690, 1, 0, -262154, 1, 0, -196618, 1, 0, -131082, 4, 0, -131081, 3, 0 )
+
+[node name="map_layer_3" type="TileMap" parent="."]
+z_index = -97
+mode = 1
+tile_set = SubResource( 3 )
+cell_size = Vector2( 32, 16 )
+format = 1
+tile_data = PoolIntArray( -720907, 6, 0, -720906, 0, 0, -720905, 0, 0, -720904, 0, 0, -655371, 2, 0, -589835, 2, 0, -524299, 2, 0, -458763, 2, 0, -393227, 2, 0, -327691, 2, 0, -262155, 2, 0, -196619, 3, 0, -196618, 7, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="PanelContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+script = ExtResource( 5 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1910.0
+margin_bottom = 1070.0
+
+[node name="notebook" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer"]
+margin_right = 1900.0
+margin_bottom = 570.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook"]
+margin_right = 450.0
+margin_bottom = 570.0
+rect_min_size = Vector2( 450, 570 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="notebook_button" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button"]
+margin_right = 450.0
+margin_bottom = 570.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer"]
+margin_right = 450.0
+margin_bottom = 100.0
+custom_constants/margin_top = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer"]
+margin_top = 104.0
+margin_right = 450.0
+margin_bottom = 164.0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer"]
+margin_right = 416.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="button_part_1_1" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer" groups=["button_part_1"]]
+margin_left = 420.0
+margin_right = 450.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer"]
+margin_top = 168.0
+margin_right = 450.0
+margin_bottom = 228.0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer2"]
+margin_right = 416.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="button_part_1_2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer2" groups=["button_part_1"]]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 420.0
+margin_right = 450.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer"]
+margin_top = 232.0
+margin_right = 450.0
+margin_bottom = 292.0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer3"]
+margin_right = 416.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="button_part_1_3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer3" groups=["button_part_1"]]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 420.0
+margin_right = 450.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer"]
+margin_top = 296.0
+margin_right = 450.0
+margin_bottom = 356.0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer4"]
+margin_right = 416.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="button_part_1_4" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/notebook_button/VBoxContainer/HBoxContainer4" groups=["button_part_1"]]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 420.0
+margin_right = 450.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect"]
+margin_right = 450.0
+margin_bottom = 570.0
+custom_constants/margin_right = 43
+custom_constants/margin_top = 80
+custom_constants/margin_left = 31
+custom_constants/margin_bottom = 20
+
+[node name="notebook_notes" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
+visible = false
+margin_left = 31.0
+margin_top = 80.0
+margin_right = 407.0
+margin_bottom = 550.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_notes"]
+margin_right = 376.0
+margin_bottom = 470.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_notes/VBoxContainer"]
+margin_right = 376.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Заметки"
+align = 1
+valign = 1
+
+[node name="notebook_inventory" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
+visible = false
+margin_left = 31.0
+margin_top = 80.0
+margin_right = 407.0
+margin_bottom = 550.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_inventory"]
+margin_right = 376.0
+margin_bottom = 470.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_inventory/VBoxContainer"]
+margin_right = 376.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Инвентарь"
+align = 1
+valign = 1
+
+[node name="notebook_status" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
+margin_left = 31.0
+margin_top = 80.0
+margin_right = 407.0
+margin_bottom = 550.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status"]
+margin_right = 376.0
+margin_bottom = 470.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer"]
+margin_right = 376.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Статус"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer"]
+margin_top = 44.0
+margin_right = 376.0
+margin_bottom = 64.0
+custom_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer"]
+margin_top = 68.0
+margin_right = 376.0
+margin_bottom = 372.0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer"]
+margin_right = 243.0
+margin_bottom = 304.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer"]
+margin_left = 247.0
+margin_right = 367.0
+margin_bottom = 304.0
+
+[node name="heart_bar" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 120, 150 )
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar"]
+margin_right = 120.0
+margin_bottom = 150.0
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+texture_over = ExtResource( 10 )
+texture_progress = ExtResource( 14 )
+fill_mode = 3
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer"]
+margin_top = 124.0
+margin_right = 120.0
+margin_bottom = 150.0
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "0"
+align = 1
+
+[node name="brain_bar" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 120.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 120, 150 )
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar"]
+margin_right = 120.0
+margin_bottom = 150.0
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+value = 100.0
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 13 )
+fill_mode = 3
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer"]
+margin_top = 124.0
+margin_right = 120.0
+margin_bottom = 150.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "100"
+align = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer"]
+margin_left = 371.0
+margin_right = 376.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 5, 0 )
+
+[node name="notebook_map" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
+visible = false
+margin_left = 31.0
+margin_top = 80.0
+margin_right = 407.0
+margin_bottom = 550.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_map"]
+margin_right = 376.0
+margin_bottom = 470.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_map/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Карта"
+align = 1
+valign = 1
+
+[node name="note_shablon" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer"]
+visible = false
+margin_left = 31.0
+margin_top = 80.0
+margin_right = 407.0
+margin_bottom = 550.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon"]
+margin_right = 376.0
+margin_bottom = 470.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer"]
+margin_right = 376.0
+margin_bottom = 26.0
+
+[node name="note_shablon_name" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
+margin_right = 210.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Название заметки"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
+margin_left = 214.0
+margin_right = 230.0
+margin_bottom = 26.0
+texture = ExtResource( 11 )
+stretch_mode = 4
+
+[node name="note_shablon_content" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer"]
+margin_top = 30.0
+margin_right = 376.0
+margin_bottom = 73.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Тут какой-то текст в общем мне пизда и хз что делать, вооот"
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook"]
+margin_left = 450.0
+margin_right = 480.0
+margin_bottom = 570.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/VBoxContainer"]
+margin_right = 30.0
+margin_bottom = 100.0
+custom_constants/margin_top = 100
+
+[node name="button_part_2_1" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/VBoxContainer" groups=["button_part_2"]]
+margin_top = 104.0
+margin_right = 30.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[node name="button_part_2_2" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/VBoxContainer" groups=["button_part_2"]]
+margin_top = 168.0
+margin_right = 30.0
+margin_bottom = 228.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[node name="button_part_2_3" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/VBoxContainer" groups=["button_part_2"]]
+margin_top = 232.0
+margin_right = 30.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[node name="button_part_2_4" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/VBoxContainer" groups=["button_part_2"]]
+margin_top = 296.0
+margin_right = 30.0
+margin_bottom = 356.0
+rect_min_size = Vector2( 30, 60 )
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[connection signal="gui_input" from="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer/TextureRect" to="CanvasLayer/HUD" method="_on_TextureRect_gui_input"]
