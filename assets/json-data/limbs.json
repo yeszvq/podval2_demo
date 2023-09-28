@@ -1,18 +1,39 @@
 {
-    "arm left": {
+    "left_arm": {
         "name": "левая рука",
-        "damage": 0
+        "damage": 0,
+        "lost": false,
+        "category": "arms"
     },
-    "arm right": {
+    "right_arm": {
         "name": "правая рука",
-        "damage": 0
+        "damage": 0,
+        "lost": false,
+        "category": "arms"
     },
-    "leg_dw_l": {
-        "name": "левая ступня",
-        "damage": 0
+    "left_leg": {
+        "name": "левая нога",
+        "damage": 0,
+        "lost": false,
+        "category": "legs"
     },
-    "leg_dw_r": {
-        "name": "правая ступня",
-        "damage": 0
+    "right_leg": {
+        "name": "правая нога",
+        "damage": 0,
+        "lost": false,
+        "category": "legs"
+    },
+    "left_eye": {
+        "name": "левый глаз",
+        "damage": 0,
+        "lost": false,
+        "category": "eyes"
+    },
+    "rigth_eye": {
+        "name": "правый глаз",
+        "damage": 0,
+        "lost": false,
+        "category": "eyes"
     }
+
 }

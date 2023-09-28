@@ -1,11 +1,33 @@
 extends KinematicBody2D
 
 #перменные для передвижения
+var normal_speed = 50
 var speed = 50
 var input_direction
 var previos_direction = Vector2(0,1)
 var velocity = Vector2()
+var dialog_open = false
 
+func _ready():
+	Events.connect("update_hero_parametrs", self, "update_hero_parametrs")
+	Events.connect("end_dialog", self, "end_dialog")
+	pass
+
+func end_dialog():
+	dialog_open = false
+	pass
+
+func update_hero_parametrs(category, count):
+	match category:
+		"move":
+			if count == 0:
+				speed = normal_speed
+			if count == 1:
+				speed = normal_speed / 2
+			if count == 2:
+				speed = normal_speed / 4
+	pass
+	
 func get_input():
 	var temp = Vector2()
 	input_direction = Input.get_vector("left", "right", "up", "down")
@@ -22,13 +44,20 @@ func get_input():
 	velocity = input_direction * speed
 	
 func _input(event):
-	if Input.is_action_just_released("open_notebook"):
+	if Input.is_action_just_released("open_notebook") && dialog_open == false:
 		Events.emit_signal("open_notebook")
+	if Input.is_action_just_released("test") && dialog_open == false:
+		var temp = "test"
+		Events.emit_signal("start_dialogue", temp)
+		dialog_open = true
 	pass
 	
 func _process(delta):
-	get_input()
-	velocity = move_and_slide(velocity)
+	if dialog_open == false:
+		get_input()
+		velocity = move_and_slide(velocity)
+	else:
+		$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 	pass
 
 

@@ -1,7 +1,13 @@
 extends PanelContainer
 
+#переменные хранящие пути узлов
 var notebook_path
 var path_other = []
+
+#переменные хранящие отличные от путей узлов типы
+var page_number = 0
+var dialogue
+
 
 func _ready():
 	#пути узлов
@@ -25,12 +31,56 @@ func _ready():
 	#progress_bar и label отвечающие за mind 8/9
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer/TextureProgress)
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer/Label)
+	
+	#Пути для работы диалога
+		#путь к самой ноде диалога 10
+	path_other.append($MarginContainer/VBoxContainer/dialogue)
+		#путь к изображению персонажа 11
+	path_other.append($MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/image/VBoxContainer/TextureRect)
+		#путь к имени персонажа 12
+	path_other.append($MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/image/VBoxContainer/Label)
+		#путь к тексту диалога 13
+	path_other.append($MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label)
+	
+	
 	#подключение сигналов
 	Events.connect("open_notebook", self, "open_notebook")
 	for i in get_tree().get_nodes_in_group("button_part_2"):
 		i.connect("gui_input", self, "button_action", [i])
 	Events.connect("update_hero", self, "update_hero")
+	Events.connect("start_dialogue", self, "start_dialogue")
+	path_other[10].connect("gui_input", self, "update_dialogue")
 	pass # Replace with function body.
+
+func update_dialogue(event = null):
+	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
+		if page_number == dialogue.size():
+			path_other[10].visible = false
+			Events.emit_signal("end_dialog")
+			return
+		var temp = dialogue[page_number].split("#")
+		path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
+		path_other[12].text = temp[1]
+		path_other[13].text = temp[2]
+		page_number += 1
+	pass
+
+
+#диалог
+func start_dialogue(name_path):
+	#открываем файл и считываем с него информацию
+	var temp = str("res://assets/dialogue/" + name_path + ".txt")
+	print(temp)
+	var file = File.new()
+	file.open(temp, File.READ)
+	temp = file.get_as_text()
+	file.close()
+	notebook_path.visible = false
+	dialogue = temp.split("\n")
+	update_dialogue()
+	path_other[10].visible = true
+	pass
+
 
 #функция при обновлений значений инвентаря
 func update_hero(index):

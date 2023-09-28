@@ -4,22 +4,22 @@
 [ext_resource path="res://scripts/hero.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.5, 8 )
+extents = Vector2( 3.5, 1.5 )
 
 [node name="hero" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, 0 )
+position = Vector2( -0.5, 6.5 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "run_-1_1"
+animation = "idle_0_1"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.3, 0.3 )
+zoom = Vector2( 0.2, 0.2 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
