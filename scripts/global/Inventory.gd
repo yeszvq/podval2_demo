@@ -4,7 +4,7 @@ extends Node
 var items = []
 var notes = []
 var limbs = []
-var pain_mind = [0, 100]
+var pain_mind = [3, 100]
 
 #переменные под регуляцию ограничений геймплея взависимости от потерянных конечностей
 
@@ -16,7 +16,6 @@ var move = 0
 
 #под инвентарь
 var size_items = 9
-
 
 #функция под повреждение конечностей
 func hurt_limb(limb_name, damage):
@@ -43,11 +42,12 @@ func hurt_limb(limb_name, damage):
 					use_inventory = 1
 	pass
 
+#функция которая заставляет обновлять худ при обновление конечностей
 func update_hero_parametrs(category, value):
 	Events.emit_signal("update_hero_parametrs", category, value)
 	pass
 
-
+#функция лечения конечностей
 func heal_limb(limb_name, damage):
 	limbs[limb_name]["damage"] += damage
 	if limbs[limb_name]["damage"] < 100:
@@ -83,10 +83,9 @@ func add_item(item):
 
 #функция изменяющая боль и разум
 func pain_mind_change(index, count):
-	#print("work")
-	if index == 1 && pain_mind[1] > 0:
-		pain_mind[index] += count
+	pain_mind[index] += count
 	update(2)
+
 #функция дающая число предметов в инвентаре
 func count_inv():
 	return items.size()
