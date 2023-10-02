@@ -23,7 +23,6 @@ current = true
 zoom = Vector2( 0.2, 0.2 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -37,4 +36,8 @@ rect_min_size = Vector2( 3, 10 )
 texture = ExtResource( 3 )
 expand = true
 
+[node name="Timer2" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
