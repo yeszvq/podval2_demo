@@ -8,6 +8,8 @@ var path_other = []
 var page_number = 0
 var dialogue
 
+var last_node_dialog
+
 
 func _ready():
 	#пути узлов
@@ -42,6 +44,11 @@ func _ready():
 		#путь к тексту диалога 13
 	path_other.append($MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label)
 	
+	#Пути для работы выборов в диалоге
+		#путь для открытия кнопок выбора в диалоге 14
+	path_other.append($MarginContainer/dialog_chose)
+		#путь к узлу к которому цепляются ноды для выбора 15
+	path_other.append($MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer)
 	
 	#подключение сигналов
 	Events.connect("open_notebook", self, "open_notebook")
@@ -52,6 +59,8 @@ func _ready():
 	path_other[10].connect("gui_input", self, "update_dialogue")
 	pass # Replace with function body.
 
+
+#функция для продолжения диалога при клике по диалогу
 func update_dialogue(event = null):
 	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
 		if page_number == dialogue.size():
@@ -59,18 +68,44 @@ func update_dialogue(event = null):
 			Events.emit_signal("end_dialog")
 			return
 		var temp = dialogue[page_number].split("#")
-		path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
-		path_other[12].text = temp[1]
-		path_other[13].text = temp[2]
-		page_number += 1
+		if temp[0] != "chose":
+			path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
+			path_other[12].text = temp[1]
+			path_other[13].text = temp[2]
+			page_number += 1
+		elif temp[0] == "chose":
+			path_other[14].visible = true
+			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
+			for i in temp.size() - 1:
+				var temp_button = preload("res://scene/object/button_chose.tscn").instance()
+				var temp_2 = temp[i+1].split("_")
+				temp_button.text = temp_2[0]
+				temp_button.connect("button_up", self, "button_chose_action", [temp_2[1], temp_2[2]])
+				path_other[15].add_child(temp_button)
+			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
+			page_number += 1
 	pass
 
+#функция при нажатия на кнопки выбора в диалогах
+func button_chose_action(name_func, value):
+	print(name_func + " " + value)
+	match name_func:
+		"addItem":
+			Inventory.add_item(Global.items[value])
+			path_other[13].text = str("Я подобрал " + Global.items[value]["name"].to_lower())
+		"nothing":
+			path_other[13].text = str("Я просто отойду")
+		"remove":
+			Inventory.remove_item(Global.items[value])
+	path_other[14].visible = false
+	pass
 
 #диалог
 func start_dialogue(name_path):
+	print(last_node_dialog)
+	page_number = 0
 	#открываем файл и считываем с него информацию
 	var temp = str("res://assets/dialogue/" + name_path + ".txt")
-	print(temp)
 	var file = File.new()
 	file.open(temp, File.READ)
 	temp = file.get_as_text()

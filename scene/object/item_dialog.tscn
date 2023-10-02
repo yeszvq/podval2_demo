@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/object/item_dialog.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/object/test_object.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 17.5, 22 )
+
+[node name="item_dialog" type="StaticBody2D"]
+position = Vector2( -164, 106 )
+z_index = 1
+script = ExtResource( 1 )
+item = "apple"
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.5, -2 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

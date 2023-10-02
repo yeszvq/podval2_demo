@@ -1,0 +1,3 @@
+gosha#Гоша#Какое ахуенное яблоко.
+gosha#Гоша#Стоит ли мне его взять?
+chose#Взять_addItem_apple#Не трогать_nothing_null

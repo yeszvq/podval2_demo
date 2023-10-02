@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="Control2" type="Control"]
+margin_right = 286.0
+margin_bottom = 47.0
+size_flags_vertical = 3

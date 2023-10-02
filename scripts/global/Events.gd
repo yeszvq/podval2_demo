@@ -11,5 +11,9 @@ signal update_hero
 signal open_notebook
 
 #сигнал о начале диалога
-signal start_dialogue(name_path)
+signal start_dialogue
 signal end_dialog
+
+#сигнал о появление восклицательного знака у героя
+signal znak_show
+signal znak_hide

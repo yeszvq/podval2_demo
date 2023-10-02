@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scene/characters/hero.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/object/image_2.png" type="Texture" id=2]
@@ -14,7 +14,8 @@
 [ext_resource path="res://assets/sprites/ui/notebook/brain_white.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/ui/notebook/braind_red.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/ui/notebook/heart_red.png" type="Texture" id=14]
-[ext_resource path="res://assets/light/Extra_59.png" type="Texture" id=15]
+[ext_resource path="res://assets/fonts/font_30.tres" type="DynamicFont" id=15]
+[ext_resource path="res://assets/light/light.png" type="Texture" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "image_2.png 0"
@@ -55,6 +56,9 @@ points = PoolVector2Array( 8.75038, 27.6541, 9.21553, 22.305, 9.21553, 16.4908, 
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 15.3567, 15.4443, 32, 23.3516, 24.3881, 27.9642, 15.473, 24.4757, 8.10831, 27.9642, 0.356049, 23.8943 )
+
+[sub_resource type="OccluderPolygon2D" id=13]
+polygon = PoolVector2Array( 15.3564, 14.2258, 30.8609, 9.38065, 15.8409, 0.659363, 0.17485, 8.08862 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 22.7049, 15.5825, 14.7976, 31.6297, 24.1003, 15.3499, 31.5424, 15.3499, 32 )
@@ -235,6 +239,7 @@ points = PoolVector2Array( 0, 22.7049, 15.5825, 14.7976, 31.6297, 24.1003, 15.34
 8/region = Rect2( 0, 0, 32, 32 )
 8/tile_mode = 0
 8/occluder_offset = Vector2( 0, 0 )
+8/occluder = SubResource( 13 )
 8/navigation_offset = Vector2( 0, 0 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -249,6 +254,34 @@ points = PoolVector2Array( 0, 22.7049, 15.5825, 14.7976, 31.6297, 24.1003, 15.34
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 1
+9/name = "image_2.png 9"
+9/texture = ExtResource( 2 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 144, 80, 0, 0 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "image_2.png 10"
+10/texture = ExtResource( 2 )
+10/tex_offset = Vector2( 0, -16 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 128, 64, 32, 32 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
 
 [sub_resource type="TileSet" id=3]
 0/name = "image_2.png 0"
@@ -498,7 +531,6 @@ custom_constants/margin_left = 31
 custom_constants/margin_bottom = 20
 
 [node name="notebook_notes" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
-visible = false
 margin_left = 31.0
 margin_top = 80.0
 margin_right = 407.0
@@ -540,6 +572,7 @@ align = 1
 valign = 1
 
 [node name="notebook_status" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
+visible = false
 margin_left = 31.0
 margin_top = 80.0
 margin_right = 407.0
@@ -548,7 +581,7 @@ custom_styles/panel = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status"]
 margin_right = 376.0
-margin_bottom = 470.0
+margin_bottom = 859.0
 
 [node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer"]
 margin_right = 376.0
@@ -661,8 +694,8 @@ margin_right = 376.0
 margin_bottom = 470.0
 
 [node name="Label" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_map/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 376.0
+margin_bottom = 40.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 8 )
 text = "Карта"
@@ -683,28 +716,36 @@ margin_bottom = 470.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer"]
 margin_right = 376.0
-margin_bottom = 26.0
+margin_bottom = 40.0
 
 [node name="note_shablon_name" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
-margin_right = 210.0
-margin_bottom = 26.0
+margin_right = 194.0
+margin_bottom = 40.0
+size_flags_vertical = 1
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 9 )
-text = "Название заметки"
+custom_fonts/font = ExtResource( 8 )
+text = "Тут  текст"
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
+margin_left = 198.0
+margin_right = 340.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer"]
-margin_left = 214.0
-margin_right = 230.0
-margin_bottom = 26.0
+margin_left = 344.0
+margin_right = 376.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 11 )
-stretch_mode = 4
+stretch_mode = 1
 
 [node name="note_shablon_content" type="Label" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer"]
-margin_top = 30.0
+margin_top = 44.0
 margin_right = 376.0
-margin_bottom = 73.0
+margin_bottom = 143.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 15 )
 text = "Тут какой-то текст в общем мне пизда и хз что делать, вооот"
 autowrap = true
 
@@ -813,6 +854,68 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="dialog_chose" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer"]
+visible = false
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1910.0
+margin_bottom = 1070.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/dialog_chose"]
+margin_right = 1900.0
+margin_bottom = 1060.0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer"]
+margin_right = 1900.0
+margin_bottom = 426.0
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer"]
+margin_top = 430.0
+margin_right = 1900.0
+margin_bottom = 630.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer/PanelContainer"]
+margin_right = 1900.0
+margin_bottom = 200.0
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_right = 796.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 800.0
+margin_right = 1100.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 300, 200 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 193.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/MarginContainer"]
+margin_right = 286.0
+margin_bottom = 186.0
+
+[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 1104.0
+margin_right = 1900.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="CanvasLayer/HUD/MarginContainer/dialog_chose/VBoxContainer"]
+margin_top = 634.0
+margin_right = 1900.0
+margin_bottom = 1060.0
+size_flags_vertical = 3
+
 [node name="map_layer_1" type="TileMap" parent="."]
 mode = 1
 tile_set = SubResource( 1 )
@@ -824,14 +927,22 @@ tile_data = PoolIntArray( -917524, 0, 0, -917523, 0, 0, -917522, 0, 0, -917521, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="hero" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -142, -17 )
+position = Vector2( -95, 115 )
 z_index = 1
+collision_layer = 2
+collision_mask = 28
 
 [node name="Light2D" type="Light2D" parent="YSort/hero"]
-position = Vector2( -13, 0 )
-texture = ExtResource( 15 )
-texture_scale = 3.0
+visible = false
+position = Vector2( -2, 1 )
+rotation = -3.6596
+scale = Vector2( 0.292654, 0.292654 )
+texture = ExtResource( 16 )
+texture_scale = 4.65
+color = Color( 0.878431, 0.827451, 0.827451, 1 )
 mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.733333, 0.0196078, 0.0196078, 0 )
 
 [node name="map_layer_2" type="TileMap" parent="YSort"]
 z_index = 1
@@ -840,6 +951,8 @@ tile_set = SubResource( 2 )
 cell_size = Vector2( 32, 16 )
 cell_quadrant_size = 32
 cell_y_sort = true
+collision_layer = 16
+collision_mask = 2
 format = 1
 tile_data = PoolIntArray( -917524, 7, 0, -917523, 0, 0, -917522, 0, 0, -917521, 0, 0, -917520, 0, 0, -917519, 6, 0, -851988, 1, 0, -851983, 2, 0, -917499, 7, 0, -917498, 0, 0, -917497, 0, 0, -917496, 0, 0, -917495, 0, 0, -917494, 6, 0, -786452, 1, 0, -786447, 2, 0, -786440, 7, 0, -786439, 0, 0, -786438, 0, 0, -786437, 0, 0, -786436, 0, 0, -786435, 6, 0, -851963, 1, 0, -851958, 2, 0, -720916, 1, 0, -720911, 2, 0, -720904, 1, 0, -720899, 2, 0, -786427, 1, 0, -786422, 2, 0, -655380, 4, 0, -655375, 5, 0, -655368, 1, 0, -655363, 2, 0, -720891, 1, 0, -720886, 2, 0, -589843, 1, 0, -589840, 2, 0, -589832, 1, 0, -589827, 2, 0, -655355, 1, 0, -655350, 2, 0, -524307, 1, 0, -524304, 2, 0, -524296, 4, 0, -524292, 3, 0, -524291, 5, 0, -589819, 4, 0, -589814, 5, 0, -458771, 1, 0, -458768, 2, 0, -458759, 1, 0, -458756, 2, 0, -524282, 1, 0, -524279, 2, 0, -393235, 1, 0, -393232, 2, 0, -393223, 1, 0, -393220, 2, 0, -458746, 1, 0, -458743, 2, 0, -327699, 1, 0, -327696, 2, 0, -327687, 1, 0, -327684, 2, 0, -393210, 1, 0, -393207, 2, 0, -262163, 1, 0, -262160, 2, 0, -262151, 1, 0, -262148, 2, 0, -327674, 1, 0, -327671, 2, 0, -196627, 1, 0, -196624, 2, 0, -196615, 1, 0, -196612, 2, 0, -262138, 1, 0, -262135, 2, 0, -131091, 1, 0, -131088, 2, 0, -131079, 1, 0, -131076, 2, 0, -196602, 1, 0, -196599, 2, 0, -65555, 1, 0, -65552, 2, 0, -65543, 1, 0, -65540, 2, 0, -131066, 1, 0, -131063, 2, 0, -19, 1, 0, -16, 2, 0, -7, 1, 0, -4, 2, 0, -65530, 1, 0, -65527, 2, 0, 65517, 1, 0, 65520, 2, 0, 65529, 1, 0, 65532, 2, 0, 6, 1, 0, 9, 2, 0, 131053, 1, 0, 131056, 2, 0, 131065, 1, 0, 131068, 2, 0, 65542, 1, 0, 65545, 2, 0, 196589, 1, 0, 196593, 0, 0, 196594, 0, 0, 196595, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 7, 0, 196604, 6, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 7, 0, 131081, 2, 0, 262125, 1, 0, 196617, 2, 0, 327661, 1, 0, 262153, 2, 0, 393197, 4, 0, 393198, 3, 0, 393199, 3, 0, 393200, 3, 0, 393201, 3, 0, 393202, 3, 0, 393203, 3, 0, 393204, 3, 0, 393205, 3, 0, 393206, 3, 0, 393207, 3, 0, 393208, 3, 0, 393209, 4, 0, 393212, 5, 0, 393213, 3, 0, 393214, 3, 0, 393215, 3, 0, 327680, 3, 0, 327681, 3, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 3, 0, 327686, 3, 0, 327687, 3, 0, 327688, 3, 0, 327689, 5, 0, 458745, 1, 0, 458748, 2, 0, 524281, 1, 0, 524284, 2, 0, 589817, 1, 0, 589820, 2, 0, 655353, 1, 0, 655356, 2, 0, 720889, 1, 0, 720892, 2, 0, 786425, 1, 0, 786428, 2, 0, 851961, 1, 0, 851964, 2, 0, 917497, 1, 0, 917500, 2, 0 )
 
@@ -852,6 +965,7 @@ format = 1
 tile_data = PoolIntArray( -983061, 6, 0, -983060, 0, 0, -983059, 0, 0, -983058, 0, 0, -983057, 0, 0, -983056, 4, 0, -917525, 2, 0, -983036, 6, 0, -983035, 0, 0, -983034, 0, 0, -983033, 0, 0, -983032, 0, 0, -983031, 4, 0, -851989, 2, 0, -851977, 6, 0, -851976, 0, 0, -851975, 0, 0, -851974, 0, 0, -851973, 0, 0, -851972, 4, 0, -917500, 2, 0, -786453, 2, 0, -786441, 2, 0, -851964, 2, 0, -720917, 3, 0, -720905, 2, 0, -786428, 2, 0, -655380, 2, 0, -655369, 2, 0, -720892, 2, 0, -589844, 2, 0, -589833, 3, 0, -655356, 3, 0, -524308, 2, 0, -524296, 2, 0, -589819, 2, 0, -458772, 2, 0, -458760, 2, 0, -524283, 2, 0, -393236, 2, 0, -393224, 2, 0, -458747, 2, 0, -327700, 2, 0, -327688, 2, 0, -393211, 2, 0, -262164, 2, 0, -262152, 2, 0, -327675, 2, 0, -196628, 2, 0, -196616, 2, 0, -262139, 2, 0, -131092, 2, 0, -131080, 2, 0, -196603, 2, 0, -65556, 2, 0, -65544, 2, 0, -131067, 2, 0, -20, 2, 0, -8, 2, 0, -65531, 2, 0, 65516, 2, 0, 65528, 2, 0, 5, 2, 0, 131052, 2, 0, 131058, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 131062, 0, 0, 131063, 0, 0, 131064, 6, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 6, 0, 196588, 2, 0, 262124, 2, 0, 327660, 3, 0, 327661, 7, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [connection signal="gui_input" from="CanvasLayer/HUD/MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer/TextureRect" to="CanvasLayer/HUD" method="_on_TextureRect_gui_input"]

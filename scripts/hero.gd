@@ -11,6 +11,21 @@ var dialog_open = false
 func _ready():
 	Events.connect("update_hero_parametrs", self, "update_hero_parametrs")
 	Events.connect("end_dialog", self, "end_dialog")
+	Events.connect("znak_show", self, "znak_show")
+	Events.connect("znak_hide", self, "znak_hide")
+	Events.connect("start_dialogue", self, "start_dialog")
+	pass
+	
+func start_dialog(name_path):
+	dialog_open = true
+	pass
+
+func znak_show():
+	$TextureRect.visible = true
+	pass
+	
+func znak_hide():
+	$TextureRect.visible = false
 	pass
 
 func end_dialog():
@@ -44,12 +59,9 @@ func get_input():
 	velocity = input_direction * speed
 	
 func _input(event):
-	if Input.is_action_just_released("open_notebook") && dialog_open == false:
-		Events.emit_signal("open_notebook")
-	if Input.is_action_just_released("test") && dialog_open == false:
-		var temp = "test"
-		Events.emit_signal("start_dialogue", temp)
-		dialog_open = true
+	if dialog_open == false:
+		if Input.is_action_just_released("open_notebook") && dialog_open == false:
+			Events.emit_signal("open_notebook")
 	pass
 	
 func _process(delta):

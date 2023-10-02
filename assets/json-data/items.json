@@ -10,7 +10,7 @@
         "stackable": false
     },
     "apple": {
-        "name": "Apple",
+        "name": "Яблоко",
         "icon": "apple.png",
         "stackable": true,
         "count": 1
