@@ -76,10 +76,10 @@ func heal_limb(limb_name, damage):
 func add_item(item):
 	if items.size() < size_items:
 		items.append(item)
+		update(1)
 		return true
 	else:
 		return false
-	update(1)
 
 #функция изменяющая боль и разум
 func pain_mind_change(index, count):
