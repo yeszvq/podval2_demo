@@ -4,7 +4,7 @@ extends Node
 var items = []
 var notes = []
 var limbs = []
-var pain_mind = [3, 100]
+var pain_mind = [0, 100]
 
 #переменные под регуляцию ограничений геймплея взависимости от потерянных конечностей
 
@@ -83,7 +83,12 @@ func add_item(item):
 
 #функция изменяющая боль и разум
 func pain_mind_change(index, count):
-	pain_mind[index] += count
+	if (pain_mind[index] + count) >= 100:
+		pain_mind[index] = 100
+	elif (pain_mind[index] + count) <= 0:
+		pain_mind[index] = 0
+	else:
+		pain_mind[index] += count
 	update(2)
 
 #функция дающая число предметов в инвентаре

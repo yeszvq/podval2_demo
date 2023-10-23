@@ -16,7 +16,6 @@ func _on_Area2D_body_entered(body):
 
 func _input(event):
 	if Input.is_action_just_released("action") && out == false:
-		#print("я сука")
 		if active == true && activated == false:
 			Events.emit_signal("start_dialogue", str("test_" + item))
 			active = false
