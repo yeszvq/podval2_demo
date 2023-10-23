@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/resourse/tileset/tileset_1.tres" type="TileSet" id=1]
+
+[node name="map_layer_2" type="TileMap"]
+z_index = 1
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 16 )
+cell_quadrant_size = 32
+cell_tile_origin = 1
+cell_y_sort = true
+show_collision = true
+collision_layer = 16
+collision_mask = 2
+format = 1

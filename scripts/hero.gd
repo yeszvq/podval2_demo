@@ -15,21 +15,11 @@ var monstr_nearby = false
 func _ready():
 	Events.connect("update_hero_parametrs", self, "update_hero_parametrs")
 	Events.connect("end_dialog", self, "end_dialog")
-	Events.connect("znak_show", self, "znak_show")
-	Events.connect("znak_hide", self, "znak_hide")
 	Events.connect("start_dialogue", self, "start_dialog")
 	pass
 	
 func start_dialog(name_path):
 	dialog_open = true
-	pass
-
-func znak_show():
-	$TextureRect.visible = true
-	pass
-	
-func znak_hide():
-	$TextureRect.visible = false
 	pass
 
 func end_dialog():
