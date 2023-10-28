@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/tilemap/hide_and_show_tiles_walls_high.gd" type="Script" id=1]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource( 1 )
+coordinates = [ Vector2( -5, 13 ), Vector2( -8, 13 ), Vector2( -3, 13 ) ]
+for_coordinates = [ [ Vector2( -4, 9 ), 1, Vector2( -4, 13 ) ] ]
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]
