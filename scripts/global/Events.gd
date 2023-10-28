@@ -13,3 +13,7 @@ signal open_notebook
 #сигнал о начале диалога
 signal start_dialogue
 signal end_dialog
+
+#Сигнал о соскрытии части тайлов
+signal hide_tiles
+signal show_tiles

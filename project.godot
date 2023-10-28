@@ -135,6 +135,7 @@ action={
 2d_physics/layer_4="Предмет взаимодействия"
 2d_physics/layer_5="Стена"
 2d_physics/layer_6="Стекло разбитое"
+2d_physics/layer_7="Проверка сокрытия"
 
 [mono]
 
