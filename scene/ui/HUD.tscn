@@ -529,4 +529,8 @@ margin_right = 1900.0
 margin_bottom = 1060.0
 size_flags_vertical = 3
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer/TextureRect" to="." method="_on_TextureRect_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

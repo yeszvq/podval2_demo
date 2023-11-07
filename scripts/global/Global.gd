@@ -12,10 +12,6 @@ func _ready():
 	for key in items:
 		items[key]["key"] = key
 	
-	#добавлены для проверки работоспособности, потом надо убрать
-	Inventory.add_item(items["sword"])
-	Inventory.add_item(items["apple"])
-	
 	temp = read_from_json("res://assets/json-data/notes.json")
 	for key in temp:
 		temp[key]["key"] = key

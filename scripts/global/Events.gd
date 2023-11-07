@@ -17,3 +17,6 @@ signal end_dialog
 #Сигнал о соскрытии части тайлов
 signal hide_tiles
 signal show_tiles
+
+#Сигнал о запуске анимации в animation player
+signal start_cutsene

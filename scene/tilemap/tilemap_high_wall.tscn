@@ -1,10 +1,13 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/tilemap/tilemap_2_high_wall.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/object/imagasfe.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 88.1146, 16.0074, 79.9047, 31.6196, 87.98, 16.0074, 95.7861 )
+
+[sub_resource type="OccluderPolygon2D" id=55]
+polygon = PoolVector2Array( 15.9622, 16.0758, 31.864, 23.9293, 14.9886, 33.1459, 0, 24.124 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 0, 56.0602, 15.9082, 47.985, 31.7223, 55.8359, 15.5717, 63.6869 )
@@ -140,6 +143,7 @@ points = PoolVector2Array( 8, 52, 15.8125, 48, 31.8125, 55.875, 23.9375, 59.875 
 1/region = Rect2( 0, 0, 32, 64 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 55 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )

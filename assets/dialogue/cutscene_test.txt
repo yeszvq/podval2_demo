@@ -1,0 +1,2 @@
+gosha#Гоша#Как же этот подвал!&nothing
+chose#Ничего||addItem_apple_1||addItem_sword_1#Вторая кнопочка||nothing

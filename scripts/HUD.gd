@@ -63,46 +63,90 @@ func _ready():
 #функция для продолжения диалога при клике по диалогу
 func update_dialogue(event = null):
 	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
-		if page_number == dialogue.size():
+		if page_number >= dialogue.size():
 			path_other[10].visible = false
 			Events.emit_signal("end_dialog")
 			return
 		var temp = dialogue[page_number].split("#")
-		if temp[0] != "chose":
-			path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
-			path_other[12].text = temp[1]
-			path_other[13].text = temp[2]
-			page_number += 1
-		elif temp[0] == "chose":
+		if temp[temp.size() - 1].find("&") != -1:
+			var temp_2 = temp[2].split("&")
+			temp.remove(temp.size() - 1)
+			temp.append(temp_2[0])
+			temp_2.remove(0)
+			var count = temp_2.size()
+			var temp_3 = []
+			for i in count:
+				temp_3.append(temp_2[i].split("_"))
+			temp_2 = []
+			temp_2 = temp_3.duplicate(true)
+			temp_3.clear()
+			for i in temp_2:
+				match i[0]:
+					"close":
+						page_number = 900
+					"addItem":
+						for j in range(int(i[2])):
+							Inventory.add_item(Global.items[i[1]])
+					"removeItem":
+						#Нужно доработать скрипт с удалением
+						#for j in range(int(i[2])):
+						Inventory.remove_item(Global.items[i[1]])
+					"cutscene":
+						Events.emit_signal("start_cutsene", i[1])
+			
+		if temp[0] == "chose":
+			#Нужно доработать этот скрипт
+			#+++ Необходима чтобы каждая кнопка могла включать любое кол-во эффектов
+			#+++ Необходимо, чтобы эффекты могли иметь несколько значений для addItem и removeItem
 			path_other[14].visible = true
 			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
 			for i in temp.size() - 1:
 				var temp_button = preload("res://scene/object/button_chose.tscn").instance()
-				var temp_2 = temp[i+1].split("_")
+				var temp_2 = temp[i+1].split("||")
 				temp_button.text = temp_2[0]
-				temp_button.connect("button_up", self, "button_chose_action", [temp_2[1], temp_2[2]])
+				temp_2.remove(0)
+				var count = temp_2.size()
+				var temp_3 = []
+				for j in temp_2:
+					temp_3.append(j.split("_"))
+				temp_2 = temp_3
+				temp_3 = []
+				temp_button.connect("button_up", self, "button_chose_action", [temp_2])
 				path_other[15].add_child(temp_button)
 			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
+			page_number += 1
+			path_other[10].visible = false
+		else:
+			$Timer.start()
+			path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
+			path_other[12].text = temp[1]
+			path_other[13].text = temp[2]
 			page_number += 1
 	pass
 
 #функция при нажатия на кнопки выбора в диалогах
-func button_chose_action(name_func, value):
-	print(name_func + " " + value)
-	match name_func:
-		"addItem":
-			Inventory.add_item(Global.items[value])
-			path_other[13].text = str("Я подобрал " + Global.items[value]["name"].to_lower())
-		"nothing":
-			path_other[13].text = str("Я просто отойду")
-		"remove":
-			Inventory.remove_item(Global.items[value])
+func button_chose_action(value = null):
+	for i in value:
+		print(i)
+		match i[0]:
+			"addItem":
+				for j in range(int(i[2])):
+					Inventory.add_item(Global.items[i[1]])
+				path_other[13].text = str("Я подобрал " + Global.items[i[1]]["name"].to_lower())
+			"nothing":
+				path_other[13].text = str("Я просто отойду")
+			"remove":
+				#нужно доработать скрипт с удалением
+				Inventory.remove_item(Global.items[i[1]])
+			"cutscene":
+				Events.emit_signal("start_cutsene", i[1])
+			"close":
+				page_number = 900
 	path_other[14].visible = false
 	pass
 
 #диалог
 func start_dialogue(name_path):
-	print(last_node_dialog)
 	page_number = 0
 	#открываем файл и считываем с него информацию
 	var temp = str("res://assets/dialogue/" + name_path + ".txt")
@@ -179,7 +223,6 @@ func generate_content(index):
 						var temp_node = preload("res://scene/ui/itemslot.tscn").instance()
 						path_other[5].add_child(temp_node)
 						temp_node.add_to_group("items_nodes")
-						print(temp_node.get_child(0).get_children())
 						temp_node.get_child(0).get_child(0).text = str("- " + Inventory.items[i]["name"])
 						temp_node.get_child(0).get_child(1).texture = load("res://assets/sprites/items/" + Inventory.items[i]["icon"])
 		#статус
@@ -206,4 +249,9 @@ func open_notebook():
 func _on_TextureRect_gui_input(event):
 	path_other[1].visible = false
 	path_other[4].visible = true
+	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	update_dialogue()
 	pass # Replace with function body.

@@ -7,7 +7,7 @@ var input_direction
 var previos_direction = Vector2(0,1)
 var velocity = Vector2()
 var dialog_open = false
-
+var cutscene = false
 var flashlight = false
 
 var monstr_nearby = false
@@ -56,14 +56,18 @@ func _input(event):
 	if dialog_open == false:
 		if Input.is_action_just_released("open_notebook") && dialog_open == false:
 			Events.emit_signal("open_notebook")
+		if Input.is_action_just_released("test"):
+			start_dialogue("apple")
+			cutscene = true
 	pass
 	
 func _process(delta):
-	if dialog_open == false:
-		get_input()
-		velocity = move_and_slide(velocity)
-	else:
-		$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
+	if cutscene == false:
+		if dialog_open == false:
+			get_input()
+			velocity = move_and_slide(velocity)
+		else:
+			$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 	pass
 
 
@@ -81,3 +85,23 @@ func _on_Timer2_timeout():
 	if Inventory.pain_mind[0] != 0:
 		Inventory.pain_mind_change(0, -1)
 	pass # Replace with function body.
+	
+	
+#Код для запуска нужных анимаций в катсценах
+func play_anim(animation_name):
+	$AnimatedSprite.play(animation_name)
+
+func stop_anim():
+	$AnimatedSprite.stop()
+	
+func start_cutscene():
+	cutscene = true
+	pass
+	
+func stop_cutscene():
+	cutscene = false
+	pass
+
+func start_dialogue(name_dialogue):
+	dialog_open = true
+	Events.emit_signal("start_dialogue", name_dialogue)
