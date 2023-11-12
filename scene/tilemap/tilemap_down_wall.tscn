@@ -1,6 +1,11 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://assets/sprites/object/wall.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/object/wall_normal.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=97]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=75]
 polygon = PoolVector2Array( 0, 24.0547, 15.875, 15.9922, 32, 23.9297, 15.9375, 31.9922 )
@@ -8,11 +13,19 @@ polygon = PoolVector2Array( 0, 24.0547, 15.875, 15.9922, 32, 23.9297, 15.9375, 3
 [sub_resource type="ConvexPolygonShape2D" id=46]
 points = PoolVector2Array( 0, 24.125, 15.75, 15.8125, 31.6875, 23.9375, 16, 31.8125 )
 
+[sub_resource type="AtlasTexture" id=98]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 64, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=76]
 polygon = PoolVector2Array( 15.9375, 31.8125, 0, 24, 15.875, 15.9375, 32, 24.0625 )
 
 [sub_resource type="ConvexPolygonShape2D" id=45]
 points = PoolVector2Array( 0, 23.9375, 15.9375, 15.8125, 31.875, 24, 15.9375, 31.875 )
+
+[sub_resource type="AtlasTexture" id=99]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=77]
 polygon = PoolVector2Array( 16, 31.8125, 31.875, 23.875, 15.875, 15.875, 0, 24 )
@@ -20,11 +33,19 @@ polygon = PoolVector2Array( 16, 31.8125, 31.875, 23.875, 15.875, 15.875, 0, 24 )
 [sub_resource type="ConvexPolygonShape2D" id=48]
 points = PoolVector2Array( 0, 24, 15.875, 16.125, 31.8125, 24, 16, 31.875 )
 
+[sub_resource type="AtlasTexture" id=100]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=80]
 polygon = PoolVector2Array( 16, 31.875, 31.875, 23.9375, 15.9375, 15.8125, 0, 24.125 )
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
 points = PoolVector2Array( 0, 24.125, 15.9375, 16.0625, 32, 24, 16.0625, 32 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 160, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=79]
 polygon = PoolVector2Array( 0, 23.9375, 15.9375, 31.8125, 32, 23.9375, 15.875, 15.8125 )
@@ -32,11 +53,19 @@ polygon = PoolVector2Array( 0, 23.9375, 15.9375, 31.8125, 32, 23.9375, 15.875, 1
 [sub_resource type="ConvexPolygonShape2D" id=49]
 points = PoolVector2Array( 0, 24, 15.9375, 16, 31.75, 23.9375, 16, 31.875 )
 
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=78]
 polygon = PoolVector2Array( 16, 31.875, 0, 24, 16, 15.75, 32, 23.875 )
 
 [sub_resource type="ConvexPolygonShape2D" id=50]
 points = PoolVector2Array( 0, 24, 15.875, 16, 31.8125, 23.875, 15.875, 31.9375 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=96]
 polygon = PoolVector2Array( 15.9375, 31.9375, 24.0625, 28, 7.9375, 20, 0, 24.0625 )
@@ -44,11 +73,19 @@ polygon = PoolVector2Array( 15.9375, 31.9375, 24.0625, 28, 7.9375, 20, 0, 24.062
 [sub_resource type="ConvexPolygonShape2D" id=51]
 points = PoolVector2Array( 23.9375, 28.0625, 16, 32, 0, 24.0625, 8.0625, 19.875 )
 
+[sub_resource type="AtlasTexture" id=115]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=81]
 polygon = PoolVector2Array( 8, 20, 24, 27.875, 16.0625, 32, 0, 24.125 )
 
 [sub_resource type="ConvexPolygonShape2D" id=52]
 points = PoolVector2Array( 23.9375, 28, 15.9375, 32, 0, 24.0625, 7.9375, 20 )
+
+[sub_resource type="AtlasTexture" id=104]
+atlas = ExtResource( 2 )
+region = Rect2( 224, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=95]
 polygon = PoolVector2Array( 16, 15.9375, 31.8125, 24, 24, 28.125, 7.9375, 20 )
@@ -56,11 +93,19 @@ polygon = PoolVector2Array( 16, 15.9375, 31.8125, 24, 24, 28.125, 7.9375, 20 )
 [sub_resource type="ConvexPolygonShape2D" id=53]
 points = PoolVector2Array( 7.9375, 19.9375, 16, 16, 32, 24.0625, 23.9375, 28.125 )
 
+[sub_resource type="AtlasTexture" id=116]
+atlas = ExtResource( 2 )
+region = Rect2( 224, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=82]
 polygon = PoolVector2Array( 8, 19.875, 15.875, 16, 32, 24.0625, 23.9375, 28.125 )
 
 [sub_resource type="ConvexPolygonShape2D" id=54]
 points = PoolVector2Array( 8, 20, 16, 15.9375, 32, 24.0625, 24, 28.0625 )
+
+[sub_resource type="AtlasTexture" id=105]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=94]
 polygon = PoolVector2Array( 7.9375, 20, 23.875, 27.875, 15.9375, 32, 0, 24.0625 )
@@ -68,11 +113,19 @@ polygon = PoolVector2Array( 7.9375, 20, 23.875, 27.875, 15.9375, 32, 0, 24.0625 
 [sub_resource type="ConvexPolygonShape2D" id=55]
 points = PoolVector2Array( 0, 23.9922, 8, 19.875, 23.9375, 27.9297, 15.9375, 31.8672 )
 
+[sub_resource type="AtlasTexture" id=117]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=83]
 polygon = PoolVector2Array( 0, 23.9375, 16, 31.875, 23.875, 28.0625, 8.0625, 19.875 )
 
 [sub_resource type="ConvexPolygonShape2D" id=56]
 points = PoolVector2Array( 0, 24.0313, 8, 19.9688, 24.125, 28.0313, 16, 31.8438 )
+
+[sub_resource type="AtlasTexture" id=106]
+atlas = ExtResource( 2 )
+region = Rect2( 288, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=93]
 polygon = PoolVector2Array( 15.9375, 16.0625, 31.8125, 24.0625, 24, 28, 7.9375, 20 )
@@ -80,11 +133,19 @@ polygon = PoolVector2Array( 15.9375, 16.0625, 31.8125, 24.0625, 24, 28, 7.9375, 
 [sub_resource type="ConvexPolygonShape2D" id=58]
 points = PoolVector2Array( 8, 20, 16, 15.875, 32, 24.125, 24.0625, 28.0625 )
 
+[sub_resource type="AtlasTexture" id=118]
+atlas = ExtResource( 2 )
+region = Rect2( 288, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=84]
 polygon = PoolVector2Array( 8, 19.875, 23.875, 27.875, 32, 23.9375, 15.9375, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=57]
 points = PoolVector2Array( 7.9375, 20.0313, 15.9375, 15.9688, 31.8125, 23.9688, 23.9375, 28.0938 )
+
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=92]
 polygon = PoolVector2Array( 16, 16.0625, 24, 19.9375, 8, 28.25, 0, 24 )
@@ -92,11 +153,19 @@ polygon = PoolVector2Array( 16, 16.0625, 24, 19.9375, 8, 28.25, 0, 24 )
 [sub_resource type="ConvexPolygonShape2D" id=59]
 points = PoolVector2Array( 7.9375, 27.9375, 0, 23.875, 16, 16.0625, 24, 20 )
 
+[sub_resource type="AtlasTexture" id=119]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=85]
 polygon = PoolVector2Array( 16, 15.9375, 23.9375, 19.9375, 8, 28.0625, 0, 24 )
 
 [sub_resource type="ConvexPolygonShape2D" id=60]
 points = PoolVector2Array( 0, 23.8906, 15.875, 15.9531, 23.9375, 19.8906, 7.9375, 28.0156 )
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 2 )
+region = Rect2( 352, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=91]
 polygon = PoolVector2Array( 7.9375, 28, 15.9375, 31.9375, 32, 23.9375, 23.9375, 20 )
@@ -104,11 +173,19 @@ polygon = PoolVector2Array( 7.9375, 28, 15.9375, 31.9375, 32, 23.9375, 23.9375, 
 [sub_resource type="ConvexPolygonShape2D" id=62]
 points = PoolVector2Array( 7.9375, 28.125, 23.875, 19.9375, 31.875, 23.9375, 16, 31.875 )
 
+[sub_resource type="AtlasTexture" id=120]
+atlas = ExtResource( 2 )
+region = Rect2( 352, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=86]
 polygon = PoolVector2Array( 24, 20, 31.75, 23.9375, 16.125, 32, 8, 28.0625 )
 
 [sub_resource type="ConvexPolygonShape2D" id=61]
 points = PoolVector2Array( 23.9375, 20.0625, 32, 23.9375, 16, 31.875, 8, 28 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=90]
 polygon = PoolVector2Array( 16, 15.9375, 23.9375, 19.9375, 7.9375, 28.125, 0, 24.0625 )
@@ -116,11 +193,19 @@ polygon = PoolVector2Array( 16, 15.9375, 23.9375, 19.9375, 7.9375, 28.125, 0, 24
 [sub_resource type="ConvexPolygonShape2D" id=63]
 points = PoolVector2Array( 16, 16, 23.9375, 20, 7.875, 28, 0, 24.125 )
 
+[sub_resource type="AtlasTexture" id=121]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=87]
 polygon = PoolVector2Array( 16.0625, 15.9375, 23.8125, 19.9375, 8.0625, 28, 0, 24.0625 )
 
 [sub_resource type="ConvexPolygonShape2D" id=64]
 points = PoolVector2Array( 0, 23.9375, 15.875, 16, 24, 19.9375, 7.9375, 27.9375 )
+
+[sub_resource type="AtlasTexture" id=110]
+atlas = ExtResource( 2 )
+region = Rect2( 416, 64, 32, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=89]
 polygon = PoolVector2Array( 24, 19.9375, 31.8125, 24, 16.125, 32, 7.9375, 28.0625 )
@@ -128,32 +213,68 @@ polygon = PoolVector2Array( 24, 19.9375, 31.8125, 24, 16.125, 32, 7.9375, 28.062
 [sub_resource type="ConvexPolygonShape2D" id=66]
 points = PoolVector2Array( 8, 28.0625, 24, 20, 31.8125, 23.875, 15.9375, 31.875 )
 
+[sub_resource type="AtlasTexture" id=122]
+atlas = ExtResource( 2 )
+region = Rect2( 416, 160, 32, 32 )
+
 [sub_resource type="OccluderPolygon2D" id=88]
 polygon = PoolVector2Array( 8, 28.125, 15.9375, 32, 32, 24.0625, 23.875, 19.9375 )
 
 [sub_resource type="ConvexPolygonShape2D" id=65]
 points = PoolVector2Array( 8.0625, 28.125, 23.9375, 20, 32, 23.9375, 15.9375, 31.875, 15.9375, 31.9375 )
 
+[sub_resource type="AtlasTexture" id=111]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 64, 32, 32 )
+
 [sub_resource type="ConvexPolygonShape2D" id=67]
 points = PoolVector2Array( 10.0625, 18.875, 22.0625, 18.9375, 32, 23.9375, 15.9375, 31.8125, 0, 23.875 )
+
+[sub_resource type="AtlasTexture" id=123]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 160, 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=68]
 points = PoolVector2Array( 16, 31.9375, 0, 24, 9.9375, 19.125, 22.0625, 19.0625, 32, 24.125 )
 
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 2 )
+region = Rect2( 480, 64, 32, 32 )
+
 [sub_resource type="ConvexPolygonShape2D" id=70]
 points = PoolVector2Array( 23.9375, 19.8125, 23.875, 27.9375, 15.9375, 31.875, 0, 24.0625, 16.0625, 15.875 )
+
+[sub_resource type="AtlasTexture" id=125]
+atlas = ExtResource( 2 )
+region = Rect2( 512, 160, 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=71]
 points = PoolVector2Array( 0, 24.125, 16, 16.0625, 24, 20.0625, 23.875, 28, 15.9375, 31.9375 )
 
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 2 )
+region = Rect2( 512, 64, 32, 32 )
+
 [sub_resource type="ConvexPolygonShape2D" id=72]
 points = PoolVector2Array( 32, 24, 23.875, 28.0625, 8, 27.875, 0, 23.9375, 16.0625, 16.0625 )
+
+[sub_resource type="AtlasTexture" id=124]
+atlas = ExtResource( 2 )
+region = Rect2( 480, 160, 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=69]
 points = PoolVector2Array( 9.9375, 19, 21.9375, 19.0625, 32, 24, 15.9375, 31.8125, 0, 24 )
 
+[sub_resource type="AtlasTexture" id=114]
+atlas = ExtResource( 2 )
+region = Rect2( 544, 64, 32, 32 )
+
 [sub_resource type="ConvexPolygonShape2D" id=73]
 points = PoolVector2Array( 15.9375, 31.875, 8, 28, 8.0625, 20.125, 15.875, 16.375, 32, 24.125 )
+
+[sub_resource type="AtlasTexture" id=126]
+atlas = ExtResource( 2 )
+region = Rect2( 544, 160, 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=74]
 points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.8125, 23.8125, 15.9375, 31.8125 )
@@ -161,6 +282,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 [sub_resource type="TileSet" id=5]
 46/name = "wall.png 46"
 46/texture = ExtResource( 1 )
+46/normal_map = SubResource( 97 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 0, 64, 32, 32 )
@@ -183,6 +305,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 46/z_index = 1
 47/name = "wall.png 47"
 47/texture = ExtResource( 1 )
+47/normal_map = SubResource( 98 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 64, 64, 32, 32 )
@@ -205,6 +328,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 47/z_index = 1
 48/name = "wall.png 48"
 48/texture = ExtResource( 1 )
+48/normal_map = SubResource( 99 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 128, 64, 32, 32 )
@@ -227,6 +351,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 48/z_index = 1
 49/name = "wall.png 49"
 49/texture = ExtResource( 1 )
+49/normal_map = SubResource( 100 )
 49/tex_offset = Vector2( 0, 0 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 0, 160, 32, 32 )
@@ -249,6 +374,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 49/z_index = 1
 50/name = "wall.png 50"
 50/texture = ExtResource( 1 )
+50/normal_map = SubResource( 101 )
 50/tex_offset = Vector2( 0, 0 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 64, 160, 32, 32 )
@@ -271,6 +397,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 50/z_index = 1
 51/name = "wall.png 51"
 51/texture = ExtResource( 1 )
+51/normal_map = SubResource( 102 )
 51/tex_offset = Vector2( 0, 0 )
 51/modulate = Color( 1, 1, 1, 1 )
 51/region = Rect2( 128, 160, 32, 32 )
@@ -293,6 +420,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 51/z_index = 1
 52/name = "wall.png 52"
 52/texture = ExtResource( 1 )
+52/normal_map = SubResource( 103 )
 52/tex_offset = Vector2( 0, 0 )
 52/modulate = Color( 1, 1, 1, 1 )
 52/region = Rect2( 192, 64, 32, 32 )
@@ -315,6 +443,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 52/z_index = 1
 53/name = "wall.png 53"
 53/texture = ExtResource( 1 )
+53/normal_map = SubResource( 115 )
 53/tex_offset = Vector2( 0, 0 )
 53/modulate = Color( 1, 1, 1, 1 )
 53/region = Rect2( 192, 160, 32, 32 )
@@ -337,6 +466,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 53/z_index = 1
 54/name = "wall.png 54"
 54/texture = ExtResource( 1 )
+54/normal_map = SubResource( 104 )
 54/tex_offset = Vector2( 0, 0 )
 54/modulate = Color( 1, 1, 1, 1 )
 54/region = Rect2( 224, 64, 32, 32 )
@@ -359,6 +489,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 54/z_index = 1
 55/name = "wall.png 55"
 55/texture = ExtResource( 1 )
+55/normal_map = SubResource( 116 )
 55/tex_offset = Vector2( 0, 0 )
 55/modulate = Color( 1, 1, 1, 1 )
 55/region = Rect2( 224, 160, 32, 32 )
@@ -381,6 +512,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 55/z_index = 1
 56/name = "wall.png 56"
 56/texture = ExtResource( 1 )
+56/normal_map = SubResource( 105 )
 56/tex_offset = Vector2( 0, 0 )
 56/modulate = Color( 1, 1, 1, 1 )
 56/region = Rect2( 256, 64, 32, 32 )
@@ -403,6 +535,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 56/z_index = 1
 57/name = "wall.png 57"
 57/texture = ExtResource( 1 )
+57/normal_map = SubResource( 117 )
 57/tex_offset = Vector2( 0, 0 )
 57/modulate = Color( 1, 1, 1, 1 )
 57/region = Rect2( 256, 160, 32, 32 )
@@ -425,6 +558,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 57/z_index = 1
 58/name = "wall.png 58"
 58/texture = ExtResource( 1 )
+58/normal_map = SubResource( 106 )
 58/tex_offset = Vector2( 0, 0 )
 58/modulate = Color( 1, 1, 1, 1 )
 58/region = Rect2( 288, 64, 32, 32 )
@@ -447,6 +581,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 58/z_index = 1
 59/name = "wall.png 59"
 59/texture = ExtResource( 1 )
+59/normal_map = SubResource( 118 )
 59/tex_offset = Vector2( 0, 0 )
 59/modulate = Color( 1, 1, 1, 1 )
 59/region = Rect2( 288, 160, 32, 32 )
@@ -469,6 +604,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 59/z_index = 1
 60/name = "wall.png 60"
 60/texture = ExtResource( 1 )
+60/normal_map = SubResource( 107 )
 60/tex_offset = Vector2( 0, 0 )
 60/modulate = Color( 1, 1, 1, 1 )
 60/region = Rect2( 320, 64, 32, 32 )
@@ -491,6 +627,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 60/z_index = 1
 61/name = "wall.png 61"
 61/texture = ExtResource( 1 )
+61/normal_map = SubResource( 119 )
 61/tex_offset = Vector2( 0, 0 )
 61/modulate = Color( 1, 1, 1, 1 )
 61/region = Rect2( 320, 160, 32, 32 )
@@ -513,6 +650,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 61/z_index = 1
 62/name = "wall.png 62"
 62/texture = ExtResource( 1 )
+62/normal_map = SubResource( 108 )
 62/tex_offset = Vector2( 0, 0 )
 62/modulate = Color( 1, 1, 1, 1 )
 62/region = Rect2( 352, 64, 32, 32 )
@@ -535,6 +673,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 62/z_index = 1
 63/name = "wall.png 63"
 63/texture = ExtResource( 1 )
+63/normal_map = SubResource( 120 )
 63/tex_offset = Vector2( 0, 0 )
 63/modulate = Color( 1, 1, 1, 1 )
 63/region = Rect2( 352, 160, 32, 32 )
@@ -557,6 +696,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 63/z_index = 1
 64/name = "wall.png 64"
 64/texture = ExtResource( 1 )
+64/normal_map = SubResource( 109 )
 64/tex_offset = Vector2( 0, 0 )
 64/modulate = Color( 1, 1, 1, 1 )
 64/region = Rect2( 384, 64, 32, 32 )
@@ -579,6 +719,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 64/z_index = 1
 65/name = "wall.png 65"
 65/texture = ExtResource( 1 )
+65/normal_map = SubResource( 121 )
 65/tex_offset = Vector2( 0, 0 )
 65/modulate = Color( 1, 1, 1, 1 )
 65/region = Rect2( 384, 160, 32, 32 )
@@ -601,6 +742,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 65/z_index = 1
 66/name = "wall.png 66"
 66/texture = ExtResource( 1 )
+66/normal_map = SubResource( 110 )
 66/tex_offset = Vector2( 0, 0 )
 66/modulate = Color( 1, 1, 1, 1 )
 66/region = Rect2( 416, 64, 32, 32 )
@@ -623,6 +765,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 66/z_index = 1
 67/name = "wall.png 67"
 67/texture = ExtResource( 1 )
+67/normal_map = SubResource( 122 )
 67/tex_offset = Vector2( 0, 0 )
 67/modulate = Color( 1, 1, 1, 1 )
 67/region = Rect2( 416, 160, 32, 32 )
@@ -645,6 +788,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 67/z_index = 1
 68/name = "wall.png 68"
 68/texture = ExtResource( 1 )
+68/normal_map = SubResource( 111 )
 68/tex_offset = Vector2( 0, 0 )
 68/modulate = Color( 1, 1, 1, 1 )
 68/region = Rect2( 448, 64, 32, 32 )
@@ -666,6 +810,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 68/z_index = 1
 69/name = "wall.png 69"
 69/texture = ExtResource( 1 )
+69/normal_map = SubResource( 123 )
 69/tex_offset = Vector2( 0, 0 )
 69/modulate = Color( 1, 1, 1, 1 )
 69/region = Rect2( 448, 160, 32, 32 )
@@ -687,6 +832,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 69/z_index = 1
 70/name = "wall.png 70"
 70/texture = ExtResource( 1 )
+70/normal_map = SubResource( 112 )
 70/tex_offset = Vector2( 0, 0 )
 70/modulate = Color( 1, 1, 1, 1 )
 70/region = Rect2( 480, 64, 32, 32 )
@@ -708,6 +854,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 70/z_index = 1
 71/name = "wall.png 71"
 71/texture = ExtResource( 1 )
+71/normal_map = SubResource( 125 )
 71/tex_offset = Vector2( 0, 0 )
 71/modulate = Color( 1, 1, 1, 1 )
 71/region = Rect2( 512, 160, 32, 32 )
@@ -729,6 +876,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 71/z_index = 1
 72/name = "wall.png 72"
 72/texture = ExtResource( 1 )
+72/normal_map = SubResource( 113 )
 72/tex_offset = Vector2( 0, 0 )
 72/modulate = Color( 1, 1, 1, 1 )
 72/region = Rect2( 512, 64, 32, 32 )
@@ -750,6 +898,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 72/z_index = 1
 73/name = "wall.png 73"
 73/texture = ExtResource( 1 )
+73/normal_map = SubResource( 124 )
 73/tex_offset = Vector2( 0, 0 )
 73/modulate = Color( 1, 1, 1, 1 )
 73/region = Rect2( 480, 160, 32, 32 )
@@ -771,6 +920,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 73/z_index = 1
 74/name = "wall.png 74"
 74/texture = ExtResource( 1 )
+74/normal_map = SubResource( 114 )
 74/tex_offset = Vector2( 0, 0 )
 74/modulate = Color( 1, 1, 1, 1 )
 74/region = Rect2( 544, 64, 32, 32 )
@@ -792,6 +942,7 @@ points = PoolVector2Array( 8.0625, 28.125, 8.0625, 20.125, 15.75, 15.875, 31.812
 74/z_index = 1
 75/name = "wall.png 75"
 75/texture = ExtResource( 1 )
+75/normal_map = SubResource( 126 )
 75/tex_offset = Vector2( 0, 0 )
 75/modulate = Color( 1, 1, 1, 1 )
 75/region = Rect2( 544, 160, 32, 32 )
