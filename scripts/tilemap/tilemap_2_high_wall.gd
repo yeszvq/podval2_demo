@@ -8,6 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 func hide_tiles(coordinates, for_coordinates):
+	print("work_hide")
 	for i in coordinates:
 		previous_tile.append(get_cellv(i))
 		set_cellv(i, -1)
@@ -25,6 +26,7 @@ func hide_tiles(coordinates, for_coordinates):
 	pass
 	
 func show_tiles(coordinates, for_coordinates):
+	print("work_shows")
 	for i in coordinates:
 		set_cellv(i, previous_tile[0])
 		previous_tile.remove(0)
