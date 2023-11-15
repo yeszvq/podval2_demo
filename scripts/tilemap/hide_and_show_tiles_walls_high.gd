@@ -7,6 +7,7 @@ export var coordinates = []
 export var for_coordinates = []
 
 func _on_Area2D_body_entered(body):
+	print("координаты: ", for_coordinates)
 	Events.emit_signal("hide_tiles", coordinates, for_coordinates)
 	pass # Replace with function body.
 
