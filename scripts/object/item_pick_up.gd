@@ -14,8 +14,8 @@ func _on_Area2D_body_entered(body):
 
 func _input(event):
 	if Input.is_action_just_released("action") && out == false:
-		Inventory.add_item(Global.items[item])
-		queue_free()
+		if Inventory.add_item(Global.items[item]) == true:
+			queue_free()
 	pass
 
 func _on_Area2D_body_exited(body):

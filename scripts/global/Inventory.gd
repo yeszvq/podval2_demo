@@ -15,7 +15,7 @@ var use_inventory = 0
 var move = 0
 
 #под инвентарь
-var size_items = 9
+var size_items = 2
 
 #функция под повреждение конечностей
 func hurt_limb(limb_name, damage):
