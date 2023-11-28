@@ -33,9 +33,6 @@ func show_tiles(coordinates, for_coordinates):
 		set_cellv(i, previous_tile[0])
 		previous_tile.remove(0)
 	
-	print("показ")
-	print(previous_tile)
-	print(for_coordinates)
 	for i in for_coordinates:
 		match i[1]:
 			"x":
@@ -46,5 +43,4 @@ func show_tiles(coordinates, for_coordinates):
 				for j in range(i[0].y, i[2].y + 1):
 					set_cellv(Vector2(i[0].x, j), previous_tile[0])
 					previous_tile.remove(0)
-	print("показ, конец")
 	pass
