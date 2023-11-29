@@ -18,6 +18,7 @@ frames = ExtResource( 1 )
 animation = "idle_0_1"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -1 )
 current = true
 zoom = Vector2( 0.2, 0.2 )
 

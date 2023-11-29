@@ -14,9 +14,13 @@ signal open_notebook
 signal start_dialogue
 signal end_dialog
 
-#Сигнал о соскрытии части тайлов
+#Сигнал о соскрытии и показе части тайлов
 signal hide_tiles
 signal show_tiles
 
+signal hide_torch
+signal show_torch
+
 #Сигнал о запуске анимации в animation player
 signal start_cutsene
+
