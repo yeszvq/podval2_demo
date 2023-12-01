@@ -48,7 +48,7 @@ z_index = 1
 tile_data = PoolIntArray( -3735502, 3, 0, -3669972, 3, 0, -3407828, 2, 0, -3407822, 0, 0, -3080148, 1, 0, -3080142, 0, 0, -2752468, 0, 0, -2752462, 1, 0, -2490324, 2, 0 )
 
 [node name="torch on wall" parent="YSort" instance=ExtResource( 11 )]
-tile_data = PoolIntArray( -2162656, 1, 0, -2162651, 1, 0, -2162647, 1, 0, -2162642, 1, 0, -2162639, 1, 0, -1703906, 0, 0, -1507298, 0, 0, -1048546, 0, 0, -589794, 0, 0, -131042, 0, 0, -5, 1, 0, -65536, 1, 0, -65531, 1, 0, -65526, 1, 0, -65521, 1, 0, -65516, 1, 0, 196638, 0, 0, 262171, 1, 0, 458776, 0, 0 )
+tile_data = PoolIntArray( -2162656, 1, 0, -2162651, 5, 0, -2162647, 1, 0, -2162642, 5, 0, -2162639, 5, 0, -1703906, 4, 0, -1507298, 0, 0, -1048546, 4, 0, -589794, 0, 0, -131042, 4, 0, -5, 5, 0, -65536, 1, 0, -65531, 5, 0, -65526, 1, 0, -65521, 5, 0, -65516, 1, 0, 196638, 4, 0, 262171, 1, 0, 458776, 0, 0 )
 
 [node name="hero" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 267, 72 )
@@ -188,7 +188,7 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1597, -153 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="broken_glass_tilemap" parent="YSort" instance=ExtResource( 8 )]

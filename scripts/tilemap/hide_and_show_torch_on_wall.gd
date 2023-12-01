@@ -2,12 +2,18 @@ extends TileMap
 
 
 var previous_tile = []
-
+var count = 0
 
 func _ready():
 	Events.connect("hide_torch", self, "hide_torch")
 	Events.connect("show_torch", self, "show_torch")
 	pass # Replace with function body.
+	
+func _process(delta):
+	if count == 0:
+		count = 1
+	pass
+
 
 func hide_torch(coordinates):
 	for i in coordinates:
