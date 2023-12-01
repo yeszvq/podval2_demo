@@ -24,3 +24,8 @@ signal show_torch
 #Сигнал о запуске анимации в animation player
 signal start_cutsene
 
+#Сигнал связанные с тестовой панелью
+signal call_test_panel
+signal hide_light
+signal show_light
+

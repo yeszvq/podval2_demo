@@ -57,8 +57,7 @@ func _input(event):
 		if Input.is_action_just_released("open_notebook") && dialog_open == false:
 			Events.emit_signal("open_notebook")
 		if Input.is_action_just_released("test"):
-			start_dialogue("apple")
-			cutscene = true
+			Events.emit_signal("call_test_panel")
 	pass
 	
 func _process(delta):
