@@ -56,14 +56,14 @@ position = Vector2( -11, -13 )
 
 [node name="Light2D" type="Light2D" parent="YSort/hero"]
 texture = ExtResource( 7 )
-texture_scale = 0.4
+texture_scale = 0.25
 color = Color( 1, 1, 1, 0.627451 )
 range_height = 30.0
 
 [node name="Light2D2" type="Light2D" parent="YSort/hero"]
 position = Vector2( 0, 14 )
 texture = ExtResource( 7 )
-texture_scale = 0.4
+texture_scale = 0.25
 color = Color( 1, 1, 1, 0.627451 )
 range_height = 30.0
 range_item_cull_mask = 2
@@ -189,7 +189,6 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1597, -153 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="broken_glass_tilemap" parent="YSort" instance=ExtResource( 8 )]
