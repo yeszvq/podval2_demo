@@ -85,7 +85,6 @@ func _ready():
 #функция для кастомного диалога внутри кода
 func custom_dialog(text):
 	Events.emit_signal("start_dialog_for_hero")
-	print("work")
 	page_number = 0
 	dialogue.clear()
 	dialogue.append(text)
