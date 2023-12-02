@@ -29,3 +29,10 @@ signal call_test_panel
 signal hide_light
 signal show_light
 
+#Сигналы для подбора предмета
+signal custom_dialog
+signal start_dialog_for_hero
+#signal pick_up_dialog_true
+#signal pick_up_dialog_false
+#signal pick_up_dialog_null
+

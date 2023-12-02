@@ -13,12 +13,13 @@ var flashlight = false
 var monstr_nearby = false
 
 func _ready():
+	Events.connect("start_dialog_for_hero", self, "start_dialog")
 	Events.connect("update_hero_parametrs", self, "update_hero_parametrs")
 	Events.connect("end_dialog", self, "end_dialog")
 	Events.connect("start_dialogue", self, "start_dialog")
 	pass
 	
-func start_dialog(name_path):
+func start_dialog(name_path = null):
 	dialog_open = true
 	pass
 

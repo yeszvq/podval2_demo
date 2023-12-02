@@ -55,12 +55,14 @@ tile_data = PoolIntArray( -2162656, 1, 0, -2162651, 5, 0, -2162647, 1, 0, -21626
 position = Vector2( -11, -13 )
 
 [node name="Light2D" type="Light2D" parent="YSort/hero"]
+visible = false
 texture = ExtResource( 7 )
 texture_scale = 0.25
 color = Color( 1, 1, 1, 0.627451 )
 range_height = 30.0
 
 [node name="Light2D2" type="Light2D" parent="YSort/hero"]
+visible = false
 position = Vector2( 0, 14 )
 texture = ExtResource( 7 )
 texture_scale = 0.25
@@ -196,6 +198,7 @@ z_index = 1
 tile_data = PoolIntArray( -3604436, 6, 0, -3604435, 6, 0, -3604434, 6, 0, -3604433, 9, 0, -3604430, 4, 0, -3604429, 4, 0, -3604428, 9, 0, -3538900, 6, 0, -3538899, 0, 0, -3538898, 6, 0, -3538897, 6, 0, -3538896, 6, 0, -3538895, 6, 0, -3538894, 2, 0, -3538892, 2, 0, -3473364, 6, 0, -3473363, 6, 0, -3473362, 6, 0, -3473361, 6, 0, -3473360, 5, 0, -3473359, 5, 0, -3473358, 2, 0, -3473357, 2, 0, -3473356, 2, 0, -3407828, 6, 0, -3407827, 6, 0, -3407826, 6, 0, -3407825, 5, 0, -3407824, 5, 0, -3407823, 6, 0, -3407822, 2, 0, -3407821, 2, 0, -3407820, 2, 0, -3342292, 6, 0, -3342291, 6, 0, -3342290, 6, 0, -3342289, 5, 0, -3342288, 5, 0, -3342287, 5, 0, -3342286, 2, 0, -3342285, 2, 0, -3342284, 2, 0, -3276756, 6, 0, -3276755, 6, 0, -3276754, 6, 0, -3276753, 6, 0, -3276752, 5, 0, -3276751, 5, 0, -3276750, 2, 0, -3276749, 2, 0, -3276748, 2, 0, -3211220, 6, 0, -3211218, 6, 0, -3211217, 6, 0, -3211216, 5, 0, -3211215, 5, 0, -3211214, 0, 0, -3211212, 2, 0, -3145684, 6, 0, -3145683, 6, 0, -3145682, 6, 0, -3145681, 6, 0, -3145680, 9, 0, -3145678, 3, 0, -3145677, 2, 0, -3145676, 2, 0, -3080147, 3, 0, -3080146, 6, 0, -3080145, 6, 0, -3080144, 8, 0, -131071, 8, 0, -131067, 3, 0, 196605, 12, 0, 196607, 11, 0, 131075, 5, 0, 327679, 10, 0, 262145, 9, 0, 262147, 4, 0, 262149, 0, 0 )
 
 [node name="LIGHTS" type="Node2D" parent="YSort"]
+visible = false
 
 [node name="light_0" parent="YSort/LIGHTS" instance=ExtResource( 15 )]
 position = Vector2( 102, 18 )
@@ -282,6 +285,7 @@ margin_right = 148.0
 margin_bottom = 40.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [connection signal="toggled" from="CanvasLayer/Panel_test/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/light/CheckButton" to="CanvasLayer/Panel_test" method="_on_CheckButton_toggled"]

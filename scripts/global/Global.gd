@@ -4,6 +4,7 @@ var items = []
 var notes = []
 var limbs = []
 var abilities = []
+var items_loot = []
 
 func _ready():
 	var temp
@@ -27,6 +28,8 @@ func _ready():
 		limbs[key]["key"] = key
 	
 	Inventory.limbs = limbs
+	
+	filter_data_items()
 
 func read_from_json(path):
 	var file = File.new()
@@ -34,3 +37,12 @@ func read_from_json(path):
 	var data = parse_json(file.get_as_text())
 	file.close()
 	return data
+	
+func filter_data_items():
+	for i in items:
+		if items[i]["loot"] == true:
+			items_loot.append(i)
+	pass
+
+func items_loot_get_size():
+	return items_loot.size()

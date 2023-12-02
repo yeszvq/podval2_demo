@@ -6,7 +6,7 @@ var path_other = []
 
 #переменные хранящие отличные от путей узлов типы
 var page_number = 0
-var dialogue
+var dialogue = []
 
 var last_node_dialog
 
@@ -57,8 +57,42 @@ func _ready():
 	Events.connect("update_hero", self, "update_hero")
 	Events.connect("start_dialogue", self, "start_dialogue")
 	path_other[10].connect("gui_input", self, "update_dialogue")
+	
+	Events.connect("custom_dialog", self, "custom_dialog")
+	#Events.connect("pick_up_dialog_true", self, "pick_up_true")
+	#Events.connect("pick_up_dialog_false", self, "pick_up_false")
+	#Events.connect("pick_up_dialog_null", self, "pick_up_null")
 	pass # Replace with function body.
 
+
+#пример строчки gosha#Гоша#Какое ахуенное яблоко.
+
+#функция диалога подбора TRUE
+#func pick_up_true(item):
+	#print("work")
+	#custom_dialog("gosha#Гоша#Я подобрал" + item)
+	#pass
+#функция диалога подбора FALSE
+#func pick_up_false():
+	#custom_dialog("gosha#Гоша#Я не могу больше унести")
+	#pass
+#функция диалога подбора NULL
+#func pick_up_null():
+	#custom_dialog("gosha#Гоша#Тут пусто")
+	#pass
+	
+	
+#функция для кастомного диалога внутри кода
+func custom_dialog(text):
+	Events.emit_signal("start_dialog_for_hero")
+	print("work")
+	page_number = 0
+	dialogue.clear()
+	dialogue.append(text)
+	path_other[10].visible = true
+	update_dialogue()
+	
+	pass
 
 #функция для продолжения диалога при клике по диалогу
 func update_dialogue(event = null):

@@ -2,23 +2,27 @@
     "sword": {
         "name": "Sword",
         "icon": "sword.png",
-        "stackable": false
+        "stackable": false,
+        "loot": true
     },
     "armor": {
         "name": "Armor",
         "icon": "armor.png",
-        "stackable": false
+        "stackable": false,
+        "loot": true
     },
     "apple": {
         "name": "Яблоко",
         "icon": "apple.png",
         "stackable": true,
-        "count": 1
+        "count": 1,
+        "loot": false
     },
     "potion": {
         "name": "Potion",
         "icon": "potion.png",
         "stackable": true,
-        "count": 1
+        "count": 1,
+        "loot": false
     }
 }
