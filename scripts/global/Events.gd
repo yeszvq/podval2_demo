@@ -32,6 +32,7 @@ signal show_light
 #Сигналы для подбора предмета
 signal custom_dialog
 signal start_dialog_for_hero
+signal drop_item
 #signal pick_up_dialog_true
 #signal pick_up_dialog_false
 #signal pick_up_dialog_null

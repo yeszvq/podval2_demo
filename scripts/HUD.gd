@@ -283,7 +283,9 @@ func action_with_item(event, index = 0):
 		if event.is_action_released("left_mouse_button"):
 			print("используем")
 		elif event.is_action_released("right_mouse_button"):
+			print("выкидываем")
 			Inventory.remove_item_index(index)
+			Events.emit_signal("drop_item", index)
 	pass
 	
 #функция при нажатии кнопки Tab

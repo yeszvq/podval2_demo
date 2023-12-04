@@ -1,23 +1,40 @@
-extends Sprite
+extends StaticBody2D
 
-export var item = "apple"
+var out = false
 
-var out = true
+export var item = ""
 
+var dialog = [
+	"gosha#Гоша#Я подобрал ",
+	"gosha#Гоша#Я не могу больше унести",
+]
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	texture = load("res://assets/sprites/items/" + Global.items[item]["icon"])
-	pass
-
-func _on_Area2D_body_entered(body):
-	out = false
 	pass # Replace with function body.
 
-func _input(event):
-	if Input.is_action_just_released("action") && out == false:
-		if Inventory.add_item(Global.items[item]) == true:
-			queue_free()
+func _on_mouse_input_event(viewport, event, shape_idx):
+	if Global.work_storage == true && out == true:
+		if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
+			Events.emit_signal("handle_click_storage")
+			add_item(item)
+	pass # Replace with function body.
+	
+func add_item(current_item):
+	if Inventory.add_item(Global.items[current_item]) == true:
+		Events.emit_signal("custom_dialog", dialog[0] + current_item)
+		queue_free()
+		return true
+	else:
+		Events.emit_signal("custom_dialog", dialog[1])
+		return false
 	pass
 
-func _on_Area2D_body_exited(body):
+func _on_player_nearby_area_entered(area):
 	out = true
+	pass # Replace with function body.
+
+
+func _on_player_nearby_area_exited(area):
+	out = false
 	pass # Replace with function body.

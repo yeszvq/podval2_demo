@@ -41,11 +41,6 @@ func add_item(current_item):
 	pass
 
 
-func _on_mouse_click_mouse_entered():
-	print("тест")
-	pass # Replace with function body.
-
-
 func _on_player_nearby_area_entered(area):
 	out = true
 	pass # Replace with function body.
