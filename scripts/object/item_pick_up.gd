@@ -31,10 +31,12 @@ func add_item(current_item):
 	pass
 
 func _on_player_nearby_area_entered(area):
+	z_index = 99
 	out = true
 	pass # Replace with function body.
 
 
 func _on_player_nearby_area_exited(area):
+	z_index = 1
 	out = false
 	pass # Replace with function body.

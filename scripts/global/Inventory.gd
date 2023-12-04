@@ -95,14 +95,19 @@ func pain_mind_change(index, count):
 func count_inv():
 	return items.size()
 
-#функция удаления предмета
+#функция удаления предмета по названию
 func remove_item(item):
 	items.remove(items.find(item))
 	update(1)
-	
+
+#функция удаления предмета по индексу
 func remove_item_index(index):
 	items.remove(index)
 	update(1)
+	
+#функция возвращающая предмет по индексу
+func find_item_index(index):
+	return items[index]
 
 #функция добавления записок
 func add_note(note):
