@@ -35,7 +35,7 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="storage_floor" parent="test_level/YSort" instance=ExtResource( 10 )]
-tile_data = PoolIntArray( -131074, 0, 0, -2, 0, 0, 131070, 0, 0 )
+tile_data = PoolIntArray( -262143, 0, 0, -262140, 0, 0, -131074, 0, 0, -196604, 0, 0, -131068, 0, 0, -2, 0, 0, -65532, 0, 0, 4, 0, 0, 131070, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0 )
 
 [node name="item_pick_up2" parent="test_level/YSort" instance=ExtResource( 4 )]
 position = Vector2( 32, 24 )

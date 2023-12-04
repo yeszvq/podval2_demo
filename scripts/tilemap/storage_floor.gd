@@ -8,6 +8,6 @@ func _ready():
 		var object = load("res://scene/object/storage/storage_" + str(cell) + ".tscn").instance()
 		object.position = map_to_world(Vector2(cellpose.x + 1, cellpose.y + 1))
 		add_child(object)
-		set_cellv(cellpose, -1)
+		#set_cellv(cellpose, -1)
 	pass # Replace with function body.
 
