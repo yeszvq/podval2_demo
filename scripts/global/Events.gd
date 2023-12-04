@@ -36,3 +36,5 @@ signal start_dialog_for_hero
 #signal pick_up_dialog_false
 #signal pick_up_dialog_null
 
+#системный сигнал
+signal handle_click_storage

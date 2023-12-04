@@ -15,7 +15,7 @@ var use_inventory = 0
 var move = 0
 
 #под инвентарь
-var size_items = 2
+var size_items = 9
 
 #функция под повреждение конечностей
 func hurt_limb(limb_name, damage):
@@ -98,6 +98,10 @@ func count_inv():
 #функция удаления предмета
 func remove_item(item):
 	items.remove(items.find(item))
+	update(1)
+	
+func remove_item_index(index):
+	items.remove(index)
 	update(1)
 
 #функция добавления записок

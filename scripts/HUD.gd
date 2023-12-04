@@ -12,6 +12,7 @@ var last_node_dialog
 
 
 func _ready():
+	visible = false
 	#пути узлов
 	notebook_path = $MarginContainer/VBoxContainer/notebook
 	notebook_path.visible = false
@@ -88,6 +89,7 @@ func custom_dialog(text):
 	page_number = 0
 	dialogue.clear()
 	dialogue.append(text)
+	visible = true
 	path_other[10].visible = true
 	update_dialogue()
 	
@@ -98,6 +100,7 @@ func update_dialogue(event = null):
 	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
 		if page_number >= dialogue.size():
 			path_other[10].visible = false
+			visible = false
 			Events.emit_signal("end_dialog")
 			return
 		var temp = dialogue[page_number].split("#")
@@ -191,6 +194,7 @@ func start_dialogue(name_path):
 	dialogue = temp.split("\n")
 	update_dialogue()
 	path_other[10].visible = true
+	visible = true
 	pass
 
 
@@ -248,16 +252,19 @@ func generate_content(index):
 						temp_node.add_to_group("notes_nodes")
 		#инвентарь
 		1:
-			var temp = get_tree().get_nodes_in_group("items_nodes")
-			var temp_2 = Inventory.count_inv() #здесь функция из Inventory, она возвращает число предметов которые есть
-			if temp.size() != temp_2:
-				if temp.size() < temp_2:
-					for i in range(temp.size(), temp_2):
-						var temp_node = preload("res://scene/ui/itemslot.tscn").instance()
-						path_other[5].add_child(temp_node)
-						temp_node.add_to_group("items_nodes")
-						temp_node.get_child(0).get_child(0).text = str("- " + Inventory.items[i]["name"])
-						temp_node.get_child(0).get_child(1).texture = load("res://assets/sprites/items/" + Inventory.items[i]["icon"])
+			#Здесь мы отчищаем список нод itemslot, чтобы нормально отобразить существующие.
+			#Мне лень было делать отдельную функцию для поиска и удаления ноды
+			var temp_2 = path_other[5].get_children()
+			for i in range(1, temp_2.size()):
+				path_other[5].remove_child(temp_2[i])
+			var temp = Inventory.count_inv() #здесь функция из Inventory, она возвращает число предметов которые есть
+			for i in range(0, temp):
+				var temp_node = preload("res://scene/ui/itemslot.tscn").instance()
+				path_other[5].add_child(temp_node)
+				temp_node.connect("gui_input", self, "action_with_item", [i])
+				#temp_node.add_to_group("items_nodes")
+				temp_node.get_child(0).get_child(0).text = str("- " + Inventory.items[i]["name"])
+				temp_node.get_child(0).get_child(1).texture = load("res://assets/sprites/items/" + Inventory.items[i]["icon"])
 		#статус
 		2:
 			path_other[6].value = Inventory.pain_mind[0]
@@ -269,12 +276,24 @@ func generate_content(index):
 			print()
 	pass
 
+
+#функция взаимодействия с предметами в инвентаре
+func action_with_item(event, index = 0):
+	if event is InputEventMouseButton:
+		if event.is_action_released("left_mouse_button"):
+			print("используем")
+		elif event.is_action_released("right_mouse_button"):
+			Inventory.remove_item_index(index)
+	pass
+	
 #функция при нажатии кнопки Tab
 func open_notebook():
 	if notebook_path.visible == false:
 		generate_content(0)
+		visible = true
 		notebook_path.visible = true
 	else:
+		visible = false
 		notebook_path.visible = false
 	pass
 
