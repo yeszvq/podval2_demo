@@ -2,6 +2,8 @@ extends Node2D
 
 var item_0 = preload("res://scene/object/pick_up_item/item_0.tscn")
 var item_1 = preload("res://scene/object/pick_up_item/item_1.tscn")
+var item_2 = preload("res://scene/object/pick_up_item/item_2.tscn")
+var item_3 = preload("res://scene/object/pick_up_item/item_3.tscn")
 
 func _ready():
 	print("запустилось")
@@ -27,6 +29,10 @@ func drop_item(item):
 			object = item_0.instance()
 		"1":
 			object = item_1.instance()
+		"2":
+			object = item_2.instance()
+		"3":
+			object = item_3.instance()
 	
 	var object_position = get_child(0).get_child(0).get_node("hero").position
 	get_child(0).get_child(0).add_child(object)
