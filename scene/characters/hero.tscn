@@ -5,12 +5,13 @@
 [ext_resource path="res://assets/sprites/ui/notebook/Exclamation-Mark.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 6.0
+radius = 5.0
 
 [node name="hero" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 2
 collision_mask = 124
+collision/safe_margin = 0.1
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -23,6 +24,7 @@ current = true
 zoom = Vector2( 0.2, 0.2 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -37,6 +39,7 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -44,6 +47,7 @@ position = Vector2( 0, 14 )
 shape = SubResource( 1 )
 
 [node name="action_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 12
 
