@@ -39,3 +39,7 @@ signal drop_item
 
 #системный сигнал
 signal handle_click_storage
+
+#сигнал для открыти ядверей
+signal open_grid_door
+signal close_grid_door

@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/area2d/use_doorgrid_area.gd" type="Script" id=1]
+
+[node name="use_doorgrid_area" type="StaticBody2D"]
+z_index = 2
+script = ExtResource( 1 )
+coordinates = [ Vector2( 3, -3 ), Vector2( 4, -3 ), Vector2( 5, -3 ), Vector2( 6, -3 ) ]
+
+[node name="close" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="close"]
+position = Vector2( -18, 11 )
+polygon = PoolVector2Array( 107, 36, 126, 27, 126, -18, 107, -10 )
+
+[node name="open" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="open"]
+polygon = PoolVector2Array( 108, 37, 128, 47, 128, 0, 108, -10 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
+polygon = PoolVector2Array( 80, 24, 63, 33, 127, 65, 144, 56, 168, 44, 104, 12 )
+
+[connection signal="input_event" from="close" to="." method="_on_close_input_event"]
+[connection signal="input_event" from="open" to="." method="_on_open_input_event"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_Area2D2_area_entered"]
+[connection signal="area_exited" from="Area2D2" to="." method="_on_Area2D2_area_exited"]

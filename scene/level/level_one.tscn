@@ -191,7 +191,7 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1597, -153 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="broken_glass_tilemap" parent="YSort" instance=ExtResource( 8 )]
