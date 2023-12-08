@@ -19,6 +19,17 @@ func _ready():
 	Events.connect("start_dialogue", self, "start_dialog")
 	pass
 	
+	
+func off_light():
+	$lights.visible = false
+	pass
+	
+func on_light():
+	$lights.visible = true
+
+func camera_current():
+	$Camera2D.current = true	
+
 func start_dialog(name_path = null):
 	dialog_open = true
 	pass
@@ -54,7 +65,7 @@ func get_input():
 	velocity = input_direction * speed
 	
 func _input(event):
-	if dialog_open == false:
+	if dialog_open == false && cutscene == false:
 		if Input.is_action_just_released("open_notebook") && dialog_open == false:
 			Events.emit_signal("open_notebook")
 		if Input.is_action_just_released("test"):
@@ -98,8 +109,16 @@ func start_cutscene():
 	cutscene = true
 	pass
 	
+func camera_move(pos):
+	$Camera2D.position = pos
+	pass
+	
 func stop_cutscene():
 	cutscene = false
+	pass
+
+func use_stop_cutscene():
+	Events.emit_signal("use_stop_cutscene")
 	pass
 
 func start_dialogue(name_dialogue):

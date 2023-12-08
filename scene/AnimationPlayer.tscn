@@ -1,0 +1,476 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/animation_player/AnimationPlayer.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/ne_gosha_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 270, 142 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/ne_gosha_3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 115, 86 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 263, 147 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/ne_gosha_2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 240, 16 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YSort/Sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -83, -23 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "start"
+length = 19.5
+step = 0.01
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/group_area_2d_wall_hide/Area2D6")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "use_hide"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/group_area_2d_wall_hide/Area2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "use_hide"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/hero")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.01, 3, 3.01, 3.1, 5.17, 5.5, 5.501, 6.6, 6.601, 6.8, 7, 7.001, 10.7, 10.701, 15.1, 15.101, 16.3, 16.8, 17.3, 18.5, 19, 19.2, 19.21, 19.49, 19.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [  ],
+"method": "off_light"
+}, {
+"args": [ "start_dialog" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "on_light"
+}, {
+"args": [ "idle_1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "start_dialog_1" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "start_dialog_2" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "start_dialog_3" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "start_dialog_4" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "start_dialog_6" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "off_light"
+}, {
+"args": [  ],
+"method": "on_light"
+}, {
+"args": [  ],
+"method": "off_light"
+}, {
+"args": [  ],
+"method": "camera_current"
+}, {
+"args": [  ],
+"method": "on_light"
+}, {
+"args": [ "start_dialog_7" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/ne_gosha_1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3, 5.6, 6.4, 10.8, 15.1, 15.4, 15.5, 17.68, 19.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "run_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "run_1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "run_1_1" ],
+"method": "play_anim"
+}, {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "exit"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("YSort/ne_gosha_3")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3, 5.6, 6.5, 10.8, 12.5, 15.1, 17.69, 19.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "run_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "run_0_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "run_0_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "exit"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("YSort/ne_gosha_1:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3, 5.6, 6.3, 10.8, 15.5, 17 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 270, 142 ), Vector2( 140, 73 ), Vector2( 140, 73 ), Vector2( 156, 78 ), Vector2( 156, 78 ), Vector2( 156, 78 ), Vector2( 335, 163 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("YSort/ne_gosha_3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 3, 5.6, 6.4, 10.8, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 248, 153 ), Vector2( 115, 86 ), Vector2( 115, 86 ), Vector2( 112, 50 ), Vector2( 112, 50 ), Vector2( 120, 95 ) ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("YSort/ne_gosha_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.4, 6.8, 7.5, 8.3, 10.5, 10.8, 11.3, 17.68, 19.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "run_-1_0" ],
+"method": "play_anim"
+}, {
+"args": [ "run_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "run_0_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_1" ],
+"method": "play_anim"
+}, {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "exit"
+} ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../Camera2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3, 3.3, 5.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 263, 147 ), Vector2( 124, 79 ), Vector2( 124, 79 ), Vector2( 214, 28 ) ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("YSort/areas_door/use_doorgrid_area3")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 7.1, 10.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "use_open_door"
+}, {
+"args": [  ],
+"method": "use_close_door"
+} ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("YSort/ne_gosha_2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 7.5, 8.3, 10.5, 10.8, 11.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 240, 16 ), Vector2( 208, 16 ), Vector2( 125, 69 ), Vector2( 125, 69 ), Vector2( 137, 85 ) ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("../Camera2D")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 12.6, 13, 13.4, 15, 19.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ null ],
+"method": "set_shake"
+}, {
+"args": [ null ],
+"method": "set_shake"
+}, {
+"args": [ null ],
+"method": "set_shake"
+}, {
+"args": [ null ],
+"method": "set_shake"
+}, {
+"args": [  ],
+"method": "exit"
+} ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("../AnimatedSprite")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 13, 14, 19.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "move_show"
+}, {
+"args": [  ],
+"method": "move_hide"
+}, {
+"args": [  ],
+"method": "exit"
+} ]
+}
+tracks/13/type = "method"
+tracks/13/path = NodePath("YSort/LIGHTS")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 16.3, 16.8, 17.3, 19 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide_light"
+}, {
+"args": [  ],
+"method": "show_light"
+}, {
+"args": [  ],
+"method": "hide_light"
+}, {
+"args": [  ],
+"method": "show_light"
+} ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("YSort/Sprite:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 16.8, 17.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -83, -23 ), Vector2( -83, -23 ), Vector2( 131, 85 ) ]
+}
+tracks/15/type = "method"
+tracks/15/path = NodePath("YSort/Sprite")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 17.69, 19.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "off_visible"
+}, {
+"args": [  ],
+"method": "exit"
+} ]
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+anims/RESET = SubResource( 7 )
+anims/start = SubResource( 6 )
+script = ExtResource( 1 )

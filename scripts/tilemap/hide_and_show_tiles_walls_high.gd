@@ -21,4 +21,16 @@ func _on_Area2D_body_exited(body):
 	if torch_on_wall != []:
 		Events.emit_signal("show_torch", torch_on_wall)
 	pass # Replace with function body.
+	
+func use_hide():
+	Events.emit_signal("hide_tiles", coordinates, for_coordinates)
+	if torch_on_wall != []:
+		Events.emit_signal("hide_torch", torch_on_wall)
+	pass
+	
+func use_show():
+	Events.emit_signal("show_tiles", coordinates, for_coordinates)
+	if torch_on_wall != []:
+		Events.emit_signal("show_torch", torch_on_wall)
+	pass
 

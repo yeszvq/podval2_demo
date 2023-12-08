@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://scripts/tilemap/tilemap_2_high_wall.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/object/wall.png" type="Texture" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_high/normal_map_high_wall_5.tres" type="Texture" id=10]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_high/normal_map_high_wall_3.tres" type="Texture" id=11]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_high/normal_map_high_wall_2.tres" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/object/wall_special.png" type="Texture" id=13]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_high/normal_map_high_wall_6.tres" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/object/blood_chisla.png" type="Texture" id=15]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -1556,6 +1558,48 @@ region = Rect2( 64, 96, 32, 64 )
 91/shape_one_way_margin = 0.0
 91/shapes = [  ]
 91/z_index = 1
+92/name = "wall_special.png 92"
+92/texture = ExtResource( 13 )
+92/tex_offset = Vector2( 0, -32 )
+92/modulate = Color( 1, 1, 1, 1 )
+92/region = Rect2( 0, 0, 32, 64 )
+92/tile_mode = 0
+92/occluder_offset = Vector2( 0, 0 )
+92/navigation_offset = Vector2( 0, 0 )
+92/shape_offset = Vector2( 0, 0 )
+92/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+92/shape_one_way = false
+92/shape_one_way_margin = 0.0
+92/shapes = [  ]
+92/z_index = 1
+93/name = "wall_special.png 93"
+93/texture = ExtResource( 13 )
+93/tex_offset = Vector2( 0, -32 )
+93/modulate = Color( 1, 1, 1, 1 )
+93/region = Rect2( 96, 0, 32, 64 )
+93/tile_mode = 0
+93/occluder_offset = Vector2( 0, 0 )
+93/navigation_offset = Vector2( 0, 0 )
+93/shape_offset = Vector2( 0, 0 )
+93/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+93/shape_one_way = false
+93/shape_one_way_margin = 0.0
+93/shapes = [  ]
+93/z_index = 1
+94/name = "blood_chisla.png 94"
+94/texture = ExtResource( 15 )
+94/tex_offset = Vector2( 0, -32 )
+94/modulate = Color( 1, 1, 1, 1 )
+94/region = Rect2( 0, 0, 32, 64 )
+94/tile_mode = 0
+94/occluder_offset = Vector2( 0, 0 )
+94/navigation_offset = Vector2( 0, 0 )
+94/shape_offset = Vector2( 0, 0 )
+94/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+94/shape_one_way = false
+94/shape_one_way_margin = 0.0
+94/shapes = [  ]
+94/z_index = 1
 
 [node name="tilemap_high_wall" type="TileMap"]
 mode = 1

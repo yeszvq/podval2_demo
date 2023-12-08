@@ -120,6 +120,9 @@ func update_dialogue(event = null):
 				match i[0]:
 					"close":
 						page_number = 900
+						path_other[10].visible = false
+						visible = false
+						Events.emit_signal("end_dialog")
 					"addItem":
 						for j in range(int(i[2])):
 							Inventory.add_item(Global.items[i[1]])
@@ -129,6 +132,8 @@ func update_dialogue(event = null):
 						Inventory.remove_item(Global.items[i[1]])
 					"cutscene":
 						Events.emit_signal("start_cutsene", i[1])
+					"cutsceneCont":
+						Events.emit_signal("use_start_cutscene")
 			
 		if temp[0] == "chose":
 			#Нужно доработать этот скрипт

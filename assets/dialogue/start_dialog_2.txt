@@ -1,0 +1,2 @@
+cultist#Культист 1#Эй, голубки окаянные!
+cultist#Культист 1#&cutsceneCont_0&close_0

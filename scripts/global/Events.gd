@@ -43,3 +43,7 @@ signal handle_click_storage
 #сигнал для открыти ядверей
 signal open_grid_door
 signal close_grid_door
+
+#сигнал для работы с animationplayer
+signal use_stop_cutscene
+signal use_start_cutscene
