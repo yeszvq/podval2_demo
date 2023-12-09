@@ -6,7 +6,7 @@ var limbs = []
 var abilities = []
 var items_loot = []
 
-var work_storage = true
+var work_item = true
 const inteval = 0.4
 
 func _ready():

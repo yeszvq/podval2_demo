@@ -47,3 +47,4 @@ signal close_grid_door
 #сигнал для работы с animationplayer
 signal use_stop_cutscene
 signal use_start_cutscene
+signal use_cutscene

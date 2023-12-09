@@ -2,7 +2,9 @@ extends StaticBody2D
 
 var empty = false
 var near = false
+var last_use = false
 export var coordinates = []
+
 
 func _ready():
 	pass # Replace with function body.
@@ -36,9 +38,16 @@ func _on_open_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_released("left_mouse_button") && near == true && Global.work_item == true:
 		Events.emit_signal("handle_click_storage")
 		if empty == false:
-			print("открываю дверь")
-			Events.emit_signal("open_grid_door", coordinates)
-			empty = true
+			if last_use == false:
+				if Inventory.items.find(Global.items["rock"]) != -1:
+					Events.emit_signal("use_cutscene", "break_grid_door")
+					empty = true
+					last_use = true
+				else:
+					Events.emit_signal("custom_dialog", "gosha#Гоша#Дверь заперта, но я могу сломать замок, если у меня будет что-то твёрдое.")
+			elif last_use == true:
+				Events.emit_signal("open_grid_door", coordinates)
+				empty = true
 	pass # Replace with function body.
 
 

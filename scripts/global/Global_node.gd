@@ -10,16 +10,22 @@ func _ready():
 	#print("запустилось")
 	Events.connect("handle_click_storage", self, "handle_click_storage")
 	Events.connect("drop_item", self, "drop_item")
-	Global.work_storage = true
+	Events.connect("use_cutscene", self, "play_cutscene")
+	Global.work_item = true
 	pass # Replace with function body.
 
+
+func play_cutscene(name):
+	$level_one/AnimationPlayer.play(name)
+	pass
+
 func handle_click_storage():
-	Global.work_storage = false
+	Global.work_item = false
 	$Timer.start()
 	pass
 
 func _on_Timer_timeout():
-	Global.work_storage = true
+	Global.work_item = true
 	pass # Replace with function body.
 
 func drop_item(item):
