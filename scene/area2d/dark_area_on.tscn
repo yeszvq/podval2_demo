@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/area2d/dark_off_on.gd" type="Script" id=1]
+
+[node name="dark_area_on" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_dark_area_on_area_entered"]

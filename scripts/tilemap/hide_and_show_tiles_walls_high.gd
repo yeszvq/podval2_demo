@@ -11,6 +11,7 @@ export var torch_on_wall = []
 
 func _on_Area2D_body_entered(body):
 	Events.emit_signal("hide_tiles", coordinates, for_coordinates)
+	print("work")
 	if torch_on_wall != []:
 		Events.emit_signal("hide_torch", torch_on_wall)
 	pass # Replace with function body.

@@ -9,6 +9,7 @@ var velocity = Vector2()
 var dialog_open = false
 var cutscene = false
 var flashlight = false
+var dark = false
 
 var monstr_nearby = false
 
@@ -17,8 +18,17 @@ func _ready():
 	Events.connect("update_hero_parametrs", self, "update_hero_parametrs")
 	Events.connect("end_dialog", self, "end_dialog")
 	Events.connect("start_dialogue", self, "start_dialog")
+	Events.connect("dark_off", self, "dark_off")
+	Events.connect("dark_on", self, "dark_on")
 	pass
 	
+func dark_off():
+	dark = false
+	pass
+
+func dark_on():
+	dark = true
+	pass
 	
 func off_light():
 	$lights.visible = false
@@ -83,17 +93,15 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	if flashlight == false:
-		Inventory.pain_mind_change(1, -1)
-	if monstr_nearby == true:
-		Inventory.pain_mind_change(1, -1)
 	if Inventory.pain_mind[0] != 0:
+		Inventory.pain_mind_change(1, -1)
+	if Inventory.pain_mind[1] != 0 && dark == true:
 		Inventory.pain_mind_change(1, -1)
 	pass # Replace with function body.
 
 
 func _on_Timer2_timeout():
-	if Inventory.pain_mind[0] != 0:
+	if Inventory.pain_mind[0] != 0: 
 		Inventory.pain_mind_change(0, -1)
 	pass # Replace with function body.
 	

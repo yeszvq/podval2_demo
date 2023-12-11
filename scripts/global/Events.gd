@@ -48,3 +48,5 @@ signal close_grid_door
 signal use_stop_cutscene
 signal use_start_cutscene
 signal use_cutscene
+signal dark_off
+signal dark_on

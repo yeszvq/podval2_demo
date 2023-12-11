@@ -42,7 +42,7 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
