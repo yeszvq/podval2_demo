@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://assets/sprites/object/wall.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/object/wall_normal.png" type="Texture" id=2]
@@ -33,9 +33,6 @@ points = PoolVector2Array( 0, 23.9375, 15.9375, 15.8125, 31.875, 24, 15.9375, 31
 [sub_resource type="AtlasTexture" id=99]
 atlas = ExtResource( 2 )
 region = Rect2( 128, 64, 32, 32 )
-
-[sub_resource type="OccluderPolygon2D" id=77]
-polygon = PoolVector2Array( 16, 31.8125, 31.875, 23.875, 15.875, 15.875, 0, 24 )
 
 [sub_resource type="ConvexPolygonShape2D" id=48]
 points = PoolVector2Array( 0, 24, 15.875, 16.125, 31.8125, 24, 16, 31.875 )
@@ -383,7 +380,6 @@ points = PoolVector2Array( 23.875, 20.25, 31.8125, 24.125, 16, 32, 8, 28.1875 )
 48/region = Rect2( 128, 64, 32, 32 )
 48/tile_mode = 0
 48/occluder_offset = Vector2( 0, 0 )
-48/occluder = SubResource( 77 )
 48/navigation_offset = Vector2( 0, 0 )
 48/shape_offset = Vector2( 0, 0 )
 48/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )

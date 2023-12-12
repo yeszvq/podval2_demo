@@ -108,6 +108,8 @@ func _on_Timer2_timeout():
 	
 #Код для запуска нужных анимаций в катсценах
 func play_anim(animation_name):
+	var temp = animation_name.split("_")
+	previos_direction = Vector2(float(temp[1]), float(temp[2]))
 	$AnimatedSprite.play(animation_name)
 
 func stop_anim():

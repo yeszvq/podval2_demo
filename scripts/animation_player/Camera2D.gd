@@ -52,5 +52,9 @@ func set_shake(add_trauma = 0.5):
 	trauma = min(trauma + add_trauma, 1.0)
 
 func exit():
-	self.queue_free()
+	current = false
+	pass
+	
+func open():
+	current = true
 	pass
