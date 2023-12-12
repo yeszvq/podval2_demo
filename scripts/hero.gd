@@ -20,6 +20,8 @@ func _ready():
 	Events.connect("start_dialogue", self, "start_dialog")
 	Events.connect("dark_off", self, "dark_off")
 	Events.connect("dark_on", self, "dark_on")
+	Events.connect("show_light_hero", self, "on_light")
+	Events.connect("hide_light_hero", self, "off_light")
 	pass
 	
 func dark_off():

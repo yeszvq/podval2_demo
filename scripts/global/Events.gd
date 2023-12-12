@@ -50,3 +50,7 @@ signal use_start_cutscene
 signal use_cutscene
 signal dark_off
 signal dark_on
+
+#Сигнал для героя
+signal hide_light_hero
+signal show_light_hero

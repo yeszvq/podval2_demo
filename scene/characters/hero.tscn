@@ -67,14 +67,14 @@ light_mask = 4
 
 [node name="Light2D" type="Light2D" parent="lights"]
 texture = ExtResource( 4 )
-texture_scale = 0.25
+texture_scale = 0.4
 color = Color( 1, 1, 1, 0.627451 )
-range_height = 30.0
+range_height = 40.0
 
 [node name="Light2D2" type="Light2D" parent="lights"]
 position = Vector2( 0, 14 )
 texture = ExtResource( 4 )
-texture_scale = 0.25
+texture_scale = 0.4
 color = Color( 1, 1, 1, 0.627451 )
 range_height = 30.0
 range_item_cull_mask = 2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/image.png-8e007026211f1ec302a7b436dd65e6be.stex"
+path="res://.import/wall_arka.png-9750393122af87718a62ea6e32795163.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/object/image.png"
-dest_files=[ "res://.import/image.png-8e007026211f1ec302a7b436dd65e6be.stex" ]
+source_file="res://assets/sprites/object/wall_arka.png"
+dest_files=[ "res://.import/wall_arka.png-9750393122af87718a62ea6e32795163.stex" ]
 
 [params]
 
