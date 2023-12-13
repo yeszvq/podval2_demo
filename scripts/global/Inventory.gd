@@ -109,6 +109,9 @@ func remove_item_index(index):
 func find_item_index(index):
 	return items[index]
 
+func find_item_name(name):
+	return items.find(Global.items[name])
+
 #функция добавления записок
 func add_note(note):
 	if notes.find(note) == -1:
