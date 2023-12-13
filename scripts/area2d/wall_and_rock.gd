@@ -13,7 +13,7 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_released("left_mouse_button") && near == true && Global.work_item == true:
 		Events.emit_signal("handle_click_storage")
 		if empty == false:
-			Events.emit_signal("custom_dialog", "gosha#Гоша#Я достал камень из дыры в стене")
+			Events.emit_signal("start_dialogue", "camen_in_wall")
 			Inventory.add_item(Global.items["rock"])
 			empty = true
 		else:

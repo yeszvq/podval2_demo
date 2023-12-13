@@ -44,7 +44,7 @@ func _on_open_input_event(viewport, event, shape_idx):
 					empty = true
 					last_use = true
 				else:
-					Events.emit_signal("custom_dialog", "gosha#Гоша#Дверь заперта, но я могу сломать замок, если у меня будет что-то твёрдое.")
+					Events.emit_signal("custom_dialog", "gosha#Гоша#Эта железная решетка отделяет меня от свободы, но руками мне ее точно не сломать. Хотя, этот замок, на котором она держится, выглядит достаточно хлипко. Думаю, его можно разбить чем-нибудь твердым..")
 			elif last_use == true:
 				Events.emit_signal("open_grid_door", coordinates)
 				empty = true
