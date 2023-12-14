@@ -160,6 +160,7 @@ func update_dialogue(event = null):
 		else:
 			$Timer.start()
 			path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
+			print(temp[1])
 			path_other[12].text = temp[1]
 			path_other[13].text = temp[2]
 			page_number += 1
