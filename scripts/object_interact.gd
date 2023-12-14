@@ -23,7 +23,7 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 			if need_item == false:
 				if empty == false:
 					Events.emit_signal("start_dialogue", name_dialog)
-					empty == true
+					empty = true
 				else:
 					Events.emit_signal("start_dialogue", name_alt_dialog_0)
 			elif need_item == true:

@@ -32,13 +32,41 @@
         "effect": "mind"
     },
     "rock": {
-        "name": "Rock",
+        "name": "Камень",
         "icon": "potion.png",
         "stackable": true,
         "count": 1,
         "loot": true,
         "index": 4,
         "effect": "null"
+    },
+    "crowbar": {
+        "name": "Монтировка",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 5,
+        "effect": "null"
+    },
+    "sawbroke": {
+        "name": "Хирургическая пила без ручки",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 6,
+        "effect": "null"
+    },
+    "saw": {
+        "name": "Хирургическая пила",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 7,
+        "effect": "null"
     }
+
 
 }
