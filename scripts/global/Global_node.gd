@@ -14,7 +14,7 @@ var item_10 = preload("res://scene/object/pick_up_item/item_10.tscn")
 var item_11 = preload("res://scene/object/pick_up_item/item_11.tscn")
 
 func _ready():
-	#$level_one/AnimationPlayer.play("start")
+	$level_one/AnimationPlayer.play("start")
 	#print("запустилось")
 	Events.connect("handle_click_storage", self, "handle_click_storage")
 	Events.connect("drop_item", self, "drop_item")

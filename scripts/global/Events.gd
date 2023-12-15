@@ -57,3 +57,5 @@ signal show_light_hero
 
 signal giltoneworked
 signal altarworked
+
+signal no_mind

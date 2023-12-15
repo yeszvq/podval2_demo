@@ -2,6 +2,7 @@ extends StaticBody2D
 
 var empty = false
 var near = false
+var special = true
 export var coordinates = []
 
 func _ready():
@@ -23,9 +24,14 @@ func _on_open_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_released("left_mouse_button") && near == true && Global.work_item == true:
 		Events.emit_signal("handle_click_storage")
 		if empty == false:
-			print("открываю дверь")
-			Events.emit_signal("open_grid_door", coordinates)
-			empty = true
+			if special == true:
+				if Inventory.find_item_name("crowbar") != -1:
+					Events.emit_signal("open_grid_door", coordinates)
+					empty = true
+					special = false
+			else:
+				Events.emit_signal("open_grid_door", coordinates)
+				empty = true
 	pass # Replace with function body.
 
 

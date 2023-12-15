@@ -89,6 +89,8 @@ func pain_mind_change(index, count):
 		pain_mind[index] = 0
 	else:
 		pain_mind[index] += count
+	if pain_mind[1] <= 0:
+		Events.emit_signal("no_mind")
 	update(2)
 
 #функция дающая число предметов в инвентаре

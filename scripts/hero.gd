@@ -11,6 +11,7 @@ var cutscene = false
 var flashlight = false
 var dark = false
 var last_dark = false
+var safepoint = false
 
 var monstr_nearby = false
 
@@ -23,6 +24,15 @@ func _ready():
 	Events.connect("dark_on", self, "dark_on")
 	Events.connect("show_light_hero", self, "on_light")
 	Events.connect("hide_light_hero", self, "off_light")
+	Events.connect("no_mind", self, "no_mind")
+	pass
+	
+
+func no_mind():
+	if safepoint == false:
+		Events.emit_signal("start_dialogue", "death")
+	else:
+		Events.emit_signal("use_cutscene", "respawn")
 	pass
 	
 func dark_off():

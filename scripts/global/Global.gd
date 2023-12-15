@@ -22,9 +22,6 @@ func _ready():
 		notes.append(temp[key])
 	
 	#добавлены для проверки работоспособности, потом надо убрать
-	Inventory.notes.append(notes[0])
-	Inventory.notes.append(notes[1])
-	Inventory.notes.append(notes[2])
 	
 	limbs = read_from_json("res://assets/json-data/limbs.json")
 	for key in limbs:

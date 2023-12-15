@@ -22,7 +22,7 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 	
 func add_item(current_item):
 	if Inventory.add_item(Global.items[current_item]) == true:
-		Events.emit_signal("custom_dialog", dialog[0] + current_item)
+		Events.emit_signal("custom_dialog", dialog[0] + current_item["name"])
 		queue_free()
 		return true
 	else:
