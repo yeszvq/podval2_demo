@@ -191,6 +191,9 @@ func button_chose_action(value = null):
 			visible = false
 			Events.emit_signal("end_dialog")
 	path_other[14].visible = false
+	var temp_2 = path_other[15].get_children()
+	for i in range(1, temp_2.size()):
+		path_other[15].remove_child(temp_2[i])
 	pass
 
 #диалог
@@ -294,7 +297,8 @@ func action_with_item(event, index = 0):
 	if event is InputEventMouseButton:
 		if event.is_action_released("left_mouse_button"):
 			use_item(Inventory.find_item_index(index))
-			Inventory.remove_item_index(index)
+			if Inventory.find_item_index(index)["effect"] != "null":
+				Inventory.remove_item_index(index)
 		elif event.is_action_released("right_mouse_button"):
 			var item = Inventory.find_item_index(index)
 			Inventory.remove_item_index(index)

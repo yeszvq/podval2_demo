@@ -27,9 +27,6 @@ collision_mask = 2
 position = Vector2( 0, 1 )
 polygon = PoolVector2Array( 0, -8, 16, 0, 0, 8, -16, 0 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -1, -7, 1, -7, 5, 0, 5, 6, 3, 6, 3, 7, -3, 7, -3, 6, -5, 6, -5, 0 )
-
 [connection signal="input_event" from="mouse" to="." method="_on_mouse_input_event"]
 [connection signal="area_entered" from="player_nearby" to="." method="_on_player_nearby_area_entered"]
 [connection signal="area_exited" from="player_nearby" to="." method="_on_player_nearby_area_exited"]

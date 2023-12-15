@@ -14,7 +14,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_mouse_input_event(viewport, event, shape_idx):
-	if Global.work_storage == true && out == true:
+	if Global.work_item == true && out == true:
 		if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
 			Events.emit_signal("handle_click_storage")
 			add_item(item)
