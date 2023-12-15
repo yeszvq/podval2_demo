@@ -16,3 +16,9 @@ func close_grid_door(coordinates):
 	for i in coordinates:
 		set_cellv(i, int(get_cellv(i)) - 4)
 	pass
+	
+func broke_wood_door():
+	var pos = Vector2(29, 5)
+	set_cellv(pos, -1)
+	set_cellv(pos, 83)
+	pass

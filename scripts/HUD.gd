@@ -143,7 +143,9 @@ func update_dialogue(event = null):
 			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
 			for i in temp.size() - 1:
 				var temp_button = preload("res://scene/object/button_chose.tscn").instance()
+				print(temp)
 				var temp_2 = temp[i+1].split("||")
+				print(temp_2)
 				temp_button.text = temp_2[0]
 				temp_2.remove(0)
 				var count = temp_2.size()
@@ -152,6 +154,7 @@ func update_dialogue(event = null):
 					temp_3.append(j.split("_"))
 				temp_2 = temp_3
 				temp_3 = []
+				print(temp_2)
 				temp_button.connect("button_up", self, "button_chose_action", [temp_2])
 				path_other[15].add_child(temp_button)
 			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
@@ -168,22 +171,26 @@ func update_dialogue(event = null):
 
 #функция при нажатия на кнопки выбора в диалогах
 func button_chose_action(value = null):
-	for i in value:
-		print(i)
-		match i[0]:
-			"addItem":
-				for j in range(int(i[2])):
-					Inventory.add_item(Global.items[i[1]])
-				path_other[13].text = str("Я подобрал " + Global.items[i[1]]["name"].to_lower())
-			"nothing":
-				path_other[13].text = str("Я просто отойду")
-			"remove":
-				#нужно доработать скрипт с удалением
-				Inventory.remove_item(Global.items[i[1]])
-			"cutscene":
-				Events.emit_signal("start_cutsene", i[1])
-			"close":
-				page_number = 900
+	print("value " + str(value))
+	print(value[0][0])
+	match value[0][0]:
+		"addItem":
+			print("work")
+			Inventory.add_item(Global.items[value[1][0]])
+			path_other[13].text = str("Я подобрал " + Global.items[value[1][0]]["name"].to_lower())
+			path_other[10].visible = true
+		"nothing":
+			path_other[13].text = str("Я просто отойду")
+		"remove":
+			#нужно доработать скрипт с удалением
+			Inventory.remove_item(Global.items[value[1][0]])
+		"cutscene":
+			Events.emit_signal("start_cutsene", value[1][0])
+		"close":
+			page_number = 900
+			path_other[10].visible = false
+			visible = false
+			Events.emit_signal("end_dialog")
 	path_other[14].visible = false
 	pass
 

@@ -66,6 +66,15 @@
         "loot": true,
         "index": 7,
         "effect": "null"
+    },
+    "deadRat": {
+        "name": "Мёртвая крыса",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 8,
+        "effect": "null"
     }
 
 
