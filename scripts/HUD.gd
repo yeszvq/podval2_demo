@@ -124,8 +124,7 @@ func update_dialogue(event = null):
 						visible = false
 						Events.emit_signal("end_dialog")
 					"addItem":
-						for j in range(int(i[2])):
-							Inventory.add_item(Global.items[i[1]])
+						Inventory.add_item(Global.items[i[1]])
 					"removeItem":
 						#Нужно доработать скрипт с удалением
 						#for j in range(int(i[2])):
@@ -134,7 +133,13 @@ func update_dialogue(event = null):
 						Events.emit_signal("start_cutsene", i[1])
 					"cutsceneCont":
 						Events.emit_signal("use_start_cutscene")
-			
+					"signal":
+						Events.emit_signal(i[1])
+					"painchanged":
+						Inventory.pain_mind_change(0, int(i[1]))
+					"mindchanged":
+						Inventory.pain_mind_change(1, int(i[1]))
+		
 		if temp[0] == "chose":
 			#Нужно доработать этот скрипт
 			#+++ Необходима чтобы каждая кнопка могла включать любое кол-во эффектов
@@ -143,9 +148,7 @@ func update_dialogue(event = null):
 			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
 			for i in temp.size() - 1:
 				var temp_button = preload("res://scene/object/button_chose.tscn").instance()
-				print(temp)
 				var temp_2 = temp[i+1].split("||")
-				print(temp_2)
 				temp_button.text = temp_2[0]
 				temp_2.remove(0)
 				var count = temp_2.size()
@@ -154,7 +157,6 @@ func update_dialogue(event = null):
 					temp_3.append(j.split("_"))
 				temp_2 = temp_3
 				temp_3 = []
-				print(temp_2)
 				temp_button.connect("button_up", self, "button_chose_action", [temp_2])
 				path_other[15].add_child(temp_button)
 			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
@@ -162,7 +164,6 @@ func update_dialogue(event = null):
 			path_other[10].visible = false
 		else:
 			$Timer.start()
-			print(temp)
 			path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
 			path_other[12].text = temp[1]
 			path_other[13].text = temp[2]
@@ -171,21 +172,19 @@ func update_dialogue(event = null):
 
 #функция при нажатия на кнопки выбора в диалогах
 func button_chose_action(value = null):
-	print("value " + str(value))
-	print(value[0][0])
 	match value[0][0]:
 		"addItem":
-			print("work")
 			Inventory.add_item(Global.items[value[1][0]])
 			path_other[13].text = str("Я подобрал " + Global.items[value[1][0]]["name"].to_lower())
 			path_other[10].visible = true
 		"nothing":
 			path_other[13].text = str("Я просто отойду")
+			path_other[10].visible = true
 		"remove":
 			#нужно доработать скрипт с удалением
 			Inventory.remove_item(Global.items[value[1][0]])
 		"cutscene":
-			Events.emit_signal("start_cutsene", value[1][0])
+			Events.emit_signal("use_cutscene", value[1][0])
 		"close":
 			page_number = 900
 			path_other[10].visible = false

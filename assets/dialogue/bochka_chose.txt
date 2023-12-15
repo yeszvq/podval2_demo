@@ -1,0 +1,2 @@
+gosha#Гоша#Я могу пожарить крысу, стоит-ли?
+chose#Да||cutscene||bochkawork||1#Нет||close||0

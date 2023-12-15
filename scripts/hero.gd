@@ -10,6 +10,7 @@ var dialog_open = false
 var cutscene = false
 var flashlight = false
 var dark = false
+var last_dark = false
 
 var monstr_nearby = false
 
@@ -26,10 +27,12 @@ func _ready():
 	
 func dark_off():
 	dark = false
+	last_dark = false
 	pass
 
 func dark_on():
 	dark = true
+	last_dark = true
 	pass
 	
 func off_light():
@@ -43,10 +46,13 @@ func camera_current():
 	$Camera2D.current = true	
 
 func start_dialog(name_path = null):
+	dark = false
 	dialog_open = true
 	pass
 
 func end_dialog():
+	if last_dark == true:
+		dark = true
 	dialog_open = false
 	pass
 

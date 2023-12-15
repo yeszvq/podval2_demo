@@ -6,6 +6,8 @@ export var name_alt_dialog_0 = "" #Имя альтернативного диа�
 export var name_alt_dialog_1 = "" #Имя второго альтернативного диалога
 export var need_item = false #Включение этой функции
 export var name_need_item = "" #Имя предмета
+export var cutscene = false
+export var name_cutscene = ""
 var near = false
 var empty = false
 
@@ -27,14 +29,24 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 				else:
 					Events.emit_signal("start_dialogue", name_alt_dialog_0)
 			elif need_item == true:
-				if empty == false:
-					if Inventory.find_item_name(name_need_item) == -1:
-						Events.emit_signal("start_dialogue", name_alt_dialog_0)
+				if cutscene == true:
+					if empty == false:
+						if Inventory.find_item_name(name_need_item) == -1:
+							Events.emit_signal("start_dialogue", name_alt_dialog_0)
+						else:
+							Events.emit_signal("use_cutscene", name_cutscene)
+							empty = true
 					else:
-						Events.emit_signal("start_dialogue", name_dialog)
-						empty = true
+						Events.emit_signal("start_dialogue", name_alt_dialog_1)
 				else:
-					Events.emit_signal("start_dialogue", name_alt_dialog_1)
+					if empty == false:
+						if Inventory.find_item_name(name_need_item) == -1:
+							Events.emit_signal("start_dialogue", name_alt_dialog_0)
+						else:
+							Events.emit_signal("start_dialogue", name_dialog)
+							empty = true
+					else:
+						Events.emit_signal("start_dialogue", name_alt_dialog_1)
 				
 	pass # Replace with function body.
 

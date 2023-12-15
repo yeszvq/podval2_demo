@@ -54,3 +54,6 @@ signal dark_on
 #Сигнал для героя
 signal hide_light_hero
 signal show_light_hero
+
+signal giltoneworked
+signal altarworked

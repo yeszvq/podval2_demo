@@ -75,7 +75,33 @@
         "loot": true,
         "index": 8,
         "effect": "null"
+    },
+    "arm": {
+        "name": "Отрезанная рука",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 9,
+        "effect": "null"
+    },
+    "armGosha": {
+        "name": "Отрезанная рука Гоши",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 10,
+        "effect": "null"
+    },
+    "goodRat": {
+        "name": "Готовая крыса",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 11,
+        "effect": "heal"
     }
-
 
 }

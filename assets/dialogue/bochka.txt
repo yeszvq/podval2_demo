@@ -1,0 +1,2 @@
+gosha#Гоша#Что ж, хоть отдохну пока она будет жариться.&removeItem_deadRat&addItem_goodRat
+gosha#Гоша#...&cutsceneCont_0&close_0
