@@ -22,3 +22,7 @@ func broke_wood_door():
 	set_cellv(pos, -1)
 	set_cellv(pos, 83)
 	pass
+	
+func custon_one_change(coord, value):
+	set_cellv(coord, value)
+	pass

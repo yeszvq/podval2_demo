@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scene/ui/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/global/Global_node.gd" type="Script" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://scene/tilemap/broken_glass_tilemap.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scene/light/light_0.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scripts/Panel_test.gd" type="Script" id=13]
-[ext_resource path="res://scene/area2d/use_doorgrid_area.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/animation_player/belya_shum.gd" type="Script" id=15]
 [ext_resource path="res://assets/sprites/other/image.png" type="Texture" id=16]
 [ext_resource path="res://scene/tilemap/item_2.tscn" type="PackedScene" id=17]
@@ -25,7 +24,7 @@
 [ext_resource path="res://scripts/light_node/LIGHTS.gd" type="Script" id=23]
 [ext_resource path="res://icon.png" type="Texture" id=24]
 [ext_resource path="res://scripts/animation_player/monster.gd" type="Script" id=25]
-[ext_resource path="res://scripts/area2d/use_doorgrid_custom_0.gd" type="Script" id=27]
+[ext_resource path="res://scripts/object_interact.gd" type="Script" id=26]
 [ext_resource path="res://scene/area2d/dark_area_on.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scene/area2d/dark_area_off.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/light/light.png" type="Texture" id=31]
@@ -192,164 +191,29 @@ tracks/5/keys = {
 "values": [ Vector2( 303, 161 ) ]
 }
 
-[sub_resource type="Animation" id=21]
-resource_name = "blood_door_1_work"
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/hero")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.6, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "start_cutscene"
-}, {
-"args": [  ],
-"method": "off_light"
-}, {
-"args": [ "blood_door_1" ],
-"method": "start_dialogue"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-}, {
-"args": [  ],
-"method": "on_light"
-}, {
-"args": [  ],
-"method": "stop_cutscene"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("YSort/LIGHTS")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide_light"
-}, {
-"args": [  ],
-"method": "show_light"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("YSort/LIGHTS_okno")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "light_hide"
-}, {
-"args": [  ],
-"method": "light_show"
-} ]
-}
-
-[sub_resource type="Animation" id=25]
-resource_name = "bochkawork"
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/hero")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 0.2, 0.3, 0.6, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "start_cutscene"
-}, {
-"args": [  ],
-"method": "off_light"
-}, {
-"args": [ "bochka" ],
-"method": "start_dialogue"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-}, {
-"args": [  ],
-"method": "on_light"
-}, {
-"args": [  ],
-"method": "stop_cutscene"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("YSort/LIGHTS")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.01, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide_light"
-}, {
-"args": [  ],
-"method": "show_light"
-} ]
-}
-
 [sub_resource type="Animation" id=9]
 resource_name = "break_grid_door"
 length = 2.0
 step = 0.01
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/areas_door/use_doorgrid_area3")
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/hero:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.99 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "use_open_door"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("YSort/hero:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 160, 46 ) ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath("YSort/hero")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/hero")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.01, 0.02, 0.03, 1.99, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
@@ -372,13 +236,13 @@ tracks/2/keys = {
 "method": "stop_cutscene"
 } ]
 }
-tracks/3/type = "method"
-tracks/3/path = NodePath("YSort/LIGHTS")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/LIGHTS")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0.01, 1.99 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -389,122 +253,65 @@ tracks/3/keys = {
 "method": "show_light"
 } ]
 }
-
-[sub_resource type="Animation" id=17]
-resource_name = "broke_wood_door"
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/hero")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 0.1, 0.2, 0.5, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "start_cutscene"
-}, {
-"args": [  ],
-"method": "off_light"
-}, {
-"args": [ "wood_door_verstak" ],
-"method": "start_dialogue"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-}, {
-"args": [  ],
-"method": "on_light"
-}, {
-"args": [  ],
-"method": "stop_cutscene"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("YSort/LIGHTS")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.01, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide_light"
-}, {
-"args": [  ],
-"method": "show_light"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("YSort/item_2")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.3 ),
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/item_2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "broke_wood_door"
+"args": [ [ Vector2( 6, -2 ), Vector2( 7, -2 ), Vector2( 8, -2 ), Vector2( 9, -2 ) ] ],
+"method": "open_grid_door"
 } ]
 }
 
-[sub_resource type="Animation" id=20]
-resource_name = "door_blood_0_work"
+[sub_resource type="Animation" id=17]
+resource_name = "holodos_osmotr"
+length = 0.8
 tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/hero")
+tracks/0/path = NodePath("YSort/item_2")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.6, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ Vector2( 24, -3 ), 44 ],
+"method": "custon_one_change"
+}, {
+"args": [ Vector2( 24, -3 ), 43 ],
+"method": "custon_one_change"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/hero")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_cutscene"
 }, {
-"args": [  ],
-"method": "off_light"
-}, {
-"args": [ "blood_door_0" ],
+"args": [ "holodos_v_pit_do" ],
 "method": "start_dialogue"
 }, {
 "args": [  ],
 "method": "use_stop_cutscene"
 }, {
 "args": [  ],
-"method": "on_light"
-}, {
-"args": [  ],
 "method": "stop_cutscene"
 }, {
 "args": [  ],
 "method": "use_stop_cutscene"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("YSort/LIGHTS")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide_light"
-}, {
-"args": [  ],
-"method": "show_light"
 } ]
 }
 
@@ -610,42 +417,6 @@ tracks/5/keys = {
 }, {
 "args": [  ],
 "method": "light_show"
-} ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "off_light"
-length = 0.1
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/hero")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "off_light"
-} ]
-}
-
-[sub_resource type="Animation" id=12]
-resource_name = "on_light"
-length = 0.1
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/hero")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "on_light"
 } ]
 }
 
@@ -1010,110 +781,6 @@ tracks/13/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "trup_work"
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/LIGHTS")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide_light"
-}, {
-"args": [  ],
-"method": "show_light"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("YSort/hero")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.6, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "start_cutscene"
-}, {
-"args": [  ],
-"method": "off_light"
-}, {
-"args": [ "trup" ],
-"method": "start_dialogue"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-}, {
-"args": [  ],
-"method": "on_light"
-}, {
-"args": [  ],
-"method": "stop_cutscene"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-} ]
-}
-
-[sub_resource type="Animation" id=18]
-resource_name = "verstak_work"
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/hero")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.6, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "start_cutscene"
-}, {
-"args": [  ],
-"method": "off_light"
-}, {
-"args": [ "verstak" ],
-"method": "start_dialogue"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-}, {
-"args": [  ],
-"method": "on_light"
-}, {
-"args": [  ],
-"method": "stop_cutscene"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("YSort/LIGHTS")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide_light"
-}, {
-"args": [  ],
-"method": "show_light"
-} ]
-}
-
 [sub_resource type="CanvasItemMaterial" id=8]
 light_mode = 1
 
@@ -1127,12 +794,12 @@ script = ExtResource( 18 )
 [node name="YSort" type="YSort" parent="level_one"]
 
 [node name="hero" parent="level_one/YSort" instance=ExtResource( 3 )]
-position = Vector2( 762, 138 )
+position = Vector2( 488, 182 )
 
 [node name="item_2" parent="level_one/YSort" instance=ExtResource( 17 )]
 light_mask = 3
 show_collision = false
-tile_data = PoolIntArray( -8912868, 31, 0, -8847333, 87, 0, -8781797, 100, 0, -8781796, 41, 0, -7995346, 90, 0, -7733190, 86, 0, -7602159, 91, 0, -7208901, 88, 0, -7077841, 91, 0, -6422511, 91, 0, -6422465, 86, 0, -6422463, 86, 0, -6356948, 91, 0, -6356947, 90, 0, -6291428, 90, 0, -6160319, 90, 0, -5373932, 91, 0, -5373931, 90, 0, -5242865, 89, 0, -1966056, 31, 0, -1966055, 31, 0, -1966054, 31, 0, -1900519, 41, 0, -262126, 39, 0, -65540, 19, 0, -65539, 20, 0, -65538, 21, 0, -65537, 22, 0, -131071, 19, 0, -131070, 20, 0, -131069, 21, 0, -131068, 22, 0, -131066, 19, 0, -131065, 20, 0, -131064, 21, 0, -131063, 22, 0, -131061, 19, 0, -131060, 20, 0, -131059, 21, 0, -131058, 22, 0, -131056, 19, 0, -131055, 20, 0, -131054, 21, 0, -131053, 22, 0, -65531, 34, 0 )
+tile_data = PoolIntArray( -8912868, 31, 0, -8847333, 87, 0, -8781797, 100, 0, -8781796, 41, 0, -7995346, 90, 0, -7733190, 86, 0, -7602159, 91, 0, -7208901, 88, 0, -7077841, 91, 0, -6422511, 91, 0, -6422465, 86, 0, -6422463, 86, 0, -6356948, 91, 0, -6356947, 90, 0, -6291428, 90, 0, -6160319, 90, 0, -5373932, 91, 0, -5373931, 90, 0, -5242865, 89, 0, -1966056, 31, 0, -1966055, 31, 0, -1966054, 31, 0, -1900519, 41, 0, -655337, 11, 0, -589800, 10, 0, -589797, 48, 0, -458727, 50, 0, -393192, 49, 0, -262126, 39, 0, -262120, 45, 0, -196584, 43, 0, -65540, 19, 0, -65539, 20, 0, -65538, 21, 0, -65537, 22, 0, -131071, 19, 0, -131070, 20, 0, -131069, 21, 0, -131068, 22, 0, -131066, 19, 0, -131065, 20, 0, -131064, 21, 0, -131063, 22, 0, -131061, 19, 0, -131060, 20, 0, -131059, 21, 0, -131058, 22, 0, -131056, 19, 0, -131055, 20, 0, -131054, 21, 0, -131053, 22, 0, -65531, 34, 0, 196632, 79, 0, 262170, 61, 0, 262171, 77, 0, 262172, 80, 0, 327704, 78, 0, 458777, 72, 0, 524312, 71, 0, 524316, 76, 0, 655384, 70, 0, 655386, 73, 0, 655388, 74, 0 )
 
 [node name="item_3" type="TileMap" parent="level_one/YSort"]
 z_index = 1
@@ -1142,15 +809,177 @@ cell_size = Vector2( 32, 16 )
 cell_tile_origin = 2
 cell_y_sort = true
 format = 1
+tile_data = PoolIntArray( 655386, 0, 0, 655388, 2, 0, 655389, 3, 0 )
 
 [node name="areas_door" type="Node2D" parent="level_one/YSort"]
 
-[node name="use_doorgrid_area3" parent="level_one/YSort/areas_door" instance=ExtResource( 14 )]
-position = Vector2( 32, 32 )
-script = ExtResource( 27 )
-coordinates = [ Vector2( 6, -2 ), Vector2( 7, -2 ), Vector2( 8, -2 ), Vector2( 9, -2 ) ]
-
 [node name="entity_area2D" type="Node2D" parent="level_one/YSort"]
+
+[node name="krov_kamera" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "krov_kamera"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/krov_kamera"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/krov_kamera/mouse"]
+polygon = PoolVector2Array( 218, 6, 221, -21, 210, -25, 210, 3 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/krov_kamera"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/krov_kamera/nearby"]
+polygon = PoolVector2Array( 193, 16, 217, 28, 232, 20, 208, 8 )
+
+[node name="shkaf_verstak" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "shkaf_verstak"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/shkaf_verstak"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/shkaf_verstak/mouse"]
+polygon = PoolVector2Array( 288, 256, 288, 207, 320, 191, 337, 199, 337, 202, 336, 202, 336, 248, 307, 263, 303, 263 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/shkaf_verstak"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/shkaf_verstak/nearby"]
+polygon = PoolVector2Array( 353, 256, 304, 280, 272, 264, 320, 240 )
+
+[node name="storages_verstak" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "storages_verstak"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/storages_verstak"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/storages_verstak/mouse"]
+polygon = PoolVector2Array( 384, 289, 384, 273, 400, 266, 400, 253, 399, 253, 399, 237, 400, 237, 400, 233, 384, 225, 369, 232, 369, 237, 369, 251, 368, 251, 368, 248, 354, 241, 351, 241, 336, 248, 336, 265 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/storages_verstak"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/storages_verstak/nearby"]
+polygon = PoolVector2Array( 360, 300, 296, 268, 336, 248, 400, 280 )
+
+[node name="generator_pit" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "generator_dialog"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/generator_pit"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/generator_pit/mouse"]
+polygon = PoolVector2Array( 464, 186, 464, 170, 454, 163, 448, 165, 448, 193, 450, 193, 450, 191, 461, 186, 461, 187, 463, 187 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/generator_pit"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/generator_pit/nearby"]
+polygon = PoolVector2Array( 448, 208, 496, 184, 464, 168, 416, 192 )
+
+[node name="stol_0_pit" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "stol_v_pit_0"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/stol_0_pit"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/stol_0_pit/mouse"]
+polygon = PoolVector2Array( 552, 157, 556, 155, 556, 153, 575, 146, 576, 98, 546, 84, 544, 84, 545, 110, 521, 122, 520, 142, 524, 143 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/stol_0_pit"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/stol_0_pit/nearby"]
+polygon = PoolVector2Array( 592, 152, 544, 176, 496, 152, 544, 128 )
+
+[node name="stol_pitok" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "stol_pitok"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/stol_pitok"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/stol_pitok/mouse"]
+polygon = PoolVector2Array( 510, 184, 527, 176, 527, 171, 508, 155, 508, 152, 513, 153, 515, 152, 515, 148, 501, 141, 497, 141, 495, 142, 495, 145, 498, 147, 498, 150, 484, 137, 480, 137, 464, 145, 464, 149, 483, 165, 473, 169, 473, 174, 487, 181, 491, 181, 502, 176 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/stol_pitok"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/stol_pitok/nearby"]
+polygon = PoolVector2Array( 448, 176, 504, 204, 568, 172, 512, 144 )
+
+[node name="grid_door_main" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_no_item = "grid_door_main_no_item"
+name_need_item = "rock"
+name_cutscene = "break_grid_door"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/grid_door_main"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/grid_door_main/mouse"]
+polygon = PoolVector2Array( 160, 33, 159, 79, 140, 70, 141, 24 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/grid_door_main"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/grid_door_main/nearby"]
+polygon = PoolVector2Array( 176, 88, 192, 80, 128, 48, 112, 56 )
+
+[node name="kamen_v_stene" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "camen_in_wall_do"
+name_dialog_do_1 = "camen_in_wall_do_1"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/kamen_v_stene"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/kamen_v_stene/mouse"]
+polygon = PoolVector2Array( 258, 16, 264, 12, 258, 3, 247, 9 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/kamen_v_stene"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/kamen_v_stene/nearby"]
+polygon = PoolVector2Array( 256, 48, 217, 28, 232, 20, 272, 40 )
+
+[node name="holodos_v_pit" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do_1 = "holodos_v_pit_do_1"
+name_cutscene = "holodos_osmotr"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/holodos_v_pit"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/holodos_v_pit/mouse"]
+polygon = PoolVector2Array( 416, 178, 416, 152, 432, 145, 448, 152, 448, 194 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/holodos_v_pit"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/holodos_v_pit/nearby"]
+polygon = PoolVector2Array( 447, 208, 496, 184, 464, 168, 416, 192 )
 
 [node name="Sprite" type="Sprite" parent="level_one/YSort"]
 position = Vector2( -189, -92 )
@@ -1170,14 +999,21 @@ tile_data = PoolIntArray( -8322987, 5, 0, -8322984, 5, 0, -7864234, 0, 0, -77331
 tile_data = PoolIntArray( -9568227, 46, 0, -9568226, 46, 0, -9568225, 46, 0, -9568224, 46, 0, -9568223, 46, 0, -9568222, 46, 0, -9568221, 46, 0, -9568220, 46, 0, -9568219, 46, 0, -9568218, 46, 0, -9568217, 46, 0, -9568216, 46, 0, -9568215, 46, 0, -9568214, 46, 0, -9568213, 46, 0, -9568212, 46, 0, -9568211, 46, 0, -9568210, 46, 0, -9568209, 46, 0, -9568208, 46, 0, -9568207, 46, 0, -9568206, 46, 0, -9502691, 46, 0, -9437155, 46, 0, -9371619, 46, 0, -9306083, 46, 0, -9306065, 50, 0, -9240547, 46, 0, -9240529, 46, 0, -9175011, 46, 0, -9174993, 46, 0, -9109475, 46, 0, -9109457, 46, 0, -9043939, 46, 0, -9043921, 46, 0, -8978407, 46, 0, -8978406, 46, 0, -8978405, 46, 0, -8978404, 46, 0, -8978403, 46, 0, -8978385, 46, 0, -8912871, 48, 0, -8912849, 46, 0, -8847335, 48, 0, -8847313, 46, 0, -8781799, 48, 0, -8781791, 49, 0, -8781790, 46, 0, -8781789, 46, 0, -8781788, 46, 0, -8781787, 46, 0, -8781786, 46, 0, -8781785, 46, 0, -8781784, 46, 0, -8781783, 46, 0, -8781782, 46, 0, -8781781, 46, 0, -8781780, 46, 0, -8781779, 46, 0, -8781778, 46, 0, -8781777, 46, 0, -8716263, 51, 0, -8388525, 46, 0, -8388524, 46, 0, -8388523, 50, 0, -8388520, 49, 0, -8388519, 46, 0, -8388518, 46, 0, -8388517, 50, 0, -8322989, 46, 0, -8257453, 46, 0, -8191958, 51, 0, -8191957, 46, 0, -8191956, 46, 0, -8191955, 46, 0, -8191954, 46, 0, -8191917, 46, 0, -8126381, 46, 0, -8060845, 49, 0, -8060844, 46, 0, -8060843, 50, 0, -8060839, 49, 0, -8060838, 46, 0, -8060837, 46, 0, -7995307, 46, 0, -7929812, 50, 0, -7929771, 46, 0, -7864276, 46, 0, -7864235, 46, 0, -7798770, 46, 0, -7798769, 46, 0, -7798768, 46, 0, -7798767, 46, 0, -7798766, 46, 0, -7798765, 46, 0, -7798764, 46, 0, -7798763, 46, 0, -7798762, 46, 0, -7798761, 46, 0, -7798760, 46, 0, -7798759, 46, 0, -7798758, 46, 0, -7798757, 46, 0, -7798756, 46, 0, -7798755, 46, 0, -7798754, 46, 0, -7798753, 46, 0, -7798752, 46, 0, -7798751, 46, 0, -7798750, 46, 0, -7798749, 46, 0, -7798748, 46, 0, -7798740, 46, 0, -7798728, 46, 0, -7798727, 46, 0, -7798726, 46, 0, -7798725, 46, 0, -7798724, 46, 0, -7798723, 46, 0, -7798722, 46, 0, -7798721, 46, 0, -7798720, 46, 0, -7798719, 46, 0, -7798718, 46, 0, -7798717, 46, 0, -7798716, 46, 0, -7798715, 46, 0, -7798714, 46, 0, -7798713, 46, 0, -7798712, 46, 0, -7798699, 46, 0, -7733234, 46, 0, -7733204, 46, 0, -7733192, 46, 0, -7733163, 46, 0, -7667698, 46, 0, -7667668, 46, 0, -7667656, 46, 0, -7667627, 46, 0, -7602162, 46, 0, -7602132, 46, 0, -7602120, 46, 0, -7602091, 46, 0, -7536626, 46, 0, -7536608, 50, 0, -7536596, 46, 0, -7536584, 46, 0, -7536572, 50, 0, -7536555, 46, 0, -7471090, 46, 0, -7471072, 46, 0, -7471060, 46, 0, -7471048, 46, 0, -7471036, 46, 0, -7471019, 46, 0, -7405554, 46, 0, -7405536, 46, 0, -7405532, 49, 0, -7405531, 46, 0, -7405530, 46, 0, -7405529, 46, 0, -7405528, 46, 0, -7405527, 46, 0, -7405526, 46, 0, -7405525, 46, 0, -7405524, 46, 0, -7405520, 51, 0, -7405519, 46, 0, -7405518, 46, 0, -7405517, 46, 0, -7405516, 46, 0, -7405515, 46, 0, -7405514, 46, 0, -7405513, 46, 0, -7405512, 46, 0, -7405500, 77, 0, -7405483, 46, 0, -7340018, 46, 0, -7340000, 46, 0, -7339964, 77, 0, -7339947, 46, 0, -7274482, 46, 0, -7274464, 46, 0, -7274428, 77, 0, -7274424, 51, 0, -7274423, 46, 0, -7274422, 46, 0, -7274421, 46, 0, -7274420, 46, 0, -7274419, 46, 0, -7274418, 46, 0, -7274411, 46, 0, -7208946, 46, 0, -7208928, 46, 0, -7208892, 77, 0, -7208882, 46, 0, -7208875, 46, 0, -7143410, 46, 0, -7143392, 46, 0, -7143380, 50, 0, -7143356, 46, 0, -7143346, 46, 0, -7143339, 46, 0, -7077874, 46, 0, -7077844, 48, 0, -7077820, 46, 0, -7077810, 51, 0, -7077809, 46, 0, -7077808, 46, 0, -7077807, 46, 0, -7077806, 46, 0, -7077805, 46, 0, -7077804, 46, 0, -7077803, 46, 0, -7012338, 46, 0, -7012308, 48, 0, -7012284, 46, 0, -6946802, 46, 0, -6946772, 48, 0, -6946748, 46, 0, -6881266, 46, 0, -6881236, 48, 0, -6881218, 46, 0, -6881217, 46, 0, -6881216, 46, 0, -6881215, 46, 0, -6881214, 46, 0, -6881213, 46, 0, -6881212, 46, 0, -6881211, 46, 0, -6881210, 46, 0, -6881209, 46, 0, -6881208, 46, 0, -6881207, 46, 0, -6881206, 46, 0, -6815730, 46, 0, -6815700, 48, 0, -6815682, 46, 0, -6750194, 46, 0, -6750164, 48, 0, -6750146, 46, 0, -6684658, 46, 0, -6684628, 48, 0, -6684610, 46, 0, -6619122, 46, 0, -6619118, 49, 0, -6619117, 46, 0, -6619116, 46, 0, -6619115, 46, 0, -6619114, 46, 0, -6619113, 46, 0, -6619112, 46, 0, -6619111, 46, 0, -6619110, 46, 0, -6619109, 46, 0, -6619108, 46, 0, -6619107, 46, 0, -6619092, 48, 0, -6619074, 46, 0, -6553586, 46, 0, -6553571, 46, 0, -6553556, 48, 0, -6553538, 46, 0, -6488050, 46, 0, -6488035, 46, 0, -6488020, 48, 0, -6488002, 46, 0, -6488001, 46, 0, -6488000, 46, 0, -6487999, 46, 0, -6487998, 46, 0, -6422514, 46, 0, -6422499, 49, 0, -6422498, 46, 0, -6422497, 46, 0, -6422496, 48, 0, -6422495, 48, 0, -6422494, 48, 0, -6422493, 48, 0, -6422492, 48, 0, -6422491, 48, 0, -6422490, 48, 0, -6422489, 48, 0, -6422488, 48, 0, -6422487, 48, 0, -6422486, 48, 0, -6422485, 48, 0, -6422484, 48, 0, -6422480, 49, 0, -6422479, 48, 0, -6422478, 48, 0, -6422477, 48, 0, -6422476, 48, 0, -6422475, 48, 0, -6422474, 48, 0, -6422473, 48, 0, -6422472, 48, 0, -6422471, 50, 0, -6422466, 46, 0, -6356978, 46, 0, -6356935, 48, 0, -6356930, 46, 0, -6291442, 46, 0, -6291399, 48, 0, -6291394, 46, 0, -6225906, 46, 0, -6225863, 51, 0, -6225862, 48, 0, -6225861, 48, 0, -6225860, 50, 0, -6225859, 46, 0, -6225858, 46, 0, -6160370, 46, 0, -6160340, 50, 0, -6160331, 50, 0, -6094834, 46, 0, -6094804, 48, 0, -6094795, 48, 0, -6029298, 46, 0, -6029268, 48, 0, -6029259, 48, 0, -5963762, 46, 0, -5963732, 48, 0, -5963723, 51, 0, -5963722, 48, 0, -5963721, 48, 0, -5963720, 48, 0, -5963719, 50, 0, -5898226, 46, 0, -5898196, 48, 0, -5898183, 46, 0, -5832690, 46, 0, -5832669, 47, 0, -5832668, 47, 0, -5832667, 47, 0, -5832666, 47, 0, -5832665, 47, 0, -5832664, 47, 0, -5832663, 47, 0, -5832662, 47, 0, -5832661, 47, 0, -5832660, 47, 0, -5832647, 46, 0, -5767154, 46, 0, -5767133, 47, 0, -5767117, 46, 0, -5767116, 46, 0, -5767115, 46, 0, -5767114, 46, 0, -5767113, 46, 0, -5767112, 46, 0, -5767111, 46, 0, -5701618, 46, 0, -5701597, 47, 0, -5701581, 46, 0, -5636082, 46, 0, -5636061, 47, 0, -5636045, 46, 0, -5570546, 46, 0, -5570525, 47, 0, -5570516, 50, 0, -5570509, 46, 0, -5505010, 46, 0, -5504989, 47, 0, -5504980, 48, 0, -5504973, 46, 0, -5439474, 46, 0, -5439470, 49, 0, -5439469, 47, 0, -5439468, 47, 0, -5439467, 47, 0, -5439466, 47, 0, -5439465, 47, 0, -5439464, 47, 0, -5439463, 47, 0, -5439462, 47, 0, -5439461, 47, 0, -5439460, 47, 0, -5439459, 47, 0, -5439458, 47, 0, -5439457, 47, 0, -5439456, 47, 0, -5439455, 47, 0, -5439454, 47, 0, -5439453, 47, 0, -5439444, 48, 0, -5439437, 46, 0, -5373938, 46, 0, -5373908, 48, 0, -5373901, 46, 0, -5308402, 46, 0, -5308372, 48, 0, -5308365, 46, 0, -5242866, 46, 0, -5242836, 48, 0, -5242829, 46, 0, -5177330, 49, 0, -5177315, 50, 0, -5177300, 48, 0, -5177296, 49, 0, -5177295, 48, 0, -5177294, 48, 0, -5177293, 50, 0, -5111779, 46, 0, -5111764, 48, 0, -5046243, 46, 0, -5046228, 48, 0, -4980707, 46, 0, -4980692, 48, 0, -4915171, 46, 0, -4915156, 49, 0, -4849635, 46, 0, -4784099, 46, 0, -4718563, 46, 0, -4653027, 46, 0, -4587491, 46, 0, -4521955, 48, 0, -4456419, 48, 0, -4456404, 46, 0, -4456403, 46, 0, -4456402, 46, 0, -4456401, 46, 0, -4456400, 46, 0, -4456399, 46, 0, -4456398, 46, 0, -4456397, 46, 0, -4456396, 46, 0, -4456395, 50, 0, -4390883, 48, 0, -4390879, 49, 0, -4390878, 46, 0, -4390877, 46, 0, -4390876, 46, 0, -4390875, 46, 0, -4390874, 46, 0, -4390873, 46, 0, -4390872, 46, 0, -4390871, 46, 0, -4390870, 46, 0, -4390869, 46, 0, -4390868, 46, 0, -4325347, 48, 0, -4259811, 48, 0, -4194275, 48, 0, -4128739, 48, 0, -4063203, 51, 0, -3997654, 48, 0, -3997653, 48, 0, -3997652, 48, 0, -3997651, 46, 0, -3997646, 48, 0, -3997645, 50, 0, -3932118, 48, 0, -3866582, 48, 0, -3801046, 48, 0, -3735510, 48, 0, -3669974, 48, 0, -3604438, 48, 0, -3538902, 48, 0, -3538900, 46, 0, -3538893, 46, 0, -3473366, 48, 0, -3407830, 48, 0, -3342294, 48, 0, -3276758, 48, 0, -3276756, 46, 0, -3276749, 46, 0, -3211222, 48, 0, -3145686, 48, 0, -3080150, 48, 0, -3014614, 48, 0, -2949078, 48, 0, -2949076, 46, 0, -2949069, 46, 0, -2883542, 48, 0, -2818006, 48, 0, -2752470, 48, 0, -2686934, 48, 0, -2621398, 48, 0, -2621396, 46, 0, -2621389, 46, 0, -2555862, 47, 0, -2490326, 47, 0, -2424790, 47, 0, -2359254, 47, 0, -2293718, 47, 0, -2228207, 46, 0, -2228206, 46, 0, -2228205, 46, 0, -2228204, 46, 0, -2228203, 46, 0, -2228202, 46, 0, -2228201, 46, 0, -2228200, 47, 0, -2228199, 47, 0, -2228198, 47, 0, -2228197, 47, 0, -2228196, 47, 0, -2228195, 47, 0, -2228194, 47, 0, -2228193, 46, 0, -2228192, 46, 0, -2228191, 77, 0, -2228190, 46, 0, -2228189, 46, 0, -2228188, 46, 0, -2228187, 47, 0, -2228186, 47, 0, -2228185, 77, 0, -2228184, 47, 0, -2228183, 47, 0, -2228182, 47, 0, -2228181, 46, 0, -2228180, 46, 0, -2228179, 48, 0, -2228174, 46, 0, -2228173, 46, 0, -2228172, 46, 0, -2162660, 62, 0, -2097124, 62, 0, -2031588, 62, 0, -1966052, 62, 0, -1900527, 46, 0, -1900526, 46, 0, -1900525, 48, 0, -1900524, 48, 0, -1900523, 48, 0, -1900522, 46, 0, -1900521, 46, 0, -1900520, 46, 0, -1900517, 48, 0, -1900516, 48, 0, -1900515, 48, 0, -1900514, 50, 0, -1834989, 48, 0, -1834988, 48, 0, -1834987, 48, 0, -1834986, 46, 0, -1834985, 64, 0, -1834979, 48, 0, -1769453, 48, 0, -1769452, 48, 0, -1769451, 48, 0, -1769450, 46, 0, -1769449, 64, 0, -1769443, 47, 0, -1703917, 48, 0, -1703916, 48, 0, -1703915, 48, 0, -1703914, 46, 0, -1703913, 64, 0, -1703907, 47, 0, -1638381, 48, 0, -1638380, 48, 0, -1638379, 48, 0, -1638378, 46, 0, -1638377, 64, 0, -1638371, 47, 0, -1572845, 48, 0, -1572844, 48, 0, -1572843, 48, 0, -1572842, 46, 0, -1572841, 64, 0, -1572835, 77, 0, -1507309, 48, 0, -1507308, 48, 0, -1507307, 48, 0, -1507306, 47, 0, -1507305, 64, 0, -1507299, 47, 0, -1376263, 46, 0, -1376262, 47, 0, -1376261, 47, 0, -1376260, 46, 0, -1376259, 46, 0, -1376258, 46, 0, -1376257, 46, 0, -1441792, 47, 0, -1441791, 47, 0, -1441790, 46, 0, -1441789, 46, 0, -1441788, 46, 0, -1441787, 46, 0, -1441786, 47, 0, -1441785, 47, 0, -1441784, 47, 0, -1441783, 47, 0, -1441782, 47, 0, -1441781, 47, 0, -1441780, 47, 0, -1441779, 48, 0, -1441778, 46, 0, -1441777, 46, 0, -1441776, 48, 0, -1441775, 48, 0, -1441774, 51, 0, -1441773, 48, 0, -1441772, 48, 0, -1441771, 48, 0, -1441770, 47, 0, -1441769, 64, 0, -1441763, 48, 0, -1310727, 47, 0, -1310722, 46, 0, -1376253, 47, 0, -1376248, 46, 0, -1376243, 48, 0, -1376238, 46, 0, -1376237, 48, 0, -1376236, 48, 0, -1376235, 48, 0, -1376234, 47, 0, -1376233, 64, 0, -1376227, 48, 0, -1245191, 46, 0, -1245186, 47, 0, -1310717, 46, 0, -1310712, 46, 0, -1310707, 48, 0, -1310702, 47, 0, -1310701, 48, 0, -1310700, 48, 0, -1310699, 48, 0, -1310698, 47, 0, -1310697, 64, 0, -1310691, 49, 0, -1179655, 46, 0, -1179650, 47, 0, -1245181, 46, 0, -1245176, 46, 0, -1245171, 48, 0, -1245166, 46, 0, -1245165, 48, 0, -1245164, 48, 0, -1245163, 48, 0, -1245162, 48, 0, -1114119, 46, 0, -1114114, 47, 0, -1179645, 47, 0, -1179640, 47, 0, -1179635, 48, 0, -1179630, 46, 0, -1179629, 48, 0, -1179628, 48, 0, -1179627, 48, 0, -1179626, 48, 0, -1048583, 47, 0, -1048578, 46, 0, -1114109, 46, 0, -1114104, 47, 0, -1114099, 48, 0, -1114094, 47, 0, -1114093, 48, 0, -1114092, 48, 0, -1114091, 48, 0, -1114090, 48, 0, -1114083, 50, 0, -983049, 47, 0, -983048, 47, 0, -983047, 46, 0, -983042, 49, 0, -1048573, 49, 0, -1048568, 49, 0, -1048563, 49, 0, -1048558, 49, 0, -1048557, 46, 0, -1048556, 46, 0, -1048555, 47, 0, -1048554, 47, 0, -1048553, 47, 0, -1048552, 47, 0, -1048551, 46, 0, -1048550, 46, 0, -1048549, 47, 0, -1048548, 46, 0, -1048547, 77, 0, -917513, 47, 0, -983011, 49, 0, -851977, 46, 0, -917475, 61, 0, -786441, 46, 0, -851939, 61, 0, -720905, 47, 0, -786403, 51, 0, -655369, 51, 0, -655368, 47, 0, -655367, 47, 0, -655366, 47, 0, -655365, 46, 0, -655364, 46, 0, -655363, 46, 0, -655362, 46, 0, -655361, 46, 0, -720896, 46, 0, -720895, 46, 0, -720894, 46, 0, -720893, 46, 0, -720892, 46, 0, -720891, 46, 0, -720890, 46, 0, -720889, 46, 0, -720888, 46, 0, -720887, 46, 0, -720886, 46, 0, -720885, 46, 0, -720884, 46, 0, -720883, 46, 0, -720882, 46, 0, -720881, 46, 0, -720880, 46, 0, -720879, 46, 0, -720878, 46, 0, -720877, 46, 0, -720876, 46, 0, -720875, 46, 0, -720874, 47, 0, -720873, 47, 0, -720872, 46, 0, -720871, 77, 0, -720870, 46, 0, -720869, 46, 0, -720868, 46, 0, -720867, 48, 0, -589829, 46, 0, -589828, 46, 0, -589827, 46, 0, -589826, 46, 0, -589825, 46, 0, -655360, 46, 0, -655359, 46, 0, -655358, 46, 0, -655357, 46, 0, -655356, 46, 0, -655355, 46, 0, -655354, 46, 0, -655353, 46, 0, -655352, 46, 0, -655351, 46, 0, -655350, 46, 0, -655349, 46, 0, -655348, 46, 0, -655347, 46, 0, -655346, 46, 0, -655345, 46, 0, -655344, 46, 0, -655343, 46, 0, -655342, 46, 0, -655341, 46, 0, -655340, 46, 0, -655339, 48, 0, -655338, 48, 0, -655337, 48, 0, -655331, 48, 0, -524293, 46, 0, -524292, 46, 0, -524291, 46, 0, -524290, 46, 0, -524289, 46, 0, -589824, 46, 0, -589823, 46, 0, -589822, 46, 0, -589821, 46, 0, -589820, 46, 0, -589819, 46, 0, -589818, 46, 0, -589817, 46, 0, -589816, 46, 0, -589815, 46, 0, -589814, 46, 0, -589813, 46, 0, -589812, 46, 0, -589811, 46, 0, -589810, 46, 0, -589809, 46, 0, -589808, 46, 0, -589807, 46, 0, -589806, 46, 0, -589805, 46, 0, -589804, 46, 0, -589803, 48, 0, -589802, 48, 0, -589801, 48, 0, -589795, 48, 0, -458757, 46, 0, -458756, 46, 0, -458755, 46, 0, -458754, 46, 0, -458753, 46, 0, -524288, 46, 0, -524287, 46, 0, -524286, 46, 0, -524285, 46, 0, -524284, 46, 0, -524283, 46, 0, -524282, 46, 0, -524281, 46, 0, -524280, 46, 0, -524279, 46, 0, -524278, 46, 0, -524277, 47, 0, -524276, 47, 0, -524275, 47, 0, -524274, 46, 0, -524273, 47, 0, -524272, 46, 0, -524271, 46, 0, -524270, 47, 0, -524269, 46, 0, -524268, 46, 0, -524267, 48, 0, -524266, 48, 0, -524265, 77, 0, -524259, 48, 0, -393221, 47, 0, -458752, 46, 0, -458747, 46, 0, -458742, 46, 0, -458737, 47, 0, -458732, 47, 0, -458731, 48, 0, -458730, 48, 0, -458729, 48, 0, -458723, 49, 0, -327685, 46, 0, -393216, 46, 0, -393211, 47, 0, -393206, 46, 0, -393201, 46, 0, -393196, 46, 0, -393195, 48, 0, -393194, 48, 0, -393193, 48, 0, -262149, 46, 0, -327680, 47, 0, -327675, 47, 0, -327670, 46, 0, -327665, 46, 0, -327660, 47, 0, -327659, 48, 0, -327658, 48, 0, -327657, 48, 0, -196613, 46, 0, -262144, 46, 0, -262139, 47, 0, -262134, 47, 0, -262129, 46, 0, -262124, 47, 0, -262123, 48, 0, -262122, 48, 0, -262121, 48, 0, -262115, 51, 0, -131077, 47, 0, -196608, 46, 0, -196603, 46, 0, -196598, 77, 0, -196593, 46, 0, -196588, 46, 0, -196587, 48, 0, -196586, 48, 0, -196585, 48, 0, -196579, 47, 0, -65543, 49, 0, -65542, 46, 0, -65541, 46, 0, -131072, 78, 0, -131067, 49, 0, -131062, 78, 0, -131057, 49, 0, -131052, 46, 0, -131051, 47, 0, -131050, 47, 0, -131049, 46, 0, -131048, 46, 0, -131047, 46, 0, -131046, 78, 0, -131045, 47, 0, -131044, 46, 0, -131043, 77, 0, -7, 46, 0, -65507, 78, 0, 65529, 46, 0, 131065, 46, 0, 196601, 46, 0, 131101, 51, 0, 262137, 46, 0, 196631, 46, 0, 196632, 46, 0, 196633, 46, 0, 196634, 47, 0, 196635, 47, 0, 196636, 47, 0, 196637, 47, 0, 262167, 46, 0, 262173, 49, 0, 327703, 47, 0, 393239, 47, 0, 393245, 52, 0, 458775, 47, 0, 458781, 48, 0, 524311, 47, 0, 524317, 49, 0, 589847, 46, 0, 589853, 49, 0, 655383, 49, 0, 655389, 47, 0, 720919, 46, 0, 720920, 46, 0, 720921, 46, 0, 720922, 46, 0, 720923, 46, 0, 720924, 46, 0, 720925, 46, 0 )
 
 [node name="tilemap_high_wall" parent="level_one/YSort" instance=ExtResource( 9 )]
-visible = false
 z_index = 1
 show_collision = true
 occluder_light_mask = 3
-tile_data = PoolIntArray( -9568227, 4, 0, -9568226, 4, 0, -9568225, 4, 0, -9568224, 4, 0, -9568223, 4, 0, -9568222, 48, 0, -9568221, 4, 0, -9568220, 4, 0, -9568219, 4, 0, -9568218, 44, 0, -9568217, 70, 0, -9568216, 4, 0, -9568215, 48, 0, -9568214, 4, 0, -9568213, 4, 0, -9568212, 4, 0, -9568211, 4, 0, -9568210, 4, 0, -9568209, 4, 0, -9568208, 4, 0, -9568207, 4, 0, -9568206, 4, 0, -9502691, 4, 0, -9437155, 4, 0, -9371619, 4, 0, -9306083, 4, 0, -9306065, 9, 0, -9240547, 4, 0, -9240529, 4, 0, -9175011, 4, 0, -9174993, 4, 0, -9109475, 4, 0, -9109457, 4, 0, -9043939, 4, 0, -9043921, 4, 0, -8978407, 4, 0, -8978406, 4, 0, -8978405, 4, 0, -8978404, 4, 0, -8978403, 4, 0, -8978385, 4, 0, -8912871, 4, 0, -8912849, 4, 0, -8847335, 4, 0, -8847313, 4, 0, -8781799, 4, 0, -8781791, 7, 0, -8781790, 48, 0, -8781789, 4, 0, -8781788, 4, 0, -8781787, 4, 0, -8781786, 4, 0, -8781785, 4, 0, -8781784, 48, 0, -8781783, 4, 0, -8781782, 4, 0, -8781781, 4, 0, -8781780, 4, 0, -8781779, 4, 0, -8781778, 48, 0, -8781777, 48, 0, -8716263, 7, 0, -8388525, 4, 0, -8388524, 4, 0, -8388523, 9, 0, -8388520, 7, 0, -8388519, 4, 0, -8388518, 4, 0, -8388517, 9, 0, -8322989, 4, 0, -8257453, 4, 0, -8191958, 7, 0, -8191957, 4, 0, -8191956, 4, 0, -8191955, 4, 0, -8191954, 4, 0, -8191953, 4, 0, -8191952, 9, 0, -8191917, 4, 0, -8126381, 4, 0, -8060845, 4, 0, -8060844, 4, 0, -8060843, 4, 0, -8060839, 7, 0, -8060838, 4, 0, -8060837, 9, 0, -7995307, 4, 0, -7929812, 9, 0, -7929771, 4, 0, -7864276, 4, 0, -7864235, 4, 0, -7798770, 4, 0, -7798769, 4, 0, -7798768, 4, 0, -7798767, 4, 0, -7798766, 4, 0, -7798765, 4, 0, -7798764, 4, 0, -7798763, 4, 0, -7798762, 4, 0, -7798761, 4, 0, -7798760, 4, 0, -7798759, 4, 0, -7798758, 4, 0, -7798757, 4, 0, -7798756, 4, 0, -7798755, 4, 0, -7798754, 4, 0, -7798753, 4, 0, -7798752, 4, 0, -7798751, 4, 0, -7798750, 4, 0, -7798749, 4, 0, -7798748, 4, 0, -7798740, 4, 0, -7798728, 4, 0, -7798727, 4, 0, -7798726, 4, 0, -7798725, 4, 0, -7798724, 4, 0, -7798723, 4, 0, -7798722, 4, 0, -7798721, 4, 0, -7798720, 4, 0, -7798719, 4, 0, -7798718, 4, 0, -7798717, 48, 0, -7798716, 4, 0, -7798715, 4, 0, -7798714, 4, 0, -7798713, 4, 0, -7798712, 4, 0, -7798699, 4, 0, -7733234, 4, 0, -7733204, 4, 0, -7733192, 4, 0, -7733163, 4, 0, -7667698, 4, 0, -7667668, 4, 0, -7667656, 4, 0, -7667627, 4, 0, -7602162, 4, 0, -7602132, 4, 0, -7602120, 4, 0, -7602091, 4, 0, -7536626, 4, 0, -7536608, 9, 0, -7536596, 4, 0, -7536584, 4, 0, -7536572, 9, 0, -7536555, 4, 0, -7471090, 4, 0, -7471072, 4, 0, -7471060, 4, 0, -7471048, 4, 0, -7471036, 4, 0, -7471019, 4, 0, -7405554, 4, 0, -7405536, 4, 0, -7405532, 7, 0, -7405531, 4, 0, -7405530, 48, 0, -7405529, 4, 0, -7405528, 4, 0, -7405527, 44, 0, -7405526, 4, 0, -7405525, 4, 0, -7405524, 4, 0, -7405520, 7, 0, -7405519, 4, 0, -7405518, 9, 0, -7405517, 4, 0, -7405516, 4, 0, -7405515, 4, 0, -7405514, 4, 0, -7405513, 4, 0, -7405512, 48, 0, -7405500, 68, 0, -7405483, 4, 0, -7340018, 4, 0, -7340000, 4, 0, -7339964, 68, 0, -7339947, 4, 0, -7274482, 4, 0, -7274464, 4, 0, -7274428, 68, 0, -7274424, 7, 0, -7274423, 4, 0, -7274422, 4, 0, -7274421, 4, 0, -7274420, 4, 0, -7274419, 4, 0, -7274418, 4, 0, -7274411, 4, 0, -7208946, 4, 0, -7208928, 4, 0, -7208892, 68, 0, -7208882, 4, 0, -7208875, 4, 0, -7143410, 4, 0, -7143392, 4, 0, -7143380, 9, 0, -7143356, 4, 0, -7143346, 4, 0, -7143339, 4, 0, -7077874, 4, 0, -7077844, 4, 0, -7077820, 4, 0, -7077810, 7, 0, -7077809, 4, 0, -7077808, 4, 0, -7077807, 4, 0, -7077806, 4, 0, -7077805, 4, 0, -7077804, 4, 0, -7077803, 4, 0, -7012338, 4, 0, -7012308, 4, 0, -7012284, 4, 0, -6946802, 4, 0, -6946772, 4, 0, -6946748, 7, 0, -6881266, 4, 0, -6881236, 4, 0, -6881218, 4, 0, -6881217, 4, 0, -6881216, 4, 0, -6881215, 4, 0, -6881214, 4, 0, -6881213, 4, 0, -6881212, 4, 0, -6881211, 4, 0, -6881210, 4, 0, -6881209, 4, 0, -6881208, 4, 0, -6881207, 4, 0, -6881206, 4, 0, -6815730, 4, 0, -6815700, 4, 0, -6815682, 4, 0, -6750194, 4, 0, -6750164, 4, 0, -6750146, 4, 0, -6684658, 4, 0, -6684628, 4, 0, -6684610, 4, 0, -6619122, 4, 0, -6619118, 7, 0, -6619117, 4, 0, -6619116, 4, 0, -6619115, 44, 0, -6619114, 4, 0, -6619113, 4, 0, -6619112, 44, 0, -6619111, 4, 0, -6619110, 4, 0, -6619109, 4, 0, -6619108, 4, 0, -6619107, 9, 0, -6619092, 4, 0, -6619074, 4, 0, -6553586, 4, 0, -6553556, 4, 0, -6553538, 4, 0, -6488050, 4, 0, -6488020, 4, 0, -6488002, 4, 0, -6488001, 4, 0, -6488000, 4, 0, -6487999, 4, 0, -6487998, 9, 0, -6422514, 4, 0, -6422499, 7, 0, -6422498, 4, 0, -6422497, 44, 0, -6422496, 4, 0, -6422495, 4, 0, -6422494, 4, 0, -6422493, 48, 0, -6422492, 4, 0, -6422491, 4, 0, -6422490, 4, 0, -6422489, 44, 0, -6422488, 4, 0, -6422487, 4, 0, -6422486, 4, 0, -6422485, 4, 0, -6422484, 4, 0, -6422480, 7, 0, -6422479, 4, 0, -6422478, 4, 0, -6422477, 4, 0, -6422476, 4, 0, -6422475, 4, 0, -6422474, 4, 0, -6422473, 4, 0, -6422472, 4, 0, -6422471, 4, 0, -6422466, 4, 0, -6356978, 4, 0, -6356935, 4, 0, -6356930, 4, 0, -6291442, 4, 0, -6291399, 4, 0, -6291394, 48, 0, -6225906, 4, 0, -6225863, 4, 0, -6225862, 4, 0, -6225861, 4, 0, -6225860, 4, 0, -6225859, 4, 0, -6225858, 4, 0, -6160370, 4, 0, -6160340, 9, 0, -6160331, 9, 0, -6094834, 4, 0, -6094804, 4, 0, -6094795, 4, 0, -6029298, 4, 0, -6029268, 4, 0, -6029259, 4, 0, -5963762, 4, 0, -5963732, 4, 0, -5963723, 4, 0, -5963722, 4, 0, -5963721, 4, 0, -5963720, 4, 0, -5963719, 9, 0, -5898226, 4, 0, -5898196, 4, 0, -5898183, 4, 0, -5832690, 4, 0, -5832669, 4, 0, -5832668, 4, 0, -5832667, 4, 0, -5832666, 4, 0, -5832665, 4, 0, -5832664, 4, 0, -5832663, 4, 0, -5832662, 4, 0, -5832661, 4, 0, -5832660, 92, 0, -5832647, 48, 0, -5767154, 4, 0, -5767133, 4, 0, -5767117, 4, 0, -5767116, 4, 0, -5767115, 4, 0, -5767114, 44, 0, -5767113, 4, 0, -5767112, 4, 0, -5767111, 4, 0, -5701618, 4, 0, -5701597, 4, 0, -5701581, 4, 0, -5636082, 4, 0, -5636061, 4, 0, -5636045, 4, 0, -5570546, 4, 0, -5570525, 4, 0, -5570516, 9, 0, -5570509, 48, 0, -5505010, 4, 0, -5504989, 4, 0, -5504980, 4, 0, -5504973, 4, 0, -5439474, 4, 0, -5439470, 7, 0, -5439469, 4, 0, -5439468, 44, 0, -5439467, 4, 0, -5439466, 4, 0, -5439465, 4, 0, -5439464, 4, 0, -5439463, 44, 0, -5439462, 4, 0, -5439461, 4, 0, -5439460, 4, 0, -5439459, 4, 0, -5439458, 4, 0, -5439457, 4, 0, -5439456, 4, 0, -5439455, 48, 0, -5439454, 4, 0, -5439453, 4, 0, -5439444, 4, 0, -5439437, 4, 0, -5373938, 4, 0, -5373908, 4, 0, -5373901, 4, 0, -5308402, 4, 0, -5308372, 4, 0, -5308365, 48, 0, -5242866, 4, 0, -5242836, 4, 0, -5242829, 4, 0, -5177330, 7, 0, -5177315, 9, 0, -5177300, 4, 0, -5177296, 7, 0, -5177295, 4, 0, -5177294, 4, 0, -5177293, 4, 0, -5111779, 4, 0, -5111764, 4, 0, -5046243, 4, 0, -5046228, 4, 0, -4980707, 4, 0, -4980692, 4, 0, -4915171, 4, 0, -4915156, 7, 0, -4849635, 4, 0, -4784099, 4, 0, -4718563, 4, 0, -4653027, 4, 0, -4587491, 4, 0, -4521955, 4, 0, -4456419, 4, 0, -4456404, 5, 0, -4456403, 5, 0, -4456402, 5, 0, -4456401, 5, 0, -4456400, 5, 0, -4456399, 5, 0, -4456398, 5, 0, -4456397, 5, 0, -4456396, 5, 0, -4456395, 10, 0, -4390883, 4, 0, -4390879, 7, 0, -4390878, 4, 0, -4390877, 4, 0, -4390876, 4, 0, -4390875, 4, 0, -4390874, 4, 0, -4390873, 4, 0, -4390872, 4, 0, -4390871, 4, 0, -4390870, 4, 0, -4390869, 4, 0, -4390868, 5, 0, -4325347, 4, 0, -4325332, 5, 0, -4259811, 4, 0, -4259797, 97, 0, -4259796, 96, 0, -4194275, 4, 0, -4128739, 4, 0, -4063203, 7, 0, -3997654, 5, 0, -3997653, 5, 0, -3997652, 5, 0, -3997651, 5, 0, -3997650, 98, 0, -3997647, 95, 0, -3997646, 99, 0, -3997645, 100, 0, -3997644, 101, 0, -3932118, 5, 0, -3866582, 5, 0, -3801046, 37, 0, -3735510, 36, 0, -3669974, 5, 0, -3604438, 49, 0, -3538902, 5, 0, -3538900, 41, 0, -3538893, 41, 0, -3473366, 39, 0, -3407830, 38, 0, -3342294, 5, 0, -3276758, 49, 0, -3276756, 43, 0, -3276749, 40, 0, -3211222, 5, 0, -3145686, 37, 0, -3080150, 36, 0, -3014614, 5, 0, -2949078, 67, 0, -2949076, 42, 0, -2949069, 43, 0, -2883542, 5, 0, -2818006, 37, 0, -2752470, 36, 0, -2686934, 3, 0, -2621398, 71, 0, -2621396, 41, 0, -2621389, 40, 0, -2555862, 5, 0, -2490326, 5, 0, -2490325, 97, 0, -2490324, 96, 0, -2424790, 49, 0, -2359254, 5, 0, -2293718, 1, 0, -2293711, 102, 0, -2228207, 4, 0, -2228206, 4, 0, -2228205, 4, 0, -2228204, 4, 0, -2228203, 4, 0, -2228202, 4, 0, -2228201, 4, 0, -2228200, 4, 0, -2228199, 4, 0, -2228198, 4, 0, -2228197, 4, 0, -2228196, 4, 0, -2228195, 4, 0, -2228194, 4, 0, -2228193, 4, 0, -2228192, 4, 0, -2228191, 70, 0, -2228190, 4, 0, -2228189, 4, 0, -2228188, 4, 0, -2228187, 4, 0, -2228186, 4, 0, -2228185, 70, 0, -2228184, 4, 0, -2228183, 4, 0, -2228182, 1, 0, -2228181, 5, 0, -2228180, 5, 0, -2228179, 5, 0, -2228178, 98, 0, -2228175, 95, 0, -2228174, 5, 0, -2228173, 5, 0, -2228172, 5, 0, -1900527, 4, 0, -1900526, 4, 0, -1900525, 4, 0, -1900524, 4, 0, -1900523, 4, 0, -1900522, 4, 0, -1900521, 4, 0, -1900520, 9, 0, -1900517, 7, 0, -1900516, 4, 0, -1900515, 4, 0, -1900514, 9, 0, -1834989, 4, 0, -1834988, 4, 0, -1834987, 4, 0, -1834986, 4, 0, -1834985, 22, 0, -1834979, 4, 0, -1769453, 4, 0, -1769452, 4, 0, -1769451, 4, 0, -1769450, 50, 0, -1769449, 22, 0, -1769443, 50, 0, -1703917, 4, 0, -1703916, 4, 0, -1703915, 4, 0, -1703914, 4, 0, -1703913, 22, 0, -1703907, 4, 0, -1638381, 4, 0, -1638380, 4, 0, -1638379, 4, 0, -1638378, 4, 0, -1638377, 22, 0, -1638371, 4, 0, -1572845, 4, 0, -1572844, 4, 0, -1572843, 4, 0, -1572842, 4, 0, -1572841, 22, 0, -1572835, 70, 0, -1507309, 4, 0, -1507308, 4, 0, -1507307, 4, 0, -1507306, 4, 0, -1507305, 22, 0, -1507299, 48, 0, -1376263, 4, 0, -1376262, 4, 0, -1376261, 4, 0, -1376260, 4, 0, -1376259, 4, 0, -1376258, 4, 0, -1376257, 4, 0, -1441792, 4, 0, -1441791, 4, 0, -1441790, 4, 0, -1441789, 4, 0, -1441788, 4, 0, -1441787, 4, 0, -1441786, 4, 0, -1441785, 4, 0, -1441784, 4, 0, -1441783, 4, 0, -1441782, 4, 0, -1441781, 4, 0, -1441780, 4, 0, -1441779, 4, 0, -1441778, 4, 0, -1441777, 4, 0, -1441776, 4, 0, -1441775, 4, 0, -1441774, 4, 0, -1441773, 4, 0, -1441772, 4, 0, -1441771, 4, 0, -1441770, 50, 0, -1441769, 22, 0, -1441763, 4, 0, -1310727, 4, 0, -1310722, 4, 0, -1376253, 4, 0, -1376248, 4, 0, -1376243, 4, 0, -1376238, 4, 0, -1376237, 4, 0, -1376236, 4, 0, -1376235, 4, 0, -1376234, 4, 0, -1376233, 22, 0, -1376227, 4, 0, -1245191, 4, 0, -1245186, 4, 0, -1310717, 4, 0, -1310712, 4, 0, -1310707, 4, 0, -1310702, 4, 0, -1310701, 4, 0, -1310700, 4, 0, -1310699, 4, 0, -1310698, 48, 0, -1310697, 22, 0, -1310691, 4, 0, -1179655, 4, 0, -1179650, 4, 0, -1245181, 4, 0, -1245176, 4, 0, -1245171, 4, 0, -1245166, 4, 0, -1245165, 4, 0, -1245164, 4, 0, -1245163, 4, 0, -1245162, 4, 0, -1114119, 4, 0, -1114114, 4, 0, -1179645, 4, 0, -1179640, 4, 0, -1179635, 4, 0, -1179630, 4, 0, -1179629, 4, 0, -1179628, 4, 0, -1179627, 4, 0, -1179626, 4, 0, -1048583, 4, 0, -1048578, 4, 0, -1114109, 4, 0, -1114104, 4, 0, -1114099, 4, 0, -1114094, 4, 0, -1114093, 4, 0, -1114092, 4, 0, -1114091, 4, 0, -1114090, 4, 0, -1114083, 9, 0, -983049, 4, 0, -983048, 4, 0, -983047, 4, 0, -983042, 7, 0, -1048573, 50, 0, -1048568, 7, 0, -1048563, 7, 0, -1048558, 7, 0, -1048557, 4, 0, -1048556, 4, 0, -1048555, 4, 0, -1048554, 4, 0, -1048553, 4, 0, -1048552, 4, 0, -1048551, 4, 0, -1048550, 4, 0, -1048549, 4, 0, -1048548, 4, 0, -1048547, 48, 0, -917513, 4, 0, -983011, 7, 0, -851977, 4, 0, -786441, 4, 0, -720905, 4, 0, -786403, 9, 0, -655369, 4, 0, -655368, 4, 0, -655367, 4, 0, -655366, 4, 0, -655365, 4, 0, -655364, 4, 0, -655363, 4, 0, -655362, 4, 0, -655361, 4, 0, -720896, 4, 0, -720895, 4, 0, -720894, 4, 0, -720893, 4, 0, -720892, 4, 0, -720891, 4, 0, -720890, 4, 0, -720889, 4, 0, -720888, 4, 0, -720887, 4, 0, -720886, 4, 0, -720885, 4, 0, -720884, 4, 0, -720883, 4, 0, -720882, 4, 0, -720881, 4, 0, -720880, 4, 0, -720879, 4, 0, -720878, 4, 0, -720877, 4, 0, -720876, 4, 0, -720875, 4, 0, -720874, 4, 0, -720873, 4, 0, -720872, 4, 0, -720871, 68, 0, -720870, 4, 0, -720869, 4, 0, -720868, 4, 0, -720867, 4, 0, -589829, 4, 0, -589828, 4, 0, -589827, 4, 0, -589826, 4, 0, -589825, 4, 0, -655360, 4, 0, -655359, 4, 0, -655358, 4, 0, -655357, 4, 0, -655356, 4, 0, -655355, 4, 0, -655354, 4, 0, -655353, 4, 0, -655352, 4, 0, -655351, 4, 0, -655350, 4, 0, -655349, 4, 0, -655348, 4, 0, -655347, 4, 0, -655346, 4, 0, -655345, 4, 0, -655344, 4, 0, -655343, 4, 0, -655342, 4, 0, -655341, 4, 0, -655340, 4, 0, -655339, 4, 0, -655338, 4, 0, -655337, 46, 0, -655331, 46, 0, -524293, 4, 0, -524292, 4, 0, -524291, 4, 0, -524290, 4, 0, -524289, 4, 0, -589824, 4, 0, -589823, 4, 0, -589822, 4, 0, -589821, 4, 0, -589820, 4, 0, -589819, 4, 0, -589818, 4, 0, -589817, 4, 0, -589816, 4, 0, -589815, 4, 0, -589814, 4, 0, -589813, 4, 0, -589812, 4, 0, -589811, 48, 0, -589810, 4, 0, -589809, 4, 0, -589808, 4, 0, -589807, 4, 0, -589806, 4, 0, -589805, 4, 0, -589804, 4, 0, -589803, 4, 0, -589802, 4, 0, -589801, 4, 0, -589795, 4, 0, -458757, 4, 0, -458756, 48, 0, -458755, 4, 0, -458754, 48, 0, -458753, 4, 0, -524288, 4, 0, -524287, 4, 0, -524286, 4, 0, -524285, 4, 0, -524284, 4, 0, -524283, 4, 0, -524282, 92, 0, -524281, 4, 0, -524280, 93, 0, -524279, 94, 0, -524278, 4, 0, -524277, 4, 0, -524276, 48, 0, -524275, 48, 0, -524274, 48, 0, -524273, 4, 0, -524272, 4, 0, -524271, 4, 0, -524270, 4, 0, -524269, 4, 0, -524268, 4, 0, -524267, 4, 0, -524266, 4, 0, -524265, 68, 0, -524259, 4, 0, -393221, 4, 0, -458752, 4, 0, -458747, 4, 0, -458742, 4, 0, -458737, 4, 0, -458732, 4, 0, -458731, 4, 0, -458730, 4, 0, -458729, 4, 0, -458723, 7, 0, -327685, 4, 0, -393216, 4, 0, -393211, 4, 0, -393206, 4, 0, -393201, 4, 0, -393196, 4, 0, -393195, 4, 0, -393194, 4, 0, -393193, 46, 0, -262149, 4, 0, -327680, 4, 0, -327675, 48, 0, -327670, 4, 0, -327665, 4, 0, -327660, 4, 0, -327659, 4, 0, -327658, 4, 0, -327657, 4, 0, -196613, 48, 0, -262144, 4, 0, -262139, 4, 0, -262134, 4, 0, -262129, 4, 0, -262124, 4, 0, -262123, 4, 0, -262122, 4, 0, -262121, 4, 0, -262115, 9, 0, -131077, 4, 0, -196608, 50, 0, -196603, 4, 0, -196598, 70, 0, -196593, 4, 0, -196588, 4, 0, -196587, 4, 0, -196586, 4, 0, -196585, 4, 0, -196579, 4, 0, -65543, 4, 0, -65542, 4, 0, -65541, 4, 0, -131072, 72, 0, -131067, 7, 0, -131062, 72, 0, -131057, 7, 0, -131052, 50, 0, -131051, 4, 0, -131050, 4, 0, -131049, 48, 0, -131048, 4, 0, -131047, 4, 0, -131046, 44, 0, -131045, 4, 0, -131044, 4, 0, -131043, 68, 0, -7, 4, 0, -65507, 72, 0, 65529, 4, 0, 131065, 4, 0, 196601, 4, 0, 131101, 9, 0, 262137, 4, 0, 196631, 4, 0, 196632, 4, 0, 196633, 4, 0, 196634, 4, 0, 196635, 4, 0, 196636, 4, 0, 196637, 4, 0, 262167, 4, 0, 262173, 7, 0, 327703, 4, 0, 393239, 4, 0, 393245, 18, 0, 458775, 4, 0, 458781, 4, 0, 524311, 4, 0, 524317, 4, 0, 589847, 4, 0, 589853, 4, 0, 655383, 4, 0, 655389, 4, 0, 720919, 4, 0, 720920, 4, 0, 720921, 4, 0, 720922, 4, 0, 720923, 4, 0, 720924, 4, 0, 720925, 4, 0 )
+tile_data = PoolIntArray( -9568227, 4, 0, -9568226, 4, 0, -9568225, 4, 0, -9568224, 4, 0, -9568223, 4, 0, -9568222, 48, 0, -9568221, 4, 0, -9568220, 4, 0, -9568219, 4, 0, -9568218, 44, 0, -9568217, 70, 0, -9568216, 4, 0, -9568215, 48, 0, -9568214, 4, 0, -9568213, 4, 0, -9568212, 4, 0, -9568211, 4, 0, -9568210, 4, 0, -9568209, 4, 0, -9568208, 4, 0, -9568207, 4, 0, -9568206, 4, 0, -9502691, 4, 0, -9437155, 4, 0, -9371619, 4, 0, -9306083, 4, 0, -9306065, 9, 0, -9240547, 4, 0, -9240529, 4, 0, -9175011, 4, 0, -9174993, 4, 0, -9109475, 4, 0, -9109457, 4, 0, -9043939, 4, 0, -9043921, 4, 0, -8978407, 4, 0, -8978406, 4, 0, -8978405, 4, 0, -8978404, 4, 0, -8978403, 4, 0, -8978385, 4, 0, -8912871, 4, 0, -8912849, 4, 0, -8847335, 4, 0, -8847313, 4, 0, -8781799, 4, 0, -8781791, 7, 0, -8781790, 48, 0, -8781789, 4, 0, -8781788, 4, 0, -8781787, 4, 0, -8781786, 4, 0, -8781785, 4, 0, -8781784, 48, 0, -8781783, 4, 0, -8781782, 4, 0, -8781781, 4, 0, -8781780, 4, 0, -8781779, 4, 0, -8781778, 48, 0, -8781777, 48, 0, -8716263, 7, 0, -8388525, 4, 0, -8388524, 4, 0, -8388523, 9, 0, -8388520, 7, 0, -8388519, 4, 0, -8388518, 4, 0, -8388517, 9, 0, -8322989, 4, 0, -8257453, 4, 0, -8191958, 7, 0, -8191957, 4, 0, -8191956, 4, 0, -8191955, 4, 0, -8191954, 4, 0, -8191953, 4, 0, -8191952, 9, 0, -8191917, 4, 0, -8126381, 4, 0, -8060845, 4, 0, -8060844, 4, 0, -8060843, 4, 0, -8060839, 7, 0, -8060838, 4, 0, -8060837, 9, 0, -7995307, 4, 0, -7929812, 9, 0, -7929771, 4, 0, -7864276, 4, 0, -7864235, 4, 0, -7798770, 4, 0, -7798769, 4, 0, -7798768, 4, 0, -7798767, 4, 0, -7798766, 4, 0, -7798765, 4, 0, -7798764, 4, 0, -7798763, 4, 0, -7798762, 4, 0, -7798761, 4, 0, -7798760, 4, 0, -7798759, 4, 0, -7798758, 4, 0, -7798757, 4, 0, -7798756, 4, 0, -7798755, 4, 0, -7798754, 4, 0, -7798753, 4, 0, -7798752, 4, 0, -7798751, 4, 0, -7798750, 4, 0, -7798749, 4, 0, -7798748, 4, 0, -7798740, 4, 0, -7798728, 4, 0, -7798727, 4, 0, -7798726, 4, 0, -7798725, 4, 0, -7798724, 4, 0, -7798723, 4, 0, -7798722, 4, 0, -7798721, 4, 0, -7798720, 4, 0, -7798719, 4, 0, -7798718, 4, 0, -7798717, 48, 0, -7798716, 4, 0, -7798715, 4, 0, -7798714, 4, 0, -7798713, 4, 0, -7798712, 4, 0, -7798699, 4, 0, -7733234, 4, 0, -7733204, 4, 0, -7733192, 4, 0, -7733163, 4, 0, -7667698, 4, 0, -7667668, 4, 0, -7667656, 4, 0, -7667627, 4, 0, -7602162, 4, 0, -7602132, 4, 0, -7602120, 4, 0, -7602091, 4, 0, -7536626, 4, 0, -7536608, 9, 0, -7536596, 4, 0, -7536584, 4, 0, -7536572, 9, 0, -7536555, 4, 0, -7471090, 4, 0, -7471072, 4, 0, -7471060, 4, 0, -7471048, 4, 0, -7471036, 4, 0, -7471019, 4, 0, -7405554, 4, 0, -7405536, 4, 0, -7405532, 7, 0, -7405531, 4, 0, -7405530, 48, 0, -7405529, 4, 0, -7405528, 4, 0, -7405527, 44, 0, -7405526, 4, 0, -7405525, 4, 0, -7405524, 4, 0, -7405520, 7, 0, -7405519, 4, 0, -7405518, 9, 0, -7405517, 4, 0, -7405516, 4, 0, -7405515, 4, 0, -7405514, 4, 0, -7405513, 4, 0, -7405512, 48, 0, -7405500, 68, 0, -7405483, 4, 0, -7340018, 4, 0, -7340000, 4, 0, -7339964, 68, 0, -7339947, 4, 0, -7274482, 4, 0, -7274464, 4, 0, -7274428, 68, 0, -7274424, 7, 0, -7274423, 4, 0, -7274422, 4, 0, -7274421, 4, 0, -7274420, 4, 0, -7274419, 4, 0, -7274418, 4, 0, -7274411, 4, 0, -7208946, 4, 0, -7208928, 4, 0, -7208892, 68, 0, -7208882, 4, 0, -7208875, 4, 0, -7143410, 4, 0, -7143392, 4, 0, -7143380, 9, 0, -7143356, 4, 0, -7143346, 4, 0, -7143339, 4, 0, -7077874, 4, 0, -7077844, 4, 0, -7077820, 4, 0, -7077810, 7, 0, -7077809, 4, 0, -7077808, 4, 0, -7077807, 4, 0, -7077806, 4, 0, -7077805, 4, 0, -7077804, 4, 0, -7077803, 4, 0, -7012338, 4, 0, -7012308, 4, 0, -7012284, 4, 0, -6946802, 4, 0, -6946772, 4, 0, -6946748, 7, 0, -6881266, 4, 0, -6881236, 4, 0, -6881218, 4, 0, -6881217, 4, 0, -6881216, 4, 0, -6881215, 4, 0, -6881214, 4, 0, -6881213, 4, 0, -6881212, 4, 0, -6881211, 4, 0, -6881210, 4, 0, -6881209, 4, 0, -6881208, 4, 0, -6881207, 4, 0, -6881206, 4, 0, -6815730, 4, 0, -6815700, 4, 0, -6815682, 4, 0, -6750194, 4, 0, -6750164, 4, 0, -6750146, 4, 0, -6684658, 4, 0, -6684628, 4, 0, -6684610, 4, 0, -6619122, 4, 0, -6619118, 7, 0, -6619117, 4, 0, -6619116, 4, 0, -6619115, 44, 0, -6619114, 4, 0, -6619113, 4, 0, -6619112, 44, 0, -6619111, 4, 0, -6619110, 4, 0, -6619109, 4, 0, -6619108, 4, 0, -6619107, 9, 0, -6619092, 4, 0, -6619074, 4, 0, -6553586, 4, 0, -6553556, 4, 0, -6553538, 4, 0, -6488050, 4, 0, -6488020, 4, 0, -6488002, 4, 0, -6488001, 4, 0, -6488000, 4, 0, -6487999, 4, 0, -6487998, 9, 0, -6422514, 4, 0, -6422499, 7, 0, -6422498, 4, 0, -6422497, 44, 0, -6422496, 4, 0, -6422495, 4, 0, -6422494, 4, 0, -6422493, 48, 0, -6422492, 4, 0, -6422491, 4, 0, -6422490, 4, 0, -6422489, 44, 0, -6422488, 4, 0, -6422487, 4, 0, -6422486, 4, 0, -6422485, 4, 0, -6422484, 4, 0, -6422480, 7, 0, -6422479, 4, 0, -6422478, 4, 0, -6422477, 4, 0, -6422476, 4, 0, -6422475, 4, 0, -6422474, 4, 0, -6422473, 4, 0, -6422472, 4, 0, -6422471, 4, 0, -6422466, 4, 0, -6356978, 4, 0, -6356935, 4, 0, -6356930, 4, 0, -6291442, 4, 0, -6291399, 4, 0, -6291394, 48, 0, -6225906, 4, 0, -6225863, 4, 0, -6225862, 4, 0, -6225861, 4, 0, -6225860, 4, 0, -6225859, 4, 0, -6225858, 4, 0, -6160370, 4, 0, -6160340, 9, 0, -6160331, 9, 0, -6094834, 4, 0, -6094804, 4, 0, -6094795, 4, 0, -6029298, 4, 0, -6029268, 4, 0, -6029259, 4, 0, -5963762, 4, 0, -5963732, 4, 0, -5963723, 4, 0, -5963722, 4, 0, -5963721, 4, 0, -5963720, 4, 0, -5963719, 9, 0, -5898226, 4, 0, -5898196, 4, 0, -5898183, 4, 0, -5832690, 4, 0, -5832669, 4, 0, -5832668, 4, 0, -5832667, 4, 0, -5832666, 4, 0, -5832665, 4, 0, -5832664, 4, 0, -5832663, 4, 0, -5832662, 4, 0, -5832661, 4, 0, -5832660, 92, 0, -5832647, 48, 0, -5767154, 4, 0, -5767133, 4, 0, -5767117, 4, 0, -5767116, 4, 0, -5767115, 4, 0, -5767114, 44, 0, -5767113, 4, 0, -5767112, 4, 0, -5767111, 4, 0, -5701618, 4, 0, -5701597, 4, 0, -5701581, 4, 0, -5636082, 4, 0, -5636061, 4, 0, -5636045, 4, 0, -5570546, 4, 0, -5570525, 4, 0, -5570516, 9, 0, -5570509, 48, 0, -5505010, 4, 0, -5504989, 4, 0, -5504980, 4, 0, -5504973, 4, 0, -5439474, 4, 0, -5439470, 7, 0, -5439469, 4, 0, -5439468, 44, 0, -5439467, 4, 0, -5439466, 4, 0, -5439465, 4, 0, -5439464, 4, 0, -5439463, 44, 0, -5439462, 4, 0, -5439461, 4, 0, -5439460, 4, 0, -5439459, 4, 0, -5439458, 4, 0, -5439457, 4, 0, -5439456, 4, 0, -5439455, 48, 0, -5439454, 4, 0, -5439453, 4, 0, -5439444, 4, 0, -5439437, 4, 0, -5373938, 4, 0, -5373908, 4, 0, -5373901, 4, 0, -5308402, 4, 0, -5308372, 4, 0, -5308365, 48, 0, -5242866, 4, 0, -5242836, 4, 0, -5242829, 4, 0, -5177330, 7, 0, -5177315, 9, 0, -5177300, 4, 0, -5177296, 7, 0, -5177295, 4, 0, -5177294, 4, 0, -5177293, 4, 0, -5111779, 4, 0, -5111764, 4, 0, -5046243, 4, 0, -5046228, 4, 0, -4980707, 4, 0, -4980692, 4, 0, -4915171, 4, 0, -4915156, 7, 0, -4849635, 4, 0, -4784099, 4, 0, -4718563, 4, 0, -4653027, 4, 0, -4587491, 4, 0, -4521955, 4, 0, -4456419, 4, 0, -4456404, 5, 0, -4456403, 5, 0, -4456402, 5, 0, -4456401, 5, 0, -4456400, 5, 0, -4456399, 5, 0, -4456398, 5, 0, -4456397, 5, 0, -4456396, 5, 0, -4456395, 10, 0, -4390883, 4, 0, -4390879, 7, 0, -4390878, 4, 0, -4390877, 4, 0, -4390876, 4, 0, -4390875, 4, 0, -4390874, 4, 0, -4390873, 4, 0, -4390872, 4, 0, -4390871, 4, 0, -4390870, 4, 0, -4390869, 4, 0, -4390868, 5, 0, -4325347, 4, 0, -4325332, 5, 0, -4259811, 4, 0, -4259797, 97, 0, -4259796, 96, 0, -4194275, 4, 0, -4128739, 4, 0, -4063203, 7, 0, -3997654, 5, 0, -3997653, 5, 0, -3997652, 5, 0, -3997651, 5, 0, -3997650, 98, 0, -3997647, 95, 0, -3997646, 99, 0, -3997645, 100, 0, -3997644, 101, 0, -3932118, 5, 0, -3866582, 5, 0, -3801046, 37, 0, -3735510, 36, 0, -3669974, 5, 0, -3604438, 49, 0, -3538902, 5, 0, -3538900, 41, 0, -3538893, 41, 0, -3473366, 39, 0, -3407830, 38, 0, -3342294, 5, 0, -3276758, 49, 0, -3276756, 43, 0, -3276749, 40, 0, -3211222, 5, 0, -3145686, 37, 0, -3080150, 36, 0, -3014614, 5, 0, -2949078, 67, 0, -2949076, 42, 0, -2949069, 43, 0, -2883542, 5, 0, -2818006, 37, 0, -2752470, 36, 0, -2686934, 3, 0, -2621398, 71, 0, -2621396, 41, 0, -2621389, 40, 0, -2555862, 5, 0, -2490326, 5, 0, -2490325, 97, 0, -2490324, 96, 0, -2424790, 49, 0, -2359254, 5, 0, -2293718, 1, 0, -2293711, 102, 0, -2228207, 4, 0, -2228206, 4, 0, -2228205, 4, 0, -2228204, 4, 0, -2228203, 4, 0, -2228202, 4, 0, -2228201, 4, 0, -2228200, 4, 0, -2228199, 4, 0, -2228198, 4, 0, -2228197, 4, 0, -2228196, 4, 0, -2228195, 4, 0, -2228194, 4, 0, -2228193, 4, 0, -2228192, 4, 0, -2228191, 70, 0, -2228190, 4, 0, -2228189, 4, 0, -2228188, 4, 0, -2228187, 4, 0, -2228186, 4, 0, -2228185, 70, 0, -2228184, 4, 0, -2228183, 4, 0, -2228182, 1, 0, -2228181, 5, 0, -2228180, 5, 0, -2228179, 5, 0, -2228178, 98, 0, -2228175, 95, 0, -2228174, 5, 0, -2228173, 5, 0, -2228172, 5, 0, -1900527, 4, 0, -1900526, 4, 0, -1900525, 4, 0, -1900524, 4, 0, -1900523, 4, 0, -1900522, 4, 0, -1900521, 4, 0, -1900520, 9, 0, -1900517, 7, 0, -1900516, 4, 0, -1900515, 4, 0, -1900514, 9, 0, -1834989, 4, 0, -1834988, 4, 0, -1834987, 4, 0, -1834986, 4, 0, -1834985, 22, 0, -1834979, 4, 0, -1769453, 4, 0, -1769452, 4, 0, -1769451, 4, 0, -1769450, 50, 0, -1769449, 22, 0, -1769443, 50, 0, -1703917, 4, 0, -1703916, 4, 0, -1703915, 4, 0, -1703914, 4, 0, -1703913, 22, 0, -1703907, 4, 0, -1638381, 4, 0, -1638380, 4, 0, -1638379, 4, 0, -1638378, 4, 0, -1638377, 22, 0, -1638371, 4, 0, -1572845, 4, 0, -1572844, 4, 0, -1572843, 4, 0, -1572842, 4, 0, -1572841, 22, 0, -1572835, 70, 0, -1507309, 4, 0, -1507308, 4, 0, -1507307, 4, 0, -1507306, 4, 0, -1507305, 22, 0, -1507299, 48, 0, -1376263, 4, 0, -1376262, 4, 0, -1376261, 4, 0, -1376260, 4, 0, -1376259, 4, 0, -1376258, 4, 0, -1376257, 4, 0, -1441792, 4, 0, -1441791, 4, 0, -1441790, 4, 0, -1441789, 4, 0, -1441788, 4, 0, -1441787, 4, 0, -1441786, 4, 0, -1441785, 4, 0, -1441784, 4, 0, -1441783, 4, 0, -1441782, 4, 0, -1441781, 4, 0, -1441780, 4, 0, -1441779, 4, 0, -1441778, 4, 0, -1441777, 4, 0, -1441776, 4, 0, -1441775, 4, 0, -1441774, 4, 0, -1441773, 4, 0, -1441772, 4, 0, -1441771, 4, 0, -1441770, 50, 0, -1441769, 22, 0, -1441763, 4, 0, -1310727, 4, 0, -1310722, 4, 0, -1376253, 4, 0, -1376248, 4, 0, -1376243, 4, 0, -1376238, 4, 0, -1376237, 4, 0, -1376236, 4, 0, -1376235, 4, 0, -1376234, 4, 0, -1376233, 22, 0, -1376227, 4, 0, -1245191, 4, 0, -1245186, 4, 0, -1310717, 4, 0, -1310712, 4, 0, -1310707, 4, 0, -1310702, 4, 0, -1310701, 4, 0, -1310700, 4, 0, -1310699, 4, 0, -1310698, 48, 0, -1310697, 22, 0, -1310691, 7, 0, -1179655, 4, 0, -1179650, 4, 0, -1245181, 4, 0, -1245176, 4, 0, -1245171, 4, 0, -1245166, 4, 0, -1245165, 4, 0, -1245164, 4, 0, -1245163, 4, 0, -1245162, 4, 0, -1114119, 4, 0, -1114114, 4, 0, -1179645, 4, 0, -1179640, 4, 0, -1179635, 4, 0, -1179630, 4, 0, -1179629, 4, 0, -1179628, 4, 0, -1179627, 4, 0, -1179626, 4, 0, -1048583, 4, 0, -1048578, 4, 0, -1114109, 4, 0, -1114104, 4, 0, -1114099, 4, 0, -1114094, 4, 0, -1114093, 4, 0, -1114092, 4, 0, -1114091, 4, 0, -1114090, 4, 0, -1114083, 9, 0, -983049, 4, 0, -983048, 4, 0, -983047, 4, 0, -983042, 7, 0, -1048573, 50, 0, -1048568, 7, 0, -1048563, 7, 0, -1048558, 7, 0, -1048557, 4, 0, -1048556, 4, 0, -1048555, 4, 0, -1048554, 4, 0, -1048553, 4, 0, -1048552, 4, 0, -1048551, 4, 0, -1048550, 4, 0, -1048549, 4, 0, -1048548, 4, 0, -1048547, 48, 0, -917513, 4, 0, -983011, 7, 0, -851977, 4, 0, -786441, 4, 0, -720905, 4, 0, -786403, 9, 0, -655369, 4, 0, -655368, 4, 0, -655367, 4, 0, -655366, 4, 0, -655365, 4, 0, -655364, 4, 0, -655363, 4, 0, -655362, 4, 0, -655361, 4, 0, -720896, 4, 0, -720895, 4, 0, -720894, 4, 0, -720893, 4, 0, -720892, 4, 0, -720891, 4, 0, -720890, 4, 0, -720889, 4, 0, -720888, 4, 0, -720887, 4, 0, -720886, 4, 0, -720885, 4, 0, -720884, 4, 0, -720883, 4, 0, -720882, 4, 0, -720881, 4, 0, -720880, 4, 0, -720879, 4, 0, -720878, 4, 0, -720877, 4, 0, -720876, 4, 0, -720875, 4, 0, -720874, 4, 0, -720873, 4, 0, -720872, 4, 0, -720871, 68, 0, -720870, 4, 0, -720869, 4, 0, -720868, 4, 0, -720867, 4, 0, -589829, 4, 0, -589828, 4, 0, -589827, 4, 0, -589826, 4, 0, -589825, 4, 0, -655360, 4, 0, -655359, 4, 0, -655358, 4, 0, -655357, 4, 0, -655356, 4, 0, -655355, 4, 0, -655354, 4, 0, -655353, 4, 0, -655352, 4, 0, -655351, 4, 0, -655350, 4, 0, -655349, 4, 0, -655348, 4, 0, -655347, 4, 0, -655346, 4, 0, -655345, 4, 0, -655344, 4, 0, -655343, 4, 0, -655342, 4, 0, -655341, 4, 0, -655340, 4, 0, -655339, 4, 0, -655338, 4, 0, -655337, 46, 0, -655331, 46, 0, -524293, 4, 0, -524292, 4, 0, -524291, 4, 0, -524290, 4, 0, -524289, 4, 0, -589824, 4, 0, -589823, 4, 0, -589822, 4, 0, -589821, 4, 0, -589820, 4, 0, -589819, 4, 0, -589818, 4, 0, -589817, 4, 0, -589816, 4, 0, -589815, 4, 0, -589814, 4, 0, -589813, 4, 0, -589812, 4, 0, -589811, 48, 0, -589810, 4, 0, -589809, 4, 0, -589808, 4, 0, -589807, 4, 0, -589806, 4, 0, -589805, 4, 0, -589804, 4, 0, -589803, 4, 0, -589802, 4, 0, -589801, 4, 0, -589795, 4, 0, -458757, 4, 0, -458756, 48, 0, -458755, 4, 0, -458754, 48, 0, -458753, 4, 0, -524288, 4, 0, -524287, 4, 0, -524286, 4, 0, -524285, 4, 0, -524284, 4, 0, -524283, 4, 0, -524282, 92, 0, -524281, 4, 0, -524280, 93, 0, -524279, 94, 0, -524278, 4, 0, -524277, 4, 0, -524276, 48, 0, -524275, 48, 0, -524274, 48, 0, -524273, 4, 0, -524272, 4, 0, -524271, 4, 0, -524270, 4, 0, -524269, 4, 0, -524268, 4, 0, -524267, 4, 0, -524266, 4, 0, -524265, 68, 0, -524259, 4, 0, -393221, 4, 0, -458752, 4, 0, -458747, 4, 0, -458742, 4, 0, -458737, 4, 0, -458732, 4, 0, -458731, 4, 0, -458730, 4, 0, -458729, 4, 0, -458723, 7, 0, -327685, 4, 0, -393216, 4, 0, -393211, 4, 0, -393206, 4, 0, -393201, 4, 0, -393196, 4, 0, -393195, 4, 0, -393194, 4, 0, -393193, 46, 0, -262149, 4, 0, -327680, 4, 0, -327675, 48, 0, -327670, 4, 0, -327665, 4, 0, -327660, 4, 0, -327659, 4, 0, -327658, 4, 0, -327657, 4, 0, -196613, 48, 0, -262144, 4, 0, -262139, 4, 0, -262134, 4, 0, -262129, 4, 0, -262124, 4, 0, -262123, 4, 0, -262122, 4, 0, -262121, 4, 0, -262115, 9, 0, -131077, 4, 0, -196608, 50, 0, -196603, 4, 0, -196598, 70, 0, -196593, 4, 0, -196588, 4, 0, -196587, 4, 0, -196586, 4, 0, -196585, 4, 0, -196579, 4, 0, -65543, 4, 0, -65542, 4, 0, -65541, 4, 0, -131072, 72, 0, -131067, 7, 0, -131062, 72, 0, -131057, 7, 0, -131052, 50, 0, -131051, 4, 0, -131050, 4, 0, -131049, 48, 0, -131048, 4, 0, -131047, 4, 0, -131046, 44, 0, -131045, 4, 0, -131044, 4, 0, -131043, 68, 0, -7, 4, 0, -65507, 72, 0, 65529, 4, 0, 131065, 4, 0, 196601, 4, 0, 131101, 9, 0, 262137, 4, 0, 196631, 4, 0, 196632, 4, 0, 196633, 4, 0, 196634, 4, 0, 196635, 4, 0, 196636, 4, 0, 196637, 4, 0, 262167, 4, 0, 262173, 7, 0, 327703, 4, 0, 393239, 4, 0, 393245, 18, 0, 458775, 4, 0, 458781, 4, 0, 524311, 4, 0, 524317, 4, 0, 589847, 4, 0, 589853, 4, 0, 655383, 4, 0, 655389, 4, 0, 720919, 4, 0, 720920, 4, 0, 720921, 4, 0, 720922, 4, 0, 720923, 4, 0, 720924, 4, 0, 720925, 4, 0 )
 
 [node name="group_area_2d_wall_hide" type="Node2D" parent="level_one/YSort"]
-visible = false
+
+[node name="Area2D36" parent="level_one/YSort/group_area_2d_wall_hide" instance=ExtResource( 6 )]
+coordinates = [  ]
+for_coordinates = [ [ Vector2( 23, -16 ), "x", Vector2( 28, -16 ) ], [ Vector2( 29, -17 ), "y", Vector2( 29, -15 ) ], [ Vector2( 29, -28 ), "y", Vector2( 29, -20 ) ] ]
+torch_on_wall = [ Vector2( 30, -26 ), Vector2( 30, -23 ), Vector2( 30, -16 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/group_area_2d_wall_hide/Area2D36"]
+position = Vector2( 325, -285 )
+polygon = PoolVector2Array( 299, 357, 347, 333, 355, 337, 499, 265, 587, 309, 443, 381, 395, 405 )
 
 [node name="Area2D35" parent="level_one/YSort/group_area_2d_wall_hide" instance=ExtResource( 6 )]
 coordinates = [  ]
@@ -1438,7 +1274,6 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1516, -113 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="broken_glass_tilemap" parent="level_one/YSort" instance=ExtResource( 11 )]
@@ -1932,7 +1767,7 @@ position = Vector2( 179, 57 )
 position = Vector2( 263, 99 )
 
 [node name="light_2" parent="level_one/YSort/LIGHTS" instance=ExtResource( 12 )]
-position = Vector2( 425, 251 )
+position = Vector2( 437, 240 )
 
 [node name="light_3" parent="level_one/YSort/LIGHTS" instance=ExtResource( 12 )]
 position = Vector2( 507, 211 )
@@ -2184,21 +2019,14 @@ color = Color( 0, 0, 0, 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="level_one"]
 reset_on_save = false
 anims/RESET = SubResource( 7 )
-anims/blood_door_1_work = SubResource( 21 )
-anims/bochkawork = SubResource( 25 )
 anims/break_grid_door = SubResource( 9 )
-anims/broke_wood_door = SubResource( 17 )
-anims/door_blood_0_work = SubResource( 20 )
+anims/holodos_osmotr = SubResource( 17 )
 anims/move_big_home = SubResource( 10 )
-anims/off_light = SubResource( 11 )
-anims/on_light = SubResource( 12 )
 anims/start = SubResource( 6 )
-anims/trup_work = SubResource( 19 )
-anims/verstak_work = SubResource( 18 )
 script = ExtResource( 22 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1613, -41 )
+position = Vector2( 263, 147 )
 zoom = Vector2( 0.2, 0.2 )
 script = ExtResource( 21 )
 
@@ -2210,7 +2038,6 @@ position = Vector2( 113, 72 )
 scale = Vector2( 15.9687, 6.94781 )
 z_index = 5
 frames = SubResource( 5 )
-frame = 1
 playing = true
 script = ExtResource( 15 )
 
@@ -2218,6 +2045,33 @@ script = ExtResource( 15 )
 wait_time = 0.2
 one_shot = true
 
+[connection signal="input_event" from="level_one/YSort/entity_area2D/krov_kamera/mouse" to="level_one/YSort/entity_area2D/krov_kamera" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/krov_kamera/nearby" to="level_one/YSort/entity_area2D/krov_kamera" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/krov_kamera/nearby" to="level_one/YSort/entity_area2D/krov_kamera" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/shkaf_verstak/mouse" to="level_one/YSort/entity_area2D/shkaf_verstak" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/shkaf_verstak/nearby" to="level_one/YSort/entity_area2D/shkaf_verstak" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/shkaf_verstak/nearby" to="level_one/YSort/entity_area2D/shkaf_verstak" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/storages_verstak/mouse" to="level_one/YSort/entity_area2D/storages_verstak" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/storages_verstak/nearby" to="level_one/YSort/entity_area2D/storages_verstak" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/storages_verstak/nearby" to="level_one/YSort/entity_area2D/storages_verstak" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/generator_pit/mouse" to="level_one/YSort/entity_area2D/generator_pit" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/generator_pit/nearby" to="level_one/YSort/entity_area2D/generator_pit" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/generator_pit/nearby" to="level_one/YSort/entity_area2D/generator_pit" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/stol_0_pit/mouse" to="level_one/YSort/entity_area2D/stol_0_pit" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/stol_0_pit/nearby" to="level_one/YSort/entity_area2D/stol_0_pit" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/stol_0_pit/nearby" to="level_one/YSort/entity_area2D/stol_0_pit" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/stol_pitok/mouse" to="level_one/YSort/entity_area2D/stol_pitok" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/stol_pitok/nearby" to="level_one/YSort/entity_area2D/stol_pitok" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/stol_pitok/nearby" to="level_one/YSort/entity_area2D/stol_pitok" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/grid_door_main/mouse" to="level_one/YSort/entity_area2D/grid_door_main" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/grid_door_main/nearby" to="level_one/YSort/entity_area2D/grid_door_main" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/grid_door_main/nearby" to="level_one/YSort/entity_area2D/grid_door_main" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/kamen_v_stene/mouse" to="level_one/YSort/entity_area2D/kamen_v_stene" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/kamen_v_stene/nearby" to="level_one/YSort/entity_area2D/kamen_v_stene" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/kamen_v_stene/nearby" to="level_one/YSort/entity_area2D/kamen_v_stene" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/holodos_v_pit/mouse" to="level_one/YSort/entity_area2D/holodos_v_pit" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/holodos_v_pit/nearby" to="level_one/YSort/entity_area2D/holodos_v_pit" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/holodos_v_pit/nearby" to="level_one/YSort/entity_area2D/holodos_v_pit" method="_on_nearby_area_exited"]
 [connection signal="area_entered" from="level_one/YSort/area_for_animation/quit" to="level_one/YSort/area_for_animation/quit" method="_on_quit_area_entered"]
 [connection signal="toggled" from="level_one/CanvasLayer/Panel_test/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/light/CheckButton" to="level_one/CanvasLayer/Panel_test" method="_on_CheckButton_toggled"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
