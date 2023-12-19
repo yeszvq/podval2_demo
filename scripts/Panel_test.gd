@@ -25,3 +25,8 @@ func _on_CheckButton_toggled(button_pressed):
 	else:
 		Events.emit_signal("hide_light")
 	pass # Replace with function body.
+
+
+func _on_Button_button_up():
+	Inventory.pain_mind[1] = 0
+	pass # Replace with function body.

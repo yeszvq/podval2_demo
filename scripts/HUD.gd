@@ -139,6 +139,8 @@ func update_dialogue(event = null):
 						Inventory.pain_mind_change(0, int(i[1]))
 					"mindchanged":
 						Inventory.pain_mind_change(1, int(i[1]))
+					"quit":
+						get_tree().quit()
 		
 		if temp[0] == "chose":
 			#Нужно доработать этот скрипт

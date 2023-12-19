@@ -17,6 +17,9 @@ var move = 0
 #под инвентарь
 var size_items = 9
 
+#Эффекты на игроке
+var does_effect = []
+
 #функция под повреждение конечностей
 func hurt_limb(limb_name, damage):
 	limbs[limb_name]["damage"] += damage

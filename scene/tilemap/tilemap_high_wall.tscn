@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://scripts/tilemap/tilemap_2_high_wall.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/object/wall.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/sprites/object/wall_interact.png" type="Texture" id=13]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_high/normal_map_high_wall_6.tres" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/object/image.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/object/tabu.png" type="Texture" id=16]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -1659,6 +1660,48 @@ region = Rect2( 64, 96, 32, 64 )
 98/shape_one_way_margin = 0.0
 98/shapes = [  ]
 98/z_index = 1
+99/name = "tabu.png 99"
+99/texture = ExtResource( 16 )
+99/tex_offset = Vector2( 0, -64 )
+99/modulate = Color( 1, 1, 1, 1 )
+99/region = Rect2( 0, 0, 32, 96 )
+99/tile_mode = 0
+99/occluder_offset = Vector2( 0, 0 )
+99/navigation_offset = Vector2( 0, 0 )
+99/shape_offset = Vector2( 0, 0 )
+99/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+99/shape_one_way = false
+99/shape_one_way_margin = 0.0
+99/shapes = [  ]
+99/z_index = 1
+100/name = "tabu.png 100"
+100/texture = ExtResource( 16 )
+100/tex_offset = Vector2( 0, -64 )
+100/modulate = Color( 1, 1, 1, 1 )
+100/region = Rect2( 32, 0, 32, 96 )
+100/tile_mode = 0
+100/occluder_offset = Vector2( 0, 0 )
+100/navigation_offset = Vector2( 0, 0 )
+100/shape_offset = Vector2( 0, 0 )
+100/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+100/shape_one_way = false
+100/shape_one_way_margin = 0.0
+100/shapes = [  ]
+100/z_index = 1
+101/name = "tabu.png 101"
+101/texture = ExtResource( 16 )
+101/tex_offset = Vector2( 0, -64 )
+101/modulate = Color( 1, 1, 1, 1 )
+101/region = Rect2( 64, 0, 32, 96 )
+101/tile_mode = 0
+101/occluder_offset = Vector2( 0, 0 )
+101/navigation_offset = Vector2( 0, 0 )
+101/shape_offset = Vector2( 0, 0 )
+101/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+101/shape_one_way = false
+101/shape_one_way_margin = 0.0
+101/shapes = [  ]
+101/z_index = 1
 
 [node name="tilemap_high_wall" type="TileMap"]
 mode = 1

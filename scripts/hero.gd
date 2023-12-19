@@ -12,7 +12,8 @@ var flashlight = false
 var dark = false
 var last_dark = false
 var safepoint = false
-
+var stop_pain_mind = false
+var last_pain_mind = []
 var monstr_nearby = false
 
 func _ready():
@@ -25,13 +26,25 @@ func _ready():
 	Events.connect("show_light_hero", self, "on_light")
 	Events.connect("hide_light_hero", self, "off_light")
 	Events.connect("no_mind", self, "no_mind")
+	Events.connect("safe_point_on", self, "safe_point_on")
 	pass
 	
 
+func safe_point_on():
+	last_pain_mind = Inventory.pain_mind
+	print("назначение" + str(last_pain_mind))
+	safepoint = true
+	print("назначение_2" + str(last_pain_mind))
+	pass
+
 func no_mind():
+	print("проверка" + str(last_pain_mind))
 	if safepoint == false:
-		Events.emit_signal("start_dialogue", "death")
+		Events.emit_signal("start_dialogue", "death_0")
 	else:
+		print("сцена mind last " + str(last_pain_mind))
+		print("сцена mind org " + str(Inventory.pain_mind))
+		Inventory.pain_mind = last_pain_mind
 		Events.emit_signal("use_cutscene", "respawn")
 	pass
 	
@@ -111,16 +124,18 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	if Inventory.pain_mind[0] != 0:
-		Inventory.pain_mind_change(1, -1)
-	if Inventory.pain_mind[1] != 0 && dark == true:
-		Inventory.pain_mind_change(1, -1)
+	if dialog_open == false && cutscene == false:
+		if Inventory.pain_mind[0] != 0:
+			Inventory.pain_mind_change(1, -1)
+		if Inventory.pain_mind[1] != 0 && dark == true:
+			Inventory.pain_mind_change(1, -1)
 	pass # Replace with function body.
 
 
 func _on_Timer2_timeout():
-	if Inventory.pain_mind[0] != 0: 
-		Inventory.pain_mind_change(0, -1)
+	if dialog_open == false && cutscene == false:
+		if Inventory.pain_mind[0] != 0: 
+			Inventory.pain_mind_change(0, -1)
 	pass # Replace with function body.
 	
 	

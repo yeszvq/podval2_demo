@@ -16,5 +16,7 @@ func _ready():
 func _on_close_blood_door_1_area_entered(area):
 	if empty == false:
 		Events.emit_signal("use_cutscene", "blood_door_1_close")
-		queue_free()
+		Events.emit_signal("safe_point_on")
+		empty = true
+		self.queue_free()
 	pass # Replace with function body.

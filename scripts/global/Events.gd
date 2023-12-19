@@ -59,3 +59,4 @@ signal giltoneworked
 signal altarworked
 
 signal no_mind
+signal safe_point_on
