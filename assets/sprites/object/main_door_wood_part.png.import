@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/normal_wall_3.png-4f5192564297d5aeb1304398535a9bd1.stex"
+path="res://.import/main_door_wood_part.png-b4508fbcc64959ed98e156599d6fb8f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test/normal_wall_3.png"
-dest_files=[ "res://.import/normal_wall_3.png-4f5192564297d5aeb1304398535a9bd1.stex" ]
+source_file="res://assets/sprites/object/main_door_wood_part.png"
+dest_files=[ "res://.import/main_door_wood_part.png-b4508fbcc64959ed98e156599d6fb8f8.stex" ]
 
 [params]
 

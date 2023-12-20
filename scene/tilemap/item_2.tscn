@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://assets/sprites/object/Utility.png" type="Texture" id=1]
 [ext_resource path="res://scripts/tilemap/tilemap_2_hide_door.gd" type="Script" id=2]
@@ -12,6 +12,20 @@
 [ext_resource path="res://assets/sprites/object/trupak_shakur1.png" type="Texture" id=10]
 [ext_resource path="res://assets/resourse/bochka.tres" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/object/candals.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/object/grid_door_mai.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/object/main_door_wood_part.png" type="Texture" id=14]
+
+[sub_resource type="ConvexPolygonShape2D" id=198]
+points = PoolVector2Array( 15.7366, 77.9339, 47.748, 61.8893, 47.9038, 64.0701, 16.0482, 80.1147 )
+
+[sub_resource type="ConvexPolygonShape2D" id=199]
+points = PoolVector2Array( 1.93286, 47.9606, 15.8875, 55.0352, 16.0173, 57.0473, 0.95929, 49.2587 )
+
+[sub_resource type="ConvexPolygonShape2D" id=200]
+points = PoolVector2Array( 0, 47.0625, 15.875, 55.25, 15.8125, 58, 0, 50 )
+
+[sub_resource type="ConvexPolygonShape2D" id=201]
+points = PoolVector2Array( 0, 50.1875, 0, 47.125, 15.125, 54.1875, 19.125, 59.375 )
 
 [sub_resource type="ConvexPolygonShape2D" id=154]
 points = PoolVector2Array( 0, 55.88, 16.11, 48.14, 32, 56.06, 16.2, 64 )
@@ -21,12 +35,6 @@ points = PoolVector2Array( 0, 63.08, 32, 46.88, 32, 63.08, 17, 71.18 )
 
 [sub_resource type="ConvexPolygonShape2D" id=156]
 points = PoolVector2Array( 15.96, 54.98, 0.0300064, 62.99, 0, 46.79 )
-
-[sub_resource type="ConvexPolygonShape2D" id=157]
-points = PoolVector2Array( 0, 44.75, 32, 60.125, 32, 63.1875, 0, 48 )
-
-[sub_resource type="ConvexPolygonShape2D" id=158]
-points = PoolVector2Array( 0, 60, 32, 76.0625, 31.875, 79.125, 0, 63.1875 )
 
 [sub_resource type="ConvexPolygonShape2D" id=159]
 points = PoolVector2Array( 7.9375, 44, 23.75, 51.875, 15.9375, 56, 0, 47.9375 )
@@ -303,76 +311,6 @@ points = PoolVector2Array( 0, 32.0625, 15.875, 23.9375, 32, 32.0625, 16, 39.875 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 14/z_index = 1
-15/name = "grid.png 15"
-15/texture = ExtResource( 5 )
-15/tex_offset = Vector2( -32, -24 )
-15/modulate = Color( 1, 1, 1, 1 )
-15/region = Rect2( 0, 0, 32, 64 )
-15/tile_mode = 0
-15/occluder_offset = Vector2( 0, 0 )
-15/navigation_offset = Vector2( 0, 0 )
-15/shape_offset = Vector2( 0, 0 )
-15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-15/shape = SubResource( 157 )
-15/shape_one_way = false
-15/shape_one_way_margin = 1.0
-15/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 157 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-15/z_index = 1
-16/name = "grid.png 16"
-16/texture = ExtResource( 5 )
-16/tex_offset = Vector2( 0, -40 )
-16/modulate = Color( 1, 1, 1, 1 )
-16/region = Rect2( 32, 0, 32, 96 )
-16/tile_mode = 0
-16/occluder_offset = Vector2( 0, 0 )
-16/navigation_offset = Vector2( 0, 0 )
-16/shape_offset = Vector2( 0, 0 )
-16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-16/shape = SubResource( 158 )
-16/shape_one_way = false
-16/shape_one_way_margin = 1.0
-16/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 158 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-16/z_index = 1
-17/name = "grid.png 17"
-17/texture = ExtResource( 5 )
-17/tex_offset = Vector2( 0, 0 )
-17/modulate = Color( 1, 1, 1, 1 )
-17/region = Rect2( 64, 0, 32, 96 )
-17/tile_mode = 0
-17/occluder_offset = Vector2( 0, 0 )
-17/navigation_offset = Vector2( 0, 0 )
-17/shape_offset = Vector2( 0, 0 )
-17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-17/shape_one_way = false
-17/shape_one_way_margin = 0.0
-17/shapes = [  ]
-17/z_index = 1
-18/name = "grid.png 18"
-18/texture = ExtResource( 5 )
-18/tex_offset = Vector2( 0, 0 )
-18/modulate = Color( 1, 1, 1, 1 )
-18/region = Rect2( 96, 0, 32, 96 )
-18/tile_mode = 0
-18/occluder_offset = Vector2( 0, 0 )
-18/navigation_offset = Vector2( 0, 0 )
-18/shape_offset = Vector2( 0, 0 )
-18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-18/shape_one_way = false
-18/shape_one_way_margin = 0.0
-18/shapes = [  ]
-18/z_index = 1
 19/name = "grid.png 19"
 19/texture = ExtResource( 5 )
 19/tex_offset = Vector2( 0, -24 )
@@ -1682,6 +1620,118 @@ points = PoolVector2Array( 0, 32.0625, 15.875, 23.9375, 32, 32.0625, 16, 39.875 
 100/shape_one_way_margin = 0.0
 100/shapes = [  ]
 100/z_index = 1
+103/name = "grid_door_mai.png 103"
+103/texture = ExtResource( 13 )
+103/tex_offset = Vector2( 0, -32 )
+103/modulate = Color( 1, 1, 1, 1 )
+103/region = Rect2( 160, 0, 64, 96 )
+103/tile_mode = 0
+103/occluder_offset = Vector2( 0, 0 )
+103/navigation_offset = Vector2( 0, 0 )
+103/shape_offset = Vector2( 0, 0 )
+103/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+103/shape_one_way = false
+103/shape_one_way_margin = 0.0
+103/shapes = [  ]
+103/z_index = 1
+104/name = "grid_door_mai.png 104"
+104/texture = ExtResource( 13 )
+104/tex_offset = Vector2( 0, -33 )
+104/modulate = Color( 1, 1, 1, 1 )
+104/region = Rect2( 96, 0, 64, 96 )
+104/tile_mode = 0
+104/occluder_offset = Vector2( 0, 0 )
+104/navigation_offset = Vector2( 0, 0 )
+104/shape_offset = Vector2( 0, 0 )
+104/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+104/shape = SubResource( 198 )
+104/shape_one_way = false
+104/shape_one_way_margin = 1.0
+104/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 198 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+104/z_index = 1
+105/name = "grid_door_mai.png 105"
+105/texture = ExtResource( 13 )
+105/tex_offset = Vector2( 0, -32 )
+105/modulate = Color( 1, 1, 1, 1 )
+105/region = Rect2( 32, 0, 64, 96 )
+105/tile_mode = 0
+105/occluder_offset = Vector2( 0, 0 )
+105/navigation_offset = Vector2( 0, 0 )
+105/shape_offset = Vector2( 0, 0 )
+105/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+105/shape_one_way = false
+105/shape_one_way_margin = 0.0
+105/shapes = [  ]
+105/z_index = 1
+106/name = "main_door_wood_part.png 106"
+106/texture = ExtResource( 14 )
+106/tex_offset = Vector2( 1, -27 )
+106/modulate = Color( 1, 1, 1, 1 )
+106/region = Rect2( 192, 0, 32, 64 )
+106/tile_mode = 0
+106/occluder_offset = Vector2( 0, 0 )
+106/navigation_offset = Vector2( 0, 0 )
+106/shape_offset = Vector2( 0, 0 )
+106/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+106/shape = SubResource( 199 )
+106/shape_one_way = false
+106/shape_one_way_margin = 1.0
+106/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 199 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+106/z_index = 1
+107/name = "main_door_wood_part.png 107"
+107/texture = ExtResource( 14 )
+107/tex_offset = Vector2( 1, -28 )
+107/modulate = Color( 1, 1, 1, 1 )
+107/region = Rect2( 224, 0, 32, 64 )
+107/tile_mode = 0
+107/occluder_offset = Vector2( 0, 0 )
+107/navigation_offset = Vector2( 0, 0 )
+107/shape_offset = Vector2( 0, 0 )
+107/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+107/shape = SubResource( 200 )
+107/shape_one_way = false
+107/shape_one_way_margin = 1.0
+107/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 200 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+107/z_index = 1
+108/name = "main_door_wood_part.png 108"
+108/texture = ExtResource( 14 )
+108/tex_offset = Vector2( 1, -28 )
+108/modulate = Color( 1, 1, 1, 1 )
+108/region = Rect2( 256, 0, 32, 64 )
+108/tile_mode = 0
+108/occluder_offset = Vector2( 0, 0 )
+108/navigation_offset = Vector2( 0, 0 )
+108/shape_offset = Vector2( 0, 0 )
+108/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+108/shape = SubResource( 201 )
+108/shape_one_way = false
+108/shape_one_way_margin = 1.0
+108/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 201 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+108/z_index = 1
 
 [node name="item_2" type="TileMap"]
 modulate = Color( 1, 1, 1, 0.996078 )
