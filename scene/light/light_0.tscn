@@ -13,7 +13,7 @@ color = Color( 0.713726, 0.588235, 0.34902, 1 )
 range_height = 35.0
 
 [node name="shadow" type="Light2D" parent="."]
-position = Vector2( -3, 35 )
+position = Vector2( 1, 32 )
 texture = ExtResource( 1 )
 texture_scale = 0.4
 color = Color( 0.713726, 0.588235, 0.34902, 1 )
