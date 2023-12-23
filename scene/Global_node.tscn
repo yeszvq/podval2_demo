@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://scene/ui/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/global/Global_node.gd" type="Script" id=2]
@@ -2069,6 +2069,87 @@ tracks/3/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=202]
+resource_name = "door_verstak_break"
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 0.1, 0.2, 0.3, 0.6, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "door_verstak" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "off_light"
+}, {
+"args": [  ],
+"method": "on_light"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/item_2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "broke_wood_door"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/LIGHTS")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide_light"
+}, {
+"args": [  ],
+"method": "show_light"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/hero:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 390, 288 ) ]
+}
+
 [sub_resource type="Animation" id=17]
 resource_name = "holodos_osmotr"
 length = 1.5
@@ -2611,7 +2692,7 @@ script = ExtResource( 18 )
 [node name="YSort" type="YSort" parent="level_one"]
 
 [node name="hero" parent="level_one/YSort" instance=ExtResource( 3 )]
-position = Vector2( 289, 284 )
+position = Vector2( 553, 172 )
 
 [node name="item_5" type="TileMap" parent="level_one/YSort"]
 modulate = Color( 1, 1, 1, 0.996078 )
@@ -2628,7 +2709,7 @@ tile_data = PoolIntArray( -8912868, 31, 0, -8847333, 87, 0, -8781797, 100, 0, -8
 script = ExtResource( 50 )
 
 [node name="item_2" parent="level_one/YSort" instance=ExtResource( 17 )]
-tile_data = PoolIntArray( -8912868, 31, 0, -8847333, 87, 0, -8781797, 100, 0, -8781796, 41, 0, -7995346, 90, 0, -7733190, 86, 0, -7602159, 91, 0, -7208901, 88, 0, -7077841, 91, 0, -6422511, 91, 0, -6422465, 86, 0, -6422463, 86, 0, -6356948, 91, 0, -6356947, 90, 0, -6291428, 90, 0, -6160319, 90, 0, -5373932, 91, 0, -5373931, 90, 0, -5242865, 89, 0, -4521937, 114, 0, -4063188, 115, 0, -1966056, 31, 0, -1966055, 31, 0, -1966054, 31, 0, -1900519, 41, 0, -1900513, 106, 0, -1900512, 107, 0, -1900511, 108, 0, -1769449, 67, 0, -1769447, 53, 0, -1769445, 67, 0, -1638373, 67, 0, -1572841, 67, 0, -1507301, 67, 0, -1441766, 84, 0, -1376233, 67, 0, -1376229, 67, 0, -1310696, 58, 0, -1245161, 80, 0, -1245160, 77, 0, -1245159, 58, 0, -1179625, 80, 0, -1179624, 77, 0, -1179623, 61, 0, -1114089, 80, 0, -1114088, 77, 0, -1114087, 60, 0, -917476, 104, 0, -655337, 11, 0, -589800, 10, 0, -589797, 48, 0, -458727, 50, 0, -393192, 49, 0, -262126, 39, 0, -262120, 45, 0, -196584, 43, 0, -65540, 19, 0, -65539, 20, 0, -65538, 21, 0, -65537, 22, 0, -131071, 19, 0, -131070, 20, 0, -131069, 21, 0, -131068, 22, 0, -131066, 19, 0, -131065, 20, 0, -131064, 21, 0, -131063, 22, 0, -131061, 19, 0, -131060, 20, 0, -131059, 21, 0, -131058, 22, 0, -131056, 19, 0, -131055, 20, 0, -131054, 21, 0, -131053, 22, 0, 196632, 79, 0, 262170, 61, 0, 262171, 77, 0, 262172, 80, 0, 327704, 78, 0, 458777, 72, 0, 524312, 71, 0, 524316, 76, 0, 655384, 70, 0, 655386, 73, 0, 655388, 74, 0 )
+tile_data = PoolIntArray( -8912868, 31, 0, -8847333, 87, 0, -8781797, 100, 0, -8781796, 41, 0, -7995346, 90, 0, -7733190, 86, 0, -7602159, 91, 0, -7208901, 88, 0, -7077841, 91, 0, -6422511, 91, 0, -6422465, 86, 0, -6422463, 86, 0, -6356948, 91, 0, -6356947, 90, 0, -6291428, 90, 0, -6160319, 90, 0, -5373932, 91, 0, -5373931, 90, 0, -5242865, 89, 0, -4521937, 114, 0, -4063188, 115, 0, -1966056, 31, 0, -1966055, 31, 0, -1966054, 31, 0, -1900519, 41, 0, -1900513, 106, 0, -1900512, 107, 0, -1900511, 108, 0, -1769449, 67, 0, -1703911, 118, 0, -1572841, 67, 0, -1376233, 67, 0, -1376229, 116, 0, -1310696, 58, 0, -1245161, 80, 0, -1245160, 77, 0, -1245159, 58, 0, -1179625, 80, 0, -1179624, 77, 0, -1179623, 61, 0, -1114089, 80, 0, -1114088, 77, 0, -1114087, 60, 0, -917476, 104, 0, -655337, 11, 0, -589800, 10, 0, -589797, 48, 0, -458727, 50, 0, -393192, 49, 0, -262126, 39, 0, -262120, 45, 0, -196584, 43, 0, -65540, 19, 0, -65539, 20, 0, -65538, 21, 0, -65537, 22, 0, -131071, 19, 0, -131070, 20, 0, -131069, 21, 0, -131068, 22, 0, -131066, 19, 0, -131065, 20, 0, -131064, 21, 0, -131063, 22, 0, -131061, 19, 0, -131060, 20, 0, -131059, 21, 0, -131058, 22, 0, -131056, 19, 0, -131055, 20, 0, -131054, 21, 0, -131053, 22, 0, 196632, 79, 0, 262170, 61, 0, 262171, 77, 0, 262172, 80, 0, 327704, 78, 0, 327709, 82, 0, 458777, 72, 0, 524312, 71, 0, 524316, 76, 0, 655384, 70, 0, 655386, 73, 0, 655388, 74, 0 )
 
 [node name="item_3" type="TileMap" parent="level_one/YSort"]
 z_index = 1
@@ -2812,6 +2893,11 @@ polygon = PoolVector2Array( 447, 208, 496, 184, 464, 168, 416, 192 )
 
 [node name="verstak" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
 script = ExtResource( 26 )
+name_dialog_do = "verstak"
+name_dialog_do_1 = "verstak_do_1"
+name_dialog_null = "verstak_null"
+number_does_effect = 3
+id = 2
 
 [node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/verstak"]
 collision_layer = 8
@@ -2846,6 +2932,106 @@ collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/stol_verstak/nearby"]
 polygon = PoolVector2Array( 320, 321, 254, 287, 224, 304, 288, 336 )
+
+[node name="gora_storages" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_do = "storages_in_sclad"
+name_dialog_null = "storages_in_sclad_null"
+id = 3
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/gora_storages"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/gora_storages/mouse"]
+polygon = PoolVector2Array( 688, 89, 719, 74, 719, 41, 703, 33, 687, 42, 688, 8, 672, 1, 625, 24, 625, 58 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/gora_storages"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/gora_storages/nearby"]
+polygon = PoolVector2Array( 688, 104, 744, 76, 736, 72, 744, 68, 721, 51, 696, 44, 639, 80 )
+
+[node name="trup" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_no_item = "trup_no_item"
+name_dialog_null = "trup_null"
+name_need_item = "saw"
+name_cutscene = "trup_work"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/trup"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/trup/mouse"]
+polygon = PoolVector2Array( 820, 45, 823, 44, 828, 32, 830, 25, 831, 21, 828, 18, 822, 16, 808, 18, 807, 37, 817, 45 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/trup"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/trup/nearby"]
+polygon = PoolVector2Array( 832, 64, 769, 27, 782, 1, 828, -22, 912, 24 )
+
+[node name="door_verstak" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+name_dialog_no_item = "door_verstak_no_item"
+name_need_item = "crowbar"
+name_cutscene = "door_verstak_break"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/door_verstak"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/door_verstak/mouse"]
+polygon = PoolVector2Array( 368, 289, 368, 254, 392, 243, 392, 293, 376, 300, 376, 294 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/door_verstak"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/door_verstak/nearby"]
+polygon = PoolVector2Array( 368, 304, 392, 316, 416, 304, 392, 292 )
+
+[node name="stol_v_pit_1" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+spec_object = "stol_v_pit_1"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/stol_v_pit_1"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/stol_v_pit_1/mouse"]
+polygon = PoolVector2Array( 596, 167, 624, 153, 624, 124, 592, 109, 592, 134, 576, 142, 576, 162, 588, 158, 596, 161 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/stol_v_pit_1"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/stol_v_pit_1/nearby"]
+polygon = PoolVector2Array( 592, 184, 544, 160, 576, 144, 624, 168 )
+
+[node name="blood_door_0" type="StaticBody2D" parent="level_one/YSort/entity_area2D"]
+script = ExtResource( 26 )
+spec_object = "blood_door_0"
+name_dialog_no_item = "blood_door_0_no_item"
+name_need_item = "arm"
+name_cutscene = "blood_door_0_work"
+
+[node name="mouse" type="Area2D" parent="level_one/YSort/entity_area2D/blood_door_0"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/blood_door_0/mouse"]
+polygon = PoolVector2Array( 992, 62, 992, 13, 949, -9, 946, -9, 946, -5, 947, -4, 946, 39 )
+
+[node name="nearby" type="Area2D" parent="level_one/YSort/entity_area2D/blood_door_0"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="level_one/YSort/entity_area2D/blood_door_0/nearby"]
+polygon = PoolVector2Array( 928, 32, 912, 40, 977, 73, 996, 62 )
 
 [node name="Sprite" type="Sprite" parent="level_one/YSort"]
 position = Vector2( -189, -92 )
@@ -3149,7 +3335,7 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1516, -113 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="broken_glass_tilemap" parent="level_one/YSort" instance=ExtResource( 11 )]
@@ -3814,6 +4000,9 @@ polygon = PoolVector2Array( 1856, -176, 1848, -145, 1855, -136, 1891, -135, 1904
 [node name="CollisionPolygon2D30" type="CollisionPolygon2D" parent="level_one/YSort/colision"]
 polygon = PoolVector2Array( 672, 97, 720, 73, 701, 62, 721, 51, 702, 41, 672, 48, 624, 72 )
 
+[node name="CollisionPolygon2D31" type="CollisionPolygon2D" parent="level_one/YSort/colision"]
+polygon = PoolVector2Array( 888, 14, 849, 35, 840, 28, 822, 45, 805, 37, 807, 26, 805, 17, 810, 13, 810, -1, 853, -13 )
+
 [node name="area_for_animation" type="Node2D" parent="level_one/YSort"]
 
 [node name="area_for_animation" parent="level_one/YSort/area_for_animation" instance=ExtResource( 33 )]
@@ -3903,6 +4092,7 @@ color = Color( 0, 0, 0, 1 )
 reset_on_save = false
 anims/RESET = SubResource( 7 )
 anims/break_grid_door = SubResource( 9 )
+anims/door_verstak_break = SubResource( 202 )
 anims/holodos_osmotr = SubResource( 17 )
 anims/move_big_home = SubResource( 10 )
 anims/start = SubResource( 6 )
@@ -3921,7 +4111,7 @@ position = Vector2( 113, 72 )
 scale = Vector2( 15.9687, 6.94781 )
 z_index = 5
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 script = ExtResource( 15 )
 
@@ -3962,6 +4152,21 @@ one_shot = true
 [connection signal="input_event" from="level_one/YSort/entity_area2D/stol_verstak/mouse" to="level_one/YSort/entity_area2D/stol_verstak" method="_on_mouse_input_event"]
 [connection signal="area_entered" from="level_one/YSort/entity_area2D/stol_verstak/nearby" to="level_one/YSort/entity_area2D/stol_verstak" method="_on_nearby_area_entered"]
 [connection signal="area_exited" from="level_one/YSort/entity_area2D/stol_verstak/nearby" to="level_one/YSort/entity_area2D/stol_verstak" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/gora_storages/mouse" to="level_one/YSort/entity_area2D/gora_storages" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/gora_storages/nearby" to="level_one/YSort/entity_area2D/gora_storages" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/gora_storages/nearby" to="level_one/YSort/entity_area2D/gora_storages" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/trup/mouse" to="level_one/YSort/entity_area2D/trup" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/trup/nearby" to="level_one/YSort/entity_area2D/trup" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/trup/nearby" to="level_one/YSort/entity_area2D/trup" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/door_verstak/mouse" to="level_one/YSort/entity_area2D/door_verstak" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/door_verstak/nearby" to="level_one/YSort/entity_area2D/door_verstak" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/door_verstak/nearby" to="level_one/YSort/entity_area2D/door_verstak" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/stol_v_pit_1/mouse" to="level_one/YSort/entity_area2D/stol_v_pit_1" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/stol_v_pit_1/nearby" to="level_one/YSort/entity_area2D/stol_v_pit_1" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/stol_v_pit_1/nearby" to="level_one/YSort/entity_area2D/stol_v_pit_1" method="_on_nearby_area_exited"]
+[connection signal="input_event" from="level_one/YSort/entity_area2D/blood_door_0/mouse" to="level_one/YSort/entity_area2D/blood_door_0" method="_on_mouse_input_event"]
+[connection signal="area_entered" from="level_one/YSort/entity_area2D/blood_door_0/nearby" to="level_one/YSort/entity_area2D/blood_door_0" method="_on_nearby_area_entered"]
+[connection signal="area_exited" from="level_one/YSort/entity_area2D/blood_door_0/nearby" to="level_one/YSort/entity_area2D/blood_door_0" method="_on_nearby_area_exited"]
 [connection signal="area_entered" from="level_one/YSort/area_for_animation/quit" to="level_one/YSort/area_for_animation/quit" method="_on_quit_area_entered"]
 [connection signal="toggled" from="level_one/CanvasLayer/Panel_test/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/light/CheckButton" to="level_one/CanvasLayer/Panel_test" method="_on_CheckButton_toggled"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -42,7 +42,7 @@ signal handle_click_storage
 
 #Сигнал взаимодействия скрипта диалога с скриптом интеракции
 signal changeemptytrue
-
+signal changedoeseffect
 #сигнал для открыти ядверей
 signal open_grid_door
 signal close_grid_door
