@@ -134,7 +134,7 @@ func update_dialogue(event = null):
 					"cutsceneCont":
 						Events.emit_signal("use_start_cutscene")
 					"signal":
-						Events.emit_signal(i[1])
+						Events.emit_signal(i[1], i[2])
 					"painchanged":
 						Inventory.pain_mind_change(0, int(i[1]))
 					"mindchanged":
@@ -174,24 +174,28 @@ func update_dialogue(event = null):
 
 #функция при нажатия на кнопки выбора в диалогах
 func button_chose_action(value = null):
-	match value[0][0]:
-		"addItem":
-			Inventory.add_item(Global.items[value[1][0]])
-			path_other[13].text = str("Я подобрал " + Global.items[value[1][0]]["name"].to_lower())
-			path_other[10].visible = true
-		"nothing":
-			path_other[13].text = str("Я просто отойду")
-			path_other[10].visible = true
-		"remove":
-			#нужно доработать скрипт с удалением
-			Inventory.remove_item(Global.items[value[1][0]])
-		"cutscene":
-			Events.emit_signal("use_cutscene", value[1][0])
-		"close":
-			page_number = 900
-			path_other[10].visible = false
-			visible = false
-			Events.emit_signal("end_dialog")
+	var temp = []
+	for i in value:
+		match i[0]:
+			"addItem":
+				Inventory.add_item(Global.items[i[1]])
+				path_other[13].text = str("Я подобрал " + Global.items[i[1]]["name"].to_lower())
+				path_other[10].visible = true
+			"nothing":
+				path_other[13].text = str("Я просто отойду")
+				path_other[10].visible = true
+			"remove":
+				#нужно доработать скрипт с удалением
+				Inventory.remove_item(Global.items[i[1]])
+			"cutscene":
+				Events.emit_signal("use_cutscene", i[1])
+			"close":
+				page_number = 900
+				path_other[10].visible = false
+				visible = false
+				Events.emit_signal("end_dialog")
+			"signal":
+				Events.emit_signal(i[1],i[2])
 	path_other[14].visible = false
 	var temp_2 = path_other[15].get_children()
 	for i in range(1, temp_2.size()):

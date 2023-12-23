@@ -7,11 +7,13 @@ export var name_dialog_null = "" #Имя диалога_выполненого_�
 export var name_need_item = "" #Имя предмета_условия
 export var name_cutscene = "" #Имя катсцены
 export var number_does_effect = 0 #Номер эффекта
+export var id = 0
 var near = false
 var empty = false
 var item = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Events.connect("changeemptytrue", self, "change_empty_true")
 	pass # Replace with function body.
 
 
@@ -39,10 +41,14 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 						empty = true
 					else:
 						Events.emit_signal("start_dialogue", name_dialog_do_1)
+			elif id != 0:
+				if empty == false:
+					Events.emit_signal("start_dialogue", name_dialog_do)
+				else:
+					Events.emit_signal("start_dialogue", name_dialog_null)
 			else:
 				Events.emit_signal("start_dialogue", name_dialog_do)
 	pass # Replace with function body.
-
 
 func _on_nearby_area_entered(area):
 	near = true
@@ -52,3 +58,8 @@ func _on_nearby_area_entered(area):
 func _on_nearby_area_exited(area):
 	near = false
 	pass # Replace with function body.
+	
+func change_empty_true(id_item):
+	if id != 0 and int(id_item) == id:
+		empty = true
+	pass

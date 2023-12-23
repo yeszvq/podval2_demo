@@ -49,8 +49,8 @@
         "index": 5,
         "effect": "null"
     },
-    "sawbroke": {
-        "name": "Хирургическая пила без ручки",
+    "sawpart": {
+        "name": "Ручка хирургической пилы",
         "icon": "potion.png",
         "stackable": true,
         "count": 1,
