@@ -50,7 +50,7 @@
         "effect": "null"
     },
     "sawpart": {
-        "name": "Ручка хирургической пилы",
+        "name": "Лезвие хирургической пилы",
         "icon": "potion.png",
         "stackable": true,
         "count": 1,

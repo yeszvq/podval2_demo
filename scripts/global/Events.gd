@@ -21,6 +21,7 @@ signal show_tiles
 signal hide_torch
 signal show_torch
 
+signal custom_one_change
 #Сигнал о запуске анимации в animation player
 signal start_cutsene
 
@@ -63,3 +64,5 @@ signal altarworked
 
 signal no_mind
 signal safe_point_on
+
+signal inventorytrue

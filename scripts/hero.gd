@@ -15,6 +15,7 @@ var safepoint = false
 var stop_pain_mind = false
 var last_pain_mind = []
 var monstr_nearby = false
+var open_inventory = false
 
 func _ready():
 	Events.connect("start_dialog_for_hero", self, "start_dialog")
@@ -27,8 +28,12 @@ func _ready():
 	Events.connect("hide_light_hero", self, "off_light")
 	Events.connect("no_mind", self, "no_mind")
 	Events.connect("safe_point_on", self, "safe_point_on")
+	Events.connect("inventorytrue", self, "inventorytrue")
 	pass
 	
+func inventorytrue():
+	open_inventory = true
+	pass
 
 func safe_point_on():
 	last_pain_mind = Inventory.pain_mind
@@ -107,7 +112,7 @@ func get_input():
 	
 func _input(event):
 	if dialog_open == false && cutscene == false:
-		if Input.is_action_just_released("open_notebook") && dialog_open == false:
+		if Input.is_action_just_released("open_notebook") && dialog_open == false && open_inventory == true:
 			Events.emit_signal("open_notebook")
 		if Input.is_action_just_released("test"):
 			Events.emit_signal("call_test_panel")

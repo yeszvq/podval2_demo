@@ -134,7 +134,10 @@ func update_dialogue(event = null):
 					"cutsceneCont":
 						Events.emit_signal("use_start_cutscene")
 					"signal":
-						Events.emit_signal(i[1], i[2])
+						if i.size() == 3:
+							Events.emit_signal(i[1], i[2])
+						elif i.size() == 2:
+							Events.emit_signal(i[1])
 					"painchanged":
 						Inventory.pain_mind_change(0, int(i[1]))
 					"mindchanged":

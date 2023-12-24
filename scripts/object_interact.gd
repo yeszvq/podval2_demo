@@ -12,6 +12,7 @@ export var id = 0
 var near = false
 var empty = false
 var item = false
+var temp = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.connect("changeemptytrue", self, "change_empty_true")
@@ -24,14 +25,14 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 		Events.emit_signal("handle_click_storage")
 		if spec_object == "":
 			if name_need_item != "":
-				if name_cutscene != "" && name_dialog_do_1 == "":
+				if name_cutscene != "" && name_dialog_null == "":
 					if Inventory.find_item_name(name_need_item) == -1:
 						Events.emit_signal("start_dialogue", name_dialog_no_item)
 					else:
 						if empty == false:
 							Events.emit_signal("use_cutscene", name_cutscene)
 							empty = true
-				elif name_dialog_do_1 != "" && name_cutscene != "":
+				elif name_dialog_null != "" && name_cutscene != "":
 					if Inventory.find_item_name(name_need_item) == -1:
 						Events.emit_signal("start_dialogue", name_dialog_no_item)
 					else:
@@ -78,23 +79,39 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 					return
 		else:
 			match spec_object:
+				"stol_v_pit_0":
+					if Inventory.does_effect.find(1) == -1:
+						Events.emit_signal("start_dialogue", "stol_v_pit_0")
+					else:
+						Events.emit_signal("start_dialogue", "stol_v_pit_0_1")
 				"stol_v_pit_1":
-					var temp = 0
 					if temp == 0:
 						Events.emit_signal("start_dialogue", "stol_v_pit_1")
+						Events.emit_signal("custom_one_change", Vector2(27,-9), 120)
 						temp = 1
-					elif temp == 1:
-						if Inventory.find_item_name("sawpart") == -1:
-							Events.emit_signal("start_dialogue", "stol_v_pit_1_no_item")
-						else:
-							Events.emit_signal("start_cutsene")
-							temp = 2
-					elif temp == 2:
+					else:
 						Events.emit_signal("start_dialogue", "stol_v_pit_1_null")
-				#"blood_door_0":
-				#	var temp = 0
-				#	if Inventory.does_effect.find()
-							
+				"camen_in_wall":
+					if temp == 0:
+						Events.emit_signal("start_dialogue", "camen_in_wall_do")
+						temp = 1
+				"blood_door_0":
+					if temp == 0:
+						if Inventory.find_item_name("arm") == -1:
+							if Inventory.does_effect.find(1) == -1:
+								Events.emit_signal("start_dialogue", "blood_door_0_no_item_0")
+							else:
+								Events.emit_signal("start_dialogue", "blood_door_0_no_item_1")
+						else:
+							Events.emit_signal("use_cutscene", "blood_door_0_work")
+							temp = 1
+				"trup":
+					if temp == 0:
+						if Inventory.find_item_name("saw") == -1:
+							Events.emit_signal("start_dialogue", "trup_no_item")
+						else:
+							Events.emit_signal("use_cutscene", "trup_work")
+							temp = 1
 	pass # Replace with function body.
 
 func _on_nearby_area_entered(area):
