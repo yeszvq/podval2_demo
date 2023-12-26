@@ -17,7 +17,7 @@ func _ready():
 	notebook_path = $MarginContainer/VBoxContainer/notebook
 	notebook_path.visible = false
 	#нода за которую будут цепляться ноды отвечающие за заметки 0
-	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_notes/VBoxContainer)
+	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_notes/MarginContainer/VBoxContainer)
 	#нода отвечающая за шаблон развёрнутой заметки 1
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon)
 	#нода отвечающая за название в шаблоне 2
@@ -27,7 +27,7 @@ func _ready():
 	#нода с списком заметок 4
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_notes)
 	#нода за которую будут цепляться ноды itemslot 5
-	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_inventory/VBoxContainer)
+	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_inventory/MarginContainer/VBoxContainer)
 	#progress_bar и label отвечающие за heart 6/7
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer/TextureProgress)
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer/Label)
@@ -50,6 +50,10 @@ func _ready():
 	path_other.append($MarginContainer/dialog_chose)
 		#путь к узлу к которому цепляются ноды для выбора 15
 	path_other.append($MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer)
+		#Путь к текстуре карты 16
+	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_map/VBoxContainer/TextureRect)
+		#Путь к текстуре тела 17
+	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer2/TextureRect)
 	
 	#подключение сигналов
 	Events.connect("open_notebook", self, "open_notebook")
@@ -57,14 +61,20 @@ func _ready():
 		i.connect("gui_input", self, "button_action", [i])
 	Events.connect("update_hero", self, "update_hero")
 	Events.connect("start_dialogue", self, "start_dialogue")
+	Events.connect("map_new_list", self, "map_new_list")
 	path_other[10].connect("gui_input", self, "update_dialogue")
 	
 	Events.connect("custom_dialog", self, "custom_dialog")
+	Events.connect("notebook_hide", self, "notebook_hide")
 	#Events.connect("pick_up_dialog_true", self, "pick_up_true")
 	#Events.connect("pick_up_dialog_false", self, "pick_up_false")
 	#Events.connect("pick_up_dialog_null", self, "pick_up_null")
 	pass # Replace with function body.
 
+
+func notebook_hide():
+	notebook_path.visible = false
+	pass
 
 #пример строчки gosha#Гоша#Какое ахуенное яблоко.
 
@@ -82,6 +92,11 @@ func _ready():
 	#custom_dialog("gosha#Гоша#Тут пусто")
 	#pass
 	
+
+func map_new_list(name_map):
+	print("work_2")
+	path_other[16].texture = load("res://assets/sprites/ui/new notebook/" + name_map + ".png")
+	pass
 	
 #функция для кастомного диалога внутри кода
 func custom_dialog(text):
@@ -128,6 +143,7 @@ func update_dialogue(event = null):
 					"removeItem":
 						#Нужно доработать скрипт с удалением
 						#for j in range(int(i[2])):
+						print(i[1])
 						Inventory.remove_item(Global.items[i[1]])
 					"cutscene":
 						Events.emit_signal("start_cutsene", i[1])
@@ -264,16 +280,17 @@ func generate_content(index):
 	match index:
 		#заметки
 		0:
+			var temp_2 = path_other[0].get_children()
+			for i in range(1, temp_2.size()):
+				path_other[0].remove_child(temp_2[i])
 			var temp = get_tree().get_nodes_in_group("notes_nodes")
-			var temp_2 = Inventory.notes
+			temp_2 = Inventory.notes
 			if temp.size() != Inventory.notes.size():
 				if temp.size() < temp_2.size():
 					for i in range(temp.size(), temp_2.size()):
 						var temp_node = preload("res://scene/ui/note_1.tscn").instance()
 						temp_node.text = str("- " + temp_2[i]["name"])
 						path_other[0].add_child(temp_node)
-						temp_node.connect("gui_input", self, "open_note", [i])
-						temp_node.add_to_group("notes_nodes")
 		#инвентарь
 		1:
 			#Здесь мы отчищаем список нод itemslot, чтобы нормально отобразить существующие.
@@ -288,16 +305,26 @@ func generate_content(index):
 				temp_node.connect("gui_input", self, "action_with_item", [i])
 				#temp_node.add_to_group("items_nodes")
 				temp_node.get_child(0).get_child(0).text = str("- " + Inventory.items[i]["name"])
-				temp_node.get_child(0).get_child(1).texture = load("res://assets/sprites/items/" + Inventory.items[i]["icon"])
+				#temp_node.get_child(0).get_child(1).texture = load("res://assets/sprites/items/" + Inventory.items[i]["icon"])
 		#статус
 		2:
 			path_other[6].value = Inventory.pain_mind[0]
 			path_other[7].text = str(Inventory.pain_mind[0])
 			path_other[8].value = Inventory.pain_mind[1]
 			path_other[9].text = str(Inventory.pain_mind[1])
+			
+			var temp = Inventory.get_body()
+			temp = (
+				"normal" if temp == "none"
+				else "legs" if temp == "legs"
+				else "arm" if temp == "arm"
+				else "legs_arm" if temp == "legs_arm"
+				else "normal"
+			)
+			path_other[17].texture = load("res://assets/sprites/ui/new notebook/body_" + temp + ".png")
 		#карта
-		3:
-			print()
+		#3:
+		#	print()
 	pass
 
 

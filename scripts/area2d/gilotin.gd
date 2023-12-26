@@ -10,7 +10,6 @@ func _ready():
 	pass # Replace with function body.
 
 func giltoneworked():
-	print("work")
 	empty = true
 	pass
 

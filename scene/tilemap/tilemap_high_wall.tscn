@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://scripts/tilemap/tilemap_2_high_wall.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/object/wall.png" type="Texture" id=2]
@@ -28,6 +28,14 @@ region = Rect2( 32, 0, 32, 96 )
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
 region = Rect2( 96, 96, 32, 96 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 3 )
+region = Rect2( 160, 0, 32, 96 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 3 )
+region = Rect2( 160, 0, 32, 96 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 3 )
@@ -192,6 +200,10 @@ region = Rect2( 32, 96, 32, 96 )
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
 region = Rect2( 64, 96, 32, 64 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 3 )
+region = Rect2( 160, 0, 32, 96 )
 
 [sub_resource type="TileSet" id=1]
 0/name = "wall.png 0"
@@ -1662,6 +1674,7 @@ region = Rect2( 64, 96, 32, 64 )
 98/z_index = 1
 99/name = "tabu.png 99"
 99/texture = ExtResource( 16 )
+99/normal_map = SubResource( 46 )
 99/tex_offset = Vector2( 0, -64 )
 99/modulate = Color( 1, 1, 1, 1 )
 99/region = Rect2( 0, 0, 32, 96 )
@@ -1676,6 +1689,7 @@ region = Rect2( 64, 96, 32, 64 )
 99/z_index = 1
 100/name = "tabu.png 100"
 100/texture = ExtResource( 16 )
+100/normal_map = SubResource( 47 )
 100/tex_offset = Vector2( 0, -64 )
 100/modulate = Color( 1, 1, 1, 1 )
 100/region = Rect2( 32, 0, 32, 96 )
@@ -1690,6 +1704,7 @@ region = Rect2( 64, 96, 32, 64 )
 100/z_index = 1
 101/name = "tabu.png 101"
 101/texture = ExtResource( 16 )
+101/normal_map = SubResource( 48 )
 101/tex_offset = Vector2( 0, -64 )
 101/modulate = Color( 1, 1, 1, 1 )
 101/region = Rect2( 64, 0, 32, 96 )

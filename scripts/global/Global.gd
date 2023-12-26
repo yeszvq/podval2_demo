@@ -22,12 +22,11 @@ func _ready():
 		notes.append(temp[key])
 	
 	#добавлены для проверки работоспособности, потом надо убрать
+	Inventory.add_note(notes[0])
 	
-	limbs = read_from_json("res://assets/json-data/limbs.json")
-	for key in limbs:
-		limbs[key]["key"] = key
-	
-	Inventory.limbs = limbs
+	#limbs = read_from_json("res://assets/json-data/limbs.json")
+	#for key in limbs:
+	#	limbs[key]["key"] = key
 	
 	filter_data_items()
 

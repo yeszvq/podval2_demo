@@ -15,7 +15,7 @@ var safepoint = false
 var stop_pain_mind = false
 var last_pain_mind = []
 var monstr_nearby = false
-var open_inventory = false
+var open_inventory = true
 
 func _ready():
 	Events.connect("start_dialog_for_hero", self, "start_dialog")
@@ -29,6 +29,11 @@ func _ready():
 	Events.connect("no_mind", self, "no_mind")
 	Events.connect("safe_point_on", self, "safe_point_on")
 	Events.connect("inventorytrue", self, "inventorytrue")
+	pass
+	
+	
+func remove_item(name):
+	Inventory.remove_item(Global.items[name])
 	pass
 	
 func inventorytrue():
@@ -154,6 +159,7 @@ func stop_anim():
 	$AnimatedSprite.stop()
 	
 func start_cutscene():
+	Events.emit_signal("notebook_hide")
 	cutscene = true
 	pass
 	

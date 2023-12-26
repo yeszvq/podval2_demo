@@ -3,7 +3,7 @@ extends Node
 #перменныые отвечающие за имение у игрока вещей, записок, конечностей
 var items = []
 var notes = []
-var limbs = []
+var limbs_heart = []
 var pain_mind = [0, 100]
 
 #переменные под регуляцию ограничений геймплея взависимости от потерянных конечностей
@@ -21,29 +21,6 @@ var size_items = 9
 var does_effect = []
 
 #функция под повреждение конечностей
-func hurt_limb(limb_name, damage):
-	limbs[limb_name]["damage"] += damage
-	if limbs[limb_name]["damage"] > 99:
-		limbs[limb_name]["lost"] = true
-		match limbs[limb_name]["category"]:
-			"arms":
-				if limbs["left_arm"]["lost"] == true && limbs["right_arm"]["lost"] == true:
-					use_inventory = 1 
-			"legs":
-				var temp = 0
-				if limbs["left_leg"]["lost"] == true:
-					temp += 1
-				if limbs["right_leg"]["lost"] == true:
-					temp += 1
-				if temp == 1:
-					move = 1
-				elif temp == 2:
-					move = 2
-				update_hero_parametrs("move", move)
-			"eyes":
-				if limbs["left_eye"]["lost"] == true && limbs["right_eye"]["lost"] == true:
-					use_inventory = 1
-	pass
 
 #функция которая заставляет обновлять худ при обновление конечностей
 func update_hero_parametrs(category, value):
@@ -51,29 +28,6 @@ func update_hero_parametrs(category, value):
 	pass
 
 #функция лечения конечностей
-func heal_limb(limb_name, damage):
-	limbs[limb_name]["damage"] += damage
-	if limbs[limb_name]["damage"] < 100:
-		limbs[limb_name]["lost"] = false
-		match limbs[limb_name]["category"]:
-			"arms":
-				if limbs["left_arm"]["lost"] == false || limbs["right_arm"]["lost"] == false:
-					use_inventory = 0 
-			"legs":
-				var temp = 0
-				if limbs["left_leg"]["lost"] == false:
-					temp += 1
-				if limbs["right_leg"]["lost"] == false:
-					temp += 1
-				if temp == 1:
-					move = 1
-				elif temp == 2:
-					move = 0
-				update_hero_parametrs("move", move)
-			#"eyes":
-				#if limb["left_eye"]["lost"] == false && limb["right_eye"]["lost"] == false:
-				#	use_inventory = 1 
-	pass 
 
 #функция добавления предмета
 func add_item(item):
@@ -92,8 +46,10 @@ func pain_mind_change(index, count):
 		pain_mind[index] = 0
 	else:
 		pain_mind[index] += count
-	if pain_mind[1] <= 0:
-		Events.emit_signal("no_mind")
+	if limbs_heart.find("legs") != -1 && pain_mind[0] <= 5:
+		limbs_heart.remove(limbs_heart.find("legs"))
+	#if pain_mind[1] <= 0:
+		#Events.emit_signal("no_mind")
 	update(2)
 
 #функция дающая число предметов в инвентаре
@@ -122,6 +78,17 @@ func add_note(note):
 	if notes.find(note) == -1:
 		notes.append(note)
 	update(0)
+	pass
+
+func get_body():
+	if limbs_heart.find("legs") != -1 && limbs_heart.find("arm") != -1:
+		return "legs_arm"
+	elif limbs_heart.find("legs") != -1 && limbs_heart.find("arm") == -1:
+		return "legs"
+	elif limbs_heart.find("legs") == -1 && limbs_heart.find("arm") != -1:
+		return "arm"
+	elif limbs_heart.find("legs") == -1 && limbs_heart.find("arm") == -1:
+		return "none"
 	pass
 
 #функция для обновления нужных нод при изменении каких-то вещей связанных с персонажем

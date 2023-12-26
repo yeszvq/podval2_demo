@@ -9,6 +9,7 @@ signal update_hero
 
 #сигнал для открытия/закрытия блокнота
 signal open_notebook
+signal notebook_hide
 
 #сигнал о начале диалога
 signal start_dialogue
@@ -59,10 +60,13 @@ signal dark_on
 signal hide_light_hero
 signal show_light_hero
 
-signal giltoneworked
-signal altarworked
+#signal giltoneworked
+#signal altarworked
 
 signal no_mind
 signal safe_point_on
 
 signal inventorytrue
+
+#сигналы для худа
+signal map_new_list
