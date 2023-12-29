@@ -143,7 +143,6 @@ func update_dialogue(event = null):
 					"removeItem":
 						#Нужно доработать скрипт с удалением
 						#for j in range(int(i[2])):
-						print(i[1])
 						Inventory.remove_item(Global.items[i[1]])
 					"cutscene":
 						Events.emit_signal("start_cutsene", i[1])

@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/font_40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/font_30.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/ui/titri.gd" type="Script" id=3]
+
+[node name="titri" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="Control2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 317.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_left = 657.0
+margin_top = 321.0
+margin_right = 1263.0
+margin_bottom = 705.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Это лишь плейсхолдер титров.
+Он нужен лишь для проверки,
+перехода с игры в титры и с
+титров в меню. Визуал будет
+позже.
+Нажми на кнопку внизу для
+возвращения в главное меню
+и проверь нормально ли началась
+новая игра."
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_left = 852.0
+margin_top = 709.0
+margin_right = 1067.0
+margin_bottom = 759.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Нажми на меня"
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 763.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_vertical = 3
+
+[connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_button_up"]

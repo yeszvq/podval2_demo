@@ -1,0 +1,2 @@
+gosha#Гоша#Вот и моя рука&addItem_armGosha
+gosha#Гоша#Это было больно&signal_changetemp_5

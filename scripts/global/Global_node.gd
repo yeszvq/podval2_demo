@@ -1,27 +1,38 @@
 extends Node2D
 
-var item_0 = preload("res://scene/object/pick_up_item/item_0.tscn")
-var item_1 = preload("res://scene/object/pick_up_item/item_1.tscn")
-var item_2 = preload("res://scene/object/pick_up_item/item_2.tscn")
-var item_3 = preload("res://scene/object/pick_up_item/item_3.tscn")
-var item_4 = preload("res://scene/object/pick_up_item/item_4.tscn")
-var item_5 = preload("res://scene/object/pick_up_item/item_5.tscn")
-var item_6 = preload("res://scene/object/pick_up_item/item_6.tscn")
-var item_7 = preload("res://scene/object/pick_up_item/item_7.tscn")
-var item_8 = preload("res://scene/object/pick_up_item/item_8.tscn")
-var item_9 = preload("res://scene/object/pick_up_item/item_9.tscn")
-var item_10 = preload("res://scene/object/pick_up_item/item_10.tscn")
-var item_11 = preload("res://scene/object/pick_up_item/item_11.tscn")
+var level_one = preload("res://scene/level/level_one.tscn")
+var titri = preload("res://scene/object/titri.tscn")
+var main_menu = preload("res://scene/object/main_menu.tscn")
 
 func _ready():
 	#$level_one/AnimationPlayer.play("start")
 	#print("запустилось")
 	Events.connect("handle_click_storage", self, "handle_click_storage")
-	Events.connect("drop_item", self, "drop_item")
 	Events.connect("use_cutscene", self, "play_cutscene")
+	Events.connect("usecutscene", self, "play_cutscene")
+	Events.connect("start_game", self, "start_game")
+	Events.connect("back_menu", self, "back_menu")
+	Events.connect("end_game", self, "end_game")
 	Global.work_item = true
 	pass # Replace with function body.
 
+
+func start_game():
+	$Node2D.queue_free()
+	add_child(level_one.instance())
+	#$level_one/AnimationPlayer.play("start")
+	Global.work_item = true
+	pass
+
+func end_game():
+	$level_one.queue_free()
+	add_child(titri.instance())
+	pass
+	
+func back_menu():
+	$titri.queue_free()
+	add_child(main_menu.instance())
+	pass
 
 func play_cutscene(name):
 	$level_one/AnimationPlayer.play(name)
@@ -35,37 +46,3 @@ func handle_click_storage():
 func _on_Timer_timeout():
 	Global.work_item = true
 	pass # Replace with function body.
-
-func drop_item(item):
-	var object
-	var index_item = str(item["index"])
-	match index_item:
-		"0":
-			object = item_0.instance()
-		"1":
-			object = item_1.instance()
-		"2":
-			object = item_2.instance()
-		"3":
-			object = item_3.instance()
-		"4":
-			object = item_4.instance()
-		"5":
-			object = item_5.instance()
-		"6":
-			object = item_6.instance()
-		"7":
-			object = item_7.instance()
-		"8":
-			object = item_8.instance()
-		"9":
-			object = item_9.instance()
-		"10":
-			object = item_10.instance()
-		"11":
-			object = item_11.instance()
-			
-	var object_position = get_child(0).get_child(0).get_node("hero").position
-	get_child(0).get_child(0).add_child(object)
-	object.position = Vector2(object_position.x, object_position.y + 10)
-	pass

@@ -25,7 +25,8 @@ signal show_torch
 signal custom_one_change
 #Сигнал о запуске анимации в animation player
 signal start_cutsene
-
+signal usecutscene
+signal changetemp
 #Сигнал связанные с тестовой панелью
 signal call_test_panel
 signal hide_light
@@ -41,6 +42,9 @@ signal drop_item
 
 #системный сигнал
 signal handle_click_storage
+signal start_game
+signal end_game
+signal back_menu
 
 #Сигнал взаимодействия скрипта диалога с скриптом интеракции
 signal changeemptytrue

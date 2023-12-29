@@ -8,6 +8,8 @@ var items_loot = []
 
 var work_item = true
 const inteval = 0.4
+var dialog = false
+var cutscene = false
 
 func _ready():
 	var temp
@@ -23,6 +25,7 @@ func _ready():
 	
 	#добавлены для проверки работоспособности, потом надо убрать
 	Inventory.add_note(notes[0])
+	Inventory.add_item(items["armGosha"])
 	
 	#limbs = read_from_json("res://assets/json-data/limbs.json")
 	#for key in limbs:

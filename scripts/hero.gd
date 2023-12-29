@@ -30,7 +30,14 @@ func _ready():
 	Events.connect("safe_point_on", self, "safe_point_on")
 	Events.connect("inventorytrue", self, "inventorytrue")
 	pass
+
+func visible_off():
+	$AnimatedSprite.visible = false
+	pass
 	
+func visible_on():
+	$AnimatedSprite.visible = true
+	pass
 	
 func remove_item(name):
 	Inventory.remove_item(Global.items[name])
@@ -79,11 +86,13 @@ func camera_current():
 	$Camera2D.current = true	
 
 func start_dialog(name_path = null):
+	Global.dialog = true
 	dark = false
 	dialog_open = true
 	pass
 
 func end_dialog():
+	Global.dialog = false
 	if last_dark == true:
 		dark = true
 	dialog_open = false
@@ -119,8 +128,8 @@ func _input(event):
 	if dialog_open == false && cutscene == false:
 		if Input.is_action_just_released("open_notebook") && dialog_open == false && open_inventory == true:
 			Events.emit_signal("open_notebook")
-		if Input.is_action_just_released("test"):
-			Events.emit_signal("call_test_panel")
+		#if Input.is_action_just_released("test"):
+		#	Events.emit_signal("call_test_panel")
 	pass
 	
 func _process(delta):
@@ -159,6 +168,7 @@ func stop_anim():
 	$AnimatedSprite.stop()
 	
 func start_cutscene():
+	Global.cutscene = true
 	Events.emit_signal("notebook_hide")
 	cutscene = true
 	pass
@@ -168,6 +178,7 @@ func camera_move(pos):
 	pass
 	
 func stop_cutscene():
+	Global.cutscene = false
 	cutscene = false
 	pass
 
@@ -176,5 +187,6 @@ func use_stop_cutscene():
 	pass
 
 func start_dialogue(name_dialogue):
+	Global.dialog = true
 	dialog_open = true
 	Events.emit_signal("start_dialogue", name_dialogue)
