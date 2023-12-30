@@ -129,6 +129,13 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 								temp = 1
 					"end_door":
 						Events.emit_signal("end_game")
+					"end_stol":
+						if temp == 0:
+							Events.emit_signal("start_dialogue", "end_stol")
+							Events.emit_signal("end_stol_change")
+							temp = 1
+						else:
+							Events.emit_signal("start_dialogue", "end_stol_null")
 	pass # Replace with function body.
 
 func _on_nearby_area_entered(area):

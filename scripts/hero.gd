@@ -39,6 +39,10 @@ func visible_on():
 	$AnimatedSprite.visible = true
 	pass
 	
+func add_hear(name):
+	Inventory.add_heart(name)
+	pass
+	
 func remove_item(name):
 	Inventory.remove_item(Global.items[name])
 	pass
@@ -48,21 +52,31 @@ func inventorytrue():
 	pass
 
 func safe_point_on():
-	last_pain_mind = Inventory.pain_mind
-	print("назначение" + str(last_pain_mind))
+	#last_pain_mind = Inventory.pain_mind
+	#print("назначение" + str(last_pain_mind))
 	safepoint = true
-	print("назначение_2" + str(last_pain_mind))
+	#print("назначение_2" + str(last_pain_mind))
+	pass
+	
+func set_position(pos):
+	position = pos
+	pass
+	
+func set_die_can():
+	Inventory.die_can = true
+	pass
+	
+func emit_signal(name):
+	Events.emit_signal(name)
 	pass
 
 func no_mind():
-	print("проверка" + str(last_pain_mind))
 	if safepoint == false:
-		Events.emit_signal("start_dialogue", "death_0")
+		Events.emit_signal("use_cutscene", "death_0")
 	else:
-		print("сцена mind last " + str(last_pain_mind))
-		print("сцена mind org " + str(Inventory.pain_mind))
-		Inventory.pain_mind = last_pain_mind
-		Events.emit_signal("use_cutscene", "respawn")
+		Events.emit_signal("use_cutscene", "death_1")
+		Inventory.pain_mind[0] = 0
+		Inventory.pain_mind[1] = 100
 	pass
 	
 func dark_off():
@@ -128,6 +142,8 @@ func _input(event):
 	if dialog_open == false && cutscene == false:
 		if Input.is_action_just_released("open_notebook") && dialog_open == false && open_inventory == true:
 			Events.emit_signal("open_notebook")
+		if Input.is_action_just_released("test"):
+			Inventory.pain_mind[1] = 5
 		#if Input.is_action_just_released("test"):
 		#	Events.emit_signal("call_test_panel")
 	pass
@@ -168,6 +184,7 @@ func stop_anim():
 	$AnimatedSprite.stop()
 	
 func start_cutscene():
+	$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 	Global.cutscene = true
 	Events.emit_signal("notebook_hide")
 	cutscene = true

@@ -19,3 +19,10 @@ func open_door_1():
 	set_cellv(Vector2(31,-76),113)
 	set_cellv(Vector2(31,-75),112)
 	pass
+	
+func closing_door():
+	set_cellv(Vector2(31,-76),-1)
+	set_cellv(Vector2(31,-75),-1)
+	set_cellv(Vector2(31,-75),109)
+	set_cellv(Vector2(32,-75),110)
+	set_cellv(Vector2(33,-75),111)

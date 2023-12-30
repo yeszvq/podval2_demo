@@ -18,6 +18,8 @@ func _ready():
 
 
 func start_game():
+	Inventory.pain_mind[0] = 0
+	Inventory.pain_mind[1] = 100
 	$Node2D.queue_free()
 	add_child(level_one.instance())
 	#$level_one/AnimationPlayer.play("start")

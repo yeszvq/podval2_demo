@@ -14,6 +14,9 @@ var use_inventory = 0
 #0 - нормальное движение, 1 - немного замедленное, 2 - очень медленное
 var move = 0
 
+#под смерть
+var die_can = true
+
 #под инвентарь
 var size_items = 9
 
@@ -28,6 +31,11 @@ func update_hero_parametrs(category, value):
 	pass
 
 #функция лечения конечностей
+func add_heart(name):
+	limbs_heart.append(name)
+	update(2)
+	pass
+
 
 #функция добавления предмета
 func add_item(item):
@@ -46,10 +54,12 @@ func pain_mind_change(index, count):
 		pain_mind[index] = 0
 	else:
 		pain_mind[index] += count
+
 	if limbs_heart.find("legs") != -1 && pain_mind[0] <= 5:
 		limbs_heart.remove(limbs_heart.find("legs"))
-	#if pain_mind[1] <= 0:
-		#Events.emit_signal("no_mind")
+
+	if pain_mind[1] <= 0 && die_can:
+		Events.emit_signal("no_mind")
 	update(2)
 
 #функция дающая число предметов в инвентаре

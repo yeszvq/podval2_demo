@@ -307,7 +307,6 @@ custom_constants/margin_left = 13
 custom_constants/margin_bottom = 14
 
 [node name="notebook_notes" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
-visible = false
 margin_left = 13.0
 margin_top = 62.0
 margin_right = 407.0
@@ -363,6 +362,7 @@ mouse_filter = 2
 custom_constants/margin_top = 23
 
 [node name="notebook_status" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
+visible = false
 margin_left = 13.0
 margin_top = 62.0
 margin_right = 407.0

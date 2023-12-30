@@ -114,8 +114,9 @@ func custom_dialog(text):
 func update_dialogue(event = null):
 	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
 		if page_number >= dialogue.size():
+			Global.dialog = false
 			path_other[10].visible = false
-			visible = false
+			#visible = false
 			Events.emit_signal("end_dialog")
 			return
 		var temp = dialogue[page_number].split("#")
@@ -222,6 +223,7 @@ func button_chose_action(value = null):
 
 #диалог
 func start_dialogue(name_path):
+	Global.dialog = true
 	page_number = 0
 	#открываем файл и считываем с него информацию
 	var temp = str("res://assets/dialogue/" + name_path + ".txt")
@@ -307,6 +309,7 @@ func generate_content(index):
 				#temp_node.get_child(0).get_child(1).texture = load("res://assets/sprites/items/" + Inventory.items[i]["icon"])
 		#статус
 		2:
+			#print(Inventory.pain_mind[1])
 			path_other[6].value = Inventory.pain_mind[0]
 			path_other[7].text = str(Inventory.pain_mind[0])
 			path_other[8].value = Inventory.pain_mind[1]
@@ -370,4 +373,5 @@ func _on_TextureRect_gui_input(event):
 
 func _on_Timer_timeout():
 	update_dialogue()
+	$Timer.stop()
 	pass # Replace with function body.

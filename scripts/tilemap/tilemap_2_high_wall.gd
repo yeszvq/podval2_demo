@@ -9,6 +9,7 @@ var previous_tile = []
 func _ready():
 	Events.connect("hide_tiles", self, "hide_tiles")
 	Events.connect("show_tiles", self, "show_tiles")
+	Events.connect("cameninwall", self, "camen_in_wall")
 	pass # Replace with function body.
 
 func hide_tiles(coordinates, for_coordinates):
@@ -43,4 +44,11 @@ func show_tiles(coordinates, for_coordinates):
 				for j in range(i[0].y, i[2].y + 1):
 					set_cellv(Vector2(i[0].x, j), previous_tile[0])
 					previous_tile.remove(0)
+	pass
+
+func camen_in_wall():
+	set_cellv(Vector2(8,-8), -1)
+	set_cellv(Vector2(9,-8), -1)
+	set_cellv(Vector2(8,-8), 105)
+	set_cellv(Vector2(9,-8), 106)
 	pass

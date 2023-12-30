@@ -22,6 +22,9 @@ signal show_tiles
 signal hide_torch
 signal show_torch
 
+signal end_stol_change
+signal cameninwall
+
 signal custom_one_change
 #Сигнал о запуске анимации в animation player
 signal start_cutsene

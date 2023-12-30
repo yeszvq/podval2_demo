@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/font_30.tres" type="DynamicFont" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 368.0
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_left = 813.0
+margin_top = 372.0
+margin_right = 1107.0
+margin_bottom = 707.0
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 287.0
+margin_bottom = 328.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 265.0
+margin_bottom = 306.0
+custom_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 250.0
+margin_bottom = 31.0
+size_flags_horizontal = 5
+custom_fonts/font = ExtResource( 1 )
+text = "Пауза"
+align = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 250.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 250, 50 )
+custom_fonts/font = ExtResource( 1 )
+text = "Продолжить"
+
+[node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 111.0
+margin_right = 250.0
+margin_bottom = 161.0
+rect_min_size = Vector2( 250, 50 )
+custom_fonts/font = ExtResource( 1 )
+text = "Управление"
+
+[node name="Button3" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 250.0
+margin_bottom = 226.0
+rect_min_size = Vector2( 250, 50 )
+custom_fonts/font = ExtResource( 1 )
+text = "Настройки"
+
+[node name="Button4" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 241.0
+margin_right = 250.0
+margin_bottom = 291.0
+rect_min_size = Vector2( 250, 50 )
+custom_fonts/font = ExtResource( 1 )
+text = "Выход"
+
+[node name="Control2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 711.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_vertical = 3
