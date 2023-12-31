@@ -26,3 +26,8 @@ func show_torch(coordinates):
 		set_cellv(i, previous_tile[0])
 		previous_tile.remove(0)
 	pass
+
+func change(coord, value):
+	set_cellv(coord, -1)
+	set_cellv(coord, value)
+	pass

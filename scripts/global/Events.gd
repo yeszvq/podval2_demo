@@ -25,6 +25,12 @@ signal show_torch
 signal end_stol_change
 signal cameninwall
 
+signal show_ocluder
+signal hide_ocluder
+
+signal show_light_node
+signal hide_light_node
+
 signal custom_one_change
 #Сигнал о запуске анимации в animation player
 signal start_cutsene
@@ -77,3 +83,10 @@ signal inventorytrue
 
 #сигналы для худа
 signal map_new_list
+
+#сигналы для музыкы
+signal stop_music
+signal start_music
+
+signal stop_sound
+signal start_sound

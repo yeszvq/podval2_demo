@@ -13,11 +13,36 @@ func _ready():
 	Events.connect("start_game", self, "start_game")
 	Events.connect("back_menu", self, "back_menu")
 	Events.connect("end_game", self, "end_game")
+	Events.connect("start_music", self, "start_music")
+	Events.connect("stop_music", self, "stop_music")
+	Events.connect("start_sound", self, "start_sound")
+	Events.connect("stop_sound", self, "stop_sound")
 	Global.work_item = true
 	pass # Replace with function body.
 
+func stop_sound():
+	$Sounds_player.stop()
+	pass
+	
+func start_sound(name, loop = false):
+	print("work")
+	$Sounds_player.stop()
+	$Sounds_player.stream = load("res://assets/sounds/" + name +".wav")
+	$Sounds_player.play()
+	pass
+
+func stop_music():
+	$AudioStreamPlayer.stop()
+	pass
+	
+func start_music(name, loop = false):
+	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.stream = load("res://assets/sounds/" + name +".ogg")
+	$AudioStreamPlayer.play()
+	pass
 
 func start_game():
+	#start_music("music_game")
 	Inventory.pain_mind[0] = 0
 	Inventory.pain_mind[1] = 100
 	$Node2D.queue_free()

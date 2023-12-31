@@ -15,7 +15,7 @@ var safepoint = false
 var stop_pain_mind = false
 var last_pain_mind = []
 var monstr_nearby = false
-var open_inventory = true
+var open_inventory = false
 
 func _ready():
 	Events.connect("start_dialog_for_hero", self, "start_dialog")
@@ -68,6 +68,10 @@ func set_die_can():
 	
 func emit_signal(name):
 	Events.emit_signal(name)
+	pass
+
+func emit_signal_0(name, value):
+	Events.emit_signal(name, value)
 	pass
 
 func no_mind():
