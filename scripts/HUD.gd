@@ -9,7 +9,8 @@ var page_number = 0
 var dialogue = []
 
 var last_node_dialog
-
+var last_page = 1
+var can_page = true
 
 func _ready():
 	visible = false
@@ -256,7 +257,7 @@ func open_note(event, index):
 #действие при нажатии на закладку
 func button_action(event, name):
 	if event is InputEventMouseButton:
-		if event.is_action_released("left_mouse_button"):
+		if event.is_action_released("left_mouse_button") && can_page == true:
 			var temp = str(name).split(":")
 			temp = temp[0].split("_")
 			for i in get_tree().get_nodes_in_group("button_part_1"):
@@ -274,6 +275,12 @@ func button_action(event, name):
 					else:
 						i.visible = false
 					temp_2 += 1
+			if last_page != int(temp[3]):
+				last_page = int(temp[3])
+				Events.emit_signal("start_sound", "notebook")
+				can_page = false
+				$Timer2.start()
+			
 	pass
 
 #генерация контента
@@ -374,4 +381,9 @@ func _on_TextureRect_gui_input(event):
 func _on_Timer_timeout():
 	update_dialogue()
 	$Timer.stop()
+	pass # Replace with function body.
+
+
+func _on_Timer2_timeout():
+	can_page = true
 	pass # Replace with function body.
