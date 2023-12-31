@@ -24,6 +24,7 @@ func _ready():
 func _on_mouse_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_released("left_mouse_button") && near == true && Global.work_item == true:
 		Events.emit_signal("handle_click_storage")
+		Events.emit_signal("walk_stop")
 		if Global.dialog != true && Global.cutscene != true:
 			if spec_object == "":
 				if name_need_item != "":
@@ -136,6 +137,7 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 							temp = 1
 						else:
 							Events.emit_signal("start_dialogue", "end_stol_null")
+		Events.emit_signal("walk_stop")
 	pass # Replace with function body.
 
 func _on_nearby_area_entered(area):

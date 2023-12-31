@@ -4,6 +4,7 @@ var level_one = preload("res://scene/level/level_one.tscn")
 var titri = preload("res://scene/object/titri.tscn")
 var main_menu = preload("res://scene/object/main_menu.tscn")
 var menu = preload("res://scene/menu.tscn")
+var temp = 0
 
 func _ready():
 	#$level_one/AnimationPlayer.play("start")
@@ -32,11 +33,14 @@ func _ready():
 	pass # Replace with function body.
 
 func walk_start():
-	$walk_player.playing = true
+	if temp == 0:
+		$walk_player.playing = true
+		temp = 1
 	pass
 	
 func walk_stop():
 	$walk_player.playing = false
+	temp = 0
 	pass
 
 

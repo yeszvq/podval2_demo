@@ -192,6 +192,7 @@ func stop_anim():
 	$AnimatedSprite.stop()
 	
 func start_cutscene():
+	Events.emit_signal("walk_stop")
 	$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 	Global.cutscene = true
 	Events.emit_signal("notebook_hide")
@@ -212,6 +213,7 @@ func use_stop_cutscene():
 	pass
 
 func start_dialogue(name_dialogue):
+	Events.emit_signal("walk_stop")
 	Global.dialog = true
 	dialog_open = true
 	Events.emit_signal("start_dialogue", name_dialogue)

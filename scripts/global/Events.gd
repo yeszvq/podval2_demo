@@ -100,6 +100,7 @@ signal drag_sound_stop
 
 signal walk_start
 signal walk_stop
+signal walk_type
 
 signal open_menu
 signal hide_menu
