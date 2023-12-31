@@ -17,10 +17,10 @@ func _ready():
 
 
 func _on_break_glass_sound_area_entered(area):
-	Events.emit_signal("walk_type", "glass")
+	Events.emit_signal("walk_type", "walk_glass")
 	pass # Replace with function body.
 
 
 func _on_break_glass_sound_area_exited(area):
-	Events.emit_signal("walk_type", "normal")
+	Events.emit_signal("walk_type", "walk")
 	pass # Replace with function body.

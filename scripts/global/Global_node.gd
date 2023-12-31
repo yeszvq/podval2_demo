@@ -27,19 +27,27 @@ func _ready():
 	Events.connect("back_menu_0",self, "back_menu_0")
 	Events.connect("walk_start", self, "walk_start")
 	Events.connect("walk_stop", self, "walk_stop")
+	Events.connect("walk_type", self, "walk_type")
 	#Events.connect("open_menu", self, "action_4")
 	#Events.connect("hide_menu", self, "action_5")
 	Global.work_item = true
 	pass # Replace with function body.
 
+func walk_type(name):
+	$walk_player.stream = load("res://assets/sounds/"+ name + ".wav")
+	$walk_player.play()
+	$walk_player.stream_paused = false
+	pass
+
 func walk_start():
 	if temp == 0:
-		$walk_player.playing = true
+		$walk_player.play()
+		$walk_player.stream_paused = false
 		temp = 1
 	pass
 	
 func walk_stop():
-	$walk_player.playing = false
+	$walk_player.stream_paused = true
 	temp = 0
 	pass
 
@@ -100,6 +108,7 @@ func start_game():
 	add_child(level_one.instance())
 	#$level_one/AnimationPlayer.play("start")
 	Global.work_item = true
+	start_music("game")
 	pass
 
 func end_game():
