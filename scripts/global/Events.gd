@@ -54,7 +54,8 @@ signal handle_click_storage
 signal start_game
 signal end_game
 signal back_menu
-
+signal back_menu_0
+signal end_game_1
 #Сигнал взаимодействия скрипта диалога с скриптом интеракции
 signal changeemptytrue
 signal changedoeseffect
@@ -90,3 +91,15 @@ signal start_music
 
 signal stop_sound
 signal start_sound
+
+signal changed_music_value
+signal changed_sound_value
+
+signal drag_sound_start
+signal drag_sound_stop
+
+signal walk_start
+signal walk_stop
+
+signal open_menu
+signal hide_menu

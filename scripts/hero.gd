@@ -137,8 +137,10 @@ func get_input():
 	if temp != Vector2(0,0):
 		previos_direction = temp
 		$AnimatedSprite.play("run_" + str(temp.x) + "_"+ str(temp.y))
+		Events.emit_signal("walk_start")
 	elif temp == Vector2(0,0):
 		$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
+		Events.emit_signal("walk_stop")
 	input_direction = input_direction.normalized()
 	velocity = input_direction * speed
 	
@@ -148,6 +150,8 @@ func _input(event):
 			Events.emit_signal("open_notebook")
 		if Input.is_action_just_released("test"):
 			Inventory.pain_mind[1] = 5
+		#if Input.is_action_just_released("esc") && dialog_open == false && open_inventory == true:
+		#	Events.emit_signal("open_menu")
 		#if Input.is_action_just_released("test"):
 		#	Events.emit_signal("call_test_panel")
 	pass

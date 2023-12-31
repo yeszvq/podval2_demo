@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/font_30.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/ui/menu.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.458824 )
+
+[node name="menu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer2"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer2/MarginContainer"]
+margin_left = 828.0
+margin_top = 358.0
+margin_right = 1092.0
+margin_bottom = 722.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer2/MarginContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 257.0
+margin_bottom = 357.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer2/MarginContainer/PanelContainer/VBoxContainer"]
+margin_right = 250.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+text = "Минутка отдыха для Гоши"
+align = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/PanelContainer/VBoxContainer"]
+margin_top = 85.0
+margin_right = 250.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Продолжить"
+
+[node name="Button2" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/PanelContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 250.0
+margin_bottom = 179.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Управление"
+
+[node name="Button3" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/PanelContainer/VBoxContainer"]
+margin_top = 199.0
+margin_right = 250.0
+margin_bottom = 236.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Настройки"
+
+[node name="Button4" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/PanelContainer/VBoxContainer"]
+margin_top = 256.0
+margin_right = 250.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Выход в меню"
+
+[node name="Button5" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/PanelContainer/VBoxContainer"]
+margin_top = 313.0
+margin_right = 250.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 250, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Выход"

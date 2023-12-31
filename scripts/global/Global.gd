@@ -10,7 +10,7 @@ var work_item = true
 const inteval = 0.4
 var dialog = false
 var cutscene = false
-
+var menu = false
 func _ready():
 	var temp
 	
