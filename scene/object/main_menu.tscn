@@ -131,8 +131,9 @@ align = 1
 margin_top = 35.0
 margin_right = 276.0
 margin_bottom = 51.0
-min_value = 1.0
-value = 50.0
+min_value = -30.0
+max_value = 1.0
+value = 1.0
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/settings/MarginContainer/VBoxContainer"]
 modulate = Color( 0.729412, 0, 0, 0 )
@@ -152,8 +153,9 @@ align = 1
 margin_top = 98.0
 margin_right = 276.0
 margin_bottom = 114.0
-min_value = 1.0
-value = 50.0
+min_value = -30.0
+max_value = 1.0
+value = 1.0
 
 [node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/settings/MarginContainer/VBoxContainer"]
 margin_top = 118.0

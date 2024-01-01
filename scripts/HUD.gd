@@ -81,7 +81,6 @@ func notebook_hide():
 
 #функция диалога подбора TRUE
 #func pick_up_true(item):
-	#print("work")
 	#custom_dialog("gosha#Гоша#Я подобрал" + item)
 	#pass
 #функция диалога подбора FALSE
@@ -323,6 +322,7 @@ func generate_content(index):
 			path_other[9].text = str(Inventory.pain_mind[1])
 			
 			var temp = Inventory.get_body()
+			#print(temp)
 			temp = (
 				"normal" if temp == "none"
 				else "legs" if temp == "legs"
@@ -330,6 +330,7 @@ func generate_content(index):
 				else "legs_arm" if temp == "legs_arm"
 				else "normal"
 			)
+			#print(temp)
 			path_other[17].texture = load("res://assets/sprites/ui/new notebook/body_" + temp + ".png")
 		#карта
 		#3:

@@ -13,13 +13,13 @@ func _input(event):
 func action_0():
 	match temp:
 		false:
-			Events.emit_signal("start_music", "menu")
+			#Events.emit_signal("start_music", "menu")
 			visible = true
 			Global.menu = true
 			get_tree().paused = true
 			temp = true
 		true:
-			Events.emit_signal("start_music", "game")
+			#Events.emit_signal("start_music", "game")
 			visible = false
 			Global.menu = false
 			get_tree().paused = false

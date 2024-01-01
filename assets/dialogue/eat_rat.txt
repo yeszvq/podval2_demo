@@ -1,0 +1,3 @@
+gosha#Гоша#А, точно у меня ведь есть жаренное мясцо.&removeItem_goodRat&painchanged_-40
+gosha#Гоша#Хоть это и крыса, но это должно помочь...
+cultist#Культист 2#...&cutsceneCont_0&close_0

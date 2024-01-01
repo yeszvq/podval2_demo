@@ -32,8 +32,9 @@ func update_hero_parametrs(category, value):
 
 #функция лечения конечностей
 func add_heart(name):
-	limbs_heart.append(name)
-	update(2)
+	if limbs_heart.find(name) == -1:
+		limbs_heart.append(name)
+		update(2)
 	pass
 
 
@@ -56,7 +57,10 @@ func pain_mind_change(index, count):
 		pain_mind[index] += count
 
 	if limbs_heart.find("legs") != -1 && pain_mind[0] <= 5:
+		#print(limbs_heart)
 		limbs_heart.remove(limbs_heart.find("legs"))
+		#print(limbs_heart)
+		#update(2)
 
 	if pain_mind[1] <= 0 && die_can:
 		Events.emit_signal("no_mind")

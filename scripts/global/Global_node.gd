@@ -83,8 +83,7 @@ func stop_sound():
 	$Sounds_player.stop()
 	pass
 	
-func start_sound(name, loop = false):
-	print("work")
+func start_sound(name, loop = false):	
 	$Sounds_player.stop()
 	$Sounds_player.stream = load("res://assets/sounds/" + name +".wav")
 	$Sounds_player.play()
@@ -102,8 +101,11 @@ func start_music(name, loop = false):
 
 func start_game():
 	stop_music()
+	Inventory.items = []
+	Inventory.limbs_heart = []
 	Inventory.pain_mind[0] = 0
 	Inventory.pain_mind[1] = 100
+	Inventory.add_item(Global.items["goodRat"])
 	$Node2D.queue_free()
 	add_child(level_one.instance())
 	#$level_one/AnimationPlayer.play("start")
