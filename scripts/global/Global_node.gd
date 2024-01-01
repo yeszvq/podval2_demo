@@ -105,7 +105,6 @@ func start_game():
 	Inventory.limbs_heart = []
 	Inventory.pain_mind[0] = 0
 	Inventory.pain_mind[1] = 100
-	Inventory.add_item(Global.items["goodRat"])
 	$Node2D.queue_free()
 	add_child(level_one.instance())
 	#$level_one/AnimationPlayer.play("start")
