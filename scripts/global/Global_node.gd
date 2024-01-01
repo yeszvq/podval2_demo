@@ -61,10 +61,12 @@ func walk_stop():
 ##	pass
 
 func action_0(value):
+	Global.last_volume_sound[0] = value
 	$AudioStreamPlayer.volume_db = value
 	pass
 	
 func action_1(value):
+	Global.last_volume_sound[1] = value
 	$Sounds_player.volume_db = value
 	pass
 	
@@ -113,6 +115,7 @@ func start_game():
 	pass
 
 func end_game():
+	walk_stop()
 	$level_one.queue_free()
 	add_child(titri.instance())
 	pass
@@ -124,11 +127,13 @@ func end_game_1():
 	
 func back_menu():
 	$titri.queue_free()
+	start_music("menu")
 	add_child(main_menu.instance())
 	pass
 
 func back_menu_0():
 	$level_one.queue_free()
+	start_music("menu")
 	add_child(main_menu.instance())
 	pass
 	

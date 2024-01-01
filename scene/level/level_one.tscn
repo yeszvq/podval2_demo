@@ -11405,6 +11405,7 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1516, -113 )
 z_index = 1
 frames = SubResource( 280 )
+frame = 1
 playing = true
 
 [node name="broken_glass_tilemap" parent="YSort" instance=ExtResource( 22 )]
@@ -11414,7 +11415,6 @@ tile_set = SubResource( 267 )
 tile_data = PoolIntArray( -8650705, 2, 0, -8585180, 2, 0, -8585171, 2, 0, -8519641, 2, 0, -8519631, 2, 0, -7667696, 8, 0, -7274459, 3, 0, -7012277, 2, 0, -6684604, 2, 0, -6356928, 1, 0, -6356927, 1, 0, -6291401, 1, 0, -3604436, 6, 0, -3604435, 6, 0, -3604434, 6, 0, -3604433, 9, 0, -3604430, 4, 0, -3604429, 4, 0, -3604428, 9, 0, -3538900, 6, 0, -3538899, 0, 0, -3538898, 6, 0, -3538897, 6, 0, -3538896, 6, 0, -3538895, 6, 0, -3538894, 6, 0, -3538893, 6, 0, -3538892, 6, 0, -3538891, 6, 0, -3473364, 6, 0, -3473363, 6, 0, -3473362, 6, 0, -3473361, 6, 0, -3473360, 6, 0, -3473359, 6, 0, -3473358, 6, 0, -3473357, 6, 0, -3473356, 6, 0, -3473355, 6, 0, -3407828, 6, 0, -3407827, 6, 0, -3407826, 6, 0, -3407825, 6, 0, -3407824, 6, 0, -3407823, 6, 0, -3407822, 6, 0, -3407821, 6, 0, -3407820, 6, 0, -3407819, 6, 0, -3342292, 6, 0, -3342291, 6, 0, -3342290, 6, 0, -3342289, 6, 0, -3342288, 6, 0, -3342287, 6, 0, -3342286, 6, 0, -3342285, 6, 0, -3342284, 6, 0, -3342283, 6, 0, -3276756, 6, 0, -3276755, 6, 0, -3276754, 6, 0, -3276753, 6, 0, -3276752, 6, 0, -3276751, 6, 0, -3276750, 6, 0, -3276749, 6, 0, -3276748, 6, 0, -3276747, 6, 0, -3211220, 6, 0, -3211218, 6, 0, -3211217, 6, 0, -3211216, 6, 0, -3211215, 6, 0, -3211214, 6, 0, -3211213, 6, 0, -3211212, 6, 0, -3211211, 6, 0, -3145684, 6, 0, -3145683, 6, 0, -3145682, 6, 0, -3145681, 6, 0, -3145680, 9, 0, -3145678, 3, 0, -3145677, 6, 0, -3145676, 6, 0, -3145675, 6, 0, -3080147, 3, 0, -3080146, 6, 0, -3080145, 6, 0, -3080144, 8, 0, -131071, 8, 0, -131067, 3, 0 )
 
 [node name="LIGHTS_okno" type="Node2D" parent="YSort"]
-visible = false
 script = ExtResource( 33 )
 
 [node name="light_okno8" type="Node2D" parent="YSort/LIGHTS_okno"]
@@ -12909,8 +12909,9 @@ align = 1
 margin_top = 35.0
 margin_right = 276.0
 margin_bottom = 51.0
-min_value = 1.0
-value = 50.0
+min_value = -30.0
+max_value = 1.0
+value = -3.0
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/menu/MarginContainer/PanelContainer/settings/MarginContainer/VBoxContainer"]
 modulate = Color( 0.729412, 0, 0, 0 )
@@ -12930,8 +12931,9 @@ align = 1
 margin_top = 98.0
 margin_right = 276.0
 margin_bottom = 114.0
-min_value = 1.0
-value = 50.0
+min_value = -30.0
+max_value = 1.0
+value = -3.0
 
 [node name="Label3" type="Label" parent="CanvasLayer/menu/MarginContainer/PanelContainer/settings/MarginContainer/VBoxContainer"]
 margin_top = 118.0
@@ -12950,7 +12952,6 @@ custom_fonts/font = ExtResource( 42 )
 text = "Применить"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

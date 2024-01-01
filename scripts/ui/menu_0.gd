@@ -13,7 +13,11 @@ func _input(event):
 func action_0():
 	match temp:
 		false:
+			$MarginContainer/PanelContainer/settings/MarginContainer/VBoxContainer/HSlider.value = Global.last_volume_sound[0]
+			$MarginContainer/PanelContainer/settings/MarginContainer/VBoxContainer/HSlider2.value = Global.last_volume_sound[1]
 			#Events.emit_signal("start_music", "menu")
+			Events.emit_signal("stop_sound")
+			Events.emit_signal("walk_stop")
 			visible = true
 			Global.menu = true
 			get_tree().paused = true

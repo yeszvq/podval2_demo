@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$CanvasLayer/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/settings/MarginContainer/VBoxContainer/HSlider.value = Global.last_volume_sound[0]
+	$CanvasLayer/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/settings/MarginContainer/VBoxContainer/HSlider2.value = Global.last_volume_sound[1]
 	pass # Replace with function body.
 
 
