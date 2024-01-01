@@ -48,6 +48,7 @@ position = Vector2( 113, 72 )
 scale = Vector2( 15.9687, 6.94781 )
 z_index = 5
 frames = SubResource( 5 )
+frame = 2
 playing = true
 script = ExtResource( 41 )
 

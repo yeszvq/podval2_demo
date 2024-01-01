@@ -68,6 +68,7 @@ func action_0(value):
 func action_1(value):
 	Global.last_volume_sound[1] = value
 	$Sounds_player.volume_db = value
+	$walk_player.volume_db = value
 	pass
 	
 func action_2():
