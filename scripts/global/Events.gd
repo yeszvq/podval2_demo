@@ -104,3 +104,10 @@ signal walk_type
 
 signal open_menu
 signal hide_menu
+
+#Сигналы для низкого рассудка и боли
+signal low_mind
+signal more_mind
+
+signal low_pain
+signal more_pain

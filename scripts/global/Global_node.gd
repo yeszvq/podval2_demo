@@ -113,6 +113,7 @@ func start_game():
 	#$level_one/AnimationPlayer.play("start")
 	Global.work_item = true
 	start_music("game")
+	$level_one/AnimationPlayer.play("start")
 	pass
 
 func end_game():

@@ -61,7 +61,17 @@ func pain_mind_change(index, count):
 		limbs_heart.remove(limbs_heart.find("legs"))
 		#print(limbs_heart)
 		#update(2)
-
+	
+	if pain_mind[1] <= 50:
+		Events.emit_signal("low_mind", pain_mind[1])
+	else:
+		Events.emit_signal("more_mind")
+	
+	if pain_mind[0] >= 20:
+		Events.emit_signal("low_pain", pain_mind[0])
+	else:
+		Events.emit_signal("more_pain")
+	
 	if pain_mind[1] <= 0 && die_can:
 		Events.emit_signal("no_mind")
 	update(2)

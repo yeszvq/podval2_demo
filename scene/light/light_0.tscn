@@ -10,7 +10,7 @@ z_index = 2
 texture = ExtResource( 1 )
 texture_scale = 0.3
 color = Color( 0.713726, 0.588235, 0.34902, 1 )
-range_height = 35.0
+range_height = 100.0
 shadow_enabled = true
 shadow_item_cull_mask = 513
 
