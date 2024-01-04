@@ -35,6 +35,8 @@ func add_heart(name):
 	if limbs_heart.find(name) == -1:
 		limbs_heart.append(name)
 		update(2)
+		if name == "legs":
+			Events.emit_signal("legs_heart")
 	pass
 
 
@@ -59,6 +61,7 @@ func pain_mind_change(index, count):
 	if limbs_heart.find("legs") != -1 && pain_mind[0] <= 5:
 		#print(limbs_heart)
 		limbs_heart.remove(limbs_heart.find("legs"))
+		Events.emit_signal("legs_heal")
 		#print(limbs_heart)
 		#update(2)
 	

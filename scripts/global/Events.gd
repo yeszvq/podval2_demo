@@ -74,6 +74,9 @@ signal dark_on
 signal hide_light_hero
 signal show_light_hero
 
+signal legs_heart
+signal legs_heal
+
 #signal giltoneworked
 #signal altarworked
 

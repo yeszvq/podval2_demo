@@ -29,6 +29,16 @@ func _ready():
 	Events.connect("no_mind", self, "no_mind")
 	Events.connect("safe_point_on", self, "safe_point_on")
 	Events.connect("inventorytrue", self, "inventorytrue")
+	Events.connect("legs_heart", self, "legs_heart")
+	Events.connect("legs_heal", self, "legs_heal")
+	pass
+
+func legs_heart():
+	$AnimatedSprite/AnimatedSprite2.visible = true
+	pass
+	
+func legs_heal():
+	$AnimatedSprite/AnimatedSprite2.visible = false
 	pass
 
 func visible_off():
@@ -137,9 +147,13 @@ func get_input():
 	if temp != Vector2(0,0):
 		previos_direction = temp
 		$AnimatedSprite.play("run_" + str(temp.x) + "_"+ str(temp.y))
+		if Inventory.limbs_heart.find("legs") != -1:
+			$AnimatedSprite/AnimatedSprite2.play("run_" + str(temp.x) + "_"+ str(temp.y))
 		Events.emit_signal("walk_start")
 	elif temp == Vector2(0,0):
 		$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
+		if Inventory.limbs_heart.find("legs") != -1:
+			$AnimatedSprite/AnimatedSprite2.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 		Events.emit_signal("walk_stop")
 	input_direction = input_direction.normalized()
 	velocity = input_direction * speed
