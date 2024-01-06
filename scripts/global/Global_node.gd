@@ -86,9 +86,9 @@ func stop_sound():
 	$Sounds_player.stop()
 	pass
 	
-func start_sound(name, loop = false):	
+func start_sound(name, loop = false):
 	$Sounds_player.stop()
-	$Sounds_player.stream = load("res://assets/sounds/" + name +".wav")
+	$Sounds_player.stream = load("res://assets/sounds/" + name +".ogg")
 	$Sounds_player.play()
 	pass
 

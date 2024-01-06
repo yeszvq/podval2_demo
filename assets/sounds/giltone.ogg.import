@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/giltone.ogg-50a220df2d1b11d3f190bce61adcddbf.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/giltone.ogg"
+dest_files=[ "res://.import/giltone.ogg-50a220df2d1b11d3f190bce61adcddbf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

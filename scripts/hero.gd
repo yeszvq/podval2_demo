@@ -147,13 +147,11 @@ func get_input():
 	if temp != Vector2(0,0):
 		previos_direction = temp
 		$AnimatedSprite.play("run_" + str(temp.x) + "_"+ str(temp.y))
-		if Inventory.limbs_heart.find("legs") != -1:
-			$AnimatedSprite/AnimatedSprite2.play("run_" + str(temp.x) + "_"+ str(temp.y))
+		$AnimatedSprite/AnimatedSprite2.play("run_" + str(temp.x) + "_"+ str(temp.y))
 		Events.emit_signal("walk_start")
 	elif temp == Vector2(0,0):
 		$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
-		if Inventory.limbs_heart.find("legs") != -1:
-			$AnimatedSprite/AnimatedSprite2.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
+		$AnimatedSprite/AnimatedSprite2.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 		Events.emit_signal("walk_stop")
 	input_direction = input_direction.normalized()
 	velocity = input_direction * speed
@@ -177,6 +175,7 @@ func _process(delta):
 			velocity = move_and_slide(velocity)
 		else:
 			$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
+			$AnimatedSprite/AnimatedSprite2.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 	pass
 
 
@@ -201,6 +200,7 @@ func play_anim(animation_name):
 	var temp = animation_name.split("_")
 	previos_direction = Vector2(float(temp[1]), float(temp[2]))
 	$AnimatedSprite.play(animation_name)
+	$AnimatedSprite/AnimatedSprite2.play(animation_name)
 
 func stop_anim():
 	$AnimatedSprite.stop()
@@ -208,6 +208,7 @@ func stop_anim():
 func start_cutscene():
 	Events.emit_signal("walk_stop")
 	$AnimatedSprite.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
+	$AnimatedSprite/AnimatedSprite2.play("idle_" + str(previos_direction.x) + "_"+ str(previos_direction.y))
 	Global.cutscene = true
 	Events.emit_signal("notebook_hide")
 	cutscene = true

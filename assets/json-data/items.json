@@ -102,6 +102,25 @@
         "loot": true,
         "index": 11,
         "effect": "heal"
+    },
+    "flashlight": {
+        "name": "Фонарик",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 11,
+        "effect": "heal"
+    },
+    "pills": {
+        "name": "Таблетки",
+        "icon": "potion.png",
+        "stackable": true,
+        "count": 1,
+        "loot": true,
+        "index": 11,
+        "effect": "heal"
     }
+
 
 }

@@ -44,6 +44,7 @@ func add_heart(name):
 func add_item(item):
 	if items.size() < size_items:
 		items.append(item)
+		Events.emit_signal("start_sound", "item_pickup")
 		update(1)
 		return true
 	else:

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/notebook.ogg-eda4c4b74afc35125369def7d4854d87.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/notebook.ogg"
+dest_files=[ "res://.import/notebook.ogg-eda4c4b74afc35125369def7d4854d87.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

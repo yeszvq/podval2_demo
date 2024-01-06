@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/craft.ogg-f9358319083ba45146f9a8311fc87540.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/craft.ogg"
+dest_files=[ "res://.import/craft.ogg-f9358319083ba45146f9a8311fc87540.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
