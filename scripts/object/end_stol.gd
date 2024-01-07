@@ -8,5 +8,6 @@ func _ready():
 
 func action():
 	texture = load("res://assets/resourse/end_stol.tres")
+	normal_map = load("res://assets/resourse/end_stol_normal.tres")
 	position = Vector2(position.x, position.y + 1)
 	pass

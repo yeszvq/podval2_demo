@@ -128,8 +128,11 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 							else:
 								Events.emit_signal("use_cutscene", "altar_work")
 								temp = 1
+						elif temp == 1:
+							Events.emit_signal("start_dialogue", "altar_null")
 					"end_door":
-						Events.emit_signal("end_game")
+						#Events.emit_signal("end_game")
+						Events.emit_signal("start_dialogue", "end_door")
 					"end_stol":
 						if temp == 0:
 							Events.emit_signal("start_dialogue", "end_stol")

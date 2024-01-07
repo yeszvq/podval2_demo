@@ -1,2 +1,2 @@
-gosha#Гоша#Вот и моя рука(плейсхолдер)&addItem_armGosha
-gosha#Гоша#Это было больно&signal_changetemp_5
+gosha#Гоша#Черт, было неприятно.&addItem_armGosha
+gosha#Гоша#Надеюсь, до свадьбы заживет.&signal_changetemp_5
