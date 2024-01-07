@@ -1,1 +1,1 @@
-gosha#Гоша#Фонарик и успокоительные. Возьму с собой, еще пригодятся.&addItem_flashlight&addItem_pills
+gosha#Гоша#Фонарик и успокоительные. Возьму с собой, еще пригодятся.&addItem_flashlight&addItem_pills&signal_changetemp_10

@@ -28,6 +28,15 @@ func _ready():
 	#добавлены для проверки работоспособности, потом надо убрать
 	Inventory.add_note(notes[0])
 	
+	temp = str("res://assets/settings/volume.txt")
+	var file = File.new()
+	file.open(temp, File.READ)
+	temp = file.get_as_text()
+	file.close()
+	temp = temp.split("_")
+	last_volume_sound[0] = float(temp[0])
+	last_volume_sound[1] = float(temp[1])
+	print(last_volume_sound)
 	#limbs = read_from_json("res://assets/json-data/limbs.json")
 	#for key in limbs:
 	#	limbs[key]["key"] = key
