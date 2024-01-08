@@ -41,7 +41,18 @@ func _ready():
 	#for key in limbs:
 	#	limbs[key]["key"] = key
 	
+	Events.connect("save_volume", self ,"save_volume")
 	filter_data_items()
+
+func save_volume(value_0 = last_volume_sound[0], value_1 = last_volume_sound[1]):
+	last_volume_sound[0] = value_0
+	last_volume_sound[1] = value_1
+	var temp = str(value_0) + "_" + str(value_1)
+	var saver = File.new()
+	saver.open("res://assets/settings/volume.txt", File.WRITE)
+	saver.store_string(temp)
+	saver.close()
+	pass
 
 func read_from_json(path):
 	var file = File.new()

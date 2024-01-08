@@ -33,6 +33,10 @@ func _ready():
 	Events.connect("legs_heal", self, "legs_heal")
 	pass
 
+func pain_mind_change(index, value):
+	Inventory.pain_mind_change(int(index), int(value))
+	pass
+
 func legs_heart():
 	$AnimatedSprite/AnimatedSprite2.visible = true
 	pass
@@ -164,8 +168,8 @@ func _input(event):
 			Inventory.pain_mind_change(0, 10)
 		#if Input.is_action_just_released("esc") && dialog_open == false && open_inventory == true:
 		#	Events.emit_signal("open_menu")
-		#if Input.is_action_just_released("test"):
-		#	Events.emit_signal("call_test_panel")
+		if Input.is_action_just_released("test"):
+			Inventory.add_item(Global.items["goodRat"])
 	pass
 	
 func _process(delta):

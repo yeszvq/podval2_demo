@@ -32,28 +32,35 @@ func action_0():
 
 
 func _on_Button_button_up():
+	Events.emit_signal("start_sound", "ui_click")
 	action_0()
 	pass # Replace with function body.
 
 
 func _on_Button5_button_up():
+	Events.emit_signal("start_sound", "ui_click")
 	get_tree().quit()
 	pass # Replace with function body.
 
 
 func _on_Button4_button_up():
+	Events.emit_signal("start_sound", "ui_click")
 	get_tree().paused = false
 	Events.emit_signal("back_menu_0")
 	pass # Replace with function body.
 
 
 func _on_Button3_button_up():
+	Events.emit_signal("start_sound", "ui_click")
 	$MarginContainer/PanelContainer/buttons.visible = false
 	$MarginContainer/PanelContainer/settings.visible = true
+	$MarginContainer/PanelContainer/settings/MarginContainer/VBoxContainer/HSlider.value = Global.last_volume_sound[0]
+	$MarginContainer/PanelContainer/settings/MarginContainer/VBoxContainer/HSlider2.value = Global.last_volume_sound[1]
 	pass # Replace with function body.
 
 
 func _on_Button_ok_button_up():
+	Events.emit_signal("start_sound", "ui_click")
 	$MarginContainer/PanelContainer/buttons.visible = true
 	$MarginContainer/PanelContainer/settings.visible = false
 	pass # Replace with function body.

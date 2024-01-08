@@ -108,6 +108,7 @@ signal walk_type
 signal open_menu
 signal hide_menu
 
+signal save_volume
 #Сигналы для низкого рассудка и боли
 signal low_mind
 signal more_mind

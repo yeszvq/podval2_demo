@@ -193,6 +193,7 @@ func update_dialogue(event = null):
 
 #функция при нажатия на кнопки выбора в диалогах
 func button_chose_action(value = null):
+	Events.emit_signal("start_sound", "ui_click")
 	var temp = []
 	for i in value:
 		match i[0]:

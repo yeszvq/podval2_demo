@@ -31,6 +31,10 @@ func _ready():
 	#Events.connect("open_menu", self, "action_4")
 	#Events.connect("hide_menu", self, "action_5")
 	Global.work_item = true
+	
+	$AudioStreamPlayer.volume_db = Global.last_volume_sound[0]
+	$Sounds_player.volume_db = Global.last_volume_sound[1]
+	$Sounds_player.volume_db = Global.last_volume_sound[1]
 	pass # Replace with function body.
 
 func walk_type(name):
@@ -61,12 +65,12 @@ func walk_stop():
 ##	pass
 
 func action_0(value):
-	Global.last_volume_sound[0] = value
+	Global.save_volume(value)
 	$AudioStreamPlayer.volume_db = value
 	pass
 	
 func action_1(value):
-	Global.last_volume_sound[1] = value
+	Global.save_volume(Global.last_volume_sound[0], value)
 	$Sounds_player.volume_db = value
 	$walk_player.volume_db = value
 	pass
