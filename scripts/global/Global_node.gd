@@ -7,7 +7,6 @@ var menu = preload("res://scene/menu.tscn")
 var temp = 0
 
 func _ready():
-	#$level_one/AnimationPlayer.play("start")
 	#print("запустилось")
 	Events.connect("handle_click_storage", self, "handle_click_storage")
 	Events.connect("use_cutscene", self, "play_cutscene")
