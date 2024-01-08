@@ -329,7 +329,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 169 )
-animation = "idle_0_1"
+animation = "idle_0_-1"
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="AnimatedSprite"]
 visible = false

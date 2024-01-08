@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laughter.ogg-f9bde6a4451ea0ea2ec87dcd9da86d63.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/laughter.ogg"
+dest_files=[ "res://.import/laughter.ogg-f9bde6a4451ea0ea2ec87dcd9da86d63.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

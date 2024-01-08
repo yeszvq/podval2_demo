@@ -15,5 +15,6 @@ animation = "idle_0_1"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 light_mask = 4
+position = Vector2( 0, 5 )
 occluder = SubResource( 170 )
 light_mask = 4
