@@ -143,6 +143,13 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 							temp = 1
 						else:
 							Events.emit_signal("start_dialogue", "end_stol_null")
+					"door_verstak":
+						if temp == 0:
+							if Inventory.find_item_name("crowbar") == -1:
+								Events.emit_signal("start_dialogue", "storages_in_sclad_null")
+							else:
+								Events.emit_signal("use_cutscene", "door_verstak_break")
+								temp = 1
 		Events.emit_signal("walk_stop")
 	pass # Replace with function body.
 

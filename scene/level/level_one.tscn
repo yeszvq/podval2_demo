@@ -1,4 +1,4 @@
-[gd_scene load_steps=501 format=2]
+[gd_scene load_steps=506 format=2]
 
 [ext_resource path="res://assets/resourse/giltone.tres" type="Texture" id=1]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_1.tres" type="Texture" id=2]
@@ -137,7 +137,12 @@
 [ext_resource path="res://assets/sprites/object/blood_monster.png" type="Texture" id=135]
 [ext_resource path="res://assets/sounds/short_open_door.ogg" type="AudioStream" id=136]
 [ext_resource path="res://assets/sounds/short_close_door.ogg" type="AudioStream" id=137]
-[ext_resource path="res://assets/sounds/grid_door_open.ogg" type="AudioStream" id=138]
+[ext_resource path="res://assets/sounds/door_open.ogg" type="AudioStream" id=138]
+[ext_resource path="res://assets/sounds/cook.ogg" type="AudioStream" id=139]
+[ext_resource path="res://assets/sounds/grid_door_open.ogg" type="AudioStream" id=140]
+[ext_resource path="res://assets/sounds/wood_door_break.ogg" type="AudioStream" id=141]
+[ext_resource path="res://assets/sounds/saw.ogg" type="AudioStream" id=142]
+[ext_resource path="res://assets/sounds/craft.ogg" type="AudioStream" id=143]
 
 [sub_resource type="ConvexPolygonShape2D" id=198]
 points = PoolVector2Array( 15.7366, 77.9339, 47.748, 61.8893, 47.9038, 64.0701, 16.0482, 80.1147 )
@@ -9299,12 +9304,41 @@ tracks/13/keys = {
 resource_name = "altar_work"
 length = 3.6
 tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/item_2")
+tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 0.1, 0.2, 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "giltone_do" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/item_2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 1, 2.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -9315,46 +9349,32 @@ tracks/0/keys = {
 "method": "custom_one_change"
 } ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5, 1, 1.1, 2.1, 2.6, 3.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("YSort/item_5")
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 2.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "open_door_1"
-} ]
+"times": PoolRealArray( 0.5, 1, 1.1, 2.1, 2.6, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("YSort/LIGHTS/altar:visible")
+tracks/3/path = NodePath("YSort/hero:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 2.6 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 1858, -161 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("YSort/LIGHTS/light_33:visible")
+tracks/4/type = "method"
+tracks/4/path = NodePath("YSort/item_5")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -9362,11 +9382,13 @@ tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 2.6 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"values": [ {
+"args": [  ],
+"method": "open_door_1"
+} ]
 }
-tracks/5/type = "method"
-tracks/5/path = NodePath("YSort/torch on wall")
+tracks/5/type = "value"
+tracks/5/path = NodePath("YSort/LIGHTS/altar:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -9374,42 +9396,66 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 2.6 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ Vector2( 51, -71 ), 9 ],
-"method": "change"
-} ]
+"update": 1,
+"values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("YSort/item_2/altar_frames:frame")
+tracks/6/path = NodePath("YSort/LIGHTS/light_33:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 2.6 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+"values": [ false ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("YSort/item_2/altar_frames:visible")
+tracks/7/type = "method"
+tracks/7/path = NodePath("YSort/torch on wall")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 1, 2.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"times": PoolRealArray( 2.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ Vector2( 51, -71 ), 9 ],
+"method": "change"
+} ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("YSort/entity_area2D/blood_door_2:visible")
+tracks/8/path = NodePath("YSort/item_2/altar_frames:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
+"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("YSort/item_2/altar_frames:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("YSort/entity_area2D/blood_door_2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -9420,12 +9466,41 @@ tracks/8/keys = {
 resource_name = "blood_door_0_work"
 length = 6.0
 tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/item_2")
+tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 5.7, 5.8, 5.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "blood_door_0_do" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/item_2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0.5, 1.2, 1.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
@@ -9439,61 +9514,92 @@ tracks/0/keys = {
 "method": "blood_door_0"
 } ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("YSort/item_5")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
-}
 tracks/2/type = "value"
-tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/path = NodePath("YSort/hero:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 958, 41 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/item_5")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 1.2, 1.9, 4.9, 5.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+tracks/5/type = "audio"
+tracks/5/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 138 )
+} ],
+"times": PoolRealArray( 1.9 )
+}
 
 [sub_resource type="Animation" id=207]
 resource_name = "bochka_work"
 length = 5.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.3, 1, 4.2, 4.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=271]
-resource_name = "break_grid_door"
-length = 5.0
 tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/item_2")
+tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.8 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.01, 0.1, 0.2, 4.8, 4.9, 5, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [ [ Vector2( 6, -2 ), Vector2( 7, -2 ), Vector2( 8, -2 ), Vector2( 9, -2 ) ] ],
-"method": "open_grid_door"
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_1_0" ],
+"method": "play_anim"
+}, {
+"args": [ "bochka_do_0" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "bochka_do_1" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
 } ]
 }
 tracks/1/type = "value"
@@ -9503,7 +9609,434 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0.3, 1, 4.2, 4.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/hero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 721, 193 ) ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 139 )
+} ],
+"times": PoolRealArray( 1 )
+}
+
+[sub_resource type="Animation" id=271]
+resource_name = "break_grid_door"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/hero:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 51 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/hero")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 1, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "rock" ],
+"method": "remove_item"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/item_2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ [ Vector2( 6, -2 ), Vector2( 7, -2 ), Vector2( 8, -2 ), Vector2( 9, -2 ) ] ],
+"method": "open_grid_door"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0.1, 0.8, 4.1, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 140 )
+} ],
+"times": PoolRealArray( 0.8 )
+}
+
+[sub_resource type="Animation" id=317]
+resource_name = "closing_door"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 0.1, 0.8, 1, 1.1, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [  ],
+"method": "safe_point_on"
+}, {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "closing_door" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/item_5")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "closing_door"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/hero:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1770, -374 ) ]
+}
+
+[sub_resource type="Animation" id=318]
+resource_name = "death_0"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "death_0" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [ "end_game" ],
+"method": "emit_signal"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=319]
+resource_name = "death_1"
+length = 4.0
+step = 0.01
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 1.6, 1.61, 2.19, 2.2, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "death_1" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ Vector2( 1769, -369 ) ],
+"method": "set_position"
+}, {
+"args": [  ],
+"method": "set_die_can"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6, 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/hero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=272]
+resource_name = "door_verstak_break"
+length = 6.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 0.1, 0.2, 5.7, 5.8, 5.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "door_verstak_1" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "door_verstak" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/item_2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "broke_wood_door"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/hero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 390, 288 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3, 1, 5, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 141 )
+} ],
+"times": PoolRealArray( 1 )
+}
+
+[sub_resource type="Animation" id=330]
+resource_name = "eat_rat"
+length = 6.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "eat_rat" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 4.7, 5.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
@@ -9518,129 +10051,6 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 138 )
-} ],
-"times": PoolRealArray( 0.8 )
-}
-
-[sub_resource type="Animation" id=317]
-resource_name = "closing_door"
-length = 1.5
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/item_5")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "closing_door"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=318]
-resource_name = "death_0"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.5, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=319]
-resource_name = "death_1"
-length = 4.0
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.6, 1.6, 2.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=272]
-resource_name = "door_verstak_break"
-length = 2.2
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/item_2")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "broke_wood_door"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.3, 1, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=330]
-resource_name = "eat_rat"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.5, 1, 4.7, 5.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-tracks/1/type = "audio"
-tracks/1/path = NodePath("YSort/item_2/AudioStreamPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
 "stream": ExtResource( 128 )
 } ],
 "times": PoolRealArray( 1 )
@@ -9650,25 +10060,66 @@ tracks/1/keys = {
 resource_name = "end"
 length = 50.0
 step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.7, 3.5, 4, 35.3, 35.9, 36.4, 40.9, 41.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"times": PoolRealArray( 0, 0.01, 0.1, 4.2, 4.7, 35.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "stop_music" ],
+"method": "emit_signal"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "run_1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_0" ],
+"method": "play_anim"
+}, {
+"args": [ "idle_1_1" ],
+"method": "play_anim"
+} ]
 }
-tracks/1/type = "audio"
-tracks/1/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/hero:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 4.2, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3332, -335 ), Vector2( 3332, -335 ), Vector2( 3332, -335 ), Vector2( 3344.5, -328.25 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7, 3.5, 4, 35.3, 35.9, 36.4, 40.9, 41.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -9720,80 +10171,56 @@ tracks/1/keys = {
 } ],
 "times": PoolRealArray( 0.7, 3.5, 3.6, 4, 7.42, 35, 35.1, 36.7, 38, 39, 40.8, 42 )
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("YSort/item_2/end_stol_frames:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 3.5, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.3, 6.5, 6.7, 6.8, 7, 7.1, 7.3, 7.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 3, 4, 5, 3, 4, 5, 3, 4, 5 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("YSort/item_2/end_stol_frames:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 3.5, 7.42 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
 tracks/4/type = "value"
-tracks/4/path = NodePath("YSort/item_3/Sprite4:visible")
+tracks/4/path = NodePath("YSort/item_2/end_stol_frames:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 3.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 3.5, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.3, 6.5, 6.7, 6.8, 7, 7.1, 7.3, 7.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ 0, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 3, 4, 5, 3, 4, 5, 3, 4, 5 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("YSort/item_2/end_stol_animation:visible")
+tracks/5/path = NodePath("YSort/item_2/end_stol_frames:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 7.42 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 3.5, 7.42 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, true, false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("CanvasLayer/mind:material:shader_param/_ScanLineJitter")
+tracks/6/path = NodePath("YSort/item_3/Sprite4:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 35.09 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.4 ]
+"times": PoolRealArray( 0, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("CanvasLayer/mind:material:shader_param/_VerticalJump")
+tracks/7/path = NodePath("YSort/item_2/end_stol_animation:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 35.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.03 ]
+"times": PoolRealArray( 0, 7.42 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("CanvasLayer/mind:material:shader_param/_HorizontalShake")
+tracks/8/path = NodePath("CanvasLayer/mind:material:shader_param/_ScanLineJitter")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -9802,10 +10229,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 35.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.05 ]
+"values": [ 0.4 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("CanvasLayer/mind:material:shader_param/_ColorDrift")
+tracks/9/path = NodePath("CanvasLayer/mind:material:shader_param/_VerticalJump")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -9814,87 +10241,111 @@ tracks/9/keys = {
 "times": PoolRealArray( 35.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.05 ]
+"values": [ 0.03 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("CanvasLayer/mind:visible")
+tracks/10/path = NodePath("CanvasLayer/mind:material:shader_param/_HorizontalShake")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 35.1, 36.7, 38, 39, 40.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false, true ]
+"times": PoolRealArray( 35.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.05 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("YSort/LIGHTS/end_tv:visible")
+tracks/11/path = NodePath("CanvasLayer/mind:material:shader_param/_ColorDrift")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 3.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 35.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.05 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("YSort/item_2/monster_idle:visible")
+tracks/12/path = NodePath("CanvasLayer/mind:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 35.9, 39 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 35.1, 36.7, 38, 39, 40.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, false, true, false, true ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("YSort/item_2/monster_frames:visible")
+tracks/13/path = NodePath("YSort/LIGHTS/end_tv:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 39 ),
+"times": PoolRealArray( 0, 3.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("YSort/item_2/monster_frames:frame")
+tracks/14/path = NodePath("YSort/item_2/monster_idle:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 39, 39.2, 39.4, 39.6, 39.8, 40, 40.2, 40.4, 40.6, 40.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 35.9, 39 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+"values": [ false, true, false ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("YSort/item_2/monster_frames:position")
+tracks/15/path = NodePath("YSort/item_2/monster_frames:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 39, 39.2, 39.4, 39.8, 40, 40.2, 40.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 3375, -311 ), Vector2( 3375, -311 ), Vector2( 3375, -311 ), Vector2( 3369.86, -315.571 ), Vector2( 3369.86, -315.571 ), Vector2( 3369.86, -315.571 ), Vector2( 3357, -327 ) ]
+"times": PoolRealArray( 0, 39 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
-tracks/16/type = "audio"
-tracks/16/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/16/type = "value"
+tracks/16/path = NodePath("YSort/item_2/monster_frames:frame")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
+"times": PoolRealArray( 39, 39.2, 39.4, 39.6, 39.8, 40, 40.2, 40.4, 40.6, 40.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("YSort/item_2/monster_frames:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 39, 39.2, 39.4, 39.8, 40, 40.2, 40.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3375, -311 ), Vector2( 3375, -311 ), Vector2( 3375, -311 ), Vector2( 3369.86, -315.571 ), Vector2( 3369.86, -315.571 ), Vector2( 3369.86, -315.571 ), Vector2( 3357, -327 ) ]
+}
+tracks/18/type = "audio"
+tracks/18/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -9915,12 +10366,65 @@ tracks/16/keys = {
 resource_name = "giltone_work"
 length = 4.0
 tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/item_2")
+tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 1, 2, 3, 3.6, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_-1_1" ],
+"method": "play_anim"
+}, {
+"args": [ "giltone_do" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "visible_off"
+}, {
+"args": [ 0, 40 ],
+"method": "pain_mind_change"
+}, {
+"args": [  ],
+"method": "visible_on"
+}, {
+"args": [ "arm" ],
+"method": "add_hear"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/hero:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1728, -144 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/item_2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 1, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -9931,65 +10435,55 @@ tracks/0/keys = {
 "method": "custom_one_change"
 } ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5, 1, 1.1, 2.5, 3, 3.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("YSort/item_2/giltone_frames:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
-}
 tracks/3/type = "value"
-tracks/3/path = NodePath("YSort/item_2/giltone_frames:visible")
+tracks/3/path = NodePath("CanvasLayer/ColorRect:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 1, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"times": PoolRealArray( 0.5, 1, 1.1, 2.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("YSort/item_2/AudioStreamPlayer:stream")
+tracks/4/path = NodePath("YSort/item_2/giltone_frames:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
+"times": PoolRealArray( 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [  ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("YSort/item_2/AudioStreamPlayer:playing")
+tracks/5/path = NodePath("YSort/item_2/giltone_frames:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 1.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 1, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 116 )
+} ],
+"times": PoolRealArray( 1.7 )
 }
 
 [sub_resource type="Animation" id=377]
@@ -10041,17 +10535,96 @@ tracks/0/keys = {
 "method": "custom_one_change"
 } ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/hero")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.01, 0.5, 0.7, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "holodos_v_pit_do" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/hero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 455, 188 ), Vector2( 455, 188 ) ]
+}
 
 [sub_resource type="Animation" id=274]
 resource_name = "move_big_home"
 length = 8.0
-tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/LIGHTS")
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/hero:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1318, 108 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/hero")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.01, 0.02, 7.8, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [  ],
+"method": "off_light"
+}, {
+"args": [ "idle_1_-1" ],
+"method": "play_anim"
+}, {
+"args": [  ],
+"method": "camera_current"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/LIGHTS")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -10062,13 +10635,13 @@ tracks/0/keys = {
 "method": "show_light"
 } ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("../Camera2D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
+tracks/3/type = "method"
+tracks/3/path = NodePath("../Camera2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0.01, 7.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -10079,25 +10652,25 @@ tracks/1/keys = {
 "method": "exit"
 } ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("../Camera2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1318, 110 ), Vector2( 1613, -41 ) ]
 }
-tracks/3/type = "method"
-tracks/3/path = NodePath("YSort/LIGHTS_okno")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/5/type = "method"
+tracks/5/path = NodePath("YSort/LIGHTS_okno")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -10522,12 +11095,9 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = {
-"times": PoolRealArray( 0, 0.01, 36.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 39.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "use_hide"
-}, {
 "args": [  ],
 "method": "use_show"
 }, {
@@ -10790,12 +11360,44 @@ tracks/33/keys = {
 resource_name = "trup_work"
 length = 6.0
 tracks/0/type = "method"
-tracks/0/path = NodePath("YSort/item_2")
+tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 5.8, 5.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "trup_do" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "arm" ],
+"method": "add_item"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/item_2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 1.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -10803,33 +11405,120 @@ tracks/0/keys = {
 "method": "custom_one_change"
 } ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/ColorRect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/hero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 831, 30 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0.4, 1.1, 5.3, 5.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 142 )
+} ],
+"times": PoolRealArray( 1.1 )
+}
 
 [sub_resource type="Animation" id=204]
 resource_name = "verstak_work"
 length = 5.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/type = "method"
+tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 5.2, 5.3, 5.4, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+}, {
+"args": [ "idle_-1_-1" ],
+"method": "play_anim"
+}, {
+"args": [ "verstak_do_1" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [ "verstak_do_2" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+}, {
+"args": [  ],
+"method": "stop_cutscene"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/hero:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 260, 278 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0.4, 1.1, 4.1, 4.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 143 )
+} ],
+"times": PoolRealArray( 1.1 )
 }
 
 [node name="level_one" type="Node2D"]
@@ -10916,6 +11605,7 @@ normal_map = ExtResource( 114 )
 centered = false
 offset = Vector2( 0, -32 )
 hframes = 16
+frame = 15
 
 [node name="altar_frames" type="Sprite" parent="YSort/item_2"]
 visible = false
@@ -10940,6 +11630,7 @@ texture = ExtResource( 121 )
 hframes = 6
 
 [node name="end_stol_animation" type="Sprite" parent="YSort/item_2"]
+visible = false
 light_mask = 1025
 position = Vector2( 3426, -322 )
 z_index = 1
@@ -10962,7 +11653,7 @@ texture = ExtResource( 125 )
 offset = Vector2( 0, -16 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/item_2"]
-stream = ExtResource( 122 )
+stream = ExtResource( 116 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="YSort/item_2"]
 
@@ -11002,7 +11693,6 @@ normal_map = SubResource( 394 )
 offset = Vector2( 0, -12 )
 
 [node name="Sprite4" type="Sprite" parent="YSort/item_3"]
-visible = false
 light_mask = 1025
 position = Vector2( 3426, -326 )
 z_index = 1
@@ -11249,8 +11939,7 @@ polygon = PoolVector2Array( 320, 321, 254, 287, 224, 304, 288, 336 )
 [node name="gora_storages" type="StaticBody2D" parent="YSort/entity_area2D"]
 script = ExtResource( 40 )
 name_dialog_do = "storages_in_sclad"
-name_dialog_null = "storages_in_sclad_null"
-id = 3
+name_dialog_do_1 = "storages_in_sclad_null"
 
 [node name="mouse" type="Area2D" parent="YSort/entity_area2D/gora_storages"]
 collision_layer = 8
@@ -11286,9 +11975,7 @@ polygon = PoolVector2Array( 832, 64, 769, 27, 782, 1, 828, -22, 912, 24 )
 
 [node name="door_verstak" type="StaticBody2D" parent="YSort/entity_area2D"]
 script = ExtResource( 40 )
-name_dialog_no_item = "door_verstak_no_item"
-name_need_item = "crowbar"
-name_cutscene = "door_verstak_break"
+spec_object = "door_verstak"
 
 [node name="mouse" type="Area2D" parent="YSort/entity_area2D/door_verstak"]
 collision_layer = 8
@@ -11945,6 +12632,7 @@ collision_mask = 2
 polygon = PoolVector2Array( 1935, -120, 1904, -136, 1936, -152, 1968, -136 )
 
 [node name="blood_door_2" type="StaticBody2D" parent="YSort/entity_area2D"]
+visible = false
 script = ExtResource( 40 )
 name_dialog_do = "blood_door_1"
 
@@ -12270,7 +12958,7 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1516, -113 )
 z_index = 1
 frames = SubResource( 280 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="broken_glass_tilemap" parent="YSort" instance=ExtResource( 22 )]
@@ -12670,6 +13358,7 @@ shadow_item_cull_mask = 7
 script = ExtResource( 76 )
 
 [node name="end_tv" type="Light2D" parent="YSort/LIGHTS"]
+visible = false
 position = Vector2( 3422, -326 )
 texture = ExtResource( 54 )
 texture_scale = 0.3
@@ -13284,16 +13973,16 @@ shadow_enabled = true
 shadow_item_cull_mask = 7
 
 [node name="ne_gosha_1" parent="YSort" instance=ExtResource( 13 )]
-position = Vector2( 80, 33 )
+position = Vector2( 303, 161 )
 z_index = 1
 
 [node name="ne_gosha_2" parent="YSort" instance=ExtResource( 24 )]
 light_mask = 2
-position = Vector2( 49, 29 )
+position = Vector2( 128, -18 )
 z_index = 1
 
 [node name="ne_gosha_3" parent="YSort" instance=ExtResource( 13 )]
-position = Vector2( 32, 9 )
+position = Vector2( 278, 173 )
 z_index = 1
 
 [node name="dark_area" type="Node2D" parent="YSort"]
@@ -13861,7 +14550,7 @@ margin_bottom = 40.0
 mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0, 0, 0, 0 )
 light_mask = 0
 material = SubResource( 402 )
 anchor_right = 1.0
@@ -13918,7 +14607,7 @@ anims/verstak_work = SubResource( 204 )
 script = ExtResource( 77 )
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 41, 38 )
+position = Vector2( 294, 165 )
 current = true
 zoom = Vector2( 0.2, 0.2 )
 

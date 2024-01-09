@@ -33,6 +33,11 @@ func _ready():
 	Events.connect("legs_heal", self, "legs_heal")
 	pass
 
+
+func add_item(name):
+	Inventory.add_item(Global.items[name])
+	pass
+
 func pain_mind_change(index, value):
 	Inventory.pain_mind_change(int(index), int(value))
 	pass

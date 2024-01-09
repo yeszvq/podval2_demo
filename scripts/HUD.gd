@@ -340,27 +340,27 @@ func generate_content(index):
 
 
 #функция взаимодействия с предметами в инвентаре
-func action_with_item(event, index = 0):
-	if event is InputEventMouseButton:
-		if event.is_action_released("left_mouse_button"):
-			use_item(Inventory.find_item_index(index))
-			if Inventory.find_item_index(index)["effect"] != "null":
-				Inventory.remove_item_index(index)
-		elif event.is_action_released("right_mouse_button"):
-			var item = Inventory.find_item_index(index)
-			Inventory.remove_item_index(index)
-			Events.emit_signal("drop_item", item)
-	pass
+#func action_with_item(event, index = 0):
+#	if event is InputEventMouseButton:
+#		if event.is_action_released("left_mouse_button"):
+#			use_item(Inventory.find_item_index(index))
+#			if Inventory.find_item_index(index)["effect"] != "null":
+#				Inventory.remove_item_index(index)
+#		elif event.is_action_released("right_mouse_button"):
+#			var item = Inventory.find_item_index(index)
+#			Inventory.remove_item_index(index)
+#			Events.emit_signal("drop_item", item)
+#	pass
 	
 	
 #функция эффектов от предметов
-func use_item(item):
-	match item["effect"]:
-		"heal":
-			Inventory.pain_mind_change(0, -20)
-		"mind":
-			Inventory.pain_mind_change(1, 35)
-	pass
+#func use_item(item):
+#	match item["effect"]:
+#		"heal":
+#			Inventory.pain_mind_change(0, -20)
+#		"mind":
+#			Inventory.pain_mind_change(1, 35)
+#	pass
 	
 #функция при нажатии кнопки Tab
 func open_notebook():
