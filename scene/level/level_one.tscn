@@ -1,4 +1,4 @@
-[gd_scene load_steps=500 format=2]
+[gd_scene load_steps=501 format=2]
 
 [ext_resource path="res://assets/resourse/giltone.tres" type="Texture" id=1]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_1.tres" type="Texture" id=2]
@@ -137,6 +137,7 @@
 [ext_resource path="res://assets/sprites/object/blood_monster.png" type="Texture" id=135]
 [ext_resource path="res://assets/sounds/short_open_door.ogg" type="AudioStream" id=136]
 [ext_resource path="res://assets/sounds/short_close_door.ogg" type="AudioStream" id=137]
+[ext_resource path="res://assets/sounds/grid_door_open.ogg" type="AudioStream" id=138]
 
 [sub_resource type="ConvexPolygonShape2D" id=198]
 points = PoolVector2Array( 15.7366, 77.9339, 47.748, 61.8893, 47.9038, 64.0701, 16.0482, 80.1147 )
@@ -9507,6 +9508,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("YSort/item_2/AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 138 )
+} ],
+"times": PoolRealArray( 0.8 )
+}
 
 [sub_resource type="Animation" id=317]
 resource_name = "closing_door"
@@ -12255,7 +12270,7 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1516, -113 )
 z_index = 1
 frames = SubResource( 280 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="broken_glass_tilemap" parent="YSort" instance=ExtResource( 22 )]
@@ -13846,7 +13861,7 @@ margin_bottom = 40.0
 mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 1 )
 light_mask = 0
 material = SubResource( 402 )
 anchor_right = 1.0

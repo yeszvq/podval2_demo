@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	$AnimationPlayer.play("start")
+	#$AnimationPlayer.play("start")
 	Events.connect("show_light", self, "show_light")
 	Events.connect("hide_light", self, "hide_light")
 	Events.connect("open_menu", self, "pause")
