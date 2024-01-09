@@ -52,3 +52,6 @@ func camen_in_wall():
 	set_cellv(Vector2(8,-8), 105)
 	set_cellv(Vector2(9,-8), 106)
 	pass
+
+func tile_hide(coord):
+	set_cellv(coord, -1)

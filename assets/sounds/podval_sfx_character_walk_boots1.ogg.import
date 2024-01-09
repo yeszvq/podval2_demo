@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/podval_sfx_character_walk_boots1.ogg-fc96eb79390340d7b58be0aac7455e9f.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/podval_sfx_character_walk_boots1.ogg"
+dest_files=[ "res://.import/podval_sfx_character_walk_boots1.ogg-fc96eb79390340d7b58be0aac7455e9f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

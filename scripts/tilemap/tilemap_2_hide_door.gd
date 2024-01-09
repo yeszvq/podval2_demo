@@ -40,3 +40,14 @@ func broke_wood_door():
 func custom_one_change(coord, value):
 	set_cellv(coord, value)
 	pass
+	
+func zaval_0():
+	set_cellv(Vector2(-6,2),28)
+	set_cellv(Vector2(-7,2),28)
+	set_cellv(Vector2(-6,0),29)
+	set_cellv(Vector2(-7,0),29)
+	set_cellv(Vector2(-6,1),41)
+	set_cellv(Vector2(-7,1),32)
+	set_cellv(Vector2(-8,1),41)
+	set_cellv(Vector2(-8,0),41)
+	pass
