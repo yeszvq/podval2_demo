@@ -1,3 +1,3 @@
 gosha_hm#Гоша#Думаю, можно попробовать сломать дверь монтировкой.
 gosha#Гоша#Ну, попробуем.
-gosha#Гоша#...&cutsceneCont_0&close_0
+gosha#Гоша#&cutsceneCont_0&close_0

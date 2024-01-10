@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/resourse/theme and stylebox/styleboxflat_modulate_0.tres" type="StyleBox" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/sprites/ui/new notebook/other.png" type="Texture" id=22]
 [ext_resource path="res://assets/sprites/ui/new notebook/body_normal.png" type="Texture" id=23]
 [ext_resource path="res://assets/sprites/ui/new notebook/dialog_image.png" type="Texture" id=24]
+[ext_resource path="res://assets/sounds/beep.ogg" type="AudioStream" id=25]
 
 [node name="HUD" type="PanelContainer"]
 anchor_right = 1.0
@@ -36,11 +37,10 @@ script = ExtResource( 1 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
-custom_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 1920.0
-margin_bottom = 1070.0
+margin_bottom = 1080.0
 mouse_filter = 2
 
 [node name="notebook" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -667,9 +667,9 @@ stretch_mode = 1
 [node name="dialogue" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 visible = false
 margin_left = 335.0
-margin_top = 860.0
+margin_top = 870.0
 margin_right = 1585.0
-margin_bottom = 1070.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 1250, 210 )
 mouse_filter = 1
 size_flags_horizontal = 4
@@ -745,11 +745,9 @@ custom_constants/margin_right = 24
 margin_left = 212.0
 margin_right = 1250.0
 margin_bottom = 169.0
-mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 4 )
-text = "Текст"
 align = 1
 valign = 1
 autowrap = true
@@ -763,7 +761,7 @@ custom_constants/margin_top = 20
 [node name="dialog_chose" type="PanelContainer" parent="MarginContainer"]
 visible = false
 margin_right = 1920.0
-margin_bottom = 1070.0
+margin_bottom = 1080.0
 mouse_filter = 1
 custom_styles/panel = ExtResource( 2 )
 
@@ -834,6 +832,13 @@ wait_time = 15.0
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
 
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.04
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer/TextureRect" to="." method="_on_TextureRect_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]

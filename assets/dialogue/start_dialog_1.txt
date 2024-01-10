@@ -1,2 +1,2 @@
-cultist#Неофит#На выход, презренный.
-friend#Заключённый#...&cutsceneCont_0&close_0
+cultist_1#Неофит#На выход, презренный.
+friend#Заключённый#&cutsceneCont_0&close_0

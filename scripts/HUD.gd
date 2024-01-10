@@ -12,8 +12,18 @@ var last_node_dialog
 var last_page = 1
 var can_page = true
 
+
+var last_string = ""
+var read = false
+var counts = 0
+var active_0 = true
+var audio
+var playing_voice = false
+var head = "hero"
+
 func _ready():
 	visible = false
+	audio = $AudioStreamPlayer
 	#пути узлов
 	notebook_path = $MarginContainer/VBoxContainer/notebook
 	notebook_path.visible = false
@@ -110,85 +120,143 @@ func custom_dialog(text):
 	
 	pass
 
+func _process(delta):
+	if read == true && active_0 == true:
+		active_0 = false
+		if counts <= last_string.length() - 1:
+			$MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label.visible_characters = counts
+			if last_string[counts] != " " && last_string[counts] != "":
+				playing_voice = true
+				voice()
+			else:
+				playing_voice = false
+				voice()
+			counts += 1
+		else:
+			playing_voice = false
+			voice()
+			read = false
+		$Timer3.start()
+	pass
+	
+func voice():
+	if playing_voice == false:
+		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer.volume_db = -100
+	else:
+		$AudioStreamPlayer.volume_db = Global.last_volume_sound[1]
+		$AudioStreamPlayer.play()
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var temp = [0,0]
+	match head:
+		"cultist_1":
+			temp[0] = 0.6
+			temp[1] = 0.7
+		"cultist_1_ahui":
+			temp[0] = 0.6
+			temp[1] = 0.7
+		"cultist_2":
+			temp[0] = 0.6
+			temp[1] = 0.5
+		_:
+			temp[0] = 0.9 
+			temp[1] = 1.08
+	var random_float_number = rng.randf_range(temp[0], temp[1])
+	$AudioStreamPlayer.pitch_scale = random_float_number
+pass
+
 #функция для продолжения диалога при клике по диалогу
 func update_dialogue(event = null):
 	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
-		if page_number >= dialogue.size():
-			Global.dialog = false
-			path_other[10].visible = false
-			#visible = false
-			Events.emit_signal("end_dialog")
-			return
-		var temp = dialogue[page_number].split("#")
-		if temp[temp.size() - 1].find("&") != -1:
-			var temp_2 = temp[2].split("&")
-			temp.remove(temp.size() - 1)
-			temp.append(temp_2[0])
-			temp_2.remove(0)
-			var count = temp_2.size()
-			var temp_3 = []
-			for i in count:
-				temp_3.append(temp_2[i].split("_"))
-			temp_2 = []
-			temp_2 = temp_3.duplicate(true)
-			temp_3.clear()
-			for i in temp_2:
-				match i[0]:
-					"close":
-						page_number = 900
-						path_other[10].visible = false
-						visible = false
-						Events.emit_signal("end_dialog")
-					"addItem":
-						Inventory.add_item(Global.items[i[1]])
-					"removeItem":
-						#Нужно доработать скрипт с удалением
-						#for j in range(int(i[2])):
-						Inventory.remove_item(Global.items[i[1]])
-					"cutscene":
-						Events.emit_signal("start_cutsene", i[1])
-					"cutsceneCont":
-						Events.emit_signal("use_start_cutscene")
-					"signal":
-						if i.size() == 3:
-							Events.emit_signal(i[1], i[2])
-						elif i.size() == 2:
-							Events.emit_signal(i[1])
-					"painchanged":
-						Inventory.pain_mind_change(0, int(i[1]))
-					"mindchanged":
-						Inventory.pain_mind_change(1, int(i[1]))
-					"quit":
-						get_tree().quit()
-		
-		if temp[0] == "chose":
-			#Нужно доработать этот скрипт
-			#+++ Необходима чтобы каждая кнопка могла включать любое кол-во эффектов
-			#+++ Необходимо, чтобы эффекты могли иметь несколько значений для addItem и removeItem
-			path_other[14].visible = true
-			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
-			for i in temp.size() - 1:
-				var temp_button = preload("res://scene/object/button_chose.tscn").instance()
-				var temp_2 = temp[i+1].split("||")
-				temp_button.text = temp_2[0]
+		if read == true:
+			playing_voice = false
+			$AudioStreamPlayer.volume_db = -100
+			read = false
+			$MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label.visible_characters = -1
+		else:
+			if page_number >= dialogue.size():
+				Global.dialog = false
+				path_other[10].visible = false
+				#visible = false
+				Events.emit_signal("end_dialog")
+				return
+			var temp = dialogue[page_number].split("#")
+			if temp[temp.size() - 1].find("&") != -1:
+				var temp_2 = temp[2].split("&")
+				temp.remove(temp.size() - 1)
+				temp.append(temp_2[0])
 				temp_2.remove(0)
 				var count = temp_2.size()
 				var temp_3 = []
-				for j in temp_2:
-					temp_3.append(j.split("_"))
-				temp_2 = temp_3
-				temp_3 = []
-				temp_button.connect("button_up", self, "button_chose_action", [temp_2])
-				path_other[15].add_child(temp_button)
-			path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
-			page_number += 1
-			path_other[10].visible = false
-		else:
-			$Timer.start()
-			path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
-			path_other[12].text = temp[1]
-			path_other[13].text = temp[2]
-			page_number += 1
+				for i in count:
+					temp_3.append(temp_2[i].split("_"))
+				temp_2 = []
+				temp_2 = temp_3.duplicate(true)
+				temp_3.clear()
+				for i in temp_2:
+					match i[0]:
+						"close":
+							page_number = 900
+							path_other[10].visible = false
+							visible = false
+							Events.emit_signal("end_dialog")
+						"addItem":
+							Inventory.add_item(Global.items[i[1]])
+						"removeItem":
+							#Нужно доработать скрипт с удалением
+							#for j in range(int(i[2])):
+							Inventory.remove_item(Global.items[i[1]])
+						"cutscene":
+							Events.emit_signal("start_cutsene", i[1])
+						"cutsceneCont":
+							Events.emit_signal("use_start_cutscene")
+						"signal":
+							if i.size() == 3:
+								Events.emit_signal(i[1], i[2])
+							elif i.size() == 2:
+								Events.emit_signal(i[1])
+						"painchanged":
+							Inventory.pain_mind_change(0, int(i[1]))
+						"mindchanged":
+							Inventory.pain_mind_change(1, int(i[1]))
+						"quit":
+							get_tree().quit()
+			
+			if temp[0] == "chose":
+				#Нужно доработать этот скрипт
+				#+++ Необходима чтобы каждая кнопка могла включать любое кол-во эффектов
+				#+++ Необходимо, чтобы эффекты могли иметь несколько значений для addItem и removeItem
+				path_other[14].visible = true
+				path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
+				for i in temp.size() - 1:
+					var temp_button = preload("res://scene/object/button_chose.tscn").instance()
+					var temp_2 = temp[i+1].split("||")
+					temp_button.text = temp_2[0]
+					temp_2.remove(0)
+					var count = temp_2.size()
+					var temp_3 = []
+					for j in temp_2:
+						temp_3.append(j.split("_"))
+					temp_2 = temp_3
+					temp_3 = []
+					temp_button.connect("button_up", self, "button_chose_action", [temp_2])
+					path_other[15].add_child(temp_button)
+				path_other[15].add_child(preload("res://scene/object/control_expand_vertical.tscn").instance())
+				page_number += 1
+				path_other[10].visible = false
+			else:
+				counts = 0
+				$MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label.visible_characters = 0
+				$AudioStreamPlayer.volume_db = Global.last_volume_sound[1]
+				#$Timer.start()
+				last_string = temp[2]
+				head = temp[0]
+				path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
+				path_other[12].text = temp[1]
+				path_other[13].text = temp[2]
+				page_number += 1
+				read = true
 	pass
 
 #функция при нажатия на кнопки выбора в диалогах
@@ -389,3 +457,11 @@ func _on_Timer_timeout():
 func _on_Timer2_timeout():
 	can_page = true
 	pass # Replace with function body.
+
+
+func _on_Timer3_timeout():
+	active_0 = true
+	pass # Replace with function body.
+
+
+
