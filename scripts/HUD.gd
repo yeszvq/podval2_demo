@@ -136,6 +136,7 @@ func _process(delta):
 			playing_voice = false
 			voice()
 			read = false
+			$Timer.start()
 		$Timer3.start()
 	pass
 	

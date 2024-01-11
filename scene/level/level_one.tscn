@@ -11527,7 +11527,7 @@ script = ExtResource( 39 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="hero" parent="YSort" instance=ExtResource( 19 )]
-position = Vector2( 183, 20 )
+position = Vector2( 1666, -74 )
 
 [node name="item_5" type="TileMap" parent="YSort"]
 modulate = Color( 1, 1, 1, 0.996078 )
@@ -11721,6 +11721,7 @@ region_enabled = true
 region_rect = Rect2( 40, 50, 22, 19 )
 
 [node name="areas_door" type="Node2D" parent="YSort"]
+visible = false
 
 [node name="entity_area2D" type="Node2D" parent="YSort"]
 
@@ -12957,7 +12958,6 @@ polygon = PoolVector2Array( 116, 54, 210, 7, 274, 39, 180, 86 )
 position = Vector2( 1516, -113 )
 z_index = 1
 frames = SubResource( 280 )
-frame = 1
 playing = true
 
 [node name="broken_glass_tilemap" parent="YSort" instance=ExtResource( 22 )]
@@ -12967,6 +12967,7 @@ tile_set = SubResource( 267 )
 tile_data = PoolIntArray( -8650705, 2, 0, -8585180, 2, 0, -8585171, 2, 0, -8519641, 2, 0, -8519631, 2, 0, -7667696, 8, 0, -7274459, 3, 0, -7012277, 2, 0, -6684604, 2, 0, -6356928, 1, 0, -6356927, 1, 0, -6291401, 1, 0, -3604436, 6, 0, -3604435, 6, 0, -3604434, 6, 0, -3604433, 9, 0, -3604430, 4, 0, -3604429, 4, 0, -3604428, 9, 0, -3538900, 6, 0, -3538899, 0, 0, -3538898, 6, 0, -3538897, 6, 0, -3538896, 6, 0, -3538895, 6, 0, -3538894, 6, 0, -3538893, 6, 0, -3538892, 6, 0, -3538891, 6, 0, -3473364, 6, 0, -3473363, 6, 0, -3473362, 6, 0, -3473361, 6, 0, -3473360, 6, 0, -3473359, 6, 0, -3473358, 6, 0, -3473357, 6, 0, -3473356, 6, 0, -3473355, 6, 0, -3407828, 6, 0, -3407827, 6, 0, -3407826, 6, 0, -3407825, 6, 0, -3407824, 6, 0, -3407823, 6, 0, -3407822, 6, 0, -3407821, 6, 0, -3407820, 6, 0, -3407819, 6, 0, -3342292, 6, 0, -3342291, 6, 0, -3342290, 6, 0, -3342289, 6, 0, -3342288, 6, 0, -3342287, 6, 0, -3342286, 6, 0, -3342285, 6, 0, -3342284, 6, 0, -3342283, 6, 0, -3276756, 6, 0, -3276755, 6, 0, -3276754, 6, 0, -3276753, 6, 0, -3276752, 6, 0, -3276751, 6, 0, -3276750, 6, 0, -3276749, 6, 0, -3276748, 6, 0, -3276747, 6, 0, -3211220, 6, 0, -3211218, 6, 0, -3211217, 6, 0, -3211216, 6, 0, -3211215, 6, 0, -3211214, 6, 0, -3211213, 6, 0, -3211212, 6, 0, -3211211, 6, 0, -3145684, 6, 0, -3145683, 6, 0, -3145682, 6, 0, -3145681, 6, 0, -3145680, 9, 0, -3145678, 3, 0, -3145677, 6, 0, -3145676, 6, 0, -3145675, 6, 0, -3080147, 3, 0, -3080146, 6, 0, -3080145, 6, 0, -3080144, 8, 0, -131071, 8, 0, -131067, 3, 0 )
 
 [node name="LIGHTS_okno" type="Node2D" parent="YSort"]
+visible = false
 script = ExtResource( 33 )
 
 [node name="light_okno8" type="Node2D" parent="YSort/LIGHTS_okno"]
@@ -13353,6 +13354,7 @@ shadow_enabled = true
 shadow_item_cull_mask = 7
 
 [node name="LIGHTS" type="Node2D" parent="YSort"]
+visible = false
 script = ExtResource( 76 )
 
 [node name="end_tv" type="Light2D" parent="YSort/LIGHTS"]
@@ -13985,6 +13987,7 @@ position = Vector2( 278, 173 )
 z_index = 1
 
 [node name="dark_area" type="Node2D" parent="YSort"]
+visible = false
 
 [node name="dark_area_off" parent="YSort/dark_area" instance=ExtResource( 11 )]
 
@@ -14036,6 +14039,7 @@ script = ExtResource( 96 )
 polygon = PoolVector2Array( 1456, -24, 1472, -15, 1473, 0, 1506, 16, 1511, 13, 1513, 15, 1531, 16, 1536, 14, 1536, 8, 1535, -1, 1569, 18, 1568, 25, 1569, 33, 1617, 56, 1728, 2, 1712, -11, 1712, -18, 1708, -26, 1698, -26, 1666, -31, 1632, -49, 1632, -64, 1583, -88, 1455, -25 )
 
 [node name="colision" type="StaticBody2D" parent="YSort"]
+visible = false
 z_index = 2
 collision_layer = 16
 collision_mask = 2
@@ -14576,6 +14580,7 @@ mouse_filter = 2
 script = ExtResource( 102 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

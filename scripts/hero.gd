@@ -15,7 +15,7 @@ var safepoint = false
 var stop_pain_mind = false
 var last_pain_mind = []
 var monstr_nearby = false
-var open_inventory = false
+var open_inventory = true
 
 func _ready():
 	Events.connect("start_dialog_for_hero", self, "start_dialog")
@@ -169,12 +169,12 @@ func _input(event):
 	if dialog_open == false && cutscene == false:
 		if Input.is_action_just_released("open_notebook") && dialog_open == false && open_inventory == true:
 			Events.emit_signal("open_notebook")
-		if Input.is_action_just_released("test"):
-			Inventory.pain_mind_change(0, 10)
+		#if Input.is_action_just_released("test"):
+		#	Inventory.pain_mind_change(0, 10)
 		#if Input.is_action_just_released("esc") && dialog_open == false && open_inventory == true:
 		#	Events.emit_signal("open_menu")
 		if Input.is_action_just_released("test"):
-			Inventory.add_item(Global.items["goodRat"])
+			Inventory.pain_mind_change(1,-5)
 	pass
 	
 func _process(delta):
