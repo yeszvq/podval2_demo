@@ -17,6 +17,8 @@ var last_pain_mind = []
 var monstr_nearby = false
 var open_inventory = true
 
+#var show_is = 0
+
 func _ready():
 	Events.connect("start_dialog_for_hero", self, "start_dialog")
 	Events.connect("update_hero_parametrs", self, "update_hero_parametrs")
@@ -31,8 +33,24 @@ func _ready():
 	Events.connect("inventorytrue", self, "inventorytrue")
 	Events.connect("legs_heart", self, "legs_heart")
 	Events.connect("legs_heal", self, "legs_heal")
+#	Events.connect("show_i", self, "show_i")
+#	Events.connect("hide_i", self, "hide_i")
 	pass
 
+#func hide_i():
+#	if show_is == 0 || show_is - 1 == 0:
+#		$TextureRect.visible = false
+#		show_is = show_is - 1
+#	else:
+#		show_is = show_is - 1
+#	print(show_is)
+#	pass
+
+#func show_i():
+#	show_is = show_is + 1
+#	$TextureRect.visible = true
+#	print(show_is)
+#	pass
 
 func add_item(name):
 	Inventory.add_item(Global.items[name])
@@ -74,6 +92,7 @@ func safe_point_on():
 	#last_pain_mind = Inventory.pain_mind
 	#print("назначение" + str(last_pain_mind))
 	safepoint = true
+	Inventory.safepoint = 2
 	#print("назначение_2" + str(last_pain_mind))
 	pass
 	
@@ -95,9 +114,11 @@ func emit_signal_0(name, value):
 
 func no_mind():
 	if safepoint == false:
+		#Inventory.safepoint = false
 		Events.emit_signal("use_cutscene", "death_0")
 	else:
-		Events.emit_signal("use_cutscene", "death_1")
+		Events.emit_signal("use_cutscene", "death_0")
+		Inventory.safepoint = 2
 		Inventory.pain_mind[0] = 0
 		Inventory.pain_mind[1] = 100
 	pass
@@ -169,8 +190,8 @@ func _input(event):
 	if dialog_open == false && cutscene == false:
 		if Input.is_action_just_released("open_notebook") && dialog_open == false && open_inventory == true:
 			Events.emit_signal("open_notebook")
-		#if Input.is_action_just_released("test"):
-		#	Inventory.pain_mind_change(0, 10)
+		if Input.is_action_just_released("test"):
+			Inventory.pain_mind_change(0, 10)
 		#if Input.is_action_just_released("esc") && dialog_open == false && open_inventory == true:
 		#	Events.emit_signal("open_menu")
 		if Input.is_action_just_released("test"):

@@ -6,6 +6,7 @@ func _ready():
 	Events.connect("open_grid_door", self, "open_grid_door")
 	Events.connect("close_grid_door", self, "close_grid_door")
 	Events.connect("custom_one_change", self, "custom_one_change")
+	Events.connect("zaval", self, "zaval_0")
 	pass # Replace with function body.
 	
 func open_grid_door(coordinates):

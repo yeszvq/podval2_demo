@@ -40,10 +40,10 @@ func _ready():
 	#нода за которую будут цепляться ноды itemslot 5
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_inventory/MarginContainer/VBoxContainer)
 	#progress_bar и label отвечающие за heart 6/7
-	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer/TextureProgress)
+	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer/TextureRect)
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer/Label)
 	#progress_bar и label отвечающие за mind 8/9
-	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer/TextureProgress)
+	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer/TextureRect)
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer/Label)
 	
 	#Пути для работы диалога
@@ -152,17 +152,17 @@ func voice():
 	var temp = [0,0]
 	match head:
 		"cultist_1":
-			temp[0] = 0.6
-			temp[1] = 0.7
+			temp[0] = 0.5
+			temp[1] = 0.6
 		"cultist_1_ahui":
-			temp[0] = 0.6
-			temp[1] = 0.7
+			temp[0] = 0.5
+			temp[1] = 0.6
 		"cultist_2":
-			temp[0] = 0.6
+			temp[0] = 0.4
 			temp[1] = 0.5
 		_:
-			temp[0] = 0.9 
-			temp[1] = 1.08
+			temp[0] = 0.8 
+			temp[1] = 0.9
 	var random_float_number = rng.randf_range(temp[0], temp[1])
 	$AudioStreamPlayer.pitch_scale = random_float_number
 pass
@@ -181,6 +181,7 @@ func update_dialogue(event = null):
 				path_other[10].visible = false
 				#visible = false
 				Events.emit_signal("end_dialog")
+				mouse_filter = Control.MOUSE_FILTER_IGNORE
 				return
 			var temp = dialogue[page_number].split("#")
 			if temp[temp.size() - 1].find("&") != -1:
@@ -222,6 +223,7 @@ func update_dialogue(event = null):
 						"mindchanged":
 							Inventory.pain_mind_change(1, int(i[1]))
 						"quit":
+							mouse_filter = Control.MOUSE_FILTER_IGNORE
 							get_tree().quit()
 			
 			if temp[0] == "chose":
@@ -282,6 +284,7 @@ func button_chose_action(value = null):
 				page_number = 900
 				path_other[10].visible = false
 				visible = false
+				mouse_filter = Control.MOUSE_FILTER_IGNORE
 				Events.emit_signal("end_dialog")
 			"signal":
 				Events.emit_signal(i[1],i[2])
@@ -293,6 +296,7 @@ func button_chose_action(value = null):
 
 #диалог
 func start_dialogue(name_path):
+	mouse_filter = Control.MOUSE_FILTER_STOP
 	Global.dialog = true
 	page_number = 0
 	#открываем файл и считываем с него информацию
@@ -386,10 +390,50 @@ func generate_content(index):
 		#статус
 		2:
 			#print(Inventory.pain_mind[1])
-			path_other[6].value = Inventory.pain_mind[0]
-			path_other[7].text = str(Inventory.pain_mind[0])
-			path_other[8].value = Inventory.pain_mind[1]
-			path_other[9].text = str(Inventory.pain_mind[1])
+			#боль
+			if Inventory.pain_mind[0] <= 100 && Inventory.pain_mind[0] > 90:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/100.png")
+			elif Inventory.pain_mind[0] <= 90 && Inventory.pain_mind[0] > 80:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/90.png")  
+			elif Inventory.pain_mind[0] <= 80 && Inventory.pain_mind[0] > 70:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/80.png") 
+			elif Inventory.pain_mind[0] <= 70 && Inventory.pain_mind[0] > 60:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/70.png")  
+			elif Inventory.pain_mind[0] <= 60 && Inventory.pain_mind[0] > 50:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/60.png")  
+			elif Inventory.pain_mind[0] <= 50 && Inventory.pain_mind[0] > 30:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/50.png") 
+			elif Inventory.pain_mind[0] <= 30 && Inventory.pain_mind[0] > 20:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/30.png") 
+			elif Inventory.pain_mind[0] <= 20 && Inventory.pain_mind[0] > 10:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/20.png") 
+			elif Inventory.pain_mind[0] <= 10 && Inventory.pain_mind[0] > 5:
+				path_other[6].texture = load("res://assets/sprites/ui/heart/10.png") 
+			elif Inventory.pain_mind[0] <= 5 && Inventory.pain_mind[0] >= 0 :
+				path_other[6].texture = load("res://assets/sprites/ui/heart/0.png")
+				
+			if Inventory.pain_mind[1] <= 100 && Inventory.pain_mind[1] > 90:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/100.png")
+			elif Inventory.pain_mind[1] <= 90 && Inventory.pain_mind[1] > 80:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/90.png")  
+			elif Inventory.pain_mind[1] <= 80 && Inventory.pain_mind[1] > 60:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/80.png")
+			elif Inventory.pain_mind[1] <= 60 && Inventory.pain_mind[1] > 50:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/60.png")  
+			elif Inventory.pain_mind[1] <= 50 && Inventory.pain_mind[1] > 30:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/50.png")
+			elif Inventory.pain_mind[1] <= 30 && Inventory.pain_mind[1] > 20:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/30.png")
+			elif Inventory.pain_mind[1] <= 20 && Inventory.pain_mind[1] > 10:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/20.png")
+			elif Inventory.pain_mind[1] <= 10 && Inventory.pain_mind[1] > 5:
+				path_other[8].texture = load("res://assets/sprites/ui/mind/10.png")
+			elif Inventory.pain_mind[1] <= 5 && Inventory.pain_mind[1] >= 0 :
+				path_other[8].texture = load("res://assets/sprites/ui/mind/0.png")
+			#path_other[6].value = Inventory.pain_mind[0]
+			#path_other[7].text = str(Inventory.pain_mind[0])
+			#path_other[8].value = Inventory.pain_mind[1]
+			#path_other[9].text = str(Inventory.pain_mind[1])
 			
 			var temp = Inventory.get_body()
 			#print(temp)
@@ -466,3 +510,9 @@ func _on_Timer3_timeout():
 
 
 
+
+
+func _on_HUD_gui_input(event):
+	if event is InputEventMouseButton && event.is_action_released("left_mouse_button") && Global.dialog == true:
+		update_dialogue()
+	pass # Replace with function body.

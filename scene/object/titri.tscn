@@ -1,11 +1,138 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/font_40.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/font_30.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scripts/ui/titri.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/image.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/font_100.tres" type="DynamicFont" id=5]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 624, -458 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "lkm"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "titri"
+length = 20.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 100, 1100 ), Vector2( 100, -2000 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 20.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "lkm"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "end"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "end"
+} ]
+}
 
 [node name="titri" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -13,46 +140,131 @@ script = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 
-[node name="Control2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_right = 1416.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 1420.0
 margin_right = 1920.0
-margin_bottom = 317.0
+margin_bottom = 1080.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 500.0
+margin_bottom = 154.0
+custom_colors/font_color = Color( 0.478431, 0, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Подвал"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 158.0
+margin_right = 500.0
+margin_bottom = 576.0
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-margin_left = 657.0
-margin_top = 321.0
-margin_right = 1263.0
-margin_bottom = 705.0
-size_flags_horizontal = 4
-custom_fonts/font = ExtResource( 1 )
-text = "Это лишь плейсхолдер титров.
-Он нужен лишь для проверки,
-перехода с игры в титры и с
-титров в меню. Визуал будет
-позже.
-Нажми на кнопку внизу для
-возвращения в главное меню
-и проверь нормально ли началась
-новая игра."
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 580.0
+margin_right = 500.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 500, 500 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-margin_left = 852.0
-margin_top = 709.0
-margin_right = 1067.0
-margin_bottom = 759.0
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+margin_left = 142.0
+margin_top = 1030.0
+margin_right = 357.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 200, 50 )
 size_flags_horizontal = 4
+size_flags_vertical = 5
 custom_fonts/font = ExtResource( 2 )
 text = "Нажми на меня"
 
-[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-margin_top = 763.0
-margin_right = 1920.0
-margin_bottom = 1080.0
-size_flags_vertical = 3
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/lkm = SubResource( 4 )
+anims/titri = SubResource( 1 )
 
-[connection signal="button_up" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_button_up"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/end = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 624.0
+margin_top = -458.0
+margin_right = 1362.0
+margin_bottom = 1431.01
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Куратор проекта:
+			
+            Happygoose
+			
+			
+	
+Художники:
+			
+	        Happygoose
+            Shalopai
+            Zetlaff
+            Alesart
+            Swetch
+            Vergil-ter
+
+			
+			
+Программисты: 
+
+            Да
+            Красный Паладин
+
+
+			
+Сценаристы:
+
+			Happygoose
+            Вано
+            Bardak
+
+
+
+Музыка и звуки: 
+
+            Hessive
+
+
+
+Отдельная благодарность:
+            EnderMagic и команда тестеров
+            Doctor_Hummer
+            GreatAngel_01
+            WilliamKee
+			"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_left = 566.0
+margin_top = 485.0
+margin_right = 807.0
+margin_bottom = 525.0
+custom_fonts/font = ExtResource( 1 )
+text = "Нажмите лкм"
+
+[connection signal="button_up" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_button_up"]

@@ -4,6 +4,7 @@ var level_one = preload("res://scene/level/level_one.tscn")
 var titri = preload("res://scene/object/titri.tscn")
 var main_menu = preload("res://scene/object/main_menu.tscn")
 var menu = preload("res://scene/menu.tscn")
+var game_over = preload("res://scene/object/death.tscn")
 var temp = 0
 
 func _ready():
@@ -27,6 +28,9 @@ func _ready():
 	Events.connect("walk_start", self, "walk_start")
 	Events.connect("walk_stop", self, "walk_stop")
 	Events.connect("walk_type", self, "walk_type")
+	Events.connect("die", self, "end_game_2")
+	Events.connect("back_menu_1", self, "back_menu_1")
+	Events.connect("again", self, "again")
 	#Events.connect("open_menu", self, "action_4")
 	#Events.connect("hide_menu", self, "action_5")
 	Global.work_item = true
@@ -34,6 +38,7 @@ func _ready():
 	$AudioStreamPlayer.volume_db = Global.last_volume_sound[0]
 	$Sounds_player.volume_db = Global.last_volume_sound[1]
 	$Sounds_player.volume_db = Global.last_volume_sound[1]
+	$AnimationPlayer.play("start")
 	pass # Replace with function body.
 
 func walk_type(name):
@@ -119,6 +124,12 @@ func start_game():
 	#$level_one/AnimationPlayer.play("start")
 	pass
 
+func again():
+	$death.queue_free()
+	add_child(level_one.instance())
+	start_music("game")
+	pass
+
 func end_game():
 	walk_stop()
 	$level_one.queue_free()
@@ -130,14 +141,35 @@ func end_game_1():
 	add_child(titri.instance())
 	pass
 	
-func back_menu():
-	$titri.queue_free()
+func end_game_2():
+	walk_stop()
+	$level_one.queue_free()
+	add_child(game_over.instance())
+	pass
+	
+func back_menu_1():
+	Inventory.safepoint = 0
+	$death.queue_free()
+	$CanvasLayer/ColorRect.modulate = 255
 	start_music("menu")
+	$AnimationPlayer.play("start")
+	add_child(main_menu.instance())
+	pass
+	
+func back_menu():
+	Inventory.safepoint = 0
+	$titri.queue_free()
+	$CanvasLayer/ColorRect.modulate = 255
+	start_music("menu")
+	$AnimationPlayer.play("start")
 	add_child(main_menu.instance())
 	pass
 
 func back_menu_0():
+	Inventory.safepoint = 0
 	$level_one.queue_free()
+	$CanvasLayer/ColorRect.modulate = 255
+	$AnimationPlayer.play("start")
 	start_music("menu")
 	add_child(main_menu.instance())
 	pass

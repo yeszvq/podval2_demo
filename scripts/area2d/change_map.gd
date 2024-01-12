@@ -19,5 +19,6 @@ func _ready():
 func _on_Area2D_area_entered(area):
 	Events.emit_signal("start_sound", "page")
 	Events.emit_signal("map_new_list",name_map)
+	Inventory.safepoint = 1
 	self.queue_free()
 	pass # Replace with function body.

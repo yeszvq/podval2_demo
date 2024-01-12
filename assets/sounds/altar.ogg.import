@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/altar.ogg-c4a95229c6d29494e46ad268c652c7be.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/altar.ogg"
+dest_files=[ "res://.import/altar.ogg-c4a95229c6d29494e46ad268c652c7be.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

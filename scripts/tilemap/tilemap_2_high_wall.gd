@@ -10,6 +10,7 @@ func _ready():
 	Events.connect("hide_tiles", self, "hide_tiles")
 	Events.connect("show_tiles", self, "show_tiles")
 	Events.connect("cameninwall", self, "camen_in_wall")
+	Events.connect("zaval", self, "zaval")
 	pass # Replace with function body.
 
 func hide_tiles(coordinates, for_coordinates):
@@ -55,3 +56,7 @@ func camen_in_wall():
 
 func tile_hide(coord):
 	set_cellv(coord, -1)
+	
+func zaval():
+	set_cellv(Vector2(-7,2), -2)
+	pass

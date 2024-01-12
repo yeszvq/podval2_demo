@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scene/object/main_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sounds/music_menu.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/walk.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/craft.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sprites/923f525b6d014589.png" type="Texture" id=5]
 [ext_resource path="res://scripts/global/Global_node.gd" type="Script" id=24]
 [ext_resource path="res://assets/sprites/other/image.png" type="Texture" id=28]
 [ext_resource path="res://scripts/animation_player/belya_shum.gd" type="Script" id=41]
@@ -32,6 +33,46 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Animation" id=16]
+resource_name = "start"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect/TextureRect:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
 [node name="Global_node" type="Node2D"]
 z_as_relative = false
 script = ExtResource( 24 )
@@ -49,6 +90,7 @@ position = Vector2( 113, 72 )
 scale = Vector2( 15.9687, 6.94781 )
 z_index = 5
 frames = SubResource( 5 )
+frame = 1
 playing = true
 script = ExtResource( 41 )
 
@@ -72,5 +114,29 @@ stream = ExtResource( 4 )
 [node name="walk_player" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 12
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 16 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -22,6 +22,7 @@ var size_items = 9
 
 #Эффекты на игроке
 var does_effect = []
+var safepoint = 0
 
 #функция под повреждение конечностей
 

@@ -7,10 +7,16 @@ func _ready():
 	pass # Replace with function body.
 	
 func action_0(name):
-	get_node(name).visible = false
+	if name == "LightOccluder2D7":
+		get_node(name).visible = true
+	else:
+		get_node(name).visible = false
 	pass
 	
 func action_1(name):
-	get_node(name).visible = true
+	if name == "LightOccluder2D7":
+		get_node(name).visible = false
+	else:
+		get_node(name).visible = true
 	pass
 

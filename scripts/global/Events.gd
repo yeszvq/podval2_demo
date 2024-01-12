@@ -32,6 +32,7 @@ signal show_light_node
 signal hide_light_node
 
 signal custom_one_change
+signal zaval
 #Сигнал о запуске анимации в animation player
 signal start_cutsene
 signal usecutscene
@@ -56,6 +57,10 @@ signal end_game
 signal back_menu
 signal back_menu_0
 signal end_game_1
+
+signal die
+signal back_menu_1
+signal again
 #Сигнал взаимодействия скрипта диалога с скриптом интеракции
 signal changeemptytrue
 signal changedoeseffect
@@ -87,6 +92,9 @@ signal inventorytrue
 
 #сигналы для худа
 signal map_new_list
+
+#signal show_i
+#signal hide_i
 
 #сигналы для музыкы
 signal stop_music

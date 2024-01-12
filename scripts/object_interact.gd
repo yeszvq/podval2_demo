@@ -146,19 +146,30 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 					"door_verstak":
 						if temp == 0:
 							if Inventory.find_item_name("crowbar") == -1:
-								Events.emit_signal("start_dialogue", "storages_in_sclad_null")
+								Events.emit_signal("start_dialogue", "door_verstak_no_item")
 							else:
 								Events.emit_signal("use_cutscene", "door_verstak_break")
 								temp = 1
+					"verstak":
+						if temp == 0:
+							if Inventory.find_item_name("sawpart") == -1:
+								Events.emit_signal("start_dialogue", "verstak")
+							else:
+								Events.emit_signal("use_cutscene", "verstak_work")
+								temp = 1
+						else:
+							Events.emit_signal("start_dialogue", "verstak_null")
 		Events.emit_signal("walk_stop")
 	pass # Replace with function body.
 
 func _on_nearby_area_entered(area):
+#	Events.emit_signal("show_i")
 	near = true
 	pass # Replace with function body.
 
 
 func _on_nearby_area_exited(area):
+#	Events.emit_signal("hide_i")
 	near = false
 	pass # Replace with function body.
 	

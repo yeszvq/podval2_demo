@@ -1,17 +1,14 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/resourse/theme and stylebox/styleboxflat_modulate_0.tres" type="StyleBox" id=2]
 [ext_resource path="res://assets/fonts/font_30.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/fonts/font_40.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/fonts/font_25.tres" type="DynamicFont" id=5]
-[ext_resource path="res://assets/sprites/ui/new notebook/heart_null.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/ui/new notebook/brain_full.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/ui/heart/100.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/ui/new notebook/osnova.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/ui/new notebook/notes_0.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/ui/new notebook/status_1.png" type="Texture" id=10]
-[ext_resource path="res://assets/sprites/ui/new notebook/heart_full.png" type="Texture" id=11]
-[ext_resource path="res://assets/sprites/ui/new notebook/brain_null.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/items/apple.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/ui/new notebook/map_0.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/ui/new notebook/inventory_0.png" type="Texture" id=15]
@@ -449,14 +446,12 @@ custom_styles/panel = ExtResource( 2 )
 margin_right = 120.0
 margin_bottom = 150.0
 
-[node name="TextureProgress" type="TextureProgress" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer"]
 margin_right = 120.0
 margin_bottom = 147.0
-rect_min_size = Vector2( 112, 147 )
-texture_over = ExtResource( 6 )
-texture_progress = ExtResource( 11 )
-fill_mode = 3
-nine_patch_stretch = true
+rect_min_size = Vector2( 120, 147 )
+texture = ExtResource( 6 )
+expand = true
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer"]
 visible = false
@@ -486,18 +481,11 @@ custom_styles/panel = ExtResource( 2 )
 margin_right = 120.0
 margin_bottom = 150.0
 
-[node name="TextureProgress" type="TextureProgress" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer"]
-margin_right = 119.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 119, 112 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-step = 0.1
-value = 100.0
-texture_over = ExtResource( 12 )
-texture_progress = ExtResource( 7 )
-fill_mode = 3
-nine_patch_stretch = true
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 120, 115 )
+expand = true
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer"]
 visible = false
@@ -837,7 +825,9 @@ wait_time = 0.04
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
+pitch_scale = 0.4
 
+[connection signal="gui_input" from="." to="." method="_on_HUD_gui_input"]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/note_shablon/VBoxContainer/HBoxContainer/TextureRect" to="." method="_on_TextureRect_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
