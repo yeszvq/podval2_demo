@@ -659,7 +659,7 @@ margin_top = 870.0
 margin_right = 1585.0
 margin_bottom = 1080.0
 rect_min_size = Vector2( 1250, 210 )
-mouse_filter = 1
+mouse_filter = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 custom_styles/panel = ExtResource( 2 )
@@ -667,23 +667,27 @@ custom_styles/panel = ExtResource( 2 )
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/dialogue"]
 margin_right = 1250.0
 margin_bottom = 210.0
+mouse_filter = 2
 texture = ExtResource( 24 )
 expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/dialogue"]
 margin_right = 1250.0
 margin_bottom = 210.0
+mouse_filter = 2
 custom_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/dialogue/VBoxContainer"]
 margin_right = 1250.0
 margin_bottom = 21.0
+mouse_filter = 2
 custom_constants/margin_top = 21
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/dialogue/VBoxContainer"]
 margin_top = 21.0
 margin_right = 1250.0
 margin_bottom = 190.0
+mouse_filter = 2
 size_flags_vertical = 3
 custom_constants/separation = 0
 
@@ -697,17 +701,19 @@ margin_left = 19.0
 margin_right = 188.0
 margin_bottom = 169.0
 rect_min_size = Vector2( 169, 0 )
-mouse_filter = 1
+mouse_filter = 2
 size_flags_vertical = 3
 custom_styles/panel = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/image"]
 margin_right = 169.0
 margin_bottom = 169.0
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/image/VBoxContainer"]
 margin_right = 169.0
 margin_bottom = 169.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand = true
@@ -717,7 +723,6 @@ visible = false
 margin_top = 170.0
 margin_right = 210.0
 margin_bottom = 210.0
-mouse_filter = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 4 )
 text = "Гоша"

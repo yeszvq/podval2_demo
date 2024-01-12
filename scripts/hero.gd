@@ -33,10 +33,19 @@ func _ready():
 	Events.connect("inventorytrue", self, "inventorytrue")
 	Events.connect("legs_heart", self, "legs_heart")
 	Events.connect("legs_heal", self, "legs_heal")
+	Events.connect("hero_anim_lig_of", self, "lig_of")
+	Events.connect("hero_anim_lig_on", self, "lig_on")
 #	Events.connect("show_i", self, "show_i")
 #	Events.connect("hide_i", self, "hide_i")
 	pass
 
+func lig_of():
+	$AnimationPlayer.play("lig_of")
+	pass
+	
+func lig_on():
+	$AnimationPlayer.play("lig_on")
+	pass
 #func hide_i():
 #	if show_is == 0 || show_is - 1 == 0:
 #		$TextureRect.visible = false

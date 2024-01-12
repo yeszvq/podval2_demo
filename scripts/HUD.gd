@@ -20,7 +20,7 @@ var active_0 = true
 var audio
 var playing_voice = false
 var head = "hero"
-
+var countsfs = 0
 func _ready():
 	visible = false
 	audio = $AudioStreamPlayer
@@ -123,6 +123,7 @@ func custom_dialog(text):
 func _process(delta):
 	if read == true && active_0 == true:
 		active_0 = false
+		#print(last_string)
 		if counts <= last_string.length() - 1:
 			$MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label.visible_characters = counts
 			if last_string[counts] != " " && last_string[counts] != "":
@@ -137,7 +138,13 @@ func _process(delta):
 			voice()
 			read = false
 			$Timer.start()
-		$Timer3.start()
+			counts = 0
+	elif read == true && active_0 == false:
+		if countsfs == 5:
+			active_0 = true
+			countsfs = 0
+		else:
+			countsfs = countsfs + 1
 	pass
 	
 func voice():
@@ -170,6 +177,7 @@ pass
 #функция для продолжения диалога при клике по диалогу
 func update_dialogue(event = null):
 	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
+		#print("works")
 		if read == true:
 			playing_voice = false
 			$AudioStreamPlayer.volume_db = -100
@@ -253,7 +261,9 @@ func update_dialogue(event = null):
 				$MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label.visible_characters = 0
 				$AudioStreamPlayer.volume_db = Global.last_volume_sound[1]
 				#$Timer.start()
+				#print("Отдал")
 				last_string = temp[2]
+				#print(last_string)
 				head = temp[0]
 				path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
 				path_other[12].text = temp[1]
@@ -509,10 +519,8 @@ func _on_Timer3_timeout():
 	pass # Replace with function body.
 
 
-
-
-
 func _on_HUD_gui_input(event):
 	if event is InputEventMouseButton && event.is_action_released("left_mouse_button") && Global.dialog == true:
+		#print('work')
 		update_dialogue()
 	pass # Replace with function body.

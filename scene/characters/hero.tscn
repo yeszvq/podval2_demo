@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://assets/resourse/hero_spriteframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/hero.gd" type="Script" id=2]
@@ -320,6 +320,60 @@ radius = 5.0
 [sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( 0, 8, -3, 9, -5, 11, -6, 14, -5, 17, -3, 19, 0, 20, 3, 19, 5, 17, 6, 14, 5, 11, 3, 9 )
 
+[sub_resource type="Animation" id=170]
+resource_name = "lig_of"
+tracks/0/type = "value"
+tracks/0/path = NodePath("lights/Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.0999999, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("lights/Light2D2:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.0999999, 0.0 ]
+}
+
+[sub_resource type="Animation" id=171]
+resource_name = "lig_on"
+tracks/0/type = "value"
+tracks/0/path = NodePath("lights/Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("lights/Light2D2:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 ]
+}
+
 [node name="hero" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 2
@@ -382,12 +436,14 @@ light_mask = 4
 [node name="lights" type="Node2D" parent="."]
 
 [node name="Light2D" type="Light2D" parent="lights"]
+modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 4 )
 texture_scale = 0.4
 color = Color( 1, 1, 1, 0.627451 )
 range_height = 100.0
 
 [node name="Light2D2" type="Light2D" parent="lights"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, 14 )
 texture = ExtResource( 4 )
 texture_scale = 0.4
@@ -396,6 +452,10 @@ range_height = 30.0
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/lig_of = SubResource( 170 )
+anims/lig_on = SubResource( 171 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

@@ -7,6 +7,7 @@ var menu = preload("res://scene/menu.tscn")
 var game_over = preload("res://scene/object/death.tscn")
 var temp = 0
 
+var cs = false
 func _ready():
 	#print("запустилось")
 	Events.connect("handle_click_storage", self, "handle_click_storage")
@@ -57,6 +58,15 @@ func walk_start():
 func walk_stop():
 	$walk_player.stream_paused = true
 	temp = 0
+	pass
+
+
+func start_cs():
+	cs = true
+	pass
+	
+func stop_cs():
+	cs = false
 	pass
 
 
@@ -185,4 +195,15 @@ func handle_click_storage():
 
 func _on_Timer_timeout():
 	Global.work_item = true
+	pass # Replace with function body.
+
+
+func _on_TextureRect_gui_input(event):
+	if cs == true:
+		if event is InputEventMouseButton:
+			if event.is_action_released("left_mouse_button"):
+				$AnimationPlayer.stop()
+				$CanvasLayer/ColorRect.modulate = 0
+				$CanvasLayer/ColorRect/TextureRect.modulate = 0
+				$CanvasLayer/ColorRect/TextureRect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	pass # Replace with function body.

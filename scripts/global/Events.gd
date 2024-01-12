@@ -82,6 +82,8 @@ signal show_light_hero
 signal legs_heart
 signal legs_heal
 
+signal hero_anim_lig_of
+signal hero_anim_lig_on
 #signal giltoneworked
 #signal altarworked
 
