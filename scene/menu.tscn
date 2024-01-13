@@ -19,17 +19,22 @@ margin_bottom = 1080.0
 
 [node name="Control" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 368.0
+margin_bottom = 536.0
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 540.0
+margin_right = 1920.0
+margin_bottom = 540.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect"]
 margin_left = 813.0
-margin_top = 372.0
+margin_top = 4.0
 margin_right = 1107.0
-margin_bottom = 707.0
+margin_bottom = 339.0
 size_flags_horizontal = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 287.0
@@ -39,14 +44,14 @@ custom_constants/margin_top = 15
 custom_constants/margin_left = 15
 custom_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect/PanelContainer/MarginContainer"]
 margin_left = 15.0
 margin_top = 15.0
 margin_right = 265.0
 margin_bottom = 306.0
 custom_constants/separation = 15
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 margin_right = 250.0
 margin_bottom = 31.0
 size_flags_horizontal = 5
@@ -54,7 +59,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Пауза"
 align = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 margin_top = 46.0
 margin_right = 250.0
 margin_bottom = 96.0
@@ -62,7 +67,7 @@ rect_min_size = Vector2( 250, 50 )
 custom_fonts/font = ExtResource( 1 )
 text = "Продолжить"
 
-[node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 margin_top = 111.0
 margin_right = 250.0
 margin_bottom = 161.0
@@ -70,7 +75,7 @@ rect_min_size = Vector2( 250, 50 )
 custom_fonts/font = ExtResource( 1 )
 text = "Управление"
 
-[node name="Button3" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 margin_top = 176.0
 margin_right = 250.0
 margin_bottom = 226.0
@@ -78,7 +83,7 @@ rect_min_size = Vector2( 250, 50 )
 custom_fonts/font = ExtResource( 1 )
 text = "Настройки"
 
-[node name="Button4" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button4" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 margin_top = 241.0
 margin_right = 250.0
 margin_bottom = 291.0
@@ -87,7 +92,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Выход"
 
 [node name="Control2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-margin_top = 711.0
+margin_top = 544.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_vertical = 3

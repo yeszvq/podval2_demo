@@ -363,6 +363,15 @@ func button_action(event, name):
 				Events.emit_signal("start_sound", "notebook")
 				can_page = false
 				$Timer2.start()
+				match int(temp[3]):
+					1:
+						$MarginContainer/VBoxContainer/notebook/TextureRect.texture = load("res://assets/sprites/ui/new notebook/osnova_note.png")
+					2:
+						$MarginContainer/VBoxContainer/notebook/TextureRect.texture = load("res://assets/sprites/ui/new notebook/osnova_inv.png")
+					3:
+						$MarginContainer/VBoxContainer/notebook/TextureRect.texture = load("res://assets/sprites/ui/new notebook/osnova_status.png")
+					4:
+						$MarginContainer/VBoxContainer/notebook/TextureRect.texture = load("res://assets/sprites/ui/new notebook/osnova_map.png")
 			
 	pass
 

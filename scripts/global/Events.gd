@@ -61,6 +61,7 @@ signal end_game_1
 signal die
 signal back_menu_1
 signal again
+signal init_level_after_anim
 #Сигнал взаимодействия скрипта диалога с скриптом интеракции
 signal changeemptytrue
 signal changedoeseffect

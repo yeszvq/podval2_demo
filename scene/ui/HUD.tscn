@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/resourse/theme and stylebox/styleboxflat_modulate_0.tres" type="StyleBox" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://assets/fonts/font_40.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/fonts/font_25.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/sprites/ui/heart/100.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/ui/new notebook/osnova.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/ui/new notebook/osnova_note.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/ui/mind/100.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/ui/new notebook/notes_0.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/ui/new notebook/status_1.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/items/apple.png" type="Texture" id=13]
@@ -36,6 +37,7 @@ margin_bottom = 1080.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -51,7 +53,7 @@ margin_right = 420.0
 margin_bottom = 570.0
 rect_min_size = Vector2( 420, 570 )
 mouse_filter = 2
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 stretch_mode = 1
 
 [node name="notebook_button" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect"]
@@ -322,9 +324,9 @@ mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_notes/MarginContainer/VBoxContainer"]
 margin_right = 258.0
-margin_bottom = 23.0
+margin_bottom = 70.0
 mouse_filter = 2
-custom_constants/margin_top = 23
+custom_constants/margin_top = 70
 
 [node name="notebook_inventory" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
 visible = false
@@ -350,9 +352,9 @@ mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_inventory/MarginContainer/VBoxContainer"]
 margin_right = 258.0
-margin_bottom = 23.0
+margin_bottom = 70.0
 mouse_filter = 2
-custom_constants/margin_top = 23
+custom_constants/margin_top = 70
 
 [node name="notebook_status" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
 visible = false
@@ -364,6 +366,7 @@ mouse_filter = 2
 custom_styles/panel = ExtResource( 2 )
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status"]
+visible = false
 margin_right = 394.0
 margin_bottom = 494.0
 mouse_filter = 2
@@ -415,13 +418,13 @@ mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer"]
-margin_right = 261.0
+margin_right = 183.0
 margin_bottom = 466.0
 mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 261.0
+margin_right = 183.0
 margin_bottom = 466.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -431,14 +434,20 @@ expand = true
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer"]
-margin_left = 265.0
-margin_right = 385.0
+margin_left = 187.0
+margin_right = 307.0
 margin_bottom = 466.0
 mouse_filter = 2
 
-[node name="heart_bar" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 120.0
-margin_bottom = 150.0
+margin_bottom = 23.0
+custom_constants/margin_top = 23
+
+[node name="heart_bar" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 120.0
+margin_bottom = 177.0
 rect_min_size = Vector2( 120, 150 )
 custom_styles/panel = ExtResource( 2 )
 
@@ -448,8 +457,8 @@ margin_bottom = 150.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/heart_bar/VBoxContainer"]
 margin_right = 120.0
-margin_bottom = 147.0
-rect_min_size = Vector2( 120, 147 )
+margin_bottom = 136.0
+rect_min_size = Vector2( 100, 136 )
 texture = ExtResource( 6 )
 expand = true
 
@@ -464,16 +473,16 @@ custom_fonts/font = ExtResource( 5 )
 text = "0"
 align = 1
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 154.0
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 181.0
 margin_right = 120.0
-margin_bottom = 231.0
-size_flags_vertical = 3
+margin_bottom = 211.0
+custom_constants/margin_top = 30
 
 [node name="brain_bar" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 235.0
+margin_top = 215.0
 margin_right = 120.0
-margin_bottom = 385.0
+margin_bottom = 365.0
 rect_min_size = Vector2( 120, 150 )
 custom_styles/panel = ExtResource( 2 )
 
@@ -483,8 +492,9 @@ margin_bottom = 150.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer"]
 margin_right = 120.0
-margin_bottom = 115.0
-rect_min_size = Vector2( 120, 115 )
+margin_bottom = 100.0
+rect_min_size = Vector2( 120, 100 )
+texture = ExtResource( 8 )
 expand = true
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer/brain_bar/VBoxContainer"]
@@ -498,17 +508,16 @@ text = "100"
 align = 1
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 389.0
+margin_top = 369.0
 margin_right = 120.0
 margin_bottom = 466.0
 size_flags_vertical = 3
 
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer"]
-margin_left = 389.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_status/VBoxContainer/HBoxContainer"]
+margin_left = 311.0
 margin_right = 394.0
 margin_bottom = 466.0
-rect_min_size = Vector2( 5, 0 )
-mouse_filter = 2
+custom_constants/margin_right = 83
 
 [node name="notebook_map" type="PanelContainer" parent="MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer" groups=["notebook_content_page"]]
 visible = false
@@ -752,42 +761,41 @@ margin_bottom = 210.0
 custom_constants/margin_top = 20
 
 [node name="dialog_chose" type="PanelContainer" parent="MarginContainer"]
-visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 1
 custom_styles/panel = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/dialog_chose"]
-margin_right = 1900.0
-margin_bottom = 1060.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 
 [node name="Control" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer"]
-margin_right = 1900.0
-margin_bottom = 426.0
+margin_right = 1920.0
+margin_bottom = 436.0
 mouse_filter = 1
 size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/dialog_chose/VBoxContainer"]
-margin_top = 430.0
-margin_right = 1900.0
-margin_bottom = 630.0
+margin_top = 440.0
+margin_right = 1920.0
+margin_bottom = 640.0
 mouse_filter = 1
 custom_styles/panel = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer"]
-margin_right = 1900.0
+margin_right = 1920.0
 margin_bottom = 200.0
 
 [node name="Control" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_right = 796.0
+margin_right = 806.0
 margin_bottom = 200.0
 mouse_filter = 1
 size_flags_horizontal = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 800.0
-margin_right = 1100.0
+margin_left = 810.0
+margin_right = 1110.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 300, 200 )
 mouse_filter = 1
@@ -806,16 +814,16 @@ margin_right = 286.0
 margin_bottom = 186.0
 
 [node name="Control2" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 1104.0
-margin_right = 1900.0
+margin_left = 1114.0
+margin_right = 1920.0
 margin_bottom = 200.0
 mouse_filter = 1
 size_flags_horizontal = 3
 
 [node name="Control2" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer"]
-margin_top = 634.0
-margin_right = 1900.0
-margin_bottom = 1060.0
+margin_top = 644.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 mouse_filter = 1
 size_flags_vertical = 3
 

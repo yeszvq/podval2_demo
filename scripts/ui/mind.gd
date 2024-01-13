@@ -9,7 +9,7 @@ func _ready():
 	pass
 	
 func action_0(value = 50):
-	visible = true
+	#visible = true
 	
 	if value <= 50 && value > 40:
 		made_mat(0.25, 0, 0, 0.02)
@@ -34,6 +34,7 @@ func action_0(value = 50):
 		add_child(audio)
 		node = audio
 		active = true
+		Events.emit_signal("use_cutscene", "mind_on")
 	pass
 
 func made_mat(v1,v2,v3,v4):
@@ -46,7 +47,7 @@ func made_mat(v1,v2,v3,v4):
 	pass
 
 func action_1():
-	visible = false
+	#visible = false
 	
 	if active == true:
 		var materials = load("res://assets/resourse/mat1.tres")
@@ -57,5 +58,6 @@ func action_1():
 		material = materials
 		remove_child(node)
 		active = false
+		Events.emit_signal("use_cutscene", "mind_of")
 	#param = value_main
 	pass

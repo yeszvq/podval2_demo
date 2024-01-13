@@ -1,0 +1,238 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://first_anim.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/ui/start_anim/4.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/font_40.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/sprites/ui/start_anim/2.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/ui/start_anim/5.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/ui/start_anim/6.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/ui/start_anim/3.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/ui/start_anim/1.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/ui/start_anim/skip.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=3]
+resource_name = "stop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "next_game"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "work"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 7, 9, 10, 12, 15, 17, 18, 20, 23, 25, 26, 28, 31.1, 33.1, 34.1, 36.1, 39.1, 41.1, 42.1, 44.1, 47.1, 49.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4, 12, 20, 28, 36.1, 44.1, 50 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "В определенный момент своей жизни Бэбэй начал увлекаться эзотерикой. Поглощенный безмерной алчностью, он посвятил себя изучению оккультных наук." ],
+"method": "read_text"
+}, {
+"args": [ "Он открыл карманный мир, где мог безнаказанно воплощать любые свои кровавые фантазии. Его последователи стали надзирателями, а провозглашенные \"враги\" - пленными." ],
+"method": "read_text"
+}, {
+"args": [ "Долгое время он проводил бесчеловечные опыты, погружаясь все глубже во тьму, пока однажды неудачный ритуал не привел к его исчезновению." ],
+"method": "read_text"
+}, {
+"args": [ "В подвале начался хаос - пленные выбрались из камер, а надзиратели остались без контроля. Но выбраться из подвала они так и не смогли." ],
+"method": "read_text"
+}, {
+"args": [ "Из глубин подвала наружу выбрались самые кошмарные и невообразимые твари, а немногочисленным выжившим пришлось приспосабливаться к ужасным условиям." ],
+"method": "read_text"
+}, {
+"args": [ "Посреди этого кошмара оказался Гоша - человек, переживший мучения благодаря стойкому духу и врожденной способности к регенерации. Он заперт в темнице под надзором черных сектантов, и терпеливо ждёт своего часа." ],
+"method": "read_text"
+}, {
+"args": [  ],
+"method": "next_game"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 9.6, 17.4, 25.4, 33.6, 41.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect/VBoxContainer/HBoxContainer2/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 9.6, 17.4, 25.5, 33.6, 41.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "", "", "", "", "", "" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/ColorRect/VBoxContainer/HBoxContainer2/Label:visible_characters")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 9.6, 17.4, 25.5, 33.6, 41.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 0, 0, 0, 0 ]
+}
+
+[node name="first_anim" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/stop = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/work = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 47
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer"]
+margin_right = 1920.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer"]
+margin_top = 47.0
+margin_right = 1920.0
+margin_bottom = 797.0
+
+[node name="Control2" type="Control" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+margin_right = 206.0
+margin_bottom = 750.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 210.0
+margin_right = 1710.0
+margin_bottom = 750.0
+rect_min_size = Vector2( 1500, 750 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Control" type="Control" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 1714.0
+margin_right = 1920.0
+margin_bottom = 750.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer"]
+margin_top = 844.0
+margin_right = 1920.0
+margin_bottom = 994.0
+
+[node name="Control2" type="Control" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_right = 131.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_left = 135.0
+margin_right = 1785.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 1650, 150 )
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 3 )
+visible_characters = 0
+
+[node name="Control" type="Control" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_left = 1789.0
+margin_right = 1920.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer"]
+margin_top = 1041.0
+margin_right = 1920.0
+margin_bottom = 1078.0
+
+[node name="Control" type="Control" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer3"]
+margin_right = 1696.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer3"]
+margin_left = 1700.0
+margin_right = 1920.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 220, 37 )
+texture = ExtResource( 9 )
+expand = true
+
+[connection signal="gui_input" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer3/TextureRect" to="." method="_on_TextureRect_gui_input"]

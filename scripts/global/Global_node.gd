@@ -5,6 +5,7 @@ var titri = preload("res://scene/object/titri.tscn")
 var main_menu = preload("res://scene/object/main_menu.tscn")
 var menu = preload("res://scene/menu.tscn")
 var game_over = preload("res://scene/object/death.tscn")
+var first_anim = preload("res://scene/object/first_anim.tscn")
 var temp = 0
 
 var cs = false
@@ -32,6 +33,7 @@ func _ready():
 	Events.connect("die", self, "end_game_2")
 	Events.connect("back_menu_1", self, "back_menu_1")
 	Events.connect("again", self, "again")
+	Events.connect("init_level_after_anim", self, "init_level_after_anim")
 	#Events.connect("open_menu", self, "action_4")
 	#Events.connect("hide_menu", self, "action_5")
 	Global.work_item = true
@@ -40,6 +42,7 @@ func _ready():
 	$Sounds_player.volume_db = Global.last_volume_sound[1]
 	$Sounds_player.volume_db = Global.last_volume_sound[1]
 	$AnimationPlayer.play("start")
+	hide_colorrect2()
 	pass # Replace with function body.
 
 func walk_type(name):
@@ -120,18 +123,31 @@ func start_music(name, loop = false):
 	$AudioStreamPlayer.play()
 	pass
 
+func hide_colorrect2():
+	$CanvasLayer/ColorRect2.modulate = 0
+	$CanvasLayer/ColorRect2.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	pass
+
 func start_game():
 	stop_music()
 	Inventory.items = []
 	Inventory.limbs_heart = []
 	Inventory.pain_mind[0] = 0
 	Inventory.pain_mind[1] = 100
-	$Node2D.queue_free()
-	add_child(level_one.instance())
-	#$level_one/AnimationPlayer.play("start")
 	Global.work_item = true
-	start_music("game")
-	#$level_one/AnimationPlayer.play("start")
+	$AnimationPlayer.play("start_game")
+	pass
+	
+func start_game_anim():
+	$Node2D.queue_free()
+	hide_colorrect2()
+	add_child(first_anim.instance())
+	pass
+
+func init_level_after_anim():
+	stop_music()
+	$first_anim.queue_free()
+	add_child(level_one.instance())
 	pass
 
 func again():
@@ -147,7 +163,12 @@ func end_game():
 	pass
 	
 func end_game_1():
+	$AnimationPlayer.play("open_titri")
+	pass
+	
+func open_titri_anim():
 	$Node2D.queue_free()
+	hide_colorrect2()
 	add_child(titri.instance())
 	pass
 	
@@ -160,6 +181,7 @@ func end_game_2():
 func back_menu_1():
 	Inventory.safepoint = 0
 	$death.queue_free()
+	hide_colorrect2()
 	$CanvasLayer/ColorRect.modulate = 255
 	start_music("menu")
 	$AnimationPlayer.play("start")
@@ -169,6 +191,7 @@ func back_menu_1():
 func back_menu():
 	Inventory.safepoint = 0
 	$titri.queue_free()
+	hide_colorrect2()
 	$CanvasLayer/ColorRect.modulate = 255
 	start_music("menu")
 	$AnimationPlayer.play("start")
@@ -178,6 +201,7 @@ func back_menu():
 func back_menu_0():
 	Inventory.safepoint = 0
 	$level_one.queue_free()
+	hide_colorrect2()
 	$CanvasLayer/ColorRect.modulate = 255
 	$AnimationPlayer.play("start")
 	start_music("menu")

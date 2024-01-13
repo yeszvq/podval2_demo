@@ -11,14 +11,14 @@ func _ready():
 
 
 func action_0(value = 0):
-	visible = true
+	#visible = true
 	
 	var temp = (
-		0.9 if value <= 20
-		else 0.8 if value <= 40
-		else 0.7 if value <= 60
-		else 0.6 if value <= 80
-		else 0.5 if value <= 100
+		1 if value <= 20
+		else 1 if value <= 40
+		else 1 if value <= 60
+		else 1 if value <= 80
+		else 1 if value <= 100
 		else 1
 	)
 	
@@ -34,10 +34,11 @@ func action_0(value = 0):
 		add_child(audio)
 		node = audio
 		active = true
+		Events.emit_signal("use_cutscene", "pain_on")
 	pass
 
 func action_1():
-	visible = false
+	#visible = false
 	
 	if active == true:
 		print("work")
@@ -46,5 +47,6 @@ func action_1():
 		material = materials
 		remove_child(node)
 		active = false
+		Events.emit_signal("use_cutscene", "pain_off")
 	#param = value_main
 	pass
