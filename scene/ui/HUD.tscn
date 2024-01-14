@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/resourse/theme and stylebox/styleboxflat_modulate_0.tres" type="StyleBox" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/sprites/ui/mind/100.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/ui/new notebook/notes_0.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/ui/new notebook/status_1.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/ui/new notebook/CHOSE_OKNO.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/items/apple.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/ui/new notebook/map_0.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/ui/new notebook/inventory_0.png" type="Texture" id=15]
@@ -37,7 +38,6 @@ margin_bottom = 1080.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -761,6 +761,7 @@ margin_bottom = 210.0
 custom_constants/margin_top = 20
 
 [node name="dialog_chose" type="PanelContainer" parent="MarginContainer"]
+visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 1
@@ -772,56 +773,56 @@ margin_bottom = 1080.0
 
 [node name="Control" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 436.0
+margin_bottom = 386.0
 mouse_filter = 1
 size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/dialog_chose/VBoxContainer"]
-margin_top = 440.0
+margin_top = 390.0
 margin_right = 1920.0
-margin_bottom = 640.0
+margin_bottom = 690.0
 mouse_filter = 1
 custom_styles/panel = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer"]
 margin_right = 1920.0
-margin_bottom = 200.0
+margin_bottom = 300.0
 
 [node name="Control" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_right = 806.0
-margin_bottom = 200.0
+margin_right = 756.0
+margin_bottom = 300.0
 mouse_filter = 1
 size_flags_horizontal = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 810.0
-margin_right = 1110.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 300, 200 )
-mouse_filter = 1
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
+margin_left = 760.0
+margin_right = 1160.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 400, 300 )
+texture = ExtResource( 11 )
+expand = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 293.0
-margin_bottom = 193.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/MarginContainer"]
-margin_right = 286.0
-margin_bottom = 186.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/TextureRect/MarginContainer"]
+margin_right = 400.0
+margin_bottom = 300.0
+custom_constants/separation = 30
 
 [node name="Control2" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 1114.0
+margin_left = 1164.0
 margin_right = 1920.0
-margin_bottom = 200.0
+margin_bottom = 300.0
 mouse_filter = 1
 size_flags_horizontal = 3
 
 [node name="Control2" type="Control" parent="MarginContainer/dialog_chose/VBoxContainer"]
-margin_top = 644.0
+margin_top = 694.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 1

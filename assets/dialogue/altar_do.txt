@@ -1,2 +1,0 @@
-gosha#Гоша#плейсхолдер&removeItem_armGosha
-cultist#Культист 2#&cutsceneCont_0&close_0

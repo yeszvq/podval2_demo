@@ -46,7 +46,7 @@ func _ready():
 	pass # Replace with function body.
 
 func walk_type(name):
-	$walk_player.stream = load("res://assets/sounds/"+ name + ".wav")
+	$walk_player.stream = load("res://assets/sounds/"+ name + ".ogg")
 	$walk_player.play()
 	$walk_player.stream_paused = false
 	pass
@@ -159,6 +159,9 @@ func again():
 func end_game():
 	walk_stop()
 	$level_one.queue_free()
+	Inventory.memory = [false, false, false]
+	stop_sound()
+	walk_stop()
 	add_child(titri.instance())
 	pass
 	
@@ -168,6 +171,7 @@ func end_game_1():
 	
 func open_titri_anim():
 	$Node2D.queue_free()
+	stop_music()
 	hide_colorrect2()
 	add_child(titri.instance())
 	pass
@@ -175,6 +179,8 @@ func open_titri_anim():
 func end_game_2():
 	walk_stop()
 	$level_one.queue_free()
+	stop_sound()
+	walk_stop()
 	add_child(game_over.instance())
 	pass
 	
@@ -202,6 +208,7 @@ func back_menu_0():
 	Inventory.safepoint = 0
 	$level_one.queue_free()
 	hide_colorrect2()
+	Inventory.memory = [false, false, false]
 	$CanvasLayer/ColorRect.modulate = 255
 	$AnimationPlayer.play("start")
 	start_music("menu")

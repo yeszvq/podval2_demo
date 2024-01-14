@@ -8,6 +8,8 @@ var items_loot = []
 
 var last_volume_sound = [-3,-3]
 
+var learn = 1
+
 var work_item = true
 const inteval = 0.4
 var dialog = false

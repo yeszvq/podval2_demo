@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="blood_point" type="Sprite"]
+light_mask = 2

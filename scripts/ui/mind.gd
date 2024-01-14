@@ -34,7 +34,7 @@ func action_0(value = 50):
 		add_child(audio)
 		node = audio
 		active = true
-		Events.emit_signal("use_cutscene", "mind_on")
+		Events.emit_signal("use_cutscene_1", "mind_on")
 	pass
 
 func made_mat(v1,v2,v3,v4):
@@ -58,6 +58,6 @@ func action_1():
 		material = materials
 		remove_child(node)
 		active = false
-		Events.emit_signal("use_cutscene", "mind_of")
+		Events.emit_signal("use_cutscene_1", "mind_of")
 	#param = value_main
 	pass

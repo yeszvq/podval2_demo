@@ -7,7 +7,18 @@ func _ready():
 	Events.connect("close_grid_door", self, "close_grid_door")
 	Events.connect("custom_one_change", self, "custom_one_change")
 	Events.connect("zaval", self, "zaval_0")
+	Events.connect("respawn", self, "respawn")
 	pass # Replace with function body.
+	
+func respawn():
+	broke_wood_door()
+	blood_door_0()
+	open_grid_door([Vector2(6, -2), Vector2(7, -2), Vector2(8, -2), Vector2(9, -2)])
+	custom_one_change(Vector2(24, 10), 141)
+	custom_one_change(Vector2(24, 8), 140)
+	custom_one_change(Vector2(25, -26), 119)
+	custom_one_change(Vector2(27,-9), 120)
+	pass
 	
 func open_grid_door(coordinates):
 	for i in coordinates:

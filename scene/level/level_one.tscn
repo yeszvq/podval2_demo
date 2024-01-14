@@ -1,4 +1,4 @@
-[gd_scene load_steps=530 format=2]
+[gd_scene load_steps=552 format=2]
 
 [ext_resource path="res://assets/resourse/giltone.tres" type="Texture" id=1]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_1.tres" type="Texture" id=2]
@@ -156,6 +156,16 @@
 [ext_resource path="res://assets/sprites/ui/text_music.png" type="Texture" id=154]
 [ext_resource path="res://assets/sprites/ui/ok.png" type="Texture" id=155]
 [ext_resource path="res://assets/sounds/hand_fall.ogg" type="AudioStream" id=156]
+[ext_resource path="res://scripts/AnimationPlayer2.gd" type="Script" id=157]
+[ext_resource path="res://assets/sprites/ui/learn/0.png" type="Texture" id=158]
+[ext_resource path="res://assets/sprites/ui/learn/1.png" type="Texture" id=159]
+[ext_resource path="res://assets/sprites/ui/learn/2.png" type="Texture" id=160]
+[ext_resource path="res://scripts/learn.gd" type="Script" id=161]
+[ext_resource path="res://scripts/area2d/zal_learn.gd" type="Script" id=162]
+[ext_resource path="res://assets/resourse/scream.tres" type="Texture" id=163]
+[ext_resource path="res://assets/sounds/kriki.ogg" type="AudioStream" id=164]
+[ext_resource path="res://assets/sprites/object/stol_pusto.png" type="Texture" id=165]
+[ext_resource path="res://assets/sprites/object/stop_pusto_normal.png" type="Texture" id=166]
 
 [sub_resource type="ConvexPolygonShape2D" id=198]
 points = PoolVector2Array( 15.7366, 77.9339, 47.748, 61.8893, 47.9038, 64.0701, 16.0482, 80.1147 )
@@ -4549,6 +4559,14 @@ animations = [ {
 [sub_resource type="AtlasTexture" id=305]
 atlas = ExtResource( 97 )
 region = Rect2( 96, 0, 160, 96 )
+
+[sub_resource type="AtlasTexture" id=427]
+atlas = ExtResource( 165 )
+region = Rect2( 4, 9, 58, 45 )
+
+[sub_resource type="AtlasTexture" id=428]
+atlas = ExtResource( 166 )
+region = Rect2( 4, 9, 58, 45 )
 
 [sub_resource type="TileSet" id=306]
 0/name = "Utility.png 0"
@@ -9210,6 +9228,515 @@ polygon = PoolVector2Array( 0, 8, -3, 9, -5, 11, -6, 14, -5, 17, -3, 19, 0, 20, 
 
 [sub_resource type="CanvasItemMaterial" id=402]
 
+[sub_resource type="Animation" id=424]
+resource_name = "learn_1_off"
+length = 0.52
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.51 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/ColorRect/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 158 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer2/ColorRect/TextureRect:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 148 ), Vector2( 680, 1101 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/hero")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.51 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_cutscene"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/ColorRect:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=421]
+resource_name = "learn_1_on"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/ColorRect/TextureRect:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.01, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 1101 ), Vector2( 680, 1101 ), Vector2( 680, 148 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/hero")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer2/ColorRect/TextureRect:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 158 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/ColorRect:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="Animation" id=423]
+resource_name = "learn_2_off"
+length = 0.52
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.51 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/ColorRect/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 159 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer2/ColorRect/TextureRect:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 148 ), Vector2( 680, 1101 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/hero")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.51 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_cutscene"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/ColorRect:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=422]
+resource_name = "learn_2_on"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/ColorRect/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 159 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer2/ColorRect/TextureRect:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 1101 ), Vector2( 680, 148 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/hero")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/ColorRect:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="Animation" id=426]
+resource_name = "learn_3_off"
+length = 0.52
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.51 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/ColorRect/TextureRect:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 148 ), Vector2( 680, 1101 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer2/ColorRect/TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 160 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/hero")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.51 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_cutscene"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/ColorRect:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=425]
+resource_name = "learn_3_on"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/ColorRect/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 160 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer2/ColorRect/TextureRect:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.01, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 1101 ), Vector2( 680, 1101 ), Vector2( 680, 148 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("YSort/hero")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_cutscene"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/ColorRect:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="Animation" id=417]
+resource_name = "mind_of"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/mind:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/mind:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=418]
+resource_name = "mind_on"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/mind:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/mind:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=419]
+resource_name = "pain_off"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/pain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/pain:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=420]
+resource_name = "pain_on"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/pain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/pain:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [sub_resource type="Animation" id=270]
 length = 0.001
 tracks/0/type = "value"
@@ -9393,8 +9920,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 0.1, 0.2, 3.5, 3.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.01, 1.5, 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_cutscene"
@@ -9402,11 +9929,8 @@ tracks/0/keys = {
 "args": [ "idle_1_-1" ],
 "method": "play_anim"
 }, {
-"args": [ "giltone_do" ],
-"method": "start_dialogue"
-}, {
-"args": [  ],
-"method": "use_stop_cutscene"
+"args": [ "armGosha" ],
+"method": "remove_item"
 }, {
 "args": [  ],
 "method": "stop_cutscene"
@@ -10143,8 +10667,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 5.8, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 4.9, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_cutscene"
@@ -10154,6 +10678,9 @@ tracks/0/keys = {
 }, {
 "args": [  ],
 "method": "use_stop_cutscene"
+}, {
+"args": [ 0, -40 ],
+"method": "pain_mind_change"
 }, {
 "args": [  ],
 "method": "stop_cutscene"
@@ -10191,7 +10718,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=401]
 resource_name = "end"
-length = 50.0
+length = 62.1
 tracks/0/type = "method"
 tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
@@ -10199,7 +10726,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 0.1, 4.2, 4.7, 35.9, 44, 44.1 ),
+"times": PoolRealArray( 0, 0.01, 0.1, 4.2, 4.7, 35.9, 62, 62.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -10306,8 +10833,16 @@ tracks/3/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 164 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
 } ],
-"times": PoolRealArray( 0.7, 3.5, 3.6, 4, 7.42, 35, 35.1, 36.7, 38, 39, 40.8, 42 )
+"times": PoolRealArray( 0.7, 3.5, 3.6, 4, 7.42, 35, 35.1, 36.7, 38, 39, 40.8, 42, 47.6, 60.2 )
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("YSort/item_2/end_stol_frames:frame")
@@ -10352,10 +10887,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 7.42 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 7.42, 35.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false, true, false ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("CanvasLayer/mind:material:shader_param/_ScanLineJitter")
@@ -10499,6 +11034,42 @@ tracks/18/keys = {
 } ],
 "times": PoolRealArray( 39.45, 40.02, 40.28 )
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("CanvasLayer/mind:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("CanvasLayer2/scream:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 48, 60.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("YSort/item_2/stol_pusto:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 35.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=289]
 resource_name = "giltone_work"
@@ -10510,8 +11081,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 1, 2, 3, 3.6, 3.9, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 1, 2, 2.9, 3, 3.6, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_cutscene"
@@ -10530,6 +11101,9 @@ tracks/0/keys = {
 }, {
 "args": [ 0, 40 ],
 "method": "pain_mind_change"
+}, {
+"args": [ "res://assets/resourse/hero_no_arm_frames.tres" ],
+"method": "change_spriteframes"
 }, {
 "args": [  ],
 "method": "visible_on"
@@ -10621,7 +11195,7 @@ tracks/6/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 116 )
 } ],
-"times": PoolRealArray( 1.7 )
+"times": PoolRealArray( 1.3 )
 }
 
 [sub_resource type="Animation" id=377]
@@ -11324,7 +11898,7 @@ tracks/27/loop_wrap = true
 tracks/27/imported = false
 tracks/27/enabled = true
 tracks/27/keys = {
-"times": PoolRealArray( 0, 0.01, 0.02, 0.03, 7, 7.1, 9.1, 9.2, 16.8, 16.9, 19.4, 19.6, 27, 27.1, 32.1, 32.2, 32.3, 32.4, 32.5 ),
+"times": PoolRealArray( 0, 0.01, 0.02, 0.03, 7, 7.1, 9.1, 9.2, 16.8, 16.9, 19.4, 19.6, 27, 27.1, 32.1, 32.11, 32.3, 32.4, 32.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -11381,8 +11955,8 @@ tracks/27/keys = {
 "args": [ "start_music", "game" ],
 "method": "emit_signal_0"
 }, {
-"args": [  ],
-"method": "use_stop_cutscene"
+"args": [ "use_cutscene_1", "learn_1_on" ],
+"method": "emit_signal_0"
 } ]
 }
 tracks/28/type = "audio"
@@ -11563,6 +12137,18 @@ tracks/33/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/34/type = "value"
+tracks/34/path = NodePath("CanvasLayer/mind:modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 32.4, 32.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=416]
 resource_name = "test"
@@ -11580,7 +12166,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=203]
 resource_name = "trup_work"
-length = 6.0
+length = 7.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("YSort/hero")
 tracks/0/interp = 1
@@ -11588,8 +12174,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 5.8, 5.9, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 5.8, 6, 6.1, 6.9, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_cutscene"
@@ -11605,6 +12191,12 @@ tracks/0/keys = {
 }, {
 "args": [ "arm" ],
 "method": "add_item"
+}, {
+"args": [ "trup_do_1" ],
+"method": "start_dialogue"
+}, {
+"args": [  ],
+"method": "use_stop_cutscene"
 }, {
 "args": [  ],
 "method": "stop_cutscene"
@@ -11764,10 +12356,9 @@ tracks/4/keys = {
 script = ExtResource( 39 )
 
 [node name="YSort" type="YSort" parent="."]
-visible = false
 
 [node name="hero" parent="YSort" instance=ExtResource( 19 )]
-position = Vector2( 1789, -133 )
+position = Vector2( 191, 29 )
 
 [node name="item_5" type="TileMap" parent="YSort"]
 modulate = Color( 1, 1, 1, 0.996078 )
@@ -11867,6 +12458,7 @@ position = Vector2( 3426, -322 )
 z_index = 1
 texture = ExtResource( 121 )
 hframes = 6
+frame = 5
 
 [node name="end_stol_animation" type="Sprite" parent="YSort/item_2"]
 visible = false
@@ -11875,14 +12467,21 @@ position = Vector2( 3426, -322 )
 z_index = 1
 texture = ExtResource( 123 )
 
+[node name="stol_pusto" type="Sprite" parent="YSort/item_2"]
+visible = false
+position = Vector2( 3426, -318 )
+z_index = 1
+texture = SubResource( 427 )
+normal_map = SubResource( 428 )
+
 [node name="monster_frames" type="Sprite" parent="YSort/item_2"]
 visible = false
-position = Vector2( 3375, -311 )
+position = Vector2( 3357, -327 )
 z_index = 1
 texture = ExtResource( 126 )
 offset = Vector2( 0, -16 )
 hframes = 10
-frame = 1
+frame = 9
 
 [node name="monster_idle" type="Sprite" parent="YSort/item_2"]
 visible = false
@@ -11892,7 +12491,7 @@ texture = ExtResource( 125 )
 offset = Vector2( 0, -16 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/item_2"]
-stream = ExtResource( 156 )
+stream = ExtResource( 122 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="YSort/item_2"]
 stream = ExtResource( 92 )
@@ -12134,6 +12733,7 @@ polygon = PoolVector2Array( 256, 48, 217, 28, 232, 20, 272, 40 )
 
 [node name="holodos_v_pit" type="StaticBody2D" parent="YSort/entity_area2D"]
 script = ExtResource( 40 )
+spec_object = "holodos"
 name_dialog_do_1 = "holodos_v_pit_do_1"
 name_cutscene = "holodos_osmotr"
 
@@ -12171,8 +12771,7 @@ polygon = PoolVector2Array( 239, 312, 304, 280, 272, 264, 208, 296 )
 
 [node name="stol_verstak" type="StaticBody2D" parent="YSort/entity_area2D"]
 script = ExtResource( 40 )
-name_dialog_do = "stol_verstak"
-name_dialog_do_1 = "stol_verstak_null"
+spec_object = "stol_verstak"
 
 [node name="mouse" type="Area2D" parent="YSort/entity_area2D/stol_verstak"]
 collision_layer = 8
@@ -12190,8 +12789,7 @@ polygon = PoolVector2Array( 320, 321, 254, 287, 224, 304, 288, 336 )
 
 [node name="gora_storages" type="StaticBody2D" parent="YSort/entity_area2D"]
 script = ExtResource( 40 )
-name_dialog_do = "storages_in_sclad"
-name_dialog_do_1 = "storages_in_sclad_null"
+spec_object = "gora_storages"
 
 [node name="mouse" type="Area2D" parent="YSort/entity_area2D/gora_storages"]
 collision_layer = 8
@@ -12591,9 +13189,7 @@ polygon = PoolVector2Array( 768, 208, 801, 190, 850, 216, 816, 233 )
 
 [node name="bochka" type="StaticBody2D" parent="YSort/entity_area2D"]
 script = ExtResource( 40 )
-name_dialog_no_item = "bochka_no_item"
-name_need_item = "deadRat"
-name_cutscene = "bochka_work"
+spec_object = "bochka"
 
 [node name="mouse" type="Area2D" parent="YSort/entity_area2D/bochka"]
 collision_layer = 8
@@ -14309,10 +14905,11 @@ z_index = 1
 [node name="dark_area" type="Node2D" parent="YSort"]
 
 [node name="dark_area_off" parent="YSort/dark_area" instance=ExtResource( 11 )]
+position = Vector2( -117, 53 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/dark_area/dark_area_off"]
 position = Vector2( 880, 456 )
-polygon = PoolVector2Array( 2464, -736, 2512, -712, 2496, -704, 2447, -728 )
+polygon = PoolVector2Array( 2464, -736, 2517, -709, 2501, -700, 2447, -728 )
 
 [node name="dark_area_on" parent="YSort/dark_area" instance=ExtResource( 26 )]
 
@@ -14354,6 +14951,7 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource( 35 )
 name_map = "map_demo_4"
+safepoint = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/dark_area/Area2D4"]
 position = Vector2( 1681, -174 )
@@ -14370,7 +14968,7 @@ polygon = PoolVector2Array( 1456, -24, 1472, -15, 1473, 0, 1506, 16, 1511, 13, 1
 [node name="dark_area_on2" parent="YSort/dark_area" instance=ExtResource( 26 )]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/dark_area/dark_area_on2"]
-position = Vector2( 1518, 138 )
+position = Vector2( 1419, 187 )
 polygon = PoolVector2Array( 1827, -369, 1778, -394, 1762, -386, 1810, -360 )
 
 [node name="colision" type="StaticBody2D" parent="YSort"]
@@ -14658,6 +15256,14 @@ polygon = PoolVector2Array( 1276, 126, 1316, 146, 1332, 138, 1292, 118 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/area_for_animation/Area2D"]
 polygon = PoolVector2Array( 1391, 168, 1232, 88, 1648, -120, 1704, -92, 1720, -100, 1768, -76, 1752, -68, 1808, -40 )
 
+[node name="Area2D2" type="Area2D" parent="YSort/area_for_animation"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 162 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/area_for_animation/Area2D2"]
+polygon = PoolVector2Array( 1408, -1, 1560, 84, 1608, 60, 1449, -22 )
+
 [node name="tilemap_floor" parent="." instance=ExtResource( 10 )]
 light_mask = 1026
 tile_set = SubResource( 268 )
@@ -14709,7 +15315,6 @@ custom_constants/margin_left = 10
 custom_constants/margin_bottom = 32
 
 [node name="buttons" type="VBoxContainer" parent="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer"]
-visible = false
 margin_left = 10.0
 margin_top = 26.0
 margin_right = 240.0
@@ -14754,6 +15359,7 @@ texture = ExtResource( 151 )
 expand = true
 
 [node name="settings" type="VBoxContainer" parent="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer"]
+visible = false
 margin_left = 10.0
 margin_top = 26.0
 margin_right = 240.0
@@ -14772,7 +15378,7 @@ expand = true
 margin_top = 39.0
 margin_right = 230.0
 margin_bottom = 55.0
-min_value = -30.0
+min_value = -60.0
 max_value = 1.0
 value = -3.0
 
@@ -14796,7 +15402,7 @@ expand = true
 margin_top = 103.0
 margin_right = 230.0
 margin_bottom = 119.0
-min_value = -30.0
+min_value = -60.0
 max_value = 1.0
 value = -3.0
 
@@ -14814,6 +15420,35 @@ margin_top = 702.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.596078 )
+script = ExtResource( 161 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -280.0
+margin_top = 561.0
+margin_right = 280.0
+margin_bottom = 1346.0
+rect_min_size = Vector2( 560, 785 )
+mouse_filter = 2
+texture = ExtResource( 158 )
+expand = true
+
+[node name="scream" type="TextureRect" parent="CanvasLayer2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 163 )
+expand = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -14892,7 +15527,6 @@ anchor_bottom = 1.0
 
 [node name="mind" type="ColorRect" parent="CanvasLayer"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 material = ExtResource( 100 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14909,8 +15543,20 @@ mouse_filter = 2
 script = ExtResource( 102 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/learn_1_off = SubResource( 424 )
+anims/learn_1_on = SubResource( 421 )
+anims/learn_2_off = SubResource( 423 )
+anims/learn_2_on = SubResource( 422 )
+anims/learn_3_off = SubResource( 426 )
+anims/learn_3_on = SubResource( 425 )
+anims/mind_of = SubResource( 417 )
+anims/mind_on = SubResource( 418 )
+anims/pain_off = SubResource( 419 )
+anims/pain_on = SubResource( 420 )
+script = ExtResource( 157 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -14943,6 +15589,8 @@ script = ExtResource( 77 )
 position = Vector2( 294, 165 )
 current = true
 zoom = Vector2( 0.2, 0.2 )
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="input_event" from="YSort/entity_area2D/krov_kamera/mouse" to="YSort/entity_area2D/krov_kamera" method="_on_mouse_input_event"]
 [connection signal="area_entered" from="YSort/entity_area2D/krov_kamera/nearby" to="YSort/entity_area2D/krov_kamera" method="_on_nearby_area_entered"]
@@ -15089,6 +15737,7 @@ zoom = Vector2( 0.2, 0.2 )
 [connection signal="area_entered" from="YSort/dark_area/Area2D4" to="YSort/dark_area/Area2D4" method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="YSort/dark_area/break_glass_sound" to="YSort/dark_area/break_glass_sound" method="_on_break_glass_sound_area_entered"]
 [connection signal="area_exited" from="YSort/dark_area/break_glass_sound" to="YSort/dark_area/break_glass_sound" method="_on_break_glass_sound_area_exited"]
+[connection signal="body_entered" from="YSort/area_for_animation/Area2D2" to="YSort/area_for_animation/Area2D2" method="_on_Area2D2_body_entered"]
 [connection signal="gui_input" from="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer/buttons/continue" to="CanvasLayer2/menu" method="_on_continue_gui_input"]
 [connection signal="gui_input" from="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer/buttons/settings" to="CanvasLayer2/menu" method="_on_settings_gui_input"]
 [connection signal="gui_input" from="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer/buttons/exit_menu" to="CanvasLayer2/menu" method="_on_exit_menu_gui_input"]
@@ -15098,4 +15747,6 @@ zoom = Vector2( 0.2, 0.2 )
 [connection signal="drag_started" from="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer/settings/HSlider2" to="CanvasLayer2/menu" method="_on_HSlider2_drag_started"]
 [connection signal="value_changed" from="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer/settings/HSlider2" to="CanvasLayer2/menu" method="_on_HSlider2_value_changed"]
 [connection signal="gui_input" from="CanvasLayer2/menu/VBoxContainer/TextureRect/MarginContainer/settings/TextureRect3" to="CanvasLayer2/menu" method="_on_TextureRect3_gui_input"]
+[connection signal="gui_input" from="CanvasLayer2/ColorRect" to="CanvasLayer2/ColorRect" method="_on_ColorRect_gui_input"]
 [connection signal="toggled" from="CanvasLayer/Panel_test/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/light/CheckButton" to="CanvasLayer/Panel_test" method="_on_CheckButton_toggled"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

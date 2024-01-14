@@ -6,6 +6,8 @@ var notes = []
 var limbs_heart = []
 var pain_mind = [0, 100]
 
+#холодос, стол, бочка
+var memory = [false, false, false]
 #переменные под регуляцию ограничений геймплея взависимости от потерянных конечностей
 
 #0 - нормальное использование, 1 - невозможность использовать
@@ -66,6 +68,10 @@ func pain_mind_change(index, count):
 		Events.emit_signal("legs_heal")
 		#print(limbs_heart)
 		#update(2)
+	
+	if pain_mind[0] > 5:
+		Events.emit_signal("create_blood")
+		pass
 	
 	if pain_mind[1] <= 50:
 		Events.emit_signal("low_mind", pain_mind[1])

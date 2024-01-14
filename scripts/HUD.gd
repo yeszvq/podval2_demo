@@ -60,7 +60,7 @@ func _ready():
 		#путь для открытия кнопок выбора в диалоге 14
 	path_other.append($MarginContainer/dialog_chose)
 		#путь к узлу к которому цепляются ноды для выбора 15
-	path_other.append($MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer)
+	path_other.append($MarginContainer/dialog_chose/VBoxContainer/PanelContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer)
 		#Путь к текстуре карты 16
 	path_other.append($MarginContainer/VBoxContainer/notebook/TextureRect/MarginContainer/notebook_map/VBoxContainer/TextureRect)
 		#Путь к текстуре тела 17
@@ -140,7 +140,7 @@ func _process(delta):
 			$Timer.start()
 			counts = 0
 	elif read == true && active_0 == false:
-		if countsfs == 5:
+		if countsfs == 7:
 			active_0 = true
 			countsfs = 0
 		else:
@@ -177,13 +177,14 @@ pass
 #функция для продолжения диалога при клике по диалогу
 func update_dialogue(event = null):
 	if (event is InputEventMouseButton && event.is_action_released("left_mouse_button")) || event == null:
-		#print("works")
 		if read == true:
 			playing_voice = false
 			$AudioStreamPlayer.volume_db = -100
 			read = false
 			$MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label.visible_characters = -1
+			$Timer.start()
 		else:
+			$Timer.stop()
 			if page_number >= dialogue.size():
 				Global.dialog = false
 				path_other[10].visible = false
@@ -243,7 +244,20 @@ func update_dialogue(event = null):
 				for i in temp.size() - 1:
 					var temp_button = preload("res://scene/object/button_chose.tscn").instance()
 					var temp_2 = temp[i+1].split("||")
-					temp_button.text = temp_2[0]
+					if temp_2[0] == "Отрубить левую руку":
+						temp_button.icon = load("res://assets/sprites/ui/new notebook/b_arm.png")
+						temp_button.flat = true
+						temp_button.text = ""
+						temp_button.icon_align = Button.ALIGN_CENTER
+						temp_button.focus_mode = Control.FOCUS_NONE
+					elif temp_2[0] == "Ничего не делать":
+						temp_button.icon = load("res://assets/sprites/ui/new notebook/b_leave.png")
+						temp_button.flat = true
+						temp_button.text = ""
+						temp_button.icon_align = Button.ALIGN_CENTER
+						temp_button.focus_mode = Control.FOCUS_NONE
+					else:
+						temp_button.text = temp_2[0]
 					temp_2.remove(0)
 					var count = temp_2.size()
 					var temp_3 = []
@@ -260,10 +274,7 @@ func update_dialogue(event = null):
 				counts = 0
 				$MarginContainer/VBoxContainer/dialogue/VBoxContainer/HBoxContainer/Label.visible_characters = 0
 				$AudioStreamPlayer.volume_db = Global.last_volume_sound[1]
-				#$Timer.start()
-				#print("Отдал")
 				last_string = temp[2]
-				#print(last_string)
 				head = temp[0]
 				path_other[11].texture = load("res://assets/sprites/characters/head/" + temp[0] + ".png")
 				path_other[12].text = temp[1]
@@ -300,7 +311,7 @@ func button_chose_action(value = null):
 				Events.emit_signal(i[1],i[2])
 	path_other[14].visible = false
 	var temp_2 = path_other[15].get_children()
-	for i in range(1, temp_2.size()):
+	for i in range(0, temp_2.size()):
 		path_other[15].remove_child(temp_2[i])
 	pass
 

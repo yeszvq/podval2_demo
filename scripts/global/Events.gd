@@ -62,12 +62,16 @@ signal die
 signal back_menu_1
 signal again
 signal init_level_after_anim
+signal respawn
+signal respawn_1
 #Сигнал взаимодействия скрипта диалога с скриптом интеракции
 signal changeemptytrue
 signal changedoeseffect
 #сигнал для открыти ядверей
 signal open_grid_door
 signal close_grid_door
+signal use_cutscene_1
+signal usecutsce
 
 #сигнал для работы с animationplayer
 signal use_stop_cutscene
@@ -87,6 +91,8 @@ signal hero_anim_lig_of
 signal hero_anim_lig_on
 #signal giltoneworked
 #signal altarworked
+
+signal create_blood
 
 signal no_mind
 signal safe_point_on

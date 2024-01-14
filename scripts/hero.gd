@@ -15,7 +15,7 @@ var safepoint = false
 var stop_pain_mind = false
 var last_pain_mind = []
 var monstr_nearby = false
-var open_inventory = true
+var open_inventory = false
 
 #var show_is = 0
 
@@ -35,8 +35,14 @@ func _ready():
 	Events.connect("legs_heal", self, "legs_heal")
 	Events.connect("hero_anim_lig_of", self, "lig_of")
 	Events.connect("hero_anim_lig_on", self, "lig_on")
+	Events.connect("respawn", self, "respawn")
+	Events.connect("respawn_1", self, "respawn")
 #	Events.connect("show_i", self, "show_i")
 #	Events.connect("hide_i", self, "hide_i")
+	pass
+
+func respawn():
+	open_inventory = true
 	pass
 
 func lig_of():
@@ -131,6 +137,11 @@ func no_mind():
 		Inventory.pain_mind[0] = 0
 		Inventory.pain_mind[1] = 100
 	pass
+	
+func change_spriteframes(path):
+	$AnimatedSprite.frames = load(path)
+	pass
+
 	
 func dark_off():
 	dark = false

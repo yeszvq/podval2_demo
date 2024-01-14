@@ -9,6 +9,7 @@ var count_1 = 0
 
 func _ready():
 	$AnimationPlayer.play("work")
+	$AnimationPlayer2.play("show_button")
 	Events.emit_signal("start_music", "first_animo")
 	pass # Replace with function body.
 	
@@ -50,5 +51,6 @@ func next_game():
 func _on_TextureRect_gui_input(event):
 	if event is InputEventMouseButton && event.is_action_released("left_mouse_button"):
 		Events.emit_signal("start_sound", "ui_click")
+		$CanvasLayer/ColorRect/VBoxContainer2/HBoxContainer/TextureRect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		$AnimationPlayer2.play("stop")
 	pass # Replace with function body.
