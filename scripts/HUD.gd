@@ -131,6 +131,7 @@ func _process(delta):
 				voice()
 			else:
 				playing_voice = false
+				$AudioStreamPlayer.volume_db = -100
 				voice()
 			counts += 1
 		else:
@@ -140,7 +141,7 @@ func _process(delta):
 			$Timer.start()
 			counts = 0
 	elif read == true && active_0 == false:
-		if countsfs == 7:
+		if countsfs == 5:
 			active_0 = true
 			countsfs = 0
 		else:

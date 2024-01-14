@@ -195,7 +195,10 @@ func back_menu_1():
 	pass
 	
 func back_menu():
+	Inventory.limbs_heart = []
+	walk_stop()
 	Inventory.safepoint = 0
+	Inventory.memory = [false, false, false]
 	$titri.queue_free()
 	hide_colorrect2()
 	$CanvasLayer/ColorRect.modulate = 255
@@ -205,6 +208,8 @@ func back_menu():
 	pass
 
 func back_menu_0():
+	Inventory.limbs_heart = []
+	walk_stop()
 	Inventory.safepoint = 0
 	$level_one.queue_free()
 	hide_colorrect2()

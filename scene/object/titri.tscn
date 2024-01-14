@@ -54,8 +54,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=1]
 resource_name = "titri"
-length = 30.1
-step = 0.01
+length = 40.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Label:rect_position")
 tracks/0/interp = 1
@@ -63,10 +63,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 30 ),
+"times": PoolRealArray( 0, 40 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 100, 1100 ), Vector2( 100, -2000 ) ]
+"values": [ Vector2( 100, 1100 ), Vector2( 100, -2200 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -75,7 +75,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 30.1 ),
+"times": PoolRealArray( 40 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -261,10 +261,17 @@ visible = false
 margin_left = 624.0
 margin_top = -458.0
 margin_right = 1362.0
-margin_bottom = 1431.03
+margin_bottom = 1732.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 1 )
-text = "Куратор проекта:
+text = "Спасибо за игру!
+
+
+
+
+Над проектом работали:
+
+Куратор проекта:
 			
             Happygoose
 			
@@ -272,7 +279,7 @@ text = "Куратор проекта:
 	
 Художники:
 			
-	        Happygoose
+            Happygoose
             Shalopai
             Zetlaff
             Alesart
@@ -290,7 +297,7 @@ text = "Куратор проекта:
 			
 Сценаристы:
 
-			Happygoose
+            Happygoose
             Вано
             Bardak
 

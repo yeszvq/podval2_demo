@@ -1,2 +1,2 @@
 gosha#Гоша#Фонарик и успокоительные. Фонарик возьму с собой, еще пригодится, а табелтки приму сейчас.&addItem_flashlight
-gosha#Гоша#&close_0&painchanged_-100&mindchanged_100&signal_changetemp_10
+gosha#Гоша#&close_0&painchanged_-200&mindchanged_100&signal_changetemp_10

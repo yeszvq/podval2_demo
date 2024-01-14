@@ -1,4 +1,4 @@
-[gd_scene load_steps=552 format=2]
+[gd_scene load_steps=554 format=2]
 
 [ext_resource path="res://assets/resourse/giltone.tres" type="Texture" id=1]
 [ext_resource path="res://assets/resourse/normal map/normal_map_wall_1.tres" type="Texture" id=2]
@@ -166,6 +166,7 @@
 [ext_resource path="res://assets/sounds/kriki.ogg" type="AudioStream" id=164]
 [ext_resource path="res://assets/sprites/object/stol_pusto.png" type="Texture" id=165]
 [ext_resource path="res://assets/sprites/object/stop_pusto_normal.png" type="Texture" id=166]
+[ext_resource path="res://scene/level/AnimationPlayer3.gd" type="Script" id=167]
 
 [sub_resource type="ConvexPolygonShape2D" id=198]
 points = PoolVector2Array( 15.7366, 77.9339, 47.748, 61.8893, 47.9038, 64.0701, 16.0482, 80.1147 )
@@ -8251,10 +8252,6 @@ polygon = PoolVector2Array( 536, 164, 472, 196, 441, 212 )
 closed = false
 polygon = PoolVector2Array( 3472, -296, 3446, -283, 3459, -274 )
 
-[sub_resource type="OccluderPolygon2D" id=398]
-closed = false
-polygon = PoolVector2Array( 3360, -336, 3393, -320, 3408, -328 )
-
 [sub_resource type="OccluderPolygon2D" id=400]
 closed = false
 polygon = PoolVector2Array( 3435, -273, 3433, -277, 3430, -273 )
@@ -9227,6 +9224,62 @@ polygon = PoolVector2Array( 0, 8, -3, 9, -5, 11, -6, 14, -5, 17, -3, 19, 0, 20, 
 4/z_index = 0
 
 [sub_resource type="CanvasItemMaterial" id=402]
+
+[sub_resource type="Animation" id=429]
+resource_name = "pain_off"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/pain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/pain:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=430]
+resource_name = "pain_on"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/pain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/pain:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=424]
 resource_name = "learn_1_off"
@@ -10667,8 +10720,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 4.9, 5.8, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 4.8, 4.9, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "start_cutscene"
@@ -10679,7 +10732,10 @@ tracks/0/keys = {
 "args": [  ],
 "method": "use_stop_cutscene"
 }, {
-"args": [ 0, -40 ],
+"args": [ 1, 100 ],
+"method": "pain_mind_change"
+}, {
+"args": [ 0, -100 ],
 "method": "pain_mind_change"
 }, {
 "args": [  ],
@@ -12458,7 +12514,6 @@ position = Vector2( 3426, -322 )
 z_index = 1
 texture = ExtResource( 121 )
 hframes = 6
-frame = 5
 
 [node name="end_stol_animation" type="Sprite" parent="YSort/item_2"]
 visible = false
@@ -12476,12 +12531,12 @@ normal_map = SubResource( 428 )
 
 [node name="monster_frames" type="Sprite" parent="YSort/item_2"]
 visible = false
-position = Vector2( 3357, -327 )
+position = Vector2( 3375, -311 )
 z_index = 1
 texture = ExtResource( 126 )
 offset = Vector2( 0, -16 )
 hframes = 10
-frame = 9
+frame = 1
 
 [node name="monster_idle" type="Sprite" parent="YSort/item_2"]
 visible = false
@@ -13568,9 +13623,6 @@ light_mask = 512
 [node name="LightOccluder2D5" type="LightOccluder2D" parent="YSort/ocluders"]
 occluder = SubResource( 397 )
 
-[node name="LightOccluder2D6" type="LightOccluder2D" parent="YSort/ocluders"]
-occluder = SubResource( 398 )
-
 [node name="LightOccluder2D8" type="LightOccluder2D" parent="YSort/ocluders"]
 occluder = SubResource( 400 )
 
@@ -13587,6 +13639,14 @@ position = Vector2( -32, -40 )
 occluder = SubResource( 400 )
 
 [node name="group_area_2d_wall_hide" type="Node2D" parent="YSort"]
+
+[node name="Area2D29" parent="YSort/group_area_2d_wall_hide" instance=ExtResource( 21 )]
+for_coordinates = [ [ Vector2( 69, -105 ), "x", Vector2( 74, -105 ) ] ]
+torch_on_wall = [ Vector2( 73, -104 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/group_area_2d_wall_hide/Area2D29"]
+position = Vector2( 871, -174 )
+polygon = PoolVector2Array( 1993, -138, 2089, -90, 2009, -50, 1913, -98 )
 
 [node name="Area2D35" parent="YSort/group_area_2d_wall_hide" instance=ExtResource( 21 )]
 coordinates = [ Vector2( 88, -123 ), Vector2( 89, -123 ), Vector2( 83, -123 ), Vector2( 84, -123 ) ]
@@ -13672,13 +13732,6 @@ for_coordinates = [ [ Vector2( 48, -98 ), "x", Vector2( 50, -98 ) ] ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/group_area_2d_wall_hide/Area2D34"]
 position = Vector2( 325, -285 )
 polygon = PoolVector2Array( 2026, -155, 2074, -131, 1994, -91, 1946, -115 )
-
-[node name="Area2D29" parent="YSort/group_area_2d_wall_hide" instance=ExtResource( 21 )]
-for_coordinates = [ [ Vector2( 69, -105 ), "x", Vector2( 74, -105 ) ] ]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/group_area_2d_wall_hide/Area2D29"]
-position = Vector2( 871, -174 )
-polygon = PoolVector2Array( 1993, -138, 2089, -90, 2009, -50, 1913, -98 )
 
 [node name="Area2D23" parent="YSort/group_area_2d_wall_hide" instance=ExtResource( 21 )]
 for_coordinates = [ [ Vector2( 47, -142 ), "y", Vector2( 47, -140 ) ] ]
@@ -15249,6 +15302,7 @@ polygon = PoolVector2Array( 3344, -328, 3320, -316, 3318, -317, 3342, -329 )
 animation_name = "move_big_home"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/area_for_animation/area_for_animation"]
+position = Vector2( 8, -4 )
 polygon = PoolVector2Array( 1276, 126, 1316, 146, 1332, 138, 1292, 118 )
 
 [node name="Area2D" parent="YSort/area_for_animation" instance=ExtResource( 15 )]
@@ -15544,6 +15598,11 @@ script = ExtResource( 102 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+anims/pain_off = SubResource( 429 )
+anims/pain_on = SubResource( 430 )
+script = ExtResource( 167 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/learn_1_off = SubResource( 424 )

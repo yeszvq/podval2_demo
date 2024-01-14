@@ -34,19 +34,20 @@ func action_0(value = 0):
 		add_child(audio)
 		node = audio
 		active = true
-		Events.emit_signal("use_cutscene_1", "pain_on")
+		Events.emit_signal("use_cutscene_2", "pain_on")
 	pass
 
 func action_1():
 	#visible = false
 	
 	if active == true:
-		print("work")
+		print("снижаю боль")
 		var materials = load("res://assets/resourse/mt2.tres")
 		materials.set_shader_param("SCALE", 1)
+		#modulate = 0
 		material = materials
 		remove_child(node)
 		active = false
-		Events.emit_signal("use_cutscene_1", "pain_off")
+		Events.emit_signal("use_cutscene_2", "pain_off")
 	#param = value_main
 	pass

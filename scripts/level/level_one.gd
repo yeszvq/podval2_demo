@@ -34,6 +34,7 @@ func _ready():
 			$YSort/ne_gosha_2.visible = false
 			$YSort/ne_gosha_3.visible = false
 			Events.emit_signal("zaval")
+			Inventory.limbs_heart = []
 		2:
 			#Лабиринт
 			Events.emit_signal("respawn_1")
@@ -41,6 +42,7 @@ func _ready():
 			$YSort/hero/Camera2D.current = true
 			$YSort/hero.position = Vector2(1745, -351)
 			$YSort/hero/AnimatedSprite.frames = load("res://assets/resourse/hero_no_arm_frames.tres")
+			Inventory.limbs_heart = ["arm"]
 		3:
 			#Зал
 			$AnimationPlayer/Camera2D.current = false
@@ -54,9 +56,10 @@ func _ready():
 			Events.emit_signal("zaval")
 			Events.emit_signal("respawn")
 			if Inventory.memory[1] == true && Inventory.memory[2] == false:
-				Inventory.add_item("deadRat")
+				Inventory.add_item(Global.items["deadRat"])
 			elif Inventory.memory[1] == true && Inventory.memory[2] == true:
-				Inventory.add_item("goodRat")
+				Inventory.add_item(Global.items["goodRat"])
+			Inventory.limbs_heart = []
 	pass
 
 func create_blood():

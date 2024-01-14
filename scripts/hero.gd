@@ -161,7 +161,7 @@ func on_light():
 	$lights.visible = true
 
 func camera_current():
-	$Camera2D.current = true	
+	$Camera2D.current = true
 
 func start_dialog(name_path = null):
 	Global.dialog = true
@@ -210,12 +210,12 @@ func _input(event):
 	if dialog_open == false && cutscene == false:
 		if Input.is_action_just_released("open_notebook") && dialog_open == false && open_inventory == true:
 			Events.emit_signal("open_notebook")
-		if Input.is_action_just_released("test"):
-			Inventory.pain_mind_change(0, 10)
-		#if Input.is_action_just_released("esc") && dialog_open == false && open_inventory == true:
-		#	Events.emit_signal("open_menu")
-		if Input.is_action_just_released("test"):
-			Inventory.pain_mind_change(1,-5)
+#		if Input.is_action_just_released("test"):
+#			Inventory.pain_mind_change(0, 10)
+#		#if Input.is_action_just_released("esc") && dialog_open == false && open_inventory == true:
+#		#	Events.emit_signal("open_menu")
+#		if Input.is_action_just_released("test"):
+#			Inventory.pain_mind_change(1,-5)
 	pass
 	
 func _process(delta):
