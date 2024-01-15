@@ -26,7 +26,7 @@ func _process(delta):
 			$AnimationPlayer.play()
 			last_string = ""
 	elif read == true && active_0 == false:
-		if count_1 == 5:
+		if count_1 == 4:
 			active_0 = true
 			count_1 = 0
 		else:

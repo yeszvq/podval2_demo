@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/music_zal.ogg-bb9c1a2f64d69f5052061e99d4025a61.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/music_zal.ogg"
+dest_files=[ "res://.import/music_zal.ogg-bb9c1a2f64d69f5052061e99d4025a61.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=11.3

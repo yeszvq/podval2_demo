@@ -23,7 +23,8 @@ func _ready():
 		0:
 			#Стандарт
 			$AnimationPlayer.play("start")
-			#print()
+			#Events.emit_signal("start_music", "game")
+			print()
 		1:
 			#Камера
 			$AnimationPlayer/Camera2D.current = false
@@ -35,6 +36,7 @@ func _ready():
 			$YSort/ne_gosha_3.visible = false
 			Events.emit_signal("zaval")
 			Inventory.limbs_heart = []
+			Events.emit_signal("start_music", "game")
 		2:
 			#Лабиринт
 			Events.emit_signal("respawn_1")
@@ -43,6 +45,7 @@ func _ready():
 			$YSort/hero.position = Vector2(1745, -351)
 			$YSort/hero/AnimatedSprite.frames = load("res://assets/resourse/hero_no_arm_frames.tres")
 			Inventory.limbs_heart = ["arm"]
+			Events.emit_signal("start_music", "zal")
 		3:
 			#Зал
 			$AnimationPlayer/Camera2D.current = false
@@ -55,6 +58,7 @@ func _ready():
 			$YSort/ne_gosha_3.visible = false
 			Events.emit_signal("zaval")
 			Events.emit_signal("respawn")
+			Events.emit_signal("start_music", "zal")
 			if Inventory.memory[1] == true && Inventory.memory[2] == false:
 				Inventory.add_item(Global.items["deadRat"])
 			elif Inventory.memory[1] == true && Inventory.memory[2] == true:

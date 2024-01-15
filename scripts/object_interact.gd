@@ -87,6 +87,14 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 						return
 			else:
 				match spec_object:
+					"grid_door_main":
+						if respawn == false:
+							if temp == 0:
+								if Inventory.find_item_name("rock") == -1:
+									Events.emit_signal("start_dialogue", "grid_door_main_no_item")
+								else:
+									Events.emit_signal("use_cutscene", "break_grid_door")
+									temp = 1
 					"gora_storages":
 						if respawn == false:
 							if temp == 0:
@@ -112,7 +120,7 @@ func _on_mouse_input_event(viewport, event, shape_idx):
 								Inventory.memory[1] = true
 								temp = 1
 							else:
-								Events.emit_signal("stol_verstak_null")
+								Events.emit_signal("start_dialogue", "stol_verstak_null")
 						else:
 							Events.emit_signal("start_dialogue", "stol_verstak_null")
 					"holodos":

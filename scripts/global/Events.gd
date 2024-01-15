@@ -65,6 +65,7 @@ signal init_level_after_anim
 signal respawn
 signal respawn_1
 signal use_cutscene_2
+signal next_music
 #Сигнал взаимодействия скрипта диалога с скриптом интеракции
 signal changeemptytrue
 signal changedoeseffect

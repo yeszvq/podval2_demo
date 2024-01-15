@@ -34,6 +34,7 @@ func _ready():
 	Events.connect("back_menu_1", self, "back_menu_1")
 	Events.connect("again", self, "again")
 	Events.connect("init_level_after_anim", self, "init_level_after_anim")
+	Events.connect("next_music", self, "reload_music")
 	#Events.connect("open_menu", self, "action_4")
 	#Events.connect("hide_menu", self, "action_5")
 	Global.work_item = true
